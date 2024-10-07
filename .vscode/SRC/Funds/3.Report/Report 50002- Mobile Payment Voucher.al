@@ -81,7 +81,6 @@ report 50002 "Mobile Payment Voucher"
             dataitem("Payment Line"; "Payment Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
-                //DataItemTableView = SORTING("Line No.","Document No.","Payment Code") ORDER(Ascending);
                 column(InvoiceDate; InvoiceDate)
                 {
                 }
