@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="RequestforQuotationNo_BidAnalysisItems">
+          <DataField>RequestforQuotationNo_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="VendorNo_BidAnalysisItems">
+          <DataField>VendorNo_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="VendorName_BidAnalysisItems">
+          <DataField>VendorName_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="ItemNo_BidAnalysisItems">
+          <DataField>ItemNo_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="Name_BidAnalysisItems">
+          <DataField>Name_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="Description_BidAnalysisItems">
+          <DataField>Description_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="Quantity_BidAnalysisItems">
+          <DataField>Quantity_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="Quantity_BidAnalysisItemsFormat">
+          <DataField>Quantity_BidAnalysisItemsFormat</DataField>
+        </Field>
+        <Field Name="UnitOfMeasure_BidAnalysisItems">
+          <DataField>UnitOfMeasure_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="UnitCost_BidAnalysisItems">
+          <DataField>UnitCost_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="UnitCost_BidAnalysisItemsFormat">
+          <DataField>UnitCost_BidAnalysisItemsFormat</DataField>
+        </Field>
+        <Field Name="TotalCost_BidAnalysisItems">
+          <DataField>TotalCost_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="TotalCost_BidAnalysisItemsFormat">
+          <DataField>TotalCost_BidAnalysisItemsFormat</DataField>
+        </Field>
+        <Field Name="Remarks_BidAnalysisItems">
+          <DataField>Remarks_BidAnalysisItems</DataField>
+        </Field>
+        <Field Name="SelectedVendor">
+          <DataField>SelectedVendor</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

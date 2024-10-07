@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyInfo_Name">
+          <DataField>CompanyInfo_Name</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address">
+          <DataField>CompanyInfo_Address</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address2">
+          <DataField>CompanyInfo_Address2</DataField>
+        </Field>
+        <Field Name="pic">
+          <DataField>pic</DataField>
+        </Field>
+        <Field Name="CompanyInfo_City">
+          <DataField>CompanyInfo_City</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Phone">
+          <DataField>CompanyInfo_Phone</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Fax">
+          <DataField>CompanyInfo_Fax</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Email">
+          <DataField>CompanyInfo_Email</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Web">
+          <DataField>CompanyInfo_Web</DataField>
+        </Field>
+        <Field Name="IssuingOfficer">
+          <DataField>IssuingOfficer</DataField>
+        </Field>
+        <Field Name="LPODate">
+          <DataField>LPODate</DataField>
+        </Field>
+        <Field Name="InvoiceDate">
+          <DataField>InvoiceDate</DataField>
+        </Field>
+        <Field Name="GRNdate">
+          <DataField>GRNdate</DataField>
+        </Field>
+        <Field Name="PAYEEName">
+          <DataField>PAYEEName</DataField>
+        </Field>
+        <Field Name="INVoiceNo">
+          <DataField>INVoiceNo</DataField>
+        </Field>
+        <Field Name="DocumentNo_PaymentLine">
+          <DataField>DocumentNo_PaymentLine</DataField>
+        </Field>
+        <Field Name="DocumentType_PaymentLine">
+          <DataField>DocumentType_PaymentLine</DataField>
+        </Field>
+        <Field Name="PaymentCode_PaymentLine">
+          <DataField>PaymentCode_PaymentLine</DataField>
+        </Field>
+        <Field Name="PaymentCodeDescription_PaymentLine">
+          <DataField>PaymentCodeDescription_PaymentLine</DataField>
+        </Field>
+        <Field Name="AccountType_PaymentLine">
+          <DataField>AccountType_PaymentLine</DataField>
+        </Field>
+        <Field Name="AccountNo_PaymentLine">
+          <DataField>AccountNo_PaymentLine</DataField>
+        </Field>
+        <Field Name="AccountName_PaymentLine">
+          <DataField>AccountName_PaymentLine</DataField>
+        </Field>
+        <Field Name="PostingGroup_PaymentLine">
+          <DataField>PostingGroup_PaymentLine</DataField>
+        </Field>
+        <Field Name="Description_PaymentLine">
+          <DataField>Description_PaymentLine</DataField>
+        </Field>
+        <Field Name="AppliestoDocType_PaymentLine">
+          <DataField>AppliestoDocType_PaymentLine</DataField>
+        </Field>
+        <Field Name="AppliestoDocNo_PaymentLine">
+          <DataField>AppliestoDocNo_PaymentLine</DataField>
+        </Field>
+        <Field Name="PostingDate_PaymentLine">
+          <DataField>PostingDate_PaymentLine</DataField>
+        </Field>
+        <Field Name="NetAmount_PaymentLine">
+          <DataField>NetAmount_PaymentLine</DataField>
+        </Field>
+        <Field Name="NetAmount_PaymentLineFormat">
+          <DataField>NetAmount_PaymentLineFormat</DataField>
+        </Field>
+        <Field Name="OrderNo">
+          <DataField>OrderNo</DataField>
+        </Field>
+        <Field Name="SupplierNo">
+          <DataField>SupplierNo</DataField>
+        </Field>
+        <Field Name="SupplierName">
+          <DataField>SupplierName</DataField>
+        </Field>
+        <Field Name="CPVno">
+          <DataField>CPVno</DataField>
+        </Field>
+        <Field Name="CPVCreationDate">
+          <DataField>CPVCreationDate</DataField>
+        </Field>
+        <Field Name="CPVPostingDate">
+          <DataField>CPVPostingDate</DataField>
+        </Field>
+        <Field Name="ChequeType">
+          <DataField>ChequeType</DataField>
+        </Field>
+        <Field Name="ChequeNo">
+          <DataField>ChequeNo</DataField>
+        </Field>
+        <Field Name="ChequeAmount">
+          <DataField>ChequeAmount</DataField>
+        </Field>
+        <Field Name="ChequeAmountFormat">
+          <DataField>ChequeAmountFormat</DataField>
+        </Field>
+        <Field Name="ChequePrinted">
+          <DataField>ChequePrinted</DataField>
+        </Field>
+        <Field Name="ChequePrintingDate">
+          <DataField>ChequePrintingDate</DataField>
+        </Field>
+        <Field Name="PayingAccount">
+          <DataField>PayingAccount</DataField>
+        </Field>
+        <Field Name="DateApproval">
+          <DataField>DateApproval</DataField>
+        </Field>
+        <Field Name="CPVStatus">
+          <DataField>CPVStatus</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

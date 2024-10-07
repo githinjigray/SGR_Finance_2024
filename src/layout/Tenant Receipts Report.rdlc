@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DocumentNo_ReceiptLine">
+          <DataField>DocumentNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AccountNo_ReceiptLine">
+          <DataField>AccountNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AccountName_ReceiptLine">
+          <DataField>AccountName_ReceiptLine</DataField>
+        </Field>
+        <Field Name="PostingGroup_ReceiptLine">
+          <DataField>PostingGroup_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Description_ReceiptLine">
+          <DataField>Description_ReceiptLine</DataField>
+        </Field>
+        <Field Name="PostingDate_ReceiptLine">
+          <DataField>PostingDate_ReceiptLine</DataField>
+        </Field>
+        <Field Name="CurrencyCode_ReceiptLine">
+          <DataField>CurrencyCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_ReceiptLine">
+          <DataField>CurrencyFactor_ReceiptLine</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_ReceiptLineFormat">
+          <DataField>CurrencyFactor_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="Amount_ReceiptLine">
+          <DataField>Amount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Amount_ReceiptLineFormat">
+          <DataField>Amount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY_ReceiptLine">
+          <DataField>AmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AmountLCY_ReceiptLineFormat">
+          <DataField>AmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="VATCode_ReceiptLine">
+          <DataField>VATCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="VATAmount_ReceiptLine">
+          <DataField>VATAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="VATAmount_ReceiptLineFormat">
+          <DataField>VATAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="VATAmountLCY_ReceiptLine">
+          <DataField>VATAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="VATAmountLCY_ReceiptLineFormat">
+          <DataField>VATAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingTaxCode_ReceiptLine">
+          <DataField>WithholdingTaxCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmount_ReceiptLine">
+          <DataField>WithholdingTaxAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmount_ReceiptLineFormat">
+          <DataField>WithholdingTaxAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmountLCY_ReceiptLine">
+          <DataField>WithholdingTaxAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmountLCY_ReceiptLineFormat">
+          <DataField>WithholdingTaxAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingVATCode_ReceiptLine">
+          <DataField>WithholdingVATCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmount_ReceiptLine">
+          <DataField>WithholdingVATAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmount_ReceiptLineFormat">
+          <DataField>WithholdingVATAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmountLCY_ReceiptLine">
+          <DataField>WithholdingVATAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmountLCY_ReceiptLineFormat">
+          <DataField>WithholdingVATAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="NetAmount_ReceiptLine">
+          <DataField>NetAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="NetAmount_ReceiptLineFormat">
+          <DataField>NetAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="NetAmountLCY_ReceiptLine">
+          <DataField>NetAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="NetAmountLCY_ReceiptLineFormat">
+          <DataField>NetAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="AppliestoDocType_ReceiptLine">
+          <DataField>AppliestoDocType_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AppliestoDocNo_ReceiptLine">
+          <DataField>AppliestoDocNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AppliestoID_ReceiptLine">
+          <DataField>AppliestoID_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Committed_ReceiptLine">
+          <DataField>Committed_ReceiptLine</DataField>
+        </Field>
+        <Field Name="BudgetCode_ReceiptLine">
+          <DataField>BudgetCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="GlobalDimension1Code_ReceiptLine">
+          <DataField>GlobalDimension1Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="GlobalDimension2Code_ReceiptLine">
+          <DataField>GlobalDimension2Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension3Code_ReceiptLine">
+          <DataField>ShortcutDimension3Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension4Code_ReceiptLine">
+          <DataField>ShortcutDimension4Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension5Code_ReceiptLine">
+          <DataField>ShortcutDimension5Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension6Code_ReceiptLine">
+          <DataField>ShortcutDimension6Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension7Code_ReceiptLine">
+          <DataField>ShortcutDimension7Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension8Code_ReceiptLine">
+          <DataField>ShortcutDimension8Code_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ResponsibilityCenter_ReceiptLine">
+          <DataField>ResponsibilityCenter_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Status_ReceiptLine">
+          <DataField>Status_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Posted_ReceiptLine">
+          <DataField>Posted_ReceiptLine</DataField>
+        </Field>
+        <Field Name="PostedBy_ReceiptLine">
+          <DataField>PostedBy_ReceiptLine</DataField>
+        </Field>
+        <Field Name="DatePosted_ReceiptLine">
+          <DataField>DatePosted_ReceiptLine</DataField>
+        </Field>
+        <Field Name="TimePosted_ReceiptLine">
+          <DataField>TimePosted_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Reversed_ReceiptLine">
+          <DataField>Reversed_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ReversedBy_ReceiptLine">
+          <DataField>ReversedBy_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ReversalDate_ReceiptLine">
+          <DataField>ReversalDate_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ReversalTime_ReceiptLine">
+          <DataField>ReversalTime_ReceiptLine</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

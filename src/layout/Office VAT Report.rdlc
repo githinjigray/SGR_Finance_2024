@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CBankName">
+          <DataField>CBankName</DataField>
+        </Field>
+        <Field Name="CBankBranch">
+          <DataField>CBankBranch</DataField>
+        </Field>
+        <Field Name="CBankAccountNo">
+          <DataField>CBankAccountNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoName">
+          <DataField>CompanyInfoName</DataField>
+        </Field>
+        <Field Name="CompanyInfoAddress">
+          <DataField>CompanyInfoAddress</DataField>
+        </Field>
+        <Field Name="CompanyInfoAddress2">
+          <DataField>CompanyInfoAddress2</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhone">
+          <DataField>CompanyInfoPhone</DataField>
+        </Field>
+        <Field Name="CompanyInfoPic">
+          <DataField>CompanyInfoPic</DataField>
+        </Field>
+        <Field Name="CompanyEmail">
+          <DataField>CompanyEmail</DataField>
+        </Field>
+        <Field Name="CompanyWebPage">
+          <DataField>CompanyWebPage</DataField>
+        </Field>
+        <Field Name="DATETIME">
+          <DataField>DATETIME</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNo_GLEntry">
+          <DataField>ExternalDocumentNo_GLEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_GLEntry">
+          <DataField>DocumentNo_GLEntry</DataField>
+        </Field>
+        <Field Name="Description_GLEntry">
+          <DataField>Description_GLEntry</DataField>
+        </Field>
+        <Field Name="BalAccountNo_GLEntry">
+          <DataField>BalAccountNo_GLEntry</DataField>
+        </Field>
+        <Field Name="Amount_GLEntry">
+          <DataField>Amount_GLEntry</DataField>
+        </Field>
+        <Field Name="Amount_GLEntryFormat">
+          <DataField>Amount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="PostingDate_GLEntry">
+          <DataField>PostingDate_GLEntry</DataField>
+        </Field>
+        <Field Name="Amounts">
+          <DataField>Amounts</DataField>
+        </Field>
+        <Field Name="AmountsFormat">
+          <DataField>AmountsFormat</DataField>
+        </Field>
+        <Field Name="SourceNumber">
+          <DataField>SourceNumber</DataField>
+        </Field>
+        <Field Name="SourceName">
+          <DataField>SourceName</DataField>
+        </Field>
+        <Field Name="InvoiceNumber">
+          <DataField>InvoiceNumber</DataField>
+        </Field>
+        <Field Name="InvoiceDate">
+          <DataField>InvoiceDate</DataField>
+        </Field>
+        <Field Name="NetAmount">
+          <DataField>NetAmount</DataField>
+        </Field>
+        <Field Name="NetAmountFormat">
+          <DataField>NetAmountFormat</DataField>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountFormat">
+          <DataField>TotalAmountFormat</DataField>
+        </Field>
+        <Field Name="PINNumber">
+          <DataField>PINNumber</DataField>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+        </Field>
+        <Field Name="PropertyNumber">
+          <DataField>PropertyNumber</DataField>
+        </Field>
+        <Field Name="PropertyName">
+          <DataField>PropertyName</DataField>
+        </Field>
+        <Field Name="LandLordNumber">
+          <DataField>LandLordNumber</DataField>
+        </Field>
+        <Field Name="LandlordName">
+          <DataField>LandlordName</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNo_GLEntry2">
+          <DataField>ExternalDocumentNo_GLEntry2</DataField>
+        </Field>
+        <Field Name="DocumentNo_GLEntry2">
+          <DataField>DocumentNo_GLEntry2</DataField>
+        </Field>
+        <Field Name="Description_GLEntry2">
+          <DataField>Description_GLEntry2</DataField>
+        </Field>
+        <Field Name="BalAccountNo_GLEntry2">
+          <DataField>BalAccountNo_GLEntry2</DataField>
+        </Field>
+        <Field Name="Amounts2">
+          <DataField>Amounts2</DataField>
+        </Field>
+        <Field Name="Amounts2Format">
+          <DataField>Amounts2Format</DataField>
+        </Field>
+        <Field Name="Amount_GLEntry2">
+          <DataField>Amount_GLEntry2</DataField>
+        </Field>
+        <Field Name="Amount_GLEntry2Format">
+          <DataField>Amount_GLEntry2Format</DataField>
+        </Field>
+        <Field Name="PostingDate_GLEntry2">
+          <DataField>PostingDate_GLEntry2</DataField>
+        </Field>
+        <Field Name="SourceNumber2">
+          <DataField>SourceNumber2</DataField>
+        </Field>
+        <Field Name="SourceName2">
+          <DataField>SourceName2</DataField>
+        </Field>
+        <Field Name="InvoiceNumber2">
+          <DataField>InvoiceNumber2</DataField>
+        </Field>
+        <Field Name="InvoiceDate2">
+          <DataField>InvoiceDate2</DataField>
+        </Field>
+        <Field Name="NetAmount2">
+          <DataField>NetAmount2</DataField>
+        </Field>
+        <Field Name="NetAmount2Format">
+          <DataField>NetAmount2Format</DataField>
+        </Field>
+        <Field Name="TotalAmount2">
+          <DataField>TotalAmount2</DataField>
+        </Field>
+        <Field Name="TotalAmount2Format">
+          <DataField>TotalAmount2Format</DataField>
+        </Field>
+        <Field Name="PINNumber2">
+          <DataField>PINNumber2</DataField>
+        </Field>
+        <Field Name="VatAmount2">
+          <DataField>VatAmount2</DataField>
+        </Field>
+        <Field Name="VatAmount2Format">
+          <DataField>VatAmount2Format</DataField>
+        </Field>
+        <Field Name="Withholding">
+          <DataField>Withholding</DataField>
+        </Field>
+        <Field Name="ReversalInv_No">
+          <DataField>ReversalInv_No</DataField>
+        </Field>
+        <Field Name="ReversalDate">
+          <DataField>ReversalDate</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

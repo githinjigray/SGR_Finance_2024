@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>b86d59a6-9bb0-475e-8806-d814a7aeb673</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="ProjectCode_ActivityEntries">
+          <DataField>ProjectCode_ActivityEntries</DataField>
+        </Field>
+        <Field Name="EntryNo_ActivityEntries">
+          <DataField>EntryNo_ActivityEntries</DataField>
+        </Field>
+        <Field Name="ActivityCode_ActivityEntries">
+          <DataField>ActivityCode_ActivityEntries</DataField>
+        </Field>
+        <Field Name="ActicvityDescription_ActivityEntries">
+          <DataField>ActicvityDescription_ActivityEntries</DataField>
+        </Field>
+        <Field Name="ActivityType_ActivityEntries">
+          <DataField>ActivityType_ActivityEntries</DataField>
+        </Field>
+        <Field Name="AdditionalDecsription_ActivityEntries">
+          <DataField>AdditionalDecsription_ActivityEntries</DataField>
+        </Field>
+        <Field Name="TransactionDate_ActivityEntries">
+          <DataField>TransactionDate_ActivityEntries</DataField>
+        </Field>
+        <Field Name="TransactionNo_ActivityEntries">
+          <DataField>TransactionNo_ActivityEntries</DataField>
+        </Field>
+        <Field Name="TransactionDescription_ActivityEntries">
+          <DataField>TransactionDescription_ActivityEntries</DataField>
+        </Field>
+        <Field Name="TransactionAmount_ActivityEntries">
+          <DataField>TransactionAmount_ActivityEntries</DataField>
+        </Field>
+        <Field Name="TransactionAmount_ActivityEntriesFormat">
+          <DataField>TransactionAmount_ActivityEntriesFormat</DataField>
+        </Field>
+        <Field Name="BudgetAmount_ActivityEntries">
+          <DataField>BudgetAmount_ActivityEntries</DataField>
+        </Field>
+        <Field Name="BudgetAmount_ActivityEntriesFormat">
+          <DataField>BudgetAmount_ActivityEntriesFormat</DataField>
+        </Field>
+        <Field Name="ReferenceNo_ActivityEntries">
+          <DataField>ReferenceNo_ActivityEntries</DataField>
+        </Field>
+        <Field Name="Description2_ActivityEntries">
+          <DataField>Description2_ActivityEntries</DataField>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet</rd:DataSetName>
+        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
+        <rd:TableName>Result</rd:TableName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <PageHeader>
+          <Height>1in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>1in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+</Report>

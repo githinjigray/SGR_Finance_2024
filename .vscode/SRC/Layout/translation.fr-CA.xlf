@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-CA" original="Please update this value">
+    <body>
+      <group id="body">
+        <trans-unit id="Report 92910548 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Statement</source>
+          <target>Relevé de compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Account Reconciliation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 92910548 - ReportLabel 1440380952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target>Total</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Account Reconciliation - ReportLabel TotalCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 92910548 - NamedType 2242434679" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Statement</source>
+          <target>Relevé de compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Account Reconciliation - NamedType BankAccStmtCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 92910548 - NamedType 10109434" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target>Page</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Account Reconciliation - NamedType CurrReportPAGENOCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 92910548 - NamedType 2486427839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Date</source>
+          <target>Date transaction</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Account Reconciliation - NamedType BnkAccStmtLinTrstnDteCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 92910548 - NamedType 3186860006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value Date</source>
+          <target>Date de valeur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Account Reconciliation - NamedType BnkAcStmtLinValDteCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2147680664 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Statement</source>
+          <target>Relevé de compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Statement Reconciliation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2147680664 - ReportLabel 1440380952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target>Total</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Statement Reconciliation - ReportLabel TotalCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 2147680664 - NamedType 2242434679" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Statement</source>
+          <target>Relevé de compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Statement Reconciliation - NamedType BankAccStmtCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2147680664 - NamedType 10109434" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target>Page</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Statement Reconciliation - NamedType CurrReportPAGENOCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2147680664 - NamedType 2486427839" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Date</source>
+          <target>Date transaction</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Statement Reconciliation - NamedType BnkAccStmtLinTrstnDteCaptLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2147680664 - NamedType 3186860006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value Date</source>
+          <target>Date de valeur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Bank Statement Reconciliation - NamedType BnkAcStmtLinValDteCaptLbl</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
