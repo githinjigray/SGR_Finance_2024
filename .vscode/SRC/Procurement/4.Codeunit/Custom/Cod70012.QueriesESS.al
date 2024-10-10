@@ -35,16 +35,16 @@ codeunit 70012 QueriesESS
 
     procedure loginUser(empNumber: Code[30]; password: Text) data: Text
     begin
-        // tbl_HrPortalUsers.Reset();
-        // tbl_HrPortalUsers.SetRange(employeeNo, empNumber);
-        // tbl_HrPortalUsers.SetRange(password, password);
-        // tbl_employee.SetRange("No.", empNumber);
-        // if tbl_HrPortalUsers.FindSet(true) and tbl_employee.FindSet(true) then begin
-        //     data := 'success**** ' + tbl_HrPortalUsers.employeeName + '****' + tbl_employee."National ID No." + '****' + Format(tbl_employee.Gender) + '****'
-        //     + tbl_HrPortalUsers.employeeNo + '****' + tbl_HrPortalUsers.password + '****' + Format(tbl_HrPortalUsers.changedPassword) + '****'
-        //     + Format(tbl_employee."Company E-Mail") + '****' + tbl_employee."Global Dimension 1 Code" + '****' + tbl_employee."Global Dimension 2 Code";
-        // end;
-        // exit(data);
+        tbl_HrPortalUsers.Reset();
+        tbl_HrPortalUsers.SetRange(employeeNo, empNumber);
+        tbl_HrPortalUsers.SetRange(password, password);
+        tbl_employee.SetRange("No.", empNumber);
+        if tbl_HrPortalUsers.FindSet(true) and tbl_employee.FindSet(true) then begin
+            data := 'success**** ' + tbl_HrPortalUsers.employeeName + '****' + tbl_employee."Social Security No." + '****' + Format(tbl_employee.Gender) + '****'
+            + tbl_HrPortalUsers.employeeNo + '****' + tbl_HrPortalUsers.password + '****' + Format(tbl_HrPortalUsers.changedPassword) + '****'
+            + Format(tbl_employee."Company E-Mail") + '****' + tbl_employee."Global Dimension 1 Code" + '****' + tbl_employee."Global Dimension 2 Code" + '****' + tbl_employee."Mobile Phone No.";
+        end;
+        exit(data);
     end;
 
     procedure FnResetPassword(emailaddress: Text) passChangestatus: Text
@@ -104,14 +104,14 @@ codeunit 70012 QueriesESS
 
     procedure fnGetEmployeeDetail(empNumber: Code[30]) data: Text
     begin
-        // tbl_employee.Reset();
-        // tbl_employee.SetRange("No.", empNumber);
-        // if tbl_employee.FindSet(true) then begin
-        //     repeat
-        //         data += tbl_employee."E-Mail" + '*' + tbl_employee."Phone No." + '*' + tbl_employee."National ID No." + '::::';
-        //     until tbl_employee.Next() = 0;
-        // end;
-        // Exit(data);
+        tbl_employee.Reset();
+        tbl_employee.SetRange("No.", empNumber);
+        if tbl_employee.FindSet(true) then begin
+            repeat
+                data += tbl_employee."Company E-Mail" + '*' + tbl_employee."Phone No." + '*' + tbl_employee."Social Security No." + '::::';
+            until tbl_employee.Next() = 0;
+        end;
+        Exit(data);
     end;
 
     procedure fnImprestSurrenders(empNumber: Code[30]) data: Text
