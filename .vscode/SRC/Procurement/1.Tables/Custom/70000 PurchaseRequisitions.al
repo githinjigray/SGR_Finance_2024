@@ -172,7 +172,7 @@ table 70000 "Purchase Requisitions"
                 IF PurchaseRequisitionLine.FINDSET THEN BEGIN
                     REPEAT
                         Employee.RESET;
-                       // Employee.SETRANGE(Employee."User ID", "User ID");
+                        // Employee.SETRANGE(Employee."User ID", "User ID");
                         IF Employee.FINDFIRST THEN BEGIN
                             PurchaseRequisitionLine."Employee No." := Employee."No.";
                             PurchaseRequisitionLine."Employee Name" := Employee."First Name" + ' ' + Employee."Middle Name" + ' ' + Employee."Last Name";
@@ -304,7 +304,10 @@ table 70000 "Purchase Requisitions"
         IF "No." = '' THEN BEGIN
             "Purchases&PayablesSetup".GET;
             "Purchases&PayablesSetup".TESTFIELD("Purchases&PayablesSetup"."Purchase Requisition Nos.");
-            NoSeriesMgt.GetNextNo("Purchases&PayablesSetup"."Purchase Requisition Nos.", Today);
+            "No. Series" := "Purchases&PayablesSetup"."Purchase Requisition Nos.";
+            if NoSeriesMgt.AreRelated("Purchases&PayablesSetup"."Purchase Requisition Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
 
         "Document Date" := TODAY;

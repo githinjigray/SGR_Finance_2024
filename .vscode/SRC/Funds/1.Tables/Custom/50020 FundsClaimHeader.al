@@ -467,7 +467,10 @@ table 50020 "Funds Claim Header"
         IF "No." = '' THEN BEGIN
             FundsSetup.GET;
             FundsSetup.TESTFIELD("Funds Claim Nos.");
-            NoSeriesMgt.GetNextNo(FundsSetup."Funds Claim Nos.", Today, false);
+            "No. Series" := FundsSetup."Funds Claim Nos.";
+            if NoSeriesMgt.AreRelated(FundsSetup."Funds Claim Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
         "Document Type" := "Document Type"::Refund;
         "Document Date" := TODAY;

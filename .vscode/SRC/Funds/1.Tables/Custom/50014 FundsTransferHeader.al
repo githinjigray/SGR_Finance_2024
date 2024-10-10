@@ -383,7 +383,10 @@ table 50014 "Funds Transfer Header"
         IF "No." = '' THEN BEGIN
             FundsSetup.GET;
             FundsSetup.TESTFIELD("Funds Transfer Nos.");
-            NoSeriesMgt.GetNextNo(FundsSetup."Funds Transfer Nos.", Today, false);
+            "No. Series" := FundsSetup."Funds Transfer Nos.";
+            if NoSeriesMgt.AreRelated(FundsSetup."Funds Transfer Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
         "Document Type" := "Document Type"::"Funds Transfer";
         "Document Date" := TODAY;

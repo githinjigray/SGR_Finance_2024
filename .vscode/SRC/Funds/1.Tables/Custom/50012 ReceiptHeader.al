@@ -419,23 +419,10 @@ table 50012 "Receipt Header"
             if "No." = '' then begin
                 FundsGeneralSetup.get;
                 FundsGeneralSetup.TESTFIELD(FundsGeneralSetup."Receipt Nos.");
-                NoSeriesMgt.GetNextNo(FundsGeneralSetup."Receipt Nos.", Today, true);
+                "No. Series" := FundsGeneralSetup."Receipt Nos.";
+                if NoSeriesMgt.AreRelated(FundsGeneralSetup."Receipt Nos.", xRec."No. Series") then
+                    "No. Series" := xRec."No. Series";
+                "No." := NoSeriesMgt.GetNextNo("No. Series");
             end;
     end;
-
-    // procedure AssistEdit(OldReceipt: Record "Receipt Header"): Boolean
-    // var
-    //     ReceiptsHeader: Record "Receipt Header";
-    // begin
-    //     with ReceiptsHeader do begin
-    //         ReceiptsHeader := Rec;
-    //         FundsGeneralSetup.Get();
-    //         FundsGeneralSetup.TestField("Receipt Nos.");
-    //         if NoSeriesMgt.GetNextNo(FundsGeneralSetup."Receipt Nos.", Today, true) then begin
-    //             NoSeriesMgt.SetSeries("No.");
-    //             Rec := ReceiptsHeader;
-    //             exit(true);
-    //         end;
-    //     end;
-    // end;
 }

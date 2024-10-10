@@ -276,7 +276,10 @@ table 70006 "Bid Analysis Header"
         IF "No." = '' THEN BEGIN
             "Purchases&PayablesSetup".GET;
             "Purchases&PayablesSetup".TESTFIELD("Purchases&PayablesSetup"."Bid Analysis No.");
-            NoSeriesMgt.GetNextNo("Purchases&PayablesSetup"."Bid Analysis No.", Today, false);
+            "No. Series" := "Purchases&PayablesSetup"."Bid Analysis No.";
+            if NoSeriesMgt.AreRelated("Purchases&PayablesSetup"."Bid Analysis No.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
 
         "Document Date" := TODAY;
