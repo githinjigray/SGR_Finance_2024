@@ -288,7 +288,10 @@ table 70500 "Store Requisition Header"
         IF "No." = '' THEN BEGIN
             InventorySetup.GET();
             InventorySetup.TESTFIELD(InventorySetup."Stores Requisition Nos.");
-            NoSeriesMgt.GetNextNo(InventorySetup."Stores Requisition Nos.", Today, false);
+            "No. Series" := InventorySetup."Stores Requisition Nos.";
+            if NoSeriesMgt.AreRelated(InventorySetup."Stores Requisition Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
 
         "Document Date" := TODAY;

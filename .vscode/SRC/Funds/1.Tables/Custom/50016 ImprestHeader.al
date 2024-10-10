@@ -441,7 +441,10 @@ table 50016 "Imprest Header"
         IF "No." = '' THEN BEGIN
             FundsGeneralSetup.GET;
             FundsGeneralSetup.TESTFIELD(FundsGeneralSetup."Imprest Nos.");
-            NoSeriesMgt.GetNextNo(FundsGeneralSetup."Imprest Nos.", today, false);
+            "No. Series" := FundsGeneralSetup."Imprest Nos.";
+            if NoSeriesMgt.AreRelated(FundsGeneralSetup."Imprest Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
         "Document Type" := "Document Type"::Imprest;
         "Document Date" := TODAY;

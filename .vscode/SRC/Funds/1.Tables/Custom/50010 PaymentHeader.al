@@ -610,7 +610,10 @@ table 50010 "Payment Header"
             if "Payment Type" = "Payment Type"::"Cheque Payment" then begin
                 FundsGeneralSetup.get;
                 FundsGeneralSetup.TESTFIELD(FundsGeneralSetup."Payment Voucher Nos.");
-                NoSeriesMgt.GetNextNo(FundsGeneralSetup."Payment Voucher Nos.", Today, false);
+                "No. Series" := FundsGeneralSetup."Payment Voucher Nos.";
+                if NoSeriesMgt.AreRelated(FundsGeneralSetup."Payment Voucher Nos.", xRec."No. Series") then
+                    "No. Series" := xRec."No. Series";
+                "No." := NoSeriesMgt.GetNextNo("No. Series");
             end;
             if "Payment Type" = "Payment Type"::"Cash Payment" then begin
                 FundsGeneralSetup.get;

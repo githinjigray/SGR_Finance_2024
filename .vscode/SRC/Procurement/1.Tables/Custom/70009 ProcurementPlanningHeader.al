@@ -146,7 +146,10 @@ table 70009 "Procurement Planning Header"
         IF "No." = '' THEN BEGIN
             PurchSetup.GET();
             PurchSetup.TESTFIELD(PurchSetup."Procurement Plan Nos");
-            NoSeriesMgt.GetNextNo(PurchSetup."Procurement Plan Nos", Today, false);
+            "No. Series" := PurchSetup."Procurement Plan Nos";
+            if NoSeriesMgt.AreRelated(PurchSetup."Procurement Plan Nos", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
         "Document Date" := Today;
         "User ID" := UserId;

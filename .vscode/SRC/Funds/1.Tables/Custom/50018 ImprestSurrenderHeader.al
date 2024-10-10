@@ -500,7 +500,10 @@ table 50018 "Imprest Surrender Header"
         IF "No." = '' THEN BEGIN
             FundsSetup.GET;
             FundsSetup.TESTFIELD(FundsSetup."Imprest Surrender Nos.");
-            NoSeriesMgt.GetNextNo(FundsSetup."Imprest Surrender Nos.", today, false);
+            "No. Series" := FundsSetup."Imprest Surrender Nos.";
+            if NoSeriesMgt.AreRelated(FundsSetup."Imprest Surrender Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
         "Document Type" := "Document Type"::"Imprest Surrender";
         "Document Date" := TODAY;

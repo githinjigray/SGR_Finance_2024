@@ -308,7 +308,10 @@ table 70002 "Request for Quotation Header"
         IF "No." = '' THEN BEGIN
             "Purchases&PayablesSetup".GET;
             "Purchases&PayablesSetup".TESTFIELD("Purchases&PayablesSetup"."Request for Quotation Nos.");
-            NoSeriesMgt.GetNextNo("Purchases&PayablesSetup"."Request for Quotation Nos.", Today,false);
+            "No. Series" := "Purchases&PayablesSetup"."Request for Quotation Nos.";
+            if NoSeriesMgt.AreRelated("Purchases&PayablesSetup"."Request for Quotation Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := NoSeriesMgt.GetNextNo("No. Series");
         END;
 
 
