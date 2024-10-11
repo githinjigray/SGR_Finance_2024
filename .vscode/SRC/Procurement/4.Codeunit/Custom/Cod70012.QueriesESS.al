@@ -200,10 +200,10 @@ codeunit 70012 QueriesESS
             repeat
                 tbl_Purchase_Requisitions.CalcFields(Amount);
                 //docDate := Format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 1)) + '/' + format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 2)) + '/' + format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 3));
-                data += tbl_Purchase_Requisitions."No." + '*' + Format(tbl_Purchase_Requisitions.Description) + '*' + Format(tbl_Purchase_Requisitions.Status) + '*' + Format(tbl_Purchase_Requisitions."Document Date")
+                data += tbl_Purchase_Requisitions."No." + '*' + Format(tbl_Purchase_Requisitions.Description) + '*' + Format(tbl_Purchase_Requisitions.Status) + '*' + Format(tbl_Purchase_Requisitions."Requested Receipt Date")
                  + '*' + Format(tbl_Purchase_Requisitions.Amount) + '*' + Format(tbl_Purchase_Requisitions."Requisition Type") + '*' + Format(tbl_Purchase_Requisitions."Purchase Type") + '*' + Format(tbl_Purchase_Requisitions."Currency Code") +
                   '*' + Format(tbl_Purchase_Requisitions."Global Dimension 1 Code") + '*' + Format(tbl_Purchase_Requisitions."Global Dimension 2 Code") +
-                  '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 3 Code") + '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 4 Code") + '*' + Format(tbl_Purchase_Requisitions."Reference Document No.") + '::::';
+                  '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 3 Code") + '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 4 Code") + '*' + Format(tbl_Purchase_Requisitions."Reference Document No.") + '*' + Format(tbl_Purchase_Requisitions."Currency Code") + '*' + Format(tbl_Purchase_Requisitions."Purchase Type");
             until tbl_Purchase_Requisitions.Next() = 0;
         end;
         Exit(data);
@@ -246,7 +246,7 @@ codeunit 70012 QueriesESS
                 data += storeReqs."No." + '*' + Format(docDate)
                  + '*' + Format(storeReqs.Amount) + '*' + Format(storeReqs.Status) + '*' + Format(storeReqs.Description) +
                  '*' + Format(reqDate) + '*' + Format(storeReqs."Global Dimension 1 Code") + '*' + Format(storeReqs."Global Dimension 2 Code") +
-                  '*' + Format(storeReqs."Shortcut Dimension 3 Code") + '*' + Format(storeReqs."Shortcut Dimension 4 Code") + '*' + Format(storeReqs."Reference No.") + '::::';
+                  '*' + Format(storeReqs."Shortcut Dimension 3 Code") + '*' + Format(storeReqs."Shortcut Dimension 4 Code") + '*' + Format(storeReqs."Reference No.") + '*' + Format(storeReqs."Required Date");
             until storeReqs.Next() = 0;
         end;
         Exit(data);
@@ -277,6 +277,10 @@ codeunit 70012 QueriesESS
                  + Format(purchasePurchaseLines."Location Code") + '*'
                  + Format(purchasePurchaseLines."Requisition Type") + '*'
                  + Format(purchasePurchaseLines."Total Amount") + '*'
+                 + Format(purchasePurchaseLines."Estimated Unit Cost") + '*'
+                 + Format(purchasePurchaseLines.Description)
+                 + '*'
+                 + Format(purchasePurchaseLines."No.") + '*'
                  + Format(purchasePurchaseLines."Estimated Unit Cost") + '::::';
             until purchasePurchaseLines.Next() = 0;
         end;
