@@ -35,6 +35,8 @@ codeunit 70011 HRPortal
         PostFundsClaim: Codeunit PaymentPost;
         FundsClaimApprovalManager: Codeunit "Funds Claim Approval";
 
+    //LeavePlanner:Record HR
+
 
 
 
@@ -187,7 +189,17 @@ codeunit 70011 HRPortal
             storeRequisition."Employee No." := employeeNo;
             storeRequisition.Validate("Employee No.");
             storeRequisition.Description := description;
+            if department <> '' then begin
+                storeRequisition."Global Dimension 1 Code" := department;
+                storeRequisition.Validate("Global Dimension 1 Code");
+            end;
 
+            if busnCode <> '' then
+                storeRequisition."Global Dimension 2 Code" := busnCode;
+            if airplaneCode <> '' then
+                storeRequisition."Shortcut Dimension 3 Code" := airplaneCode;
+            if tprojectCode <> '' then
+                storeRequisition."Shortcut Dimension 4 Code" := tprojectCode;
             storeRequisition."Required Date" := requiredDate;
             storeRequisition."Reference No." := refDoc;
             if storeRequisition.Insert(true) then begin
@@ -833,10 +845,14 @@ codeunit 70011 HRPortal
             imprestHeader.Description := description;
             imprestHeader."Date From" := fromDate;
             imprestHeader."Date To" := toDate;
-            imprestHeader."Global Dimension 1 Code" := department;
-            imprestHeader."Global Dimension 2 Code" := busnCode;
-            imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
-            imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
+            if department <> '' then
+                imprestHeader."Global Dimension 1 Code" := department;
+            if busnCode <> '' then
+                imprestHeader."Global Dimension 2 Code" := busnCode;
+            if airplaneCode <> '' then
+                imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
+            if tprojectCode <> '' then
+                imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
             imprestHeader."Currency Code" := curr;
             if imprestHeader.Insert(true) then begin
                 status := 'success*Imprest has been created succesfully*' + imprestHeader."No.";
@@ -852,10 +868,14 @@ codeunit 70011 HRPortal
                 imprestHeader.Description := description;
                 imprestHeader."Date From" := fromDate;
                 imprestHeader."Date To" := toDate;
-                imprestHeader."Global Dimension 1 Code" := department;
-                imprestHeader."Global Dimension 2 Code" := busnCode;
-                imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
-                imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
+                if department <> '' then
+                    imprestHeader."Global Dimension 1 Code" := department;
+                if busnCode <> '' then
+                    imprestHeader."Global Dimension 2 Code" := busnCode;
+                if airplaneCode <> '' then
+                    imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
+                if tprojectCode <> '' then
+                    imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
                 imprestHeader."Currency Code" := curr;
                 if imprestHeader.modify(true) then begin
                     status := 'success*Imprest has been modified succesfully*' + imprestHeader."No.";
