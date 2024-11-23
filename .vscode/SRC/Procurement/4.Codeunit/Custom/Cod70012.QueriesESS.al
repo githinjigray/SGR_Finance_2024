@@ -34,17 +34,32 @@ codeunit 70012 QueriesESS
 
 
     procedure loginUser(empNumber: Code[30]; password: Text) data: Text
+    var
+        sunsurrImprest: Decimal;
     begin
-        // tbl_HrPortalUsers.Reset();
-        // tbl_HrPortalUsers.SetRange(employeeNo, empNumber);
-        // tbl_HrPortalUsers.SetRange(password, password);
-        // tbl_employee.SetRange("No.", empNumber);
-        // if tbl_HrPortalUsers.FindSet(true) and tbl_employee.FindSet(true) then begin
-        //     data := 'success**** ' + tbl_HrPortalUsers.employeeName + '****' + tbl_employee."National ID No." + '****' + Format(tbl_employee.Gender) + '****'
-        //     + tbl_HrPortalUsers.employeeNo + '****' + tbl_HrPortalUsers.password + '****' + Format(tbl_HrPortalUsers.changedPassword) + '****'
-        //     + Format(tbl_employee."Company E-Mail") + '****' + tbl_employee."Global Dimension 1 Code" + '****' + tbl_employee."Global Dimension 2 Code";
-        // end;
-        // exit(data);
+        tbl_HrPortalUsers.Reset();
+        tbl_HrPortalUsers.SetRange(employeeNo, empNumber);
+        tbl_HrPortalUsers.SetRange(password, password);
+        tbl_employee.Reset();
+        tbl_employee.SetRange("No.", empNumber);
+        if tbl_HrPortalUsers.FindSet() and tbl_employee.FindSet() then begin
+            imprestHeader.Reset();
+            imprestHeader.SetRange("Employee No.", empNumber);
+            imprestHeader.SetRange("Document Type", paymentHeader."Document Type"::Imprest);
+            imprestHeader.SetRange(Reversed, false);
+            imprestHeader.SetRange("Surrender status", imprestHeader."Surrender status"::"Not Surrendered");
+            imprestHeader.SetRange(Posted, true);
+            if imprestHeader.FindSet() then begin
+                repeat
+                    imprestHeader.CalcFields("Amount(LCY)");
+                    sunsurrImprest := sunsurrImprest + imprestHeader."Amount(LCY)";
+                until imprestHeader.Next() = 0;
+            end;
+            data := 'success**** ' + tbl_HrPortalUsers.employeeName + '****' + tbl_employee."Social Security No." + '****' + Format(tbl_employee.Gender) + '****'
+            + tbl_HrPortalUsers.employeeNo + '****' + tbl_HrPortalUsers.password + '****' + Format(tbl_HrPortalUsers.changedPassword) + '****'
+            + Format(tbl_employee."Company E-Mail") + '****' + tbl_employee."Global Dimension 1 Code" + '****' + tbl_employee."Global Dimension 2 Code" + '****' + tbl_employee."Mobile Phone No." + '****' + Format(sunsurrImprest);
+        end;
+        exit(data);
     end;
 
     procedure FnResetPassword(emailaddress: Text) passChangestatus: Text
@@ -104,21 +119,21 @@ codeunit 70012 QueriesESS
 
     procedure fnGetEmployeeDetail(empNumber: Code[30]) data: Text
     begin
-        // tbl_employee.Reset();
-        // tbl_employee.SetRange("No.", empNumber);
-        // if tbl_employee.FindSet(true) then begin
-        //     repeat
-        //         data += tbl_employee."E-Mail" + '*' + tbl_employee."Phone No." + '*' + tbl_employee."National ID No." + '::::';
-        //     until tbl_employee.Next() = 0;
-        // end;
-        // Exit(data);
+        tbl_employee.Reset();
+        tbl_employee.SetRange("No.", empNumber);
+        if tbl_employee.FindSet() then begin
+            repeat
+                data += tbl_employee."Company E-Mail" + '*' + tbl_employee."Phone No." + '*' + tbl_employee."Social Security No." + '::::';
+            until tbl_employee.Next() = 0;
+        end;
+        Exit(data);
     end;
 
     procedure fnImprestSurrenders(empNumber: Code[30]) data: Text
     begin
         tbl_Imprest_surrender.Reset();
         tbl_Imprest_surrender.SetRange("Employee No.", empNumber);
-        if tbl_Imprest_surrender.FindSet(true) then begin
+        if tbl_Imprest_surrender.FindSet() then begin
             repeat
                 tbl_Imprest_surrender.CalcFields(Amount);
                 data += tbl_Imprest_surrender."No." + '*' + tbl_Imprest_surrender."Imprest No." + '*' + Format(tbl_Imprest_surrender."Document Date")
@@ -133,7 +148,7 @@ codeunit 70012 QueriesESS
         tbl_Imprest_surrender.Reset();
         tbl_Imprest_surrender.SetRange("Employee No.", empNumber);
         tbl_Imprest_surrender.SetRange("No.", appNo);
-        if tbl_Imprest_surrender.FindSet(true) then begin
+        if tbl_Imprest_surrender.FindSet() then begin
             repeat
                 tbl_Imprest_surrender.CalcFields(Amount);
                 data += tbl_Imprest_surrender."No." + '*' + tbl_Imprest_surrender."Imprest No." + '*' + Format(tbl_Imprest_surrender."Document Date")
@@ -147,7 +162,7 @@ codeunit 70012 QueriesESS
     begin
         tbl_Imprest_surrender_Lines.Reset();
         tbl_Imprest_surrender_Lines.SetRange("Document No.", appNo);
-        if tbl_Imprest_surrender_Lines.FindSet(true) then begin
+        if tbl_Imprest_surrender_Lines.FindSet() then begin
             repeat
                 data += Format(tbl_Imprest_surrender_Lines."Line No.") + '*' + Format(tbl_Imprest_surrender_Lines."Imprest Code Description") + '*'
                  + Format(tbl_Imprest_surrender_Lines."Amount Advanced") + '*'
@@ -161,7 +176,7 @@ codeunit 70012 QueriesESS
     procedure fnCurrencies() data: Text
     begin
         currency.Reset();
-        if currency.FindSet(true) then begin
+        if currency.FindSet() then begin
             repeat
                 data += Format(currency.Code) + '*' + Format(currency.Description) + '::::';
             until currency.Next() = 0;
@@ -175,7 +190,7 @@ codeunit 70012 QueriesESS
     begin
         tbl_Purchase_Requisitions.Reset();
         tbl_Purchase_Requisitions.SetRange("Employee No.", empNumber);
-        if tbl_Purchase_Requisitions.FindSet(true) then begin
+        if tbl_Purchase_Requisitions.FindSet() then begin
             repeat
                 tbl_Purchase_Requisitions.CalcFields(Amount);
                 //docDate := Format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 1)) + '/' + format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 2)) + '/' + format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 3));
@@ -196,14 +211,14 @@ codeunit 70012 QueriesESS
         tbl_Purchase_Requisitions.Reset();
         tbl_Purchase_Requisitions.SetRange("Employee No.", empNumber);
         tbl_Purchase_Requisitions.SetRange("No.", appNo);
-        if tbl_Purchase_Requisitions.FindSet(true) then begin
+        if tbl_Purchase_Requisitions.FindSet() then begin
             repeat
                 tbl_Purchase_Requisitions.CalcFields(Amount);
                 //docDate := Format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 1)) + '/' + format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 2)) + '/' + format(Date2DMY(tbl_Purchase_Requisitions."Document Date", 3));
-                data += tbl_Purchase_Requisitions."No." + '*' + Format(tbl_Purchase_Requisitions.Description) + '*' + Format(tbl_Purchase_Requisitions.Status) + '*' + Format(tbl_Purchase_Requisitions."Document Date")
+                data += tbl_Purchase_Requisitions."No." + '*' + Format(tbl_Purchase_Requisitions.Description) + '*' + Format(tbl_Purchase_Requisitions.Status) + '*' + Format(tbl_Purchase_Requisitions."Requested Receipt Date")
                  + '*' + Format(tbl_Purchase_Requisitions.Amount) + '*' + Format(tbl_Purchase_Requisitions."Requisition Type") + '*' + Format(tbl_Purchase_Requisitions."Purchase Type") + '*' + Format(tbl_Purchase_Requisitions."Currency Code") +
                   '*' + Format(tbl_Purchase_Requisitions."Global Dimension 1 Code") + '*' + Format(tbl_Purchase_Requisitions."Global Dimension 2 Code") +
-                  '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 3 Code") + '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 4 Code") + '*' + Format(tbl_Purchase_Requisitions."Reference Document No.") + '::::';
+                  '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 3 Code") + '*' + Format(tbl_Purchase_Requisitions."Shortcut Dimension 4 Code") + '*' + Format(tbl_Purchase_Requisitions."Reference Document No.") + '*' + Format(tbl_Purchase_Requisitions."Currency Code") + '*' + Format(tbl_Purchase_Requisitions."Purchase Type");
             until tbl_Purchase_Requisitions.Next() = 0;
         end;
         Exit(data);
@@ -216,7 +231,7 @@ codeunit 70012 QueriesESS
     begin
         storeReqs.Reset();
         storeReqs.SetRange("Employee No.", empNumber);
-        if storeReqs.FindSet(true) then begin
+        if storeReqs.FindSet() then begin
             repeat
                 storeReqs.CalcFields(Amount);
                 //docDate := Format(Date2DMY(storeReqs."Document Date", 1)) + '/' + format(Date2DMY(storeReqs."Document Date", 2)) + '/' + format(Date2DMY(storeReqs."Document Date", 3));
@@ -238,7 +253,7 @@ codeunit 70012 QueriesESS
         storeReqs.Reset();
         storeReqs.SetRange("Employee No.", empNumber);
         storeReqs.SetRange("No.", appNo);
-        if storeReqs.FindSet(true) then begin
+        if storeReqs.FindSet() then begin
             repeat
                 storeReqs.CalcFields(Amount);
                 //docDate := Format(Date2DMY(storeReqs."Document Date", 1)) + '/' + format(Date2DMY(storeReqs."Document Date", 2)) + '/' + format(Date2DMY(storeReqs."Document Date", 3));
@@ -246,7 +261,7 @@ codeunit 70012 QueriesESS
                 data += storeReqs."No." + '*' + Format(docDate)
                  + '*' + Format(storeReqs.Amount) + '*' + Format(storeReqs.Status) + '*' + Format(storeReqs.Description) +
                  '*' + Format(reqDate) + '*' + Format(storeReqs."Global Dimension 1 Code") + '*' + Format(storeReqs."Global Dimension 2 Code") +
-                  '*' + Format(storeReqs."Shortcut Dimension 3 Code") + '*' + Format(storeReqs."Shortcut Dimension 4 Code") + '*' + Format(storeReqs."Reference No.") + '::::';
+                  '*' + Format(storeReqs."Shortcut Dimension 3 Code") + '*' + Format(storeReqs."Shortcut Dimension 4 Code") + '*' + Format(storeReqs."Reference No.") + '*' + Format(storeReqs."Required Date");
             until storeReqs.Next() = 0;
         end;
         Exit(data);
@@ -256,7 +271,7 @@ codeunit 70012 QueriesESS
     begin
         storeReqLines.Reset();
         storeReqLines.SetRange("Document No.", appNo);
-        if storeReqLines.FindSet(true) then begin
+        if storeReqLines.FindSet() then begin
             repeat
                 data += Format(storeReqLines."Line No.") + '*' + storeReqLines."Item No." + '*' + Format(storeReqLines.Quantity)
                  + '*' + Format(storeReqLines.Description) + '*' + Format(storeReqLines."Location Code") + '*' + Format(storeReqLines."Unit Cost") + '::::';
@@ -269,7 +284,7 @@ codeunit 70012 QueriesESS
     begin
         purchasePurchaseLines.Reset();
         purchasePurchaseLines.SetRange("Document No.", appNo);
-        if purchasePurchaseLines.FindSet(true) then begin
+        if purchasePurchaseLines.FindSet() then begin
             repeat
                 data += Format(purchasePurchaseLines."Line No.") + '*' + Format(purchasePurchaseLines.Quantity)
                  + '*' + Format(purchasePurchaseLines.Name) + '*' + Format(purchasePurchaseLines.Type) + '*'
@@ -277,6 +292,10 @@ codeunit 70012 QueriesESS
                  + Format(purchasePurchaseLines."Location Code") + '*'
                  + Format(purchasePurchaseLines."Requisition Type") + '*'
                  + Format(purchasePurchaseLines."Total Amount") + '*'
+                 + Format(purchasePurchaseLines."Estimated Unit Cost") + '*'
+                 + Format(purchasePurchaseLines.Description)
+                 + '*'
+                 + Format(purchasePurchaseLines."No.") + '*'
                  + Format(purchasePurchaseLines."Estimated Unit Cost") + '::::';
             until purchasePurchaseLines.Next() = 0;
         end;
@@ -289,7 +308,7 @@ codeunit 70012 QueriesESS
         departments.setrange("Dimension Value Type", dmValueType);
         departments.setrange(Blocked, Blocked);
         departments.setrange("Global Dimension No.", gblDmNo);
-        if departments.FindSet(true) then begin
+        if departments.FindSet() then begin
             repeat
                 data += Format(departments.Code) + '*' + Format(departments.Name) + '::::';
             until departments.Next() = 0;
@@ -304,7 +323,7 @@ codeunit 70012 QueriesESS
         departments.setrange(Blocked, Blocked);
         departments.setrange("Global Dimension No.", gblDmNo);
         //departments.SetRange("Global Dimension 1 Code", glblDmCode);
-        if departments.FindSet(true) then begin
+        if departments.FindSet() then begin
             repeat
                 data += Format(departments.Code) + '*' + Format(departments.Name) + '::::';
             until departments.Next() = 0;
@@ -316,7 +335,7 @@ codeunit 70012 QueriesESS
     begin
         item.Reset();
         item.SetRange(Blocked, false);
-        if item.FindSet(true) then begin
+        if item.FindSet() then begin
             repeat
                 data += Format(item."No.") + '*' + Format(item.Description) + '::::';
             until item.Next() = 0;
@@ -345,7 +364,7 @@ codeunit 70012 QueriesESS
     begin
         item.Reset();
         item.SetRange("No.", itemNo);
-        if item.FindSet(true) then begin
+        if item.FindSet() then begin
             repeat
                 data += Format(item."Part No.") + '*' + Format(item."Alternative Item No.") + '*' + Format(item."Alternative Part No. 1") +
                 '*' + Format(item."Alternative Part No. 2") + '*' + Format(item."Alternative Part No. 3") + '*' + Format(item."Alternative Part No. 4") + '*' + Format(item."Unit Cost") + '::::';
@@ -357,7 +376,7 @@ codeunit 70012 QueriesESS
     procedure fnGetLocations() data: Text
     begin
         location.Reset();
-        if location.FindSet(true) then begin
+        if location.FindSet() then begin
             repeat
                 data += Format(location.Code) + '*' + Format(location.Name) + '::::';
             until location.Next() = 0;
@@ -372,7 +391,7 @@ codeunit 70012 QueriesESS
         staffClaimHeader.Reset();
         staffClaimHeader.SetRange("Payee No.", empNumber);
         staffClaimHeader.SetRange("Document Type", docType);
-        if staffClaimHeader.FindSet(true) then begin
+        if staffClaimHeader.FindSet() then begin
             repeat
                 staffClaimHeader.CalcFields(Amount);
                 //docDate := Format(Date2DMY(staffClaimHeader."Document Date", 1)) + '/' + format(Date2DMY(staffClaimHeader."Document Date", 2)) + '/' + format(Date2DMY(staffClaimHeader."Document Date", 3));
@@ -392,7 +411,7 @@ codeunit 70012 QueriesESS
         staffClaimHeader.SetRange("Payee No.", empNumber);
         staffClaimHeader.SetRange("Document Type", docType);
         staffClaimHeader.SetRange("No.", appNo);
-        if staffClaimHeader.FindSet(true) then begin
+        if staffClaimHeader.FindSet() then begin
             repeat
                 StaffClaimHeader.CalcFields(Amount);
                 //docDate := Format(Date2DMY(staffClaimHeader."Document Date", 1)) + '/' + format(Date2DMY(staffClaimHeader."Document Date", 2)) + '/' + format(Date2DMY(staffClaimHeader."Document Date", 3));
@@ -411,7 +430,7 @@ codeunit 70012 QueriesESS
         paymentHeader.Reset();
         paymentHeader.SetRange("Payee No.", empNumber);
         paymentHeader.SetRange("Document Type", docType);
-        if paymentHeader.FindSet(true) then begin
+        if paymentHeader.FindSet() then begin
             repeat
                 //docDate := Format(Date2DMY(paymentHeader."Document Date", 1)) + '/' + format(Date2DMY(paymentHeader."Document Date", 2)) + '/' + format(Date2DMY(paymentHeader."Document Date", 3));
                 data += paymentHeader."No." + '*' + Format(docDate)
@@ -429,7 +448,7 @@ codeunit 70012 QueriesESS
         fundsTransferHeader.Reset();
         fundsTransferHeader.SetRange("Transfer To", empNumber);
         fundsTransferHeader.SetRange("Document Type", docType);
-        if fundsTransferHeader.FindSet(true) then begin
+        if fundsTransferHeader.FindSet() then begin
             repeat
                 //docDate := Format(Date2DMY(fundsTransferHeader."Document Date", 1)) + '/' + format(Date2DMY(fundsTransferHeader."Document Date", 2)) + '/' + format(Date2DMY(fundsTransferHeader."Document Date", 3));
                 data += fundsTransferHeader."No." + '*' + Format(docDate)
@@ -444,7 +463,7 @@ codeunit 70012 QueriesESS
     begin
         staffClaimLine.Reset();
         staffClaimLine.SetRange("Document No.", appNo);
-        if staffClaimLine.FindSet(true) then begin
+        if staffClaimLine.FindSet() then begin
             repeat
                 data += Format(staffClaimLine."Line No.") + '*' + Format(staffClaimLine."Funds Claim Code Description") + '*' + Format(staffClaimLine.Amount) + '::::';
             until staffClaimLine.Next() = 0;
@@ -456,7 +475,7 @@ codeunit 70012 QueriesESS
     begin
         fundsTransderLine.Reset();
         fundsTransderLine.SetRange("Document No.", appNo);
-        if fundsTransderLine.FindSet(true) then begin
+        if fundsTransderLine.FindSet() then begin
             repeat
                 data += Format(fundsTransderLine."Line No.") + '*' + Format(fundsTransderLine.Description) + '*' + Format(fundsTransderLine.Amount) + '::::';
             until fundsTransderLine.Next() = 0;
@@ -468,7 +487,7 @@ codeunit 70012 QueriesESS
     begin
         paymentLine.Reset();
         paymentLine.SetRange("Document No.", appNo);
-        if paymentLine.FindSet(true) then begin
+        if paymentLine.FindSet() then begin
             repeat
                 data += Format(paymentLine."Line No.") + '*' + Format(paymentLine.Description) + '::::';
             until paymentLine.Next() = 0;
@@ -483,7 +502,7 @@ codeunit 70012 QueriesESS
     begin
         imprestHeader.Reset();
         imprestHeader.SetRange("Employee No.", empNumber);
-        if imprestHeader.FindSet(true) then begin
+        if imprestHeader.FindSet() then begin
             repeat
                 imprestHeader.CalcFields(Amount);
                 //fromDate := Format(Date2DMY(imprestHeader."Date From", 1)) + '/' + format(Date2DMY(imprestHeader."Date From", 2)) + '/' + format(Date2DMY(imprestHeader."Date From", 3));
@@ -504,7 +523,7 @@ codeunit 70012 QueriesESS
         imprestHeader.Reset();
         imprestHeader.SetRange("Employee No.", empNumber);
         imprestHeader.SetRange("No.", appNo);
-        if imprestHeader.FindSet(true) then begin
+        if imprestHeader.FindSet() then begin
             repeat
                 imprestHeader.CalcFields(Amount);
                 fromDate := Format(Date2DMY(imprestHeader."Date From", 1)) + '/' + format(Date2DMY(imprestHeader."Date From", 2)) + '/' + format(Date2DMY(imprestHeader."Date From", 3));
@@ -521,7 +540,7 @@ codeunit 70012 QueriesESS
     begin
         imprestLine.Reset();
         imprestLine.SetRange("Document No.", appNo);
-        if imprestLine.FindSet(true) then begin
+        if imprestLine.FindSet() then begin
             repeat
                 data += Format(imprestLine."Line No.") + '*' + Format(imprestLine.quantity) + '*' + Format(imprestLine."Imprest Code Description") + '*' + Format(imprestLine.Amount) + '*' + Format(imprestLine."Imprest Code Description") + '*' + Format(imprestLine."Unit Cost") + '::::';
             until imprestLine.Next() = 0;
@@ -533,7 +552,7 @@ codeunit 70012 QueriesESS
     begin
         approvalEntries.Reset();
         approvalEntries.SetRange("Document No.", appNo);
-        if approvalEntries.FindSet(true) then begin
+        if approvalEntries.FindSet() then begin
             repeat
                 data += Format(approvalEntries."Sequence No.") + '*' + Format(approvalEntries.Status) + '*' + Format(approvalEntries."Sender ID") + '*'
                 + Format(approvalEntries."Amount (LCY)") + '*' + Format(imprestLine."Account Name") + '*'
@@ -549,14 +568,14 @@ codeunit 70012 QueriesESS
         approvalEntries.Reset();
         approvalEntries.SetRange("Document No.", appNo);
         approvalEntries.SetRange(Comment, true);
-        if approvalEntries.FindSet(true) then begin
+        if approvalEntries.FindSet() then begin
             approvalLines.Reset();
             approvalLines.SetRange("Document No.", appNo);
             approvalLines.SetRange("Table ID", approvalEntries."Table ID");
             approvalLines.SetRange("Record ID to Approve", approvalEntries."Record ID to Approve");
             approvalLines.SetRange("Workflow Step Instance ID", approvalEntries."Workflow Step Instance ID");
             approvalLines.SetRange("User ID", approvalEntries."Approver ID");
-            if approvalLines.FindSet(true) then begin
+            if approvalLines.FindSet() then begin
                 repeat
                     data += Format(approvalLines.Comment) + '::::';
                 until approvalLines.Next() = 0;
@@ -572,7 +591,7 @@ codeunit 70012 QueriesESS
         imprestHeader.SetRange("Employee No.", employeeNo);
         imprestHeader.SetRange("Document Type", paymentHeader."Document Type"::Imprest);
         imprestHeader.SetRange(Posted, true);
-        if imprestHeader.FindSet(true) then begin
+        if imprestHeader.FindSet() then begin
             repeat
                 imprestHeader.CalcFields("Amount(LCY)");
                 data += Format(imprestHeader."No.") + '*' + Format(imprestHeader.Description) + '*' + Format(imprestHeader."Document Type") + '*' + Format(imprestHeader."Amount(LCY)") + '::::';
@@ -589,7 +608,7 @@ codeunit 70012 QueriesESS
         imprestHeader.SetRange(Reversed, false);
         imprestHeader.SetRange("Surrender status", imprestHeader."Surrender status"::"Not Surrendered");
         imprestHeader.SetRange(Posted, true);
-        if imprestHeader.FindSet(true) then begin
+        if imprestHeader.FindSet() then begin
             repeat
                 imprestHeader.CalcFields("Amount(LCY)");
                 data += Format(imprestHeader."No.") + '*' + Format(imprestHeader.Description) + '*' + Format(imprestHeader."Document Type") + '*' + Format(imprestHeader."Amount(LCY)") + '::::';
@@ -602,7 +621,7 @@ codeunit 70012 QueriesESS
     begin
         transactionTypes.Reset();
         transactionTypes.SetRange("Transaction Type", transactionType);
-        if transactionTypes.FindSet(true) then begin
+        if transactionTypes.FindSet() then begin
             repeat
                 data += Format(transactionTypes."Transaction Code") + '*' + Format(transactionTypes.Description) + '::::';
             until transactionTypes.Next() = 0;

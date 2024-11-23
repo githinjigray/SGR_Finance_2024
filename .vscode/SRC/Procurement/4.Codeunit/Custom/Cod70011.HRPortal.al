@@ -35,6 +35,8 @@ codeunit 70011 HRPortal
         PostFundsClaim: Codeunit PaymentPost;
         FundsClaimApprovalManager: Codeunit "Funds Claim Approval";
 
+    //LeavePlanner:Record HR
+
 
 
 
@@ -85,7 +87,7 @@ codeunit 70011 HRPortal
             end else begin
                 HRPortalUsers.Init;
                 HRPortalUsers.employeeNo := Employee."No.";
-              //  HRPortalUsers.IdNo := Employee."National ID No.";
+                //  HRPortalUsers.IdNo := Employee."National ID No.";
                 HRPortalUsers."Authentication Email" := Employee."Company E-Mail";
                 HRPortalUsers.password := Format(password);
                 HRPortalUsers.State := HRPortalUsers.State::Enabled;
@@ -187,11 +189,17 @@ codeunit 70011 HRPortal
             storeRequisition."Employee No." := employeeNo;
             storeRequisition.Validate("Employee No.");
             storeRequisition.Description := description;
-            storeRequisition."Global Dimension 1 Code" := department;
-            storeRequisition.Validate("Global Dimension 1 Code");
-            storeRequisition."Global Dimension 2 Code" := busnCode;
-            storeRequisition."Shortcut Dimension 3 Code" := airplaneCode;
-            storeRequisition."Shortcut Dimension 4 Code" := tprojectCode;
+            if department <> '' then begin
+                storeRequisition."Global Dimension 1 Code" := department;
+                storeRequisition.Validate("Global Dimension 1 Code");
+            end;
+
+            if busnCode <> '' then
+                storeRequisition."Global Dimension 2 Code" := busnCode;
+            if airplaneCode <> '' then
+                storeRequisition."Shortcut Dimension 3 Code" := airplaneCode;
+            if tprojectCode <> '' then
+                storeRequisition."Shortcut Dimension 4 Code" := tprojectCode;
             storeRequisition."Required Date" := requiredDate;
             storeRequisition."Reference No." := refDoc;
             if storeRequisition.Insert(true) then begin
@@ -205,11 +213,17 @@ codeunit 70011 HRPortal
             storeRequisition.setrange("No.", requisitionNo);
             if storeRequisition.FindSet(true) then begin
                 storeRequisition.Description := description;
-                storeRequisition."Global Dimension 1 Code" := department;
-                storeRequisition.Validate("Global Dimension 1 Code");
-                storeRequisition."Global Dimension 2 Code" := busnCode;
-                storeRequisition."Shortcut Dimension 3 Code" := airplaneCode;
-                storeRequisition."Shortcut Dimension 4 Code" := tprojectCode;
+                if department <> '' then begin
+                    storeRequisition."Global Dimension 1 Code" := department;
+                    storeRequisition.Validate("Global Dimension 1 Code");
+                end;
+
+                if busnCode <> '' then
+                    storeRequisition."Global Dimension 2 Code" := busnCode;
+                if airplaneCode <> '' then
+                    storeRequisition."Shortcut Dimension 3 Code" := airplaneCode;
+                if tprojectCode <> '' then
+                    storeRequisition."Shortcut Dimension 4 Code" := tprojectCode;
                 storeRequisition."Required Date" := requiredDate;
                 storeRequisition."Reference No." := refDoc;
                 if storeRequisition.modify(true) then begin
@@ -335,7 +349,7 @@ codeunit 70011 HRPortal
         exit(status);
     end;
 
-    procedure createPurchaseRequisition(employeeNo: Code[50]; requisitionNo: Code[50]; description: Text; department: code[50]; busnCode: code[50]; airplaneCode: code[50]; projectCode: code[50]; curr: code[50]; trcptDate: Date; refDoc: Text) status: Text
+    procedure createPurchaseRequisition(employeeNo: Code[50]; requisitionNo: Code[50]; description: Text; department: code[50]; busnCode: code[50]; airplaneCode: code[50]; projectCode: code[50]; curr: code[50]; trcptDate: Date; refDoc: Text; purchaseType: Integer) status: Text
     var
         myType: Text;
     begin
@@ -345,11 +359,16 @@ codeunit 70011 HRPortal
             purchaseRequisition."Employee No." := employeeNo;
             purchaseRequisition.Validate("Employee No.");
             purchaseRequisition.Description := description;
-            purchaseRequisition."Global Dimension 1 Code" := department;
-            purchaseRequisition."Global Dimension 2 Code" := busnCode;
-            purchaseRequisition."Shortcut Dimension 3 Code" := airplaneCode;
-            purchaseRequisition."Shortcut Dimension 4 Code" := projectCode;
+            if department <> '' then
+                purchaseRequisition."Global Dimension 1 Code" := department;
+            if busnCode <> '' then
+                purchaseRequisition."Global Dimension 2 Code" := busnCode;
+            if airplaneCode <> '' then
+                purchaseRequisition."Shortcut Dimension 3 Code" := airplaneCode;
+            if projectCode <> '' then
+                purchaseRequisition."Shortcut Dimension 4 Code" := projectCode;
             purchaseRequisition."Currency Code" := curr;
+            purchaseRequisition."Purchase Type" := purchaseType;
             purchaseRequisition."Requested Receipt Date" := trcptDate;
             purchaseRequisition."Reference Document No." := refDoc;
             if purchaseRequisition.Insert(true) then begin
@@ -363,10 +382,14 @@ codeunit 70011 HRPortal
             purchaseRequisition.setrange("No.", requisitionNo);
             if purchaseRequisition.FindSet(true) then begin
                 purchaseRequisition.Description := description;
-                purchaseRequisition."Global Dimension 1 Code" := department;
-                purchaseRequisition."Global Dimension 2 Code" := busnCode;
-                purchaseRequisition."Shortcut Dimension 3 Code" := airplaneCode;
-                purchaseRequisition."Shortcut Dimension 4 Code" := projectCode;
+                if department <> '' then
+                    purchaseRequisition."Global Dimension 1 Code" := department;
+                if busnCode <> '' then
+                    purchaseRequisition."Global Dimension 2 Code" := busnCode;
+                if airplaneCode <> '' then
+                    purchaseRequisition."Shortcut Dimension 3 Code" := airplaneCode;
+                if projectCode <> '' then
+                    purchaseRequisition."Shortcut Dimension 4 Code" := projectCode;
                 purchaseRequisition."Currency Code" := curr;
                 purchaseRequisition."Requested Receipt Date" := trcptDate;
                 purchaseRequisition."Reference Document No." := refDoc;
@@ -822,10 +845,14 @@ codeunit 70011 HRPortal
             imprestHeader.Description := description;
             imprestHeader."Date From" := fromDate;
             imprestHeader."Date To" := toDate;
-            imprestHeader."Global Dimension 1 Code" := department;
-            imprestHeader."Global Dimension 2 Code" := busnCode;
-            imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
-            imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
+            if department <> '' then
+                imprestHeader."Global Dimension 1 Code" := department;
+            if busnCode <> '' then
+                imprestHeader."Global Dimension 2 Code" := busnCode;
+            if airplaneCode <> '' then
+                imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
+            if tprojectCode <> '' then
+                imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
             imprestHeader."Currency Code" := curr;
             if imprestHeader.Insert(true) then begin
                 status := 'success*Imprest has been created succesfully*' + imprestHeader."No.";
@@ -841,10 +868,14 @@ codeunit 70011 HRPortal
                 imprestHeader.Description := description;
                 imprestHeader."Date From" := fromDate;
                 imprestHeader."Date To" := toDate;
-                imprestHeader."Global Dimension 1 Code" := department;
-                imprestHeader."Global Dimension 2 Code" := busnCode;
-                imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
-                imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
+                if department <> '' then
+                    imprestHeader."Global Dimension 1 Code" := department;
+                if busnCode <> '' then
+                    imprestHeader."Global Dimension 2 Code" := busnCode;
+                if airplaneCode <> '' then
+                    imprestHeader."Shortcut Dimension 3 Code" := airplaneCode;
+                if tprojectCode <> '' then
+                    imprestHeader."Shortcut Dimension 4 Code" := tprojectCode;
                 imprestHeader."Currency Code" := curr;
                 if imprestHeader.modify(true) then begin
                     status := 'success*Imprest has been modified succesfully*' + imprestHeader."No.";
