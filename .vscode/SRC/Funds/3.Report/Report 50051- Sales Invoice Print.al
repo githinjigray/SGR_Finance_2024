@@ -41,7 +41,7 @@ report 50051 "Sales Invoice Print"
             column(CEmail; CompanyInfo."E-Mail")
             {
             }
-            // column(CVATNo;CompanyInfo."Company PIN")
+            // column(CVATNo;CompanyInfo."Company TIN")
             // {
             // }
             column(CPic; CompanyInfo.Picture)

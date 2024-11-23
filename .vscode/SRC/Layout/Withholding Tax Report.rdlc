@@ -117,8 +117,8 @@
         <Field Name="NetAmount_PaymentLineFormat">
           <DataField>NetAmount_PaymentLineFormat</DataField>
         </Field>
-        <Field Name="PINno">
-          <DataField>PINno</DataField>
+        <Field Name="TINno">
+          <DataField>TINno</DataField>
         </Field>
         <Field Name="InvoiceDate">
           <DataField>InvoiceDate</DataField>
@@ -256,7 +256,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">PIN of withholdee</Value>
+                                  <Value EvaluationMode="Auto">TIN of withholdee</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -782,14 +782,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINno">
+                        <Textbox Name="TINno">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINno.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINno.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -798,7 +798,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINno</rd:DefaultName>
+                          <rd:DefaultName>TINno</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2070,7 +2070,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">PIN of Withholdee</Value>
+                                  <Value EvaluationMode="Auto">TIN of Withholdee</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2813,14 +2813,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINno2">
+                        <Textbox Name="TINno2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINno.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINno.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2829,7 +2829,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINno</rd:DefaultName>
+                          <rd:DefaultName>TINno</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>

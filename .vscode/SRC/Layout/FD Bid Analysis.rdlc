@@ -63,8 +63,8 @@
         <Field Name="ExpectedInterestFormat">
           <DataField>ExpectedInterestFormat</DataField>
         </Field>
-        <Field Name="BankRank">
-          <DataField>BankRank</DataField>
+        <Field Name="Bannk">
+          <DataField>Bannk</DataField>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -635,14 +635,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="BankRank">
+                        <Textbox Name="Bannk">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!BankRank.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Bannk.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -652,7 +652,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>BankRank</rd:DefaultName>
+                          <rd:DefaultName>Bannk</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

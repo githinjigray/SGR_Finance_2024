@@ -97,8 +97,8 @@ End Function
         <Field Name="Posting_Description">
           <DataField>Posting_Description</DataField>
         </Field>
-        <Field Name="CustomerPIN">
-          <DataField>CustomerPIN</DataField>
+        <Field Name="CustomerTIN">
+          <DataField>CustomerTIN</DataField>
         </Field>
         <Field Name="CustomerAddress">
           <DataField>CustomerAddress</DataField>

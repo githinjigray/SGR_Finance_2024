@@ -13,7 +13,7 @@ codeunit 70000 "RFQ Approval Manager"
         NoWorkflowEnabledErr: Label 'No approval workflow for this record type is enabled.';
     begin
         if not IsRFQHeaderApprovalWorkflowEnabled(RFQHeader) then
-          Error(NoWorkflowEnabledErr);
+            Error(NoWorkflowEnabledErr);
         exit(true);
     end;
 
@@ -21,7 +21,7 @@ codeunit 70000 "RFQ Approval Manager"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        exit(WorkflowManagement.CanExecuteWorkflow(RFQHeader,RunWorkflowOnSendRFQHeaderForApprovalCode));
+        exit(WorkflowManagement.CanExecuteWorkflow(RFQHeader, RunWorkflowOnSendRFQHeaderForApprovalCode));
     end;
 
     [IntegrationEvent(false, false)]
@@ -69,7 +69,7 @@ codeunit 70000 "RFQ Approval Manager"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnSendRFQHeaderForApprovalCode,RFQHeader);
+        WorkflowManagement.HandleEvent(RunWorkflowOnSendRFQHeaderForApprovalCode, RFQHeader);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 70000, 'OnCancelRFQHeaderForApproval', '', false, false)]
@@ -77,7 +77,7 @@ codeunit 70000 "RFQ Approval Manager"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnCancelRFQHeaderApprovalRequestCode,RFQHeader);
+        WorkflowManagement.HandleEvent(RunWorkflowOnCancelRFQHeaderApprovalRequestCode, RFQHeader);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventsToLibrary', '', false, false)]
@@ -86,9 +86,9 @@ codeunit 70000 "RFQ Approval Manager"
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
     begin
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnSendRFQHeaderForApprovalCode,
-                                    DATABASE::"Request for Quotation Header",'Approval of a RFQ Header document is requested.',0,false);
+                                    DATABASE::"Request for Quotation Header", 'Approval of a RFQ Header document is requested.', 0, false);
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnCancelRFQHeaderApprovalRequestCode,
-                                    DATABASE::"Request for Quotation Header",'An approval request for a RFQ Header document is canceled.',0,false);
+                                    DATABASE::"Request for Quotation Header", 'An approval request for a RFQ Header document is canceled.', 0, false);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
@@ -109,8 +109,8 @@ codeunit 70000 "RFQ Approval Manager"
     var
         WorkflowSetup: Codeunit "Workflow Setup";
     begin
-        WorkflowSetup.InsertTableRelation(DATABASE::"Request for Quotation Header",0,
-                                          DATABASE::"Approval Entry",ApprovalEntry.FieldNo("Record ID to Approve"));
+        WorkflowSetup.InsertTableRelation(DATABASE::"Request for Quotation Header", 0,
+                                          DATABASE::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnAddWorkflowResponsesToLibrary', '', false, false)]
@@ -138,7 +138,7 @@ codeunit 70000 "RFQ Approval Manager"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnPopulateApprovalEntryArgument', '', false, false)]
-    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef;var ApprovalEntryArgument: Record "Approval Entry";WorkflowStepInstance: Record "Workflow Step Instance")
+    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef; var ApprovalEntryArgument: Record "Approval Entry"; WorkflowStepInstance: Record "Workflow Step Instance")
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
         RFQHeader: Record "Request for Quotation Header";
@@ -151,73 +151,73 @@ codeunit 70000 "RFQ Approval Manager"
         GeneralLedgerSetup.TestField("LCY Code");
 
         case RecRef.Number of
-          DATABASE::"Request for Quotation Header":
-            begin
-              RecRef.SetTable(RFQHeader);
-              RFQHeader.CalcFields(Amount);
-              RFQHeader.CalcFields("Amount(LCY)");
-              ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
-              ApprovalEntryArgument."Document No." := RFQHeader."No.";
-              ApprovalEntryArgument.Amount := RFQHeader.Amount;
-              ApprovalEntryArgument."Amount (LCY)" := RFQHeader."Amount(LCY)";
-              ApprovalEntryArgument."Currency Code" := CurrencyCode;
-              ApprovalEntryArgument.Description:='Request For Quotation';
-             // ApprovalEntryArgument."Document Source":=COPYSTR(RFQHeader.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
-            end;
+            DATABASE::"Request for Quotation Header":
+                begin
+                    RecRef.SetTable(RFQHeader);
+                    RFQHeader.CalcFields(Amount);
+                    RFQHeader.CalcFields("Amount(LCY)");
+                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
+                    ApprovalEntryArgument."Document No." := RFQHeader."No.";
+                    ApprovalEntryArgument.Amount := RFQHeader.Amount;
+                    ApprovalEntryArgument."Amount (LCY)" := RFQHeader."Amount(LCY)";
+                    ApprovalEntryArgument."Currency Code" := CurrencyCode;
+                    ApprovalEntryArgument.Description := 'Request For Quotation';
+                    // ApprovalEntryArgument."Document Source":=COPYSTR(RFQHeader.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnOpenDocument', '', false, false)]
-    local procedure OpenDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure OpenDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         RFQHeader: Record "Request for Quotation Header";
     begin
         case RecRef.Number of
-          DATABASE::"Request for Quotation Header":
-          begin
-            RecRef.SetTable(RFQHeader);
-            RFQHeader.Validate(Status,RFQHeader.Status::Open);
-            RFQHeader.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Request for Quotation Header":
+                begin
+                    RecRef.SetTable(RFQHeader);
+                    RFQHeader.Validate(Status, RFQHeader.Status::Open);
+                    RFQHeader.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnSetStatusToPendingApproval', '', false, false)]
-    local procedure SetStatusToPendingApproval(RecRef: RecordRef;var Variant: Variant;var IsHandled: Boolean)
+    local procedure SetStatusToPendingApproval(RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
     var
         RFQHeader: Record "Request for Quotation Header";
     begin
         RecRef.GetTable(Variant);
         case RecRef.Number of
-          DATABASE::"Request for Quotation Header":
-          begin
-            RecRef.SetTable(RFQHeader);
-            RFQHeader.Validate(Status,RFQHeader.Status::"Pending Approval");
-            RFQHeader.Modify(true);
-            Variant := RFQHeader;
-            IsHandled:=true;
-          end;
+            DATABASE::"Request for Quotation Header":
+                begin
+                    RecRef.SetTable(RFQHeader);
+                    RFQHeader.Validate(Status, RFQHeader.Status::"Pending Approval");
+                    RFQHeader.Modify(true);
+                    Variant := RFQHeader;
+                    IsHandled := true;
+                end;
         end;
-        IsHandled:=true;
+        IsHandled := true;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         RFQHeader: Record "Request for Quotation Header";
     begin
         case RecRef.Number of
-          DATABASE::"Request for Quotation Header":
-          begin
-            RecRef.SetTable(RFQHeader);
-            RFQHeader.Validate(Status,RFQHeader.Status::Released);
-            if RFQHeader.Modify(true) then
-              OnAfterReleaseDocument(RFQHeader);
-            Handled:=true;
-          end;
+            DATABASE::"Request for Quotation Header":
+                begin
+                    RecRef.SetTable(RFQHeader);
+                    RFQHeader.Validate(Status, RFQHeader.Status::Released);
+                    if RFQHeader.Modify(true) then
+                        OnAfterReleaseDocument(RFQHeader);
+                    Handled := true;
+                end;
         end;
-        Handled:=true;
+        Handled := true;
     end;
 
     [BusinessEvent(false)]
@@ -226,36 +226,36 @@ codeunit 70000 "RFQ Approval Manager"
     end;
 
     //[EventSubscriber(ObjectType::Codeunit, 51535079, 'OnRejectDocument', '', false, false)]
-    local procedure RejectDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure RejectDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         RFQHeader: Record "Request for Quotation Header";
     begin
         case RecRef.Number of
-          DATABASE::"Request for Quotation Header":
-          begin
-            RecRef.SetTable(RFQHeader);
-            RFQHeader.Validate(Status,RFQHeader.Status::Open);
-            RFQHeader.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Request for Quotation Header":
+                begin
+                    RecRef.SetTable(RFQHeader);
+                    RFQHeader.Validate(Status, RFQHeader.Status::Open);
+                    RFQHeader.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 700, 'OnAfterGetPageID', '', false, false)]
-    local procedure GetPageID(RecordRef: RecordRef;var PageID: Integer)
+    local procedure GetPageID(RecordRef: RecordRef; var PageID: Integer)
     var
         RFQHeader: Record "Request for Quotation Header";
     begin
         case RecordRef.Number of
-          DATABASE::"Request for Quotation Header":
-          begin
-            RecordRef.SetTable(RFQHeader);
-            PageID:=PAGE::"Request for Quotation Card";
-          end;
+            DATABASE::"Request for Quotation Header":
+                begin
+                    RecordRef.SetTable(RFQHeader);
+                    PageID := PAGE::"Request for Quotation Card";
+                end;
         end;
     end;
 
-   // [EventSubscriber(ObjectType::Codeunit, 51535002, 'OnBeforeSendPaymentForApproval', '', false, false)]
+    // [EventSubscriber(ObjectType::Codeunit, 51535002, 'OnBeforeSendPaymentForApproval', '', false, false)]
     local procedure CheckFieldsBeforeApproval(var RFQHeader: Record "Request for Quotation Header")
     begin
     end;

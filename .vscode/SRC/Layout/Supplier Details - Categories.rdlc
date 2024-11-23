@@ -39,8 +39,8 @@
         <Field Name="Picture">
           <DataField>Picture</DataField>
         </Field>
-        <Field Name="CompanyPIN">
-          <DataField>CompanyPIN</DataField>
+        <Field Name="CompanyTIN">
+          <DataField>CompanyTIN</DataField>
         </Field>
         <Field Name="LetterHead">
           <DataField>LetterHead</DataField>
@@ -75,8 +75,8 @@
         <Field Name="PhoneNo_PrequalifiedSuppliers">
           <DataField>PhoneNo_PrequalifiedSuppliers</DataField>
         </Field>
-        <Field Name="PINNo_PrequalifiedSuppliers">
-          <DataField>PINNo_PrequalifiedSuppliers</DataField>
+        <Field Name="TINNo_PrequalifiedSuppliers">
+          <DataField>TINNo_PrequalifiedSuppliers</DataField>
         </Field>
         <Field Name="PostalAddress_PrequalifiedSuppliers">
           <DataField>PostalAddress_PrequalifiedSuppliers</DataField>
@@ -425,7 +425,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">PINNo</Value>
+                                  <Value EvaluationMode="Auto">TINNo</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -624,14 +624,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINNo_PrequalifiedSuppliers">
+                        <Textbox Name="TINNo_PrequalifiedSuppliers">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINNo_PrequalifiedSuppliers.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINNo_PrequalifiedSuppliers.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -640,7 +640,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINNo_PrequalifiedSuppliers</rd:DefaultName>
+                          <rd:DefaultName>TINNo_PrequalifiedSuppliers</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

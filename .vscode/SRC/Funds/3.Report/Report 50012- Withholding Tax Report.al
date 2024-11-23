@@ -88,7 +88,7 @@ report 50012 "Withholding Tax Report"
             column(NetAmount_PaymentLine; "Payment Line"."Net Amount(LCY)")
             {
             }
-            column(PINno; PINno)
+            column(TINno; TINno)
             {
             }
             column(InvoiceDate; InvoiceDate)
@@ -115,7 +115,7 @@ report 50012 "Withholding Tax Report"
 
             trigger OnAfterGetRecord()
             begin
-                PINno := '';
+                TINno := '';
                 InvoiceAmt := 0;
                 InvoiceDate := 0D;
                 VendorInvoiceNo := '';
@@ -135,7 +135,7 @@ report 50012 "Withholding Tax Report"
 
                 Suppliers.Reset;
                 if Suppliers.Get("Account No.") then begin
-                    PINno := Suppliers."VAT Registration No.";
+                    TINno := Suppliers."VAT Registration No.";
                     SupplierName := Suppliers.Name;
                 end;
 
@@ -217,7 +217,7 @@ report 50012 "Withholding Tax Report"
         TotalAmount: Decimal;
         Suppliers: Record Vendor;
         PostedInvoices: Record "Purch. Inv. Header";
-        PINno: Text;
+        TINno: Text;
         InvoiceDate: Date;
         InvoiceAmt: Decimal;
         VendorInvoiceNo: Code[100];

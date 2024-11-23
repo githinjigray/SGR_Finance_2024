@@ -88,7 +88,7 @@ report 50031 "Withholding VAT Upload"
             column(NetAmount_PaymentLine; "Payment Line"."Net Amount")
             {
             }
-            column(PINno; PINno)
+            column(TINno; TINno)
             {
             }
             column(InvoiceDate; InvoiceDate)
@@ -112,7 +112,7 @@ report 50031 "Withholding VAT Upload"
 
             trigger OnAfterGetRecord()
             begin
-                PINno := '';
+                TINno := '';
                 InvoiceAmt := 0;
                 InvoiceDate := 0D;
                 VendorInvoiceNo := '';
@@ -121,7 +121,7 @@ report 50031 "Withholding VAT Upload"
 
                 Suppliers.Reset;
                 if Suppliers.Get("Account No.") then begin
-                    PINno := Suppliers."VAT Registration No.";
+                    TINno := Suppliers."VAT Registration No.";
                 end;
 
 
@@ -170,7 +170,7 @@ report 50031 "Withholding VAT Upload"
         TotalAmount: Decimal;
         Suppliers: Record Vendor;
         PostedInvoices: Record "Purch. Inv. Header";
-        PINno: Text;
+        TINno: Text;
         InvoiceDate: Date;
         InvoiceAmt: Decimal;
         VendorInvoiceNo: Code[30];

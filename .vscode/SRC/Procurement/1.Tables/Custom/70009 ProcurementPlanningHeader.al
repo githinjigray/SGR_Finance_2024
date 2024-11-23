@@ -88,9 +88,9 @@ table 70009 "Procurement Planning Header"
             OptionCaption = 'Items,Service,Fixed Asset';
             DataClassification = ToBeClassified;
         }
-        field(42; "Procurement Plan Grouping"; Code[30])
+        field(42; "Procurement Plan GrouTINg"; Code[30])
         {
-            Caption = 'Procurement Plan Grouping';
+            Caption = 'Procurement Plan GrouTINg';
             DataClassification = ToBeClassified;
         }
         field(50; "Global Dimension 1 Code"; Code[20])

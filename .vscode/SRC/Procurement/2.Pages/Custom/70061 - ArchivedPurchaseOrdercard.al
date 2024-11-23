@@ -474,26 +474,26 @@ page 70061 "Purchase Order-Archived"
                     ToolTip = 'Specifies the date that the vendor has promised to deliver the order.';
                 }
             }
-            group("Shipping and Payment")
+            group("ShipTINg and Payment")
             {
-                Caption = 'Shipping and Payment';
+                Caption = 'ShipTINg and Payment';
                 group(Control83)
                 {
                     ShowCaption = false;
                     group(Control94)
                     {
                         ShowCaption = false;
-                        field(ShippingOptionWithLocation; ShipToOptions)
+                        field(ShipTINgOptionWithLocation; ShipToOptions)
                         {
                             ApplicationArea = Basic, Suite;
                             Caption = 'Ship-to';
-                            HideValue = NOT ShowShippingOptionsWithLocation AND (ShipToOptions = ShipToOptions::Location);
+                            HideValue = NOT ShowShipTINgOptionsWithLocation AND (ShipToOptions = ShipToOptions::Location);
                             OptionCaption = 'Default (Company Address),Location,Customer Address,Custom Address';
                             ToolTip = 'Specifies the address that the products on the purchase document are shipped to. Default (Company Address): The same as the company address specified in the Company Information window. Location: One of the company''s location addresses. Customer Address: Used in connection with drop shipment. Custom Address: Any ship-to address that you specify in the fields below.';
 
                             trigger OnValidate()
                             begin
-                                ValidateShippingOption;
+                                ValidateShipTINgOption;
                             end;
                         }
                         group(Control99)
@@ -1926,7 +1926,7 @@ page 70061 "Purchase Order-Archived"
 
     trigger OnAfterGetRecord()
     begin
-        CalculateCurrentShippingAndPayToOption;
+        CalculateCurrentShipTINgAndPayToOption;
         ShowOverReceiptNotification();
         BuyFromContact.GetOrClear(Rec."Buy-from Contact No.");
         PayToContact.GetOrClear(Rec."Pay-to Contact No.");
@@ -1946,7 +1946,7 @@ page 70061 "Purchase Order-Archived"
     begin
         JobQueueUsed := PurchSetup.JobQueueActive();
         SetExtDocNoMandatoryCondition();
-        ShowShippingOptionsWithLocation := ApplicationAreaMgmtFacade.IsLocationEnabled() or ApplicationAreaMgmtFacade.IsAllDisabled();
+        ShowShipTINgOptionsWithLocation := ApplicationAreaMgmtFacade.IsLocationEnabled() or ApplicationAreaMgmtFacade.IsAllDisabled();
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -1956,7 +1956,7 @@ page 70061 "Purchase Order-Archived"
         if (not DocNoVisible) and (Rec."No." = '') then
             Rec.SetBuyFromVendorFromFilter;
 
-        CalculateCurrentShippingAndPayToOption;
+        CalculateCurrentShipTINgAndPayToOption;
     end;
 
     trigger OnOpenPage()
@@ -2012,7 +2012,7 @@ page 70061 "Purchase Order-Archived"
         OpenPostedPurchaseOrderQst: Label 'The order is posted as number %1 and moved to the Posted Purchase Invoices window.\\Do you want to open the posted invoice?', Comment = '%1 = posted document number';
         CanRequestApprovalForFlow: Boolean;
         CanCancelApprovalForFlow: Boolean;
-        ShowShippingOptionsWithLocation: Boolean;
+        ShowShipTINgOptionsWithLocation: Boolean;
         IsSaaS: Boolean;
         IsBuyFromCountyVisible: Boolean;
         IsPayToCountyVisible: Boolean;
@@ -2232,7 +2232,7 @@ page 70061 "Purchase Order-Archived"
         end;
     end;
 
-    local procedure ValidateShippingOption()
+    local procedure ValidateShipTINgOption()
     begin
         case ShipToOptions of
             ShipToOptions::"Default (Company Address)",
@@ -2273,7 +2273,7 @@ page 70061 "Purchase Order-Archived"
         exit(false);
     end;
 
-    local procedure CalculateCurrentShippingAndPayToOption()
+    local procedure CalculateCurrentShipTINgAndPayToOption()
     begin
         case true of
             Rec."Sell-to Customer No." <> '':
@@ -2296,7 +2296,7 @@ page 70061 "Purchase Order-Archived"
                 PayToOptions := PayToOptions::"Another Vendor";
         end;
 
-        OnAfterCalculateCurrentShippingAndPayToOption(ShipToOptions, PayToOptions, Rec);
+        OnAfterCalculateCurrentShipTINgAndPayToOption(ShipToOptions, PayToOptions, Rec);
     end;
 
     local procedure ShowOverReceiptNotification()
@@ -2307,7 +2307,7 @@ page 70061 "Purchase Order-Archived"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterCalculateCurrentShippingAndPayToOption(var ShipToOptions: Option "Default (Company Address)",Location,"Customer Address","Custom Address"; var PayToOptions: Option "Default (Vendor)","Another Vendor","Custom Address"; PurchaseHeader: Record "Purchase Header")
+    local procedure OnAfterCalculateCurrentShipTINgAndPayToOption(var ShipToOptions: Option "Default (Company Address)",Location,"Customer Address","Custom Address"; var PayToOptions: Option "Default (Vendor)","Another Vendor","Custom Address"; PurchaseHeader: Record "Purchase Header")
     begin
     end;
 

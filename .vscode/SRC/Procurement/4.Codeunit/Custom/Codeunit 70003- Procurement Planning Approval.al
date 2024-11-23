@@ -13,7 +13,7 @@ codeunit 70003 "Procurement Planning Approval"
         NoWorkflowEnabledErr: Label 'No approval workflow for this record type is enabled.';
     begin
         if not IsProcurementPlanApprovalWorkflowEnabled(ProcurementPlan) then
-          Error(NoWorkflowEnabledErr);
+            Error(NoWorkflowEnabledErr);
         exit(true);
     end;
 
@@ -21,7 +21,7 @@ codeunit 70003 "Procurement Planning Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        exit(WorkflowManagement.CanExecuteWorkflow(ProcurementPlan,RunWorkflowOnSendProcurementPlanForApprovalCode));
+        exit(WorkflowManagement.CanExecuteWorkflow(ProcurementPlan, RunWorkflowOnSendProcurementPlanForApprovalCode));
     end;
 
     [IntegrationEvent(false, false)]
@@ -69,7 +69,7 @@ codeunit 70003 "Procurement Planning Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnSendProcurementPlanForApprovalCode,ProcurementPlan);
+        WorkflowManagement.HandleEvent(RunWorkflowOnSendProcurementPlanForApprovalCode, ProcurementPlan);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 70003, 'OnCancelProcurementPlanForApproval', '', false, false)]
@@ -77,7 +77,7 @@ codeunit 70003 "Procurement Planning Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnCancelProcurementPlanApprovalRequestCode,ProcurementPlan);
+        WorkflowManagement.HandleEvent(RunWorkflowOnCancelProcurementPlanApprovalRequestCode, ProcurementPlan);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventsToLibrary', '', false, false)]
@@ -86,9 +86,9 @@ codeunit 70003 "Procurement Planning Approval"
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
     begin
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnSendProcurementPlanForApprovalCode,
-                                    DATABASE::"Procurement Planning Header",'Approval of a Procurement Plan document is requested.',0,false);
+                                    DATABASE::"Procurement Planning Header", 'Approval of a Procurement Plan document is requested.', 0, false);
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnCancelProcurementPlanApprovalRequestCode,
-                                    DATABASE::"Procurement Planning Header",'An approval request for a Procurement Plan document is canceled.',0,false);
+                                    DATABASE::"Procurement Planning Header", 'An approval request for a Procurement Plan document is canceled.', 0, false);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
@@ -109,8 +109,8 @@ codeunit 70003 "Procurement Planning Approval"
     var
         WorkflowSetup: Codeunit "Workflow Setup";
     begin
-        WorkflowSetup.InsertTableRelation(DATABASE::"Procurement Planning Header",0,
-                                          DATABASE::"Approval Entry",ApprovalEntry.FieldNo("Record ID to Approve"));
+        WorkflowSetup.InsertTableRelation(DATABASE::"Procurement Planning Header", 0,
+                                          DATABASE::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnAddWorkflowResponsesToLibrary', '', false, false)]
@@ -138,7 +138,7 @@ codeunit 70003 "Procurement Planning Approval"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnPopulateApprovalEntryArgument', '', false, false)]
-    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef;var ApprovalEntryArgument: Record "Approval Entry";WorkflowStepInstance: Record "Workflow Step Instance")
+    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef; var ApprovalEntryArgument: Record "Approval Entry"; WorkflowStepInstance: Record "Workflow Step Instance")
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
         ProcurementPlan: Record "Procurement Planning Header";
@@ -151,71 +151,71 @@ codeunit 70003 "Procurement Planning Approval"
         GeneralLedgerSetup.TestField("LCY Code");
 
         case RecRef.Number of
-          DATABASE::"Procurement Planning Header":
-            begin
-              RecRef.SetTable(ProcurementPlan);
-              ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
-              ApprovalEntryArgument."Document No." := ProcurementPlan."No.";
-              ApprovalEntryArgument.Amount := ProcurementPlan."Budget Amount";
-              ApprovalEntryArgument."Amount (LCY)" := ProcurementPlan."Budget Amount";
-              ApprovalEntryArgument."Currency Code" := CurrencyCode;
-              ApprovalEntryArgument.Description:='Procurement Plan';
-             // ApprovalEntryArgument."Document Source":=COPYSTR(ProcurementPlan.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
-            end;
+            DATABASE::"Procurement Planning Header":
+                begin
+                    RecRef.SetTable(ProcurementPlan);
+                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
+                    ApprovalEntryArgument."Document No." := ProcurementPlan."No.";
+                    ApprovalEntryArgument.Amount := ProcurementPlan."Budget Amount";
+                    ApprovalEntryArgument."Amount (LCY)" := ProcurementPlan."Budget Amount";
+                    ApprovalEntryArgument."Currency Code" := CurrencyCode;
+                    ApprovalEntryArgument.Description := 'Procurement Plan';
+                    // ApprovalEntryArgument."Document Source":=COPYSTR(ProcurementPlan.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnOpenDocument', '', false, false)]
-    local procedure OpenDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure OpenDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         ProcurementPlan: Record "Procurement Planning Header";
     begin
         case RecRef.Number of
-          DATABASE::"Procurement Planning Header":
-          begin
-            RecRef.SetTable(ProcurementPlan);
-            ProcurementPlan.Validate(Status,ProcurementPlan.Status::Open);
-            ProcurementPlan.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Procurement Planning Header":
+                begin
+                    RecRef.SetTable(ProcurementPlan);
+                    ProcurementPlan.Validate(Status, ProcurementPlan.Status::Open);
+                    ProcurementPlan.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnSetStatusToPendingApproval', '', false, false)]
-    local procedure SetStatusToPendingApproval(RecRef: RecordRef;var Variant: Variant;var IsHandled: Boolean)
+    local procedure SetStatusToPendingApproval(RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
     var
         ProcurementPlan: Record "Procurement Planning Header";
     begin
         RecRef.GetTable(Variant);
         case RecRef.Number of
-          DATABASE::"Procurement Planning Header":
-          begin
-            RecRef.SetTable(ProcurementPlan);
-            ProcurementPlan.Validate(Status,ProcurementPlan.Status::"Pending Approval");
-            ProcurementPlan.Modify(true);
-            Variant := ProcurementPlan;
-            IsHandled:=true;
-          end;
+            DATABASE::"Procurement Planning Header":
+                begin
+                    RecRef.SetTable(ProcurementPlan);
+                    ProcurementPlan.Validate(Status, ProcurementPlan.Status::"Pending Approval");
+                    ProcurementPlan.Modify(true);
+                    Variant := ProcurementPlan;
+                    IsHandled := true;
+                end;
         end;
-        IsHandled:=true;
+        IsHandled := true;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         ProcurementPlan: Record "Procurement Planning Header";
     begin
         case RecRef.Number of
-          DATABASE::"Procurement Planning Header":
-          begin
-            RecRef.SetTable(ProcurementPlan);
-            ProcurementPlan.Validate(Status,ProcurementPlan.Status::Approved);
-            if ProcurementPlan.Modify(true) then
-              OnAfterReleaseDocument(ProcurementPlan);
-            Handled:=true;
-          end;
+            DATABASE::"Procurement Planning Header":
+                begin
+                    RecRef.SetTable(ProcurementPlan);
+                    ProcurementPlan.Validate(Status, ProcurementPlan.Status::Approved);
+                    if ProcurementPlan.Modify(true) then
+                        OnAfterReleaseDocument(ProcurementPlan);
+                    Handled := true;
+                end;
         end;
-        Handled:=true;
+        Handled := true;
     end;
 
     [BusinessEvent(false)]
@@ -223,33 +223,33 @@ codeunit 70003 "Procurement Planning Approval"
     begin
     end;
 
-   // [EventSubscriber(ObjectType::Codeunit, 51535079, 'OnRejectDocument', '', false, false)]
-    local procedure RejectDocument(RecRef: RecordRef;var Handled: Boolean)
+    // [EventSubscriber(ObjectType::Codeunit, 51535079, 'OnRejectDocument', '', false, false)]
+    local procedure RejectDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         ProcurementPlan: Record "Procurement Planning Header";
     begin
         case RecRef.Number of
-          DATABASE::"Procurement Planning Header":
-          begin
-            RecRef.SetTable(ProcurementPlan);
-            ProcurementPlan.Validate(Status,ProcurementPlan.Status::Open);
-            ProcurementPlan.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Procurement Planning Header":
+                begin
+                    RecRef.SetTable(ProcurementPlan);
+                    ProcurementPlan.Validate(Status, ProcurementPlan.Status::Open);
+                    ProcurementPlan.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 700, 'OnAfterGetPageID', '', false, false)]
-    local procedure GetPageID(RecordRef: RecordRef;var PageID: Integer)
+    local procedure GetPageID(RecordRef: RecordRef; var PageID: Integer)
     var
         ProcurementPlan: Record "Procurement Planning Header";
     begin
         case RecordRef.Number of
-          DATABASE::"Procurement Planning Header":
-          begin
-            RecordRef.SetTable(ProcurementPlan);
-            PageID:=PAGE::"Procurement Planning Card";
-          end;
+            DATABASE::"Procurement Planning Header":
+                begin
+                    RecordRef.SetTable(ProcurementPlan);
+                    PageID := PAGE::"Procurement Planning Card";
+                end;
         end;
     end;
 

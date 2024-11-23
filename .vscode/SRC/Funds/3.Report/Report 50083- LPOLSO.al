@@ -325,7 +325,7 @@ report 50083 "LPO/LSO"
             begin
                 CompanyAddress := CompanyInfo.Address + ' ' + CompanyInfo."Address 2";
 
-               // CheckReport.InitTextVariable;
+                // CheckReport.InitTextVariable;
                 //CheckReport.FormatNoText(NumberText, "Amount Including VAT", '');
 
 

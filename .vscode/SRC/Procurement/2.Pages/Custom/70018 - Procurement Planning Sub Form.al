@@ -50,7 +50,7 @@ page 70018 "Procurement Planning Sub Form"
                 {
                     ApplicationArea = All;
                 }
-                field("Procurement Plan Grouping"; rec."Procurement Plan Grouping")
+                field("Procurement Plan GrouTINg"; rec."Procurement Plan GrouTINg")
                 {
                     ApplicationArea = All;
                 }

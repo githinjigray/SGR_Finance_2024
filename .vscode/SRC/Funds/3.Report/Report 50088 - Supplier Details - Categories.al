@@ -29,7 +29,7 @@ report 50088 "Supplier Details - Categories"
             column(Picture; CompanyInfo.Picture)
             {
             }
-            // column(CompanyPIN;CompanyInfo."Company PIN")
+            // column(CompanyTIN;CompanyInfo."Company TIN")
             // {
             // }
             // column(LetterHead;CompanyInfo."Company Letter Head")
@@ -68,7 +68,7 @@ report 50088 "Supplier Details - Categories"
                 column(PhoneNo_PrequalifiedSuppliers; "Prequalified Suppliers"."Phone No.")
                 {
                 }
-                column(PINNo_PrequalifiedSuppliers; "Prequalified Suppliers"."PIN No.")
+                column(TINNo_PrequalifiedSuppliers; "Prequalified Suppliers"."TIN No.")
                 {
                 }
                 column(PostalAddress_PrequalifiedSuppliers; "Prequalified Suppliers"."Postal Address")

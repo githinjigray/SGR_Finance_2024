@@ -35,7 +35,7 @@ report 50108 "Sales Invoice Posted"
             column(Posting_Description; "Posting Description")
             {
             }
-            column(CustomerPIN; CustomerPIN)
+            column(CustomerTIN; CustomerTIN)
             {
             }
             column(CustomerAddress; CustomerAddress)
@@ -80,7 +80,7 @@ report 50108 "Sales Invoice Posted"
             column(CEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CVATNo; GeneralLedgerSetup."Company PIN")
+            column(CVATNo; GeneralLedgerSetup."Company TIN")
             {
             }
             column(CPic; CompanyInfo.Picture)
@@ -291,7 +291,7 @@ report 50108 "Sales Invoice Posted"
                 TotalVATAmount := 0;
                 ControlUnitInvoiceNo := '';
                 VerifyURL := '';
-                CustomerPIN := '';
+                CustomerTIN := '';
                 CustomerAddress := '';
                 CustomerPhoneNo := '';
                 CustomerEmail := '';
@@ -300,7 +300,7 @@ report 50108 "Sales Invoice Posted"
                 GrossAmountIncDiscount := 0;
 
                 if CustomerREC.get("Sell-to Customer No.") then begin
-                    CustomerPIN := CustomerREC."KRA PIN No.";
+                    CustomerTIN := CustomerREC."TIN No.";
                     CustomerAddress := CustomerREC.Address;
                     CustomerPhoneNo := CustomerREC."Phone No.";
                     CustomerEmail := CustomerREC."E-Mail";
@@ -422,7 +422,7 @@ report 50108 "Sales Invoice Posted"
         ControlUnitInvoiceNo: Text;
         VerifyURL: Text;
         InvoiceName: Text;
-        CustomerPIN: code[20];
+        CustomerTIN: code[20];
         CustomerAddress: Text[250];
         CustomerPhoneNo: Text[250];
         CustomerEmail: Text[250];

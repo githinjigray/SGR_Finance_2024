@@ -289,7 +289,7 @@ report 50078 "Purchase Order Archive."
                 //Employees.SetRange(Employees."User ID", "Purchase Header"."User ID");
                 if Employees.FindFirst then begin
                     PreparedBy := Employees."First Name" + ' ' + Employees."Last Name";
-                   // EmployeeTitle := Employees."HR Job Title";
+                    // EmployeeTitle := Employees."HR Job Title";
                 end;
 
 

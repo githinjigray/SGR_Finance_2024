@@ -66,10 +66,10 @@ page 70042 "Pre-Qualified App. Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Principal Phone No. field';
                 }
-                field("PIN No."; rec."PIN No.")
+                field("TIN No."; rec."TIN No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the PIN No. field';
+                    ToolTip = 'Specifies the TIN No. field';
                 }
                 field("Postal Address"; rec."Postal Address")
                 {
@@ -450,7 +450,7 @@ page 70042 "Pre-Qualified App. Card"
         rec.TestField("Bank Account Name");
         rec.TestField(City);
         rec.TestField(County);
-        rec.TestField("PIN No.");
+        rec.TestField("TIN No.");
         rec.TestField(AGPO);
         rec.TestField("Incorporation Cert. No.");
         rec.TestField("Incorporation Date");

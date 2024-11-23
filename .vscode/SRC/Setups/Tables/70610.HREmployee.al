@@ -46,18 +46,18 @@ tableextension 70610 "HR Employee F" extends Employee
     //         end;
 
     //     }
-    //     field(70004; "PIN No."; Code[20])
+    //     field(70004; "TIN No."; Code[20])
     //     {
-    //         Caption = 'PIN No.';
+    //         Caption = 'TIN No.';
     //         DataClassification = ToBeClassified;
     //         trigger OnValidate()
     //         begin
 
     //             Employee.RESET;
-    //             Employee.SETRANGE(Employee."PIN No.", "PIN No.");
+    //             Employee.SETRANGE(Employee."TIN No.", "TIN No.");
     //             Employee.SETRANGE(Employee.Status, Employee.Status::Active);
     //             IF Employee.FINDFIRST THEN BEGIN
-    //                 ERROR(ErrorUsedKRAPINNumber, Employee."No.");
+    //                 ERROR(ErrorUsedTINNumber, Employee."No.");
     //             end;
 
     //         end;
@@ -653,7 +653,7 @@ tableextension 70610 "HR Employee F" extends Employee
     //     ErrorUsedPassportNumber: TextConst ENU = 'The Passport Number has been used for Employee No:%1, Please deactivate the Employee No:%1 to Enable you to use it!';
     //     ErrorUsedNHIFNumber: TextConst ENU = 'The NHIF Number has been used for Employee No:%1, Please deactivate the Employee No:%1 to Enable you to use it!';
     //     ErrorUsedNSSFNumber: TextConst ENU = 'The NSSF Number has been used for Employee No:%1, Please deactivate the Employee No:%1 to Enable you to use it!';
-    //     ErrorUsedKRAPINNumber: TextConst ENU = 'The KRA PIN Number has been used for Employee No:%1, Please deactivate the Employee No:%1 to Enable you to use it!';
+    //     ErrorUsedTINNumber: TextConst ENU = 'The  TIN Number has been used for Employee No:%1, Please deactivate the Employee No:%1 to Enable you to use it!';
 
     // trigger OnInsert()
     // begin

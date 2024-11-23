@@ -163,8 +163,8 @@ End Function
         <Field Name="NetAmount_PaymentLineFormat">
           <DataField>NetAmount_PaymentLineFormat</DataField>
         </Field>
-        <Field Name="PINno">
-          <DataField>PINno</DataField>
+        <Field Name="TINno">
+          <DataField>TINno</DataField>
         </Field>
         <Field Name="InvoiceDate">
           <DataField>InvoiceDate</DataField>

@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "9fbb71d9-1394-4d6d-90bb-d96dacb7edcc/SGR",
+            "environmentName": "8fc54b51-1cd8-48a8-a8fe-a0a1647f9c96/SGR",
             "startupObjectId": 22,
             "startupObjectType": "Page",
             "breakOnError": "All",

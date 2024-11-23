@@ -2,7 +2,7 @@ table 50042 "Bank Acc. Statement Linevb"
 {
     Caption = 'Bank Acc. Statement Linevb';
     DataClassification = ToBeClassified;
-    
+
     fields
     {
         field(1; "Bank Account No."; Code[20])
@@ -54,8 +54,8 @@ table 50042 "Bank Acc. Statement Linevb"
         {
             Caption = 'Type';
             DataClassification = ToBeClassified;
-            OptionMembers="Bank Account Ledger Entry","Check Ledger Entry",Difference;
-            OptionCaption='Bank Account Ledger Entry,Check Ledger Entry,Difference';
+            OptionMembers = "Bank Account Ledger Entry","Check Ledger Entry",Difference;
+            OptionCaption = 'Bank Account Ledger Entry,Check Ledger Entry,Difference';
         }
         field(11; "Applied Entries"; Integer)
         {
@@ -101,15 +101,15 @@ table 50042 "Bank Acc. Statement Linevb"
         {
             Caption = 'Statement Type';
             DataClassification = ToBeClassified;
-            OptionMembers="Bank Reconciliation","Payment Application";
-            OptionCaption='Bank Reconciliation,Payment Application';
+            OptionMembers = "Bank Reconciliation","Payment Application";
+            OptionCaption = 'Bank Reconciliation,Payment Application';
         }
         field(20; "Account Type"; Option)
         {
             Caption = 'Account Type';
             DataClassification = ToBeClassified;
-            OptionMembers="G/L Account",Customer,Vendor,"Bank Account","Fixed Asset","IC Partner",Employee;
-            OptionCaption='G/L Account,Customer,Vendor,Bank Account,Fixed Asset,IC Partner,Employee';
+            OptionMembers = "G/L Account",Customer,Vendor,"Bank Account","Fixed Asset","IC Partner",Employee;
+            OptionCaption = 'G/L Account,Customer,Vendor,Bank Account,Fixed Asset,IC Partner,Employee';
         }
         field(21; "Account No."; Code[20])
         {
@@ -150,8 +150,8 @@ table 50042 "Bank Acc. Statement Linevb"
         {
             Caption = 'Match Confidence';
             DataClassification = ToBeClassified;
-            OptionMembers="None",Low,Medium,High,"High - Text-to-Account Mapping",Manual,Accepted;
-            OptionCaption='None,Low,Medium,High,High - Text-to-Account Mapping,Manual,Accepted';
+            OptionMembers = "None",Low,Medium,High,"High - Text-to-Account MapTINg",Manual,Accepted;
+            OptionCaption = 'None,Low,Medium,High,High - Text-to-Account MapTINg,Manual,Accepted';
         }
         field(29; "Match Quality"; Integer)
         {
@@ -177,8 +177,8 @@ table 50042 "Bank Acc. Statement Linevb"
         {
             Caption = 'Open Type';
             DataClassification = ToBeClassified;
-            OptionMembers="","Unpresented Cheques List","Uncredited Cheques List";
-            OptionCaption=',Unpresented Cheques List,Uncredited Cheques List';
+            OptionMembers = "","Unpresented Cheques List","Uncredited Cheques List";
+            OptionCaption = ',Unpresented Cheques List,Uncredited Cheques List';
         }
         field(34; Imported; Boolean)
         {

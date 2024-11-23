@@ -38,13 +38,13 @@ report 50103 "Vendor Statement"
             column(CompanyWebPage; CompanyInfo."Home Page")
             {
             }
-            column(CompanyPin; GeneralLedgerSetup."Company PIN")
+            column(CompanyTIN; GeneralLedgerSetup."Company TIN")
             {
             }
             column(DATETIME; CurrentDateTime)
             {
             }
-            column(KRAPINNo_Customer; Vendor."VAT Registration No.")
+            column(TINNo_Customer; Vendor."VAT Registration No.")
             {
             }
             column(No_Customer; "No.")

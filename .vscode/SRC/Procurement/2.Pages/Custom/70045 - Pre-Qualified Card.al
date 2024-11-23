@@ -53,10 +53,10 @@ page 70045 "Pre-Qualified Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Principal Phone No. field';
                 }
-                field("PIN No."; Rec."PIN No.")
+                field("TIN No."; Rec."TIN No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the PIN No. field';
+                    ToolTip = 'Specifies the TIN No. field';
                 }
                 field("Postal Address"; Rec."Postal Address")
                 {
@@ -222,7 +222,7 @@ page 70045 "Pre-Qualified Card"
                     rec.TestField("Vendor No.", '');
                     if Confirm(Txt0001) then begin
                         PrequalifiedSuppliers.Reset;
-                        PrequalifiedSuppliers.SetRange(PrequalifiedSuppliers."VAT Registration No.", Rec."PIN No.");
+                        PrequalifiedSuppliers.SetRange(PrequalifiedSuppliers."VAT Registration No.", Rec."TIN No.");
                         if PrequalifiedSuppliers.FindFirst then
                             Error(Txt_003);
 
@@ -233,7 +233,7 @@ page 70045 "Pre-Qualified Card"
                         VendorList."No." := VendorNo;
                         VendorList.Validate(VendorList."No.");
                         VendorList.Name := Rec."Supplier Name";
-                        VendorList."VAT Registration No." := Rec."PIN No.";
+                        VendorList."VAT Registration No." := Rec."TIN No.";
                         VendorList."E-Mail" := Rec."E-Mail";
                         VendorList."Phone No." := Rec."Phone No.";
                         VendorList."Principal Phone No." := Rec."Principal Phone No.";
@@ -287,7 +287,7 @@ page 70045 "Pre-Qualified Card"
         rec.TestField("Bank Account Name");
         rec.TestField(City);
         rec.TestField(County);
-        rec.TestField("PIN No.");
+        rec.TestField("TIN No.");
         rec.TestField(AGPO);
         rec.TestField("Incorporation Cert. No.");
         rec.TestField("Incorporation Date");

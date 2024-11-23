@@ -40,9 +40,9 @@ pageextension 70612 "Company Information Ext2" extends "General Ledger Setup"
                     ToolTip = 'Specifies the value of the NHIF No. field.';
                     ApplicationArea = All;
                 }
-                field("Company PIN"; Rec."Company PIN")
+                field("Company TIN"; Rec."Company TIN")
                 {
-                    ToolTip = 'Specifies the value of the Company PIN field.';
+                    ToolTip = 'Specifies the value of the Company TIN field.';
                     ApplicationArea = All;
                 }
                 field("VAT No."; Rec."VAT No.")

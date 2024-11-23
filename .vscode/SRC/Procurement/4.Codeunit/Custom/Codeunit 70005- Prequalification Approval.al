@@ -13,7 +13,7 @@ codeunit 70005 "Prequalification Approval"
         NoWorkflowEnabledErr: Label 'No approval workflow for this record type is enabled.';
     begin
         if not IsVendorPrequalificationApprovalWorkflowEnabled(VendorPrequalification) then
-          Error(NoWorkflowEnabledErr);
+            Error(NoWorkflowEnabledErr);
         exit(true);
     end;
 
@@ -21,7 +21,7 @@ codeunit 70005 "Prequalification Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        exit(WorkflowManagement.CanExecuteWorkflow(VendorPrequalification,RunWorkflowOnSendVendorPrequalificationForApprovalCode));
+        exit(WorkflowManagement.CanExecuteWorkflow(VendorPrequalification, RunWorkflowOnSendVendorPrequalificationForApprovalCode));
     end;
 
     [IntegrationEvent(false, false)]
@@ -69,7 +69,7 @@ codeunit 70005 "Prequalification Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnSendVendorPrequalificationForApprovalCode,VendorPrequalification);
+        WorkflowManagement.HandleEvent(RunWorkflowOnSendVendorPrequalificationForApprovalCode, VendorPrequalification);
     end;
 
     // [EventSubscriber(ObjectType::Codeunit, 70008, 'OnCancelVendorPrequalificationForApproval', '', false, false)]
@@ -86,9 +86,9 @@ codeunit 70005 "Prequalification Approval"
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
     begin
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnSendVendorPrequalificationForApprovalCode,
-                                    DATABASE::"Prequlification Application",'Approval of a Vendor Prequalification document is requested.',0,false);
+                                    DATABASE::"Prequlification Application", 'Approval of a Vendor Prequalification document is requested.', 0, false);
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnCancelVendorPrequalificationApprovalRequestCode,
-                                    DATABASE::"Prequlification Application",'An approval request for a Vendor Prequalification document is canceled.',0,false);
+                                    DATABASE::"Prequlification Application", 'An approval request for a Vendor Prequalification document is canceled.', 0, false);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
@@ -109,8 +109,8 @@ codeunit 70005 "Prequalification Approval"
     var
         WorkflowSetup: Codeunit "Workflow Setup";
     begin
-        WorkflowSetup.InsertTableRelation(DATABASE::"Prequlification Application",0,
-                                          DATABASE::"Approval Entry",ApprovalEntry.FieldNo("Record ID to Approve"));
+        WorkflowSetup.InsertTableRelation(DATABASE::"Prequlification Application", 0,
+                                          DATABASE::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnAddWorkflowResponsesToLibrary', '', false, false)]
@@ -138,7 +138,7 @@ codeunit 70005 "Prequalification Approval"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnPopulateApprovalEntryArgument', '', false, false)]
-    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef;var ApprovalEntryArgument: Record "Approval Entry";WorkflowStepInstance: Record "Workflow Step Instance")
+    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef; var ApprovalEntryArgument: Record "Approval Entry"; WorkflowStepInstance: Record "Workflow Step Instance")
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
         VendorPrequalification: Record "Prequlification Application";
@@ -151,71 +151,71 @@ codeunit 70005 "Prequalification Approval"
         GeneralLedgerSetup.TestField("LCY Code");
 
         case RecRef.Number of
-          DATABASE::"Prequlification Application":
-            begin
-              RecRef.SetTable(VendorPrequalification);
-              ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
-              ApprovalEntryArgument."Document No." := Format(VendorPrequalification.Int);
-              ApprovalEntryArgument.Amount :=1;
-              ApprovalEntryArgument."Amount (LCY)" :=1;
-              ApprovalEntryArgument."Currency Code" := CurrencyCode;
-              ApprovalEntryArgument.Description:='Vendor Prequalification';
-             // ApprovalEntryArgument."Document Source":=COPYSTR(VendorPrequalification.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
-            end;
+            DATABASE::"Prequlification Application":
+                begin
+                    RecRef.SetTable(VendorPrequalification);
+                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
+                    ApprovalEntryArgument."Document No." := Format(VendorPrequalification.Int);
+                    ApprovalEntryArgument.Amount := 1;
+                    ApprovalEntryArgument."Amount (LCY)" := 1;
+                    ApprovalEntryArgument."Currency Code" := CurrencyCode;
+                    ApprovalEntryArgument.Description := 'Vendor Prequalification';
+                    // ApprovalEntryArgument."Document Source":=COPYSTR(VendorPrequalification.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnOpenDocument', '', false, false)]
-    local procedure OpenDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure OpenDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         VendorPrequalification: Record "Prequlification Application";
     begin
         case RecRef.Number of
-          DATABASE::"Prequlification Application":
-          begin
-            RecRef.SetTable(VendorPrequalification);
-            VendorPrequalification.Validate(Status,VendorPrequalification.Status::Open);
-            VendorPrequalification.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Prequlification Application":
+                begin
+                    RecRef.SetTable(VendorPrequalification);
+                    VendorPrequalification.Validate(Status, VendorPrequalification.Status::Open);
+                    VendorPrequalification.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnSetStatusToPendingApproval', '', false, false)]
-    local procedure SetStatusToPendingApproval(RecRef: RecordRef;var Variant: Variant;var IsHandled: Boolean)
+    local procedure SetStatusToPendingApproval(RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
     var
         VendorPrequalification: Record "Prequlification Application";
     begin
         RecRef.GetTable(Variant);
         case RecRef.Number of
-          DATABASE::"Prequlification Application":
-          begin
-            RecRef.SetTable(VendorPrequalification);
-            VendorPrequalification.Validate(Status,VendorPrequalification.Status::"Pending Approval");
-            VendorPrequalification.Modify(true);
-            Variant := VendorPrequalification;
-            IsHandled:=true;
-          end;
+            DATABASE::"Prequlification Application":
+                begin
+                    RecRef.SetTable(VendorPrequalification);
+                    VendorPrequalification.Validate(Status, VendorPrequalification.Status::"Pending Approval");
+                    VendorPrequalification.Modify(true);
+                    Variant := VendorPrequalification;
+                    IsHandled := true;
+                end;
         end;
-        IsHandled:=true;
+        IsHandled := true;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         VendorPrequalification: Record "Prequlification Application";
     begin
         case RecRef.Number of
-          DATABASE::"Prequlification Application":
-          begin
-            RecRef.SetTable(VendorPrequalification);
-            VendorPrequalification.Validate(Status,VendorPrequalification.Status::Approved);
-            if VendorPrequalification.Modify(true) then
-              OnAfterReleaseDocument(VendorPrequalification);
-            Handled:=true;
-          end;
+            DATABASE::"Prequlification Application":
+                begin
+                    RecRef.SetTable(VendorPrequalification);
+                    VendorPrequalification.Validate(Status, VendorPrequalification.Status::Approved);
+                    if VendorPrequalification.Modify(true) then
+                        OnAfterReleaseDocument(VendorPrequalification);
+                    Handled := true;
+                end;
         end;
-        Handled:=true;
+        Handled := true;
     end;
 
     [BusinessEvent(false)]
@@ -240,16 +240,16 @@ codeunit 70005 "Prequalification Approval"
     // end;
 
     [EventSubscriber(ObjectType::Codeunit, 700, 'OnAfterGetPageID', '', false, false)]
-    local procedure GetPageID(RecordRef: RecordRef;var PageID: Integer)
+    local procedure GetPageID(RecordRef: RecordRef; var PageID: Integer)
     var
         VendorPrequalification: Record "Prequlification Application";
     begin
         case RecordRef.Number of
-          DATABASE::"Prequlification Application":
-          begin
-            RecordRef.SetTable(VendorPrequalification);
-            PageID:=PAGE::"Pre-Qualified App. Card";
-          end;
+            DATABASE::"Prequlification Application":
+                begin
+                    RecordRef.SetTable(VendorPrequalification);
+                    PageID := PAGE::"Pre-Qualified App. Card";
+                end;
         end;
     end;
 

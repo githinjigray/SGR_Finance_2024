@@ -54,8 +54,8 @@
         <Field Name="DATETIME">
           <DataField>DATETIME</DataField>
         </Field>
-        <Field Name="KRAPINNo_Customer">
-          <DataField>KRAPINNo_Customer</DataField>
+        <Field Name="TINNo_Customer">
+          <DataField>TINNo_Customer</DataField>
         </Field>
         <Field Name="No_Customer">
           <DataField>No_Customer</DataField>
@@ -1881,7 +1881,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">PIN No:</Value>
+                                  <Value EvaluationMode="Auto">TIN No:</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1914,7 +1914,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!KRAPINNo_Customer.Value, "DataSet_Result")</Value>
+                                  <Value EvaluationMode="Auto">=First(Fields!TINNo_Customer.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>8pt</FontSize>

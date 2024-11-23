@@ -182,9 +182,9 @@ table 70010 "Procurement Planning Line"
             OptionCaption = 'Items,Service,Fixed Asset';
             DataClassification = ToBeClassified;
         }
-        field(51; "Procurement Plan Grouping"; Code[30])
+        field(51; "Procurement Plan GrouTINg"; Code[30])
         {
-            Caption = 'Procurement Plan Grouping';
+            Caption = 'Procurement Plan GrouTINg';
             DataClassification = ToBeClassified;
             TableRelation = IF ("Procurement Plan Type" = FILTER(Items)) "Inventory Posting Group".Code
             ELSE
@@ -197,7 +197,7 @@ table 70010 "Procurement Planning Line"
 
                 IF "Procurement Plan Type" = "Procurement Plan Type"::Items THEN BEGIN
                     InventoryPostingGroup.RESET;
-                    InventoryPostingGroup.SETRANGE(InventoryPostingGroup.Code, "Procurement Plan Grouping");
+                    InventoryPostingGroup.SETRANGE(InventoryPostingGroup.Code, "Procurement Plan GrouTINg");
                     IF InventoryPostingGroup.FINDFIRST THEN BEGIN
                         "G/L Budget Line A/C" := InventoryPostingGroup."Budget G/L Account";
                         VALIDATE("G/L Budget Line A/C");
@@ -206,7 +206,7 @@ table 70010 "Procurement Planning Line"
 
                 IF "Procurement Plan Type" = "Procurement Plan Type"::Service THEN BEGIN
                     PurchaseRequisitionCodes.RESET;
-                    PurchaseRequisitionCodes.SETRANGE(PurchaseRequisitionCodes."Requisition Code", "Procurement Plan Grouping");
+                    PurchaseRequisitionCodes.SETRANGE(PurchaseRequisitionCodes."Requisition Code", "Procurement Plan GrouTINg");
                     IF PurchaseRequisitionCodes.FINDFIRST THEN BEGIN
                         "G/L Budget Line A/C" := PurchaseRequisitionCodes."No.";
                         VALIDATE("G/L Budget Line A/C");
@@ -215,7 +215,7 @@ table 70010 "Procurement Planning Line"
 
                 IF "Procurement Plan Type" = "Procurement Plan Type"::"Fixed Asset" THEN BEGIN
                     FAPostingGroup.RESET;
-                    FAPostingGroup.SETRANGE(FAPostingGroup.Code, "Procurement Plan Grouping");
+                    FAPostingGroup.SETRANGE(FAPostingGroup.Code, "Procurement Plan GrouTINg");
                     IF FAPostingGroup.FINDFIRST THEN BEGIN
                         "G/L Budget Line A/C" := FAPostingGroup."Acquisition Cost Account";
                         VALIDATE("G/L Budget Line A/C");

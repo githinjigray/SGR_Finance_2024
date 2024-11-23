@@ -222,8 +222,8 @@
         <Field Name="ProcurementPlanType_ProcurementPlanningLine">
           <DataField>ProcurementPlanType_ProcurementPlanningLine</DataField>
         </Field>
-        <Field Name="ProcurementPlanGrouping_ProcurementPlanningLine">
-          <DataField>ProcurementPlanGrouping_ProcurementPlanningLine</DataField>
+        <Field Name="ProcurementPlanGrouTINg_ProcurementPlanningLine">
+          <DataField>ProcurementPlanGrouTINg_ProcurementPlanningLine</DataField>
         </Field>
         <Field Name="GLBudgetLineAC_ProcurementPlanningLine">
           <DataField>GLBudgetLineAC_ProcurementPlanningLine</DataField>
@@ -552,7 +552,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Grouping</Value>
+                                  <Value EvaluationMode="Auto">GrouTINg</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1174,14 +1174,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ProcurementPlanGrouping_ProcurementPlanningLine">
+                        <Textbox Name="ProcurementPlanGrouTINg_ProcurementPlanningLine">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!ProcurementPlanGrouping_ProcurementPlanningLine.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!ProcurementPlanGrouTINg_ProcurementPlanningLine.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1191,7 +1191,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ProcurementPlanGrouping_ProcurementPlanningLine</rd:DefaultName>
+                          <rd:DefaultName>ProcurementPlanGrouTINg_ProcurementPlanningLine</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

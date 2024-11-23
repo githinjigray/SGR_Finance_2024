@@ -184,8 +184,8 @@ End Function
         <Field Name="CreditAmount_GLEntryFormat">
           <DataField>CreditAmount_GLEntryFormat</DataField>
         </Field>
-        <Field Name="PINno">
-          <DataField>PINno</DataField>
+        <Field Name="TINno">
+          <DataField>TINno</DataField>
         </Field>
         <Field Name="InvoiceDate">
           <DataField>InvoiceDate</DataField>

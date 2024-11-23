@@ -457,7 +457,7 @@ page 50077 "Accountant Role Center3"
                     ApplicationArea = BasicHR;
                     Caption = 'Employees';
                     RunObject = Page "Employee List";
-                    ToolTip = 'Manage employees'' details and related information, such as qualifications and pictures, or register and analyze employee absence. Keeping up-to-date records about your employees simplifies personnel tasks. For example, if an employee''s address changes, you register this on the employee card.';
+                    ToolTip = 'Manage employees'' details and related information, such as qualifications and pictures, or register and analyze employee absence. KeeTINg up-to-date records about your employees simplifies personnel tasks. For example, if an employee''s address changes, you register this on the employee card.';
                     Visible = false;
                 }
                 action("Accounting Periods")
@@ -502,7 +502,7 @@ page 50077 "Accountant Role Center3"
                     ApplicationArea = Basic, Suite;
                     Caption = 'G/L Account Categories';
                     RunObject = Page "G/L Account Categories";
-                    ToolTip = 'Personalize the structure of your financial statements by mapping general ledger accounts to account categories. You can create category groups by indenting subcategories under them. Each grouping shows a total balance. When you choose the Generate Account Schedules action, the account schedules for the underlying financial reports are updated. The next time you run one of these reports, such as the balance statement, new totals and subentries are added, based on your changes.';
+                    ToolTip = 'Personalize the structure of your financial statements by mapTINg general ledger accounts to account categories. You can create category groups by indenting subcategories under them. Each grouTINg shows a total balance. When you choose the Generate Account Schedules action, the account schedules for the underlying financial reports are updated. The next time you run one of these reports, such as the balance statement, new totals and subentries are added, based on your changes.';
                 }
                 action(Dimensions)
                 {
@@ -1033,30 +1033,30 @@ page 50077 "Accountant Role Center3"
                         RunObject = Codeunit "Run Template Retained Earn.";
                         ToolTip = 'Open a spreadsheet that shows changes in retained earnings based on net income from the other financial statements.';
                     }
-                    action(ExcelTemplateTrialBalance)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Trial Balance';
-                        Image = "Report";
-                        RunObject = Codeunit "Run Template Trial Balance";
-                        ToolTip = 'Open a spreadsheet that shows a summary trial balance by account.';
-                    }
-                    action(ExcelTemplateAgedAccPay)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Aged Accounts Payable';
-                        Image = "Report";
-                        RunObject = Codeunit "Run Template Aged Acc. Pay.";
-                        ToolTip = 'Open a spreadsheet that shows a list of aged remaining balances for each vendor by period.';
-                    }
-                    action(ExcelTemplateAgedAccRec)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Aged Accounts Receivable';
-                        Image = "Report";
-                        RunObject = Codeunit "Run Template Aged Acc. Rec.";
-                        ToolTip = 'View an overview of when customer payments are due or overdue, divided into four periods. You must specify the date you want aging calculated from and the length of the period that each column will contain data for.';
-                    }
+                    // action(ExcelTemplateTrialBalance)
+                    // {
+                    //     ApplicationArea = Basic, Suite;
+                    //     Caption = 'Trial Balance';
+                    //     Image = "Report";
+                    //     RunObject = Codeunit "Run Template Trial Balance";
+                    //     ToolTip = 'Open a spreadsheet that shows a summary trial balance by account.';
+                    // }
+                    // action(ExcelTemplateAgedAccPay)
+                    // {
+                    //     ApplicationArea = Basic, Suite;
+                    //     Caption = 'Aged Accounts Payable';
+                    //     Image = "Report";
+                    //     RunObject = Codeunit "Run Template Aged Acc. Pay.";
+                    //     ToolTip = 'Open a spreadsheet that shows a list of aged remaining balances for each vendor by period.';
+                    // }
+                    // action(ExcelTemplateAgedAccRec)
+                    // {
+                    //     ApplicationArea = Basic, Suite;
+                    //     Caption = 'Aged Accounts Receivable';
+                    //     Image = "Report";
+                    //     RunObject = Codeunit "Run Template Aged Acc. Rec.";
+                    //     ToolTip = 'View an overview of when customer payments are due or overdue, divided into four periods. You must specify the date you want aging calculated from and the length of the period that each column will contain data for.';
+                    // }
                     // action("Run Consolidation")
                     // {
                     //     ApplicationArea = Suite;

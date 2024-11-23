@@ -102,8 +102,8 @@
         <Field Name="TotalAmountFormat">
           <DataField>TotalAmountFormat</DataField>
         </Field>
-        <Field Name="PINNumber">
-          <DataField>PINNumber</DataField>
+        <Field Name="TINNumber">
+          <DataField>TINNumber</DataField>
         </Field>
         <Field Name="StartDate">
           <DataField>StartDate</DataField>
@@ -177,8 +177,8 @@
         <Field Name="TotalAmount2Format">
           <DataField>TotalAmount2Format</DataField>
         </Field>
-        <Field Name="PINNumber2">
-          <DataField>PINNumber2</DataField>
+        <Field Name="TINNumber2">
+          <DataField>TINNumber2</DataField>
         </Field>
         <Field Name="VatAmount2">
           <DataField>VatAmount2</DataField>
@@ -945,7 +945,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Customer PIN No.</Value>
+                                  <Value EvaluationMode="Auto">Customer TIN No.</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1328,14 +1328,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINNumber">
+                        <Textbox Name="TINNumber">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINNumber.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINNumber.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1345,7 +1345,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINNumber</rd:DefaultName>
+                          <rd:DefaultName>TINNumber</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1707,14 +1707,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINNumber3">
+                        <Textbox Name="TINNumber3">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINNumber.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINNumber.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1724,7 +1724,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINNumber</rd:DefaultName>
+                          <rd:DefaultName>TINNumber</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -2807,7 +2807,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Customer PIN No.</Value>
+                                  <Value EvaluationMode="Auto">Customer TIN No.</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3257,14 +3257,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINNumber5">
+                        <Textbox Name="TINNumber5">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINNumber2.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINNumber2.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3274,7 +3274,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINNumber</rd:DefaultName>
+                          <rd:DefaultName>TINNumber</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -3703,14 +3703,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINNumber6">
+                        <Textbox Name="TINNumber6">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINNumber2.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINNumber2.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -3720,7 +3720,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINNumber</rd:DefaultName>
+                          <rd:DefaultName>TINNumber</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

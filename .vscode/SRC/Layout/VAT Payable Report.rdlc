@@ -138,8 +138,8 @@
         <Field Name="CreditAmount_GLEntryFormat">
           <DataField>CreditAmount_GLEntryFormat</DataField>
         </Field>
-        <Field Name="PINno">
-          <DataField>PINno</DataField>
+        <Field Name="TINno">
+          <DataField>TINno</DataField>
         </Field>
         <Field Name="InvoiceDate">
           <DataField>InvoiceDate</DataField>
@@ -283,7 +283,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">KRA PIN</Value>
+                                  <Value EvaluationMode="Auto"> TIN</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -862,14 +862,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINno">
+                        <Textbox Name="TINno">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINno.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINno.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -878,7 +878,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINno</rd:DefaultName>
+                          <rd:DefaultName>TINno</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1611,7 +1611,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">KRA PIN</Value>
+                                  <Value EvaluationMode="Auto"> TIN</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -2033,14 +2033,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="PINno2">
+                        <Textbox Name="TINno2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!PINno.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!TINno.Value</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -2049,7 +2049,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>PINno</rd:DefaultName>
+                          <rd:DefaultName>TINno</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>

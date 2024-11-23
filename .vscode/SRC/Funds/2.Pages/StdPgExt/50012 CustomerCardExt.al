@@ -19,10 +19,10 @@ pageextension 50012 "Customer Card Ext" extends "Customer Card"
         }
         addafter(Address)
         {
-            field("KRA PIN No."; Rec."KRA PIN No.")
+            field(" TIN No."; Rec."TIN No.")
             {
                 ApplicationArea = all;
-                ToolTip = 'KRA PIN No.';
+                ToolTip = ' TIN No.';
             }
             field("Account Type"; rec."Account Type")
             {

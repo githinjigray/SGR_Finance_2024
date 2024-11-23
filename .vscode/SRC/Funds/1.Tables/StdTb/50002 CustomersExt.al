@@ -74,9 +74,9 @@ tableextension 50002 "Customers Ext" extends Customer
             Caption = 'Customer Registration No.';
             DataClassification = ToBeClassified;
         }
-        field(70025; "KRA PIN No."; Code[50])
+        field(70025; "TIN No."; Code[50])
         {
-            Caption = 'KRA PIN No.';
+            Caption = 'TIN No.';
             DataClassification = ToBeClassified;
         }
         field(70028; "User ID"; Code[30])

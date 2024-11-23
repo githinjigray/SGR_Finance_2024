@@ -81,7 +81,7 @@ report 50052 "Office VAT Report"
             column(TotalAmount; totalAmount)
             {
             }
-            column(PINNumber; PINNumber)
+            column(TINNumber; TINNumber)
             {
             }
             column(StartDate; StartDate)
@@ -118,7 +118,7 @@ report 50052 "Office VAT Report"
                 SourceNumber := '';
                 Invoicedate := 0D;
                 InvoiceNumber := '';
-                PINNumber := '';
+                TINNumber := '';
                 SourceName := '';
                 NetAmount := 0;
                 totalAmount := 0;
@@ -132,7 +132,7 @@ report 50052 "Office VAT Report"
                     InvoiceNumber := PurchCrMemoHdr."No.";
                     Invoicedate := PurchCrMemoHdr."Document Date";
                     //if TempCustomer.Get(SourceNumber) then
-                    // PINNumber:=TempCustomer."KRA PIN No.";
+                    // TINNumber:=TempCustomer." TIN No.";
 
                 end;
 
@@ -142,7 +142,7 @@ report 50052 "Office VAT Report"
                     InvoiceNumber := SalesInvoiceHeader."No.";
                     Invoicedate := SalesInvoiceHeader."Posting Date";
                     // if TempCustomer.Get(SourceNumber) then
-                    // PINNumber:=TempCustomer."KRA PIN No.";
+                    // TINNumber:=TempCustomer." TIN No.";
 
                 end;
 
@@ -152,7 +152,7 @@ report 50052 "Office VAT Report"
                     InvoiceNumber := SalesCrMemoHeader."No.";
                     Invoicedate := SalesCrMemoHeader."Posting Date";
                     //  if TempCustomer.Get(SourceNumber) then
-                    //  PINNumber:=TempCustomer."KRA PIN No.";
+                    //  TINNumber:=TempCustomer." TIN No.";
 
                 end;
 
@@ -163,7 +163,7 @@ report 50052 "Office VAT Report"
                 //   InvoiceNumber:=InvoiceHeader."No.";
                 //   Invoicedate:=InvoiceHeader."Posting Date";
                 // if TempCustomer.Get(SourceNumber) then
-                //  PINNumber:=TempCustomer."KRA PIN No.";
+                //  TINNumber:=TempCustomer." TIN No.";
 
                 //end;
 
@@ -239,7 +239,7 @@ report 50052 "Office VAT Report"
             column(TotalAmount2; totalAmount2)
             {
             }
-            column(PINNumber2; PINNumber2)
+            column(TINNumber2; TINNumber2)
             {
             }
             column(VatAmount2; VatAmount2)
@@ -261,7 +261,7 @@ report 50052 "Office VAT Report"
                 SourceNumber2 := '';
                 Invoicedate2 := 0D;
                 InvoiceNumber2 := '';
-                PINNumber2 := '';
+                TINNumber2 := '';
                 SourceName2 := '';
                 NetAmount2 := 0;
                 totalAmount2 := 0;
@@ -282,7 +282,7 @@ report 50052 "Office VAT Report"
                     InvoiceNumber2 := PurchInvHeader."Vendor Invoice No.";
                     Invoicedate2 := PurchInvHeader."Document Date";
                     if TradeVendor.Get(SourceNumber2) then
-                        PINNumber2 := TradeVendor."VAT Registration No.";
+                        TINNumber2 := TradeVendor."VAT Registration No.";
 
                 end;
 
@@ -316,7 +316,7 @@ report 50052 "Office VAT Report"
                     InvoiceNumber2 := SalesCrMemoHeader."No.";
                     Invoicedate2 := SalesCrMemoHeader."Posting Date";
                     if VendorAgent.Get(SourceNumber2) then
-                        PINNumber2 := VendorAgent."VAT Registration No.";
+                        TINNumber2 := VendorAgent."VAT Registration No.";
 
                 end;
 
@@ -338,7 +338,7 @@ report 50052 "Office VAT Report"
 
                     end;
                     // if TempCustomer.Get(SourceNumber2) then
-                    //  PINNumber2:=TempCustomer."KRA PIN No.";
+                    //  TINNumber2:=TempCustomer." TIN No.";
                 end;
 
 
@@ -406,7 +406,7 @@ report 50052 "Office VAT Report"
         Invoicedate: Date;
         NetAmount: Decimal;
         totalAmount: Decimal;
-        PINNumber: Code[40];
+        TINNumber: Code[40];
         TempCustomer: Record Customer;
         PropertyNumber: Code[30];
         PropertyName: Text;
@@ -420,7 +420,7 @@ report 50052 "Office VAT Report"
         Invoicedate2: Date;
         NetAmount2: Decimal;
         totalAmount2: Decimal;
-        PINNumber2: Code[40];
+        TINNumber2: Code[40];
         VatAmount2: Decimal;
         VendorAgent: Record Vendor;
         PaymentHeader: Record "Payment Header";

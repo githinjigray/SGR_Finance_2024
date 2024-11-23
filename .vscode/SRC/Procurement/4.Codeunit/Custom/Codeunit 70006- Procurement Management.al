@@ -976,7 +976,7 @@ codeunit 70006 "Procurement Management"
         if PrequlificationApplication.FindFirst then begin
 
             PrequalifiedSuppliers.Reset;
-            PrequalifiedSuppliers.SetRange(PrequalifiedSuppliers."VAT Registration No.", PrequlificationApplication."PIN No.");
+            PrequalifiedSuppliers.SetRange(PrequalifiedSuppliers."VAT Registration No.", PrequlificationApplication."TIN No.");
             if PrequalifiedSuppliers.FindFirst then
                 Error(Txt_003);
 
@@ -990,7 +990,7 @@ codeunit 70006 "Procurement Management"
             PrequalifiedSuppliers.Prequalified := PrequlificationApplication.Prequalified;
             PrequalifiedSuppliers."Phone No." := PrequlificationApplication."Phone No.";
             PrequalifiedSuppliers."Principal Phone No." := PrequlificationApplication."Principal Phone No.";
-            PrequalifiedSuppliers."PIN No." := PrequlificationApplication."PIN No.";
+            PrequalifiedSuppliers."TIN No." := PrequlificationApplication."TIN No.";
             PrequalifiedSuppliers."Postal Address" := PrequlificationApplication."Postal Address";
             PrequalifiedSuppliers."Postal Code" := PrequlificationApplication."Postal Code";
             PrequalifiedSuppliers.City := PrequlificationApplication.City;

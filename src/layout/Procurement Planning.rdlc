@@ -268,8 +268,8 @@ End Function
         <Field Name="ProcurementPlanType_ProcurementPlanningLine">
           <DataField>ProcurementPlanType_ProcurementPlanningLine</DataField>
         </Field>
-        <Field Name="ProcurementPlanGrouping_ProcurementPlanningLine">
-          <DataField>ProcurementPlanGrouping_ProcurementPlanningLine</DataField>
+        <Field Name="ProcurementPlanGrouTINg_ProcurementPlanningLine">
+          <DataField>ProcurementPlanGrouTINg_ProcurementPlanningLine</DataField>
         </Field>
         <Field Name="GLBudgetLineAC_ProcurementPlanningLine">
           <DataField>GLBudgetLineAC_ProcurementPlanningLine</DataField>

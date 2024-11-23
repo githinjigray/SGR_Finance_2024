@@ -94,14 +94,14 @@ End Function
         <Field Name="CompanyWebPage">
           <DataField>CompanyWebPage</DataField>
         </Field>
-        <Field Name="CompanyPin">
-          <DataField>CompanyPin</DataField>
+        <Field Name="CompanyTIN">
+          <DataField>CompanyTIN</DataField>
         </Field>
         <Field Name="DATETIME">
           <DataField>DATETIME</DataField>
         </Field>
-        <Field Name="KRAPINNo_Customer">
-          <DataField>KRAPINNo_Customer</DataField>
+        <Field Name="TINNo_Customer">
+          <DataField>TINNo_Customer</DataField>
         </Field>
         <Field Name="No_Customer">
           <DataField>No_Customer</DataField>

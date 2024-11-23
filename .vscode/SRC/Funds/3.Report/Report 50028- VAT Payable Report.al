@@ -97,7 +97,7 @@ report 50028 "VAT Payable Report"
             column(CreditAmount_GLEntry; "G/L Entry"."Credit Amount")
             {
             }
-            column(PINno; PINno)
+            column(TINno; TINno)
             {
             }
             column(InvoiceDate; InvoiceDate)
@@ -127,7 +127,7 @@ report 50028 "VAT Payable Report"
 
             trigger OnAfterGetRecord()
             begin
-                PINno := '';
+                TINno := '';
                 InvoiceAmt := 0;
                 InvoiceDate := 0D;
                 VendorInvoiceNo := '';
@@ -157,8 +157,8 @@ report 50028 "VAT Payable Report"
                     InvoiceDate := SalesInvoiceHeader."Posting Date";
                     CustomerNo := SalesInvoiceHeader."Sell-to Customer No.";
                     Customername := SalesInvoiceHeader."Sell-to Customer Name";
-                    if PINno = '' then begin
-                        PINno := SalesInvoiceHeader."VAT Registration No.";
+                    if TINno = '' then begin
+                        TINno := SalesInvoiceHeader."VAT Registration No.";
                     end;
 
                     SalesInvoiceLine.Reset;
@@ -213,7 +213,7 @@ report 50028 "VAT Payable Report"
         CompanyInfo: Record "Company Information";
         TotalAmount: Decimal;
         Tenants: Record Customer;
-        PINno: Text;
+        TINno: Text;
         InvoiceDate: Date;
         InvoiceAmt: Decimal;
         VendorInvoiceNo: Code[30];

@@ -148,8 +148,8 @@ End Function
         <Field Name="TotalAmountFormat">
           <DataField>TotalAmountFormat</DataField>
         </Field>
-        <Field Name="PINNumber">
-          <DataField>PINNumber</DataField>
+        <Field Name="TINNumber">
+          <DataField>TINNumber</DataField>
         </Field>
         <Field Name="StartDate">
           <DataField>StartDate</DataField>
@@ -220,8 +220,8 @@ End Function
         <Field Name="TotalAmount2Format">
           <DataField>TotalAmount2Format</DataField>
         </Field>
-        <Field Name="PINNumber2">
-          <DataField>PINNumber2</DataField>
+        <Field Name="TINNumber2">
+          <DataField>TINNumber2</DataField>
         </Field>
         <Field Name="VatAmount2">
           <DataField>VatAmount2</DataField>

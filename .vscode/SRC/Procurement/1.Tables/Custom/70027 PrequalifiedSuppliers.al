@@ -45,9 +45,9 @@ table 70027 "Prequalified Suppliers"
             Caption = 'Phone No.';
             DataClassification = ToBeClassified;
         }
-        field(9; "PIN No."; Code[30])
+        field(9; "TIN No."; Code[30])
         {
-            Caption = 'PIN No.';
+            Caption = 'TIN No.';
             DataClassification = ToBeClassified;
         }
         field(10; "Postal Address"; Text[30])

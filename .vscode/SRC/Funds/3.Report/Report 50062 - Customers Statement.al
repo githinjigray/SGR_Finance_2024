@@ -45,7 +45,7 @@ report 50062 "Customers Statement"
             column(DATETIME; CurrentDateTime)
             {
             }
-            column(KRAPINNo_Customer; Customer."KRA PIN No.")
+            column(TINNo_Customer; Customer."TIN No.")
             {
             }
             column(No_Customer; Customer."No.")
@@ -186,7 +186,7 @@ report 50062 "Customers Statement"
                 "60Days" := 0;
                 "90Days" := 0;
                 Above90Days := 0;
-                LandlordPIN := '';
+                LandlordTIN := '';
 
 
 
@@ -363,7 +363,7 @@ report 50062 "Customers Statement"
         TextAbove90Days: Label 'Please arrange to pay in the next 14 days,failure to which we shall destress you.';
         LeaseExpiry: Label 'Lease is due to expire. Kindly make arrangement to Renew';
         LeaseMessage: Text;
-        LandlordPIN: Code[30];
+        LandlordTIN: Code[30];
         ImprestNumber: Code[30];
         ImprestSurrenderHeader: Record "Imprest Surrender Header";
 }

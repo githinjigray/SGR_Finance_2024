@@ -148,9 +148,9 @@ tableextension 50004 "Vendors Ext" extends Vendor
             DataClassification = ToBeClassified;
 
         }
-        field(70031; "KRA PIN No."; Code[50])
+        field(70031; " TIN No."; Code[50])
         {
-            Caption = 'KRA PIN No.';
+            Caption = ' TIN No.';
             DataClassification = ToBeClassified;
 
         }

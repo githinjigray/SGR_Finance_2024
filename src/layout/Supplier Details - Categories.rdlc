@@ -115,8 +115,8 @@ End Function
         <Field Name="PhoneNo_PrequalifiedSuppliers">
           <DataField>PhoneNo_PrequalifiedSuppliers</DataField>
         </Field>
-        <Field Name="PINNo_PrequalifiedSuppliers">
-          <DataField>PINNo_PrequalifiedSuppliers</DataField>
+        <Field Name="TINNo_PrequalifiedSuppliers">
+          <DataField>TINNo_PrequalifiedSuppliers</DataField>
         </Field>
         <Field Name="PostalAddress_PrequalifiedSuppliers">
           <DataField>PostalAddress_PrequalifiedSuppliers</DataField>

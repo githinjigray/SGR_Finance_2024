@@ -47,9 +47,9 @@ table 70025 "Prequlification Application"
             DataClassification = ToBeClassified;
             ExtendedDatatype = PhoneNo;
         }
-        field(9; "PIN No."; Code[30])
+        field(9; "TIN No."; Code[30])
         {
-            Caption = 'PIN No.';
+            Caption = 'TIN No.';
             DataClassification = ToBeClassified;
         }
         field(10; "Postal Address"; Text[30])

@@ -30,7 +30,7 @@ xmlport 70005 "Vendors Upload"
                 fieldelement(PhoneNo; Vendor."Phone No.")
                 {
                 }
-                fieldelement(KRAPINNo; Vendor."KRA PIN No.")
+                fieldelement(TINNo; Vendor." TIN No.")
                 {
                 }
                 fieldelement(City; Vendor.City)

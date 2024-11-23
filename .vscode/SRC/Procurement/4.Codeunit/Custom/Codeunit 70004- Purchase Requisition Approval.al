@@ -13,7 +13,7 @@ codeunit 70004 "Purchase Requisition Approval"
         NoWorkflowEnabledErr: Label 'No approval workflow for this record type is enabled.';
     begin
         if not IsPurchaseRequisitionApprovalWorkflowEnabled(PurchaseRequisition) then
-          Error(NoWorkflowEnabledErr);
+            Error(NoWorkflowEnabledErr);
         exit(true);
     end;
 
@@ -21,7 +21,7 @@ codeunit 70004 "Purchase Requisition Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        exit(WorkflowManagement.CanExecuteWorkflow(PurchaseRequisition,RunWorkflowOnSendPurchaseRequisitionForApprovalCode));
+        exit(WorkflowManagement.CanExecuteWorkflow(PurchaseRequisition, RunWorkflowOnSendPurchaseRequisitionForApprovalCode));
     end;
 
     [IntegrationEvent(false, false)]
@@ -69,7 +69,7 @@ codeunit 70004 "Purchase Requisition Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnSendPurchaseRequisitionForApprovalCode,PurchaseRequisition);
+        WorkflowManagement.HandleEvent(RunWorkflowOnSendPurchaseRequisitionForApprovalCode, PurchaseRequisition);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 70004, 'OnCancelPurchaseRequisitionForApproval', '', false, false)]
@@ -77,7 +77,7 @@ codeunit 70004 "Purchase Requisition Approval"
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnCancelPurchaseRequisitionApprovalRequestCode,PurchaseRequisition);
+        WorkflowManagement.HandleEvent(RunWorkflowOnCancelPurchaseRequisitionApprovalRequestCode, PurchaseRequisition);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventsToLibrary', '', false, false)]
@@ -86,9 +86,9 @@ codeunit 70004 "Purchase Requisition Approval"
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
     begin
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnSendPurchaseRequisitionForApprovalCode,
-                                    DATABASE::"Purchase Requisitions",'Approval of a Purchase Requisition document is requested.',0,false);
+                                    DATABASE::"Purchase Requisitions", 'Approval of a Purchase Requisition document is requested.', 0, false);
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnCancelPurchaseRequisitionApprovalRequestCode,
-                                    DATABASE::"Purchase Requisitions",'An approval request for a Purchase Requisition document is canceled.',0,false);
+                                    DATABASE::"Purchase Requisitions", 'An approval request for a Purchase Requisition document is canceled.', 0, false);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
@@ -109,8 +109,8 @@ codeunit 70004 "Purchase Requisition Approval"
     var
         WorkflowSetup: Codeunit "Workflow Setup";
     begin
-        WorkflowSetup.InsertTableRelation(DATABASE::"Purchase Requisitions",0,
-                                          DATABASE::"Approval Entry",ApprovalEntry.FieldNo("Record ID to Approve"));
+        WorkflowSetup.InsertTableRelation(DATABASE::"Purchase Requisitions", 0,
+                                          DATABASE::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnAddWorkflowResponsesToLibrary', '', false, false)]
@@ -138,7 +138,7 @@ codeunit 70004 "Purchase Requisition Approval"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnPopulateApprovalEntryArgument', '', false, false)]
-    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef;var ApprovalEntryArgument: Record "Approval Entry";WorkflowStepInstance: Record "Workflow Step Instance")
+    local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef; var ApprovalEntryArgument: Record "Approval Entry"; WorkflowStepInstance: Record "Workflow Step Instance")
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
         PurchaseRequisition: Record "Purchase Requisitions";
@@ -151,74 +151,74 @@ codeunit 70004 "Purchase Requisition Approval"
         GeneralLedgerSetup.TestField("LCY Code");
 
         case RecRef.Number of
-          DATABASE::"Purchase Requisitions":
-            begin
-              RecRef.SetTable(PurchaseRequisition);
-              PurchaseRequisition.CalcFields(Amount);
-              PurchaseRequisition.CalcFields("Amount(LCY)");
-              ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
-              ApprovalEntryArgument."Document No." := PurchaseRequisition."No.";
-              ApprovalEntryArgument.Amount := PurchaseRequisition.Amount;
-              ApprovalEntryArgument."Amount (LCY)" := PurchaseRequisition."Amount(LCY)";
-              ApprovalEntryArgument."Currency Code" := CurrencyCode;
-              ApprovalEntryArgument.Description:='Purchase Requisition';
-             // ApprovalEntryArgument."Document Source":=COPYSTR(PurchaseRequisition.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
-            end;
+            DATABASE::"Purchase Requisitions":
+                begin
+                    RecRef.SetTable(PurchaseRequisition);
+                    PurchaseRequisition.CalcFields(Amount);
+                    PurchaseRequisition.CalcFields("Amount(LCY)");
+                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
+                    ApprovalEntryArgument."Document No." := PurchaseRequisition."No.";
+                    ApprovalEntryArgument.Amount := PurchaseRequisition.Amount;
+                    ApprovalEntryArgument."Amount (LCY)" := PurchaseRequisition."Amount(LCY)";
+                    ApprovalEntryArgument."Currency Code" := CurrencyCode;
+                    ApprovalEntryArgument.Description := 'Purchase Requisition';
+                    // ApprovalEntryArgument."Document Source":=COPYSTR(PurchaseRequisition.Description,0,MAXSTRLEN(ApprovalEntryArgument."Document Source"));
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnOpenDocument', '', false, false)]
-    local procedure OpenDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure OpenDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         PurchaseRequisition: Record "Purchase Requisitions";
     begin
         case RecRef.Number of
-          DATABASE::"Purchase Requisitions":
-          begin
-            RecRef.SetTable(PurchaseRequisition);
-            PurchaseRequisition.Validate(Status,PurchaseRequisition.Status::Open);
-            PurchaseRequisition.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Purchase Requisitions":
+                begin
+                    RecRef.SetTable(PurchaseRequisition);
+                    PurchaseRequisition.Validate(Status, PurchaseRequisition.Status::Open);
+                    PurchaseRequisition.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnSetStatusToPendingApproval', '', false, false)]
-    local procedure SetStatusToPendingApproval(RecRef: RecordRef;var Variant: Variant;var IsHandled: Boolean)
+    local procedure SetStatusToPendingApproval(RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
     var
         PurchaseRequisition: Record "Purchase Requisitions";
     begin
         RecRef.GetTable(Variant);
         case RecRef.Number of
-          DATABASE::"Purchase Requisitions":
-          begin
-            RecRef.SetTable(PurchaseRequisition);
-            PurchaseRequisition.Validate(Status,PurchaseRequisition.Status::"Pending Approval");
-            PurchaseRequisition.Modify(true);
-            Variant := PurchaseRequisition;
-            IsHandled:=true;
-          end;
+            DATABASE::"Purchase Requisitions":
+                begin
+                    RecRef.SetTable(PurchaseRequisition);
+                    PurchaseRequisition.Validate(Status, PurchaseRequisition.Status::"Pending Approval");
+                    PurchaseRequisition.Modify(true);
+                    Variant := PurchaseRequisition;
+                    IsHandled := true;
+                end;
         end;
-        IsHandled:=true;
+        IsHandled := true;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         PurchaseRequisition: Record "Purchase Requisitions";
     begin
         case RecRef.Number of
-          DATABASE::"Purchase Requisitions":
-          begin
-            RecRef.SetTable(PurchaseRequisition);
-            PurchaseRequisition.Validate(Status,PurchaseRequisition.Status::Approved);
-            if PurchaseRequisition.Modify(true) then
-              CreateApprovalEmail(PurchaseRequisition."No.");
-              //OnAfterReleaseDocument(PurchaseRequisition);
-            Handled:=true;
-          end;
+            DATABASE::"Purchase Requisitions":
+                begin
+                    RecRef.SetTable(PurchaseRequisition);
+                    PurchaseRequisition.Validate(Status, PurchaseRequisition.Status::Approved);
+                    if PurchaseRequisition.Modify(true) then
+                        CreateApprovalEmail(PurchaseRequisition."No.");
+                    //OnAfterReleaseDocument(PurchaseRequisition);
+                    Handled := true;
+                end;
         end;
-        Handled:=true;
+        Handled := true;
     end;
 
     [BusinessEvent(false)]
@@ -227,73 +227,73 @@ codeunit 70004 "Purchase Requisition Approval"
     end;
 
     //[EventSubscriber(ObjectType::Codeunit, 51535079, 'OnRejectDocument', '', false, false)]
-    local procedure RejectDocument(RecRef: RecordRef;var Handled: Boolean)
+    local procedure RejectDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         PurchaseRequisition: Record "Purchase Requisitions";
     begin
         case RecRef.Number of
-          DATABASE::"Purchase Requisitions":
-          begin
-            RecRef.SetTable(PurchaseRequisition);
-            PurchaseRequisition.Validate(Status,PurchaseRequisition.Status::Open);
-            PurchaseRequisition.Modify(true);
-            Handled:=true;
-          end;
+            DATABASE::"Purchase Requisitions":
+                begin
+                    RecRef.SetTable(PurchaseRequisition);
+                    PurchaseRequisition.Validate(Status, PurchaseRequisition.Status::Open);
+                    PurchaseRequisition.Modify(true);
+                    Handled := true;
+                end;
         end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 700, 'OnAfterGetPageID', '', false, false)]
-    local procedure GetPageID(RecordRef: RecordRef;var PageID: Integer)
+    local procedure GetPageID(RecordRef: RecordRef; var PageID: Integer)
     var
         PurchaseRequisition: Record "Purchase Requisitions";
     begin
         case RecordRef.Number of
-          DATABASE::"Purchase Requisitions":
-          begin
-            RecordRef.SetTable(PurchaseRequisition);
-            PageID:=PAGE::"Purchase Requisition Card";
-          end;
+            DATABASE::"Purchase Requisitions":
+                begin
+                    RecordRef.SetTable(PurchaseRequisition);
+                    PageID := PAGE::"Purchase Requisition Card";
+                end;
         end;
     end;
 
-   // [EventSubscriber(ObjectType::Codeunit, 51535002, 'OnBeforeSendPaymentForApproval', '', false, false)]
+    // [EventSubscriber(ObjectType::Codeunit, 51535002, 'OnBeforeSendPaymentForApproval', '', false, false)]
     local procedure CheckFieldsBeforeApproval(var PurchaseRequisition: Record "Purchase Requisitions")
     begin
     end;
 
-    local procedure InsertEmailMessage("Sender Name": Text[100];"Sender Address": Text[80];Subject: Text[100];Recipients: Text[250];"Recipients CC": Text[250];"Recipients BCC": Text[250];Body: Text;"DocumentNo.": Code[20]) EmailMessageInserted: Boolean
+    local procedure InsertEmailMessage("Sender Name": Text[100]; "Sender Address": Text[80]; Subject: Text[100]; Recipients: Text[250]; "Recipients CC": Text[250]; "Recipients BCC": Text[250]; Body: Text; "DocumentNo.": Code[20]) EmailMessageInserted: Boolean
     var
         ProcurementEmailMessages: Record "Procurement Email Messages";
         EmailBodyText: BigText;
         EmailBodyOutStream: OutStream;
     begin
-        EmailMessageInserted:=false;
+        EmailMessageInserted := false;
 
         ProcurementEmailMessages.Init;
-        ProcurementEmailMessages."Entry No.":=0;
-        ProcurementEmailMessages."Sender Name":="Sender Name";
-        ProcurementEmailMessages."Sender Address":="Sender Address";
-        ProcurementEmailMessages.Subject:=Subject;
-        ProcurementEmailMessages.Recipients:=Recipients;
-        ProcurementEmailMessages."Recipients CC" :="Recipients CC";
-        ProcurementEmailMessages."Recipients BCC":="Recipients BCC";
+        ProcurementEmailMessages."Entry No." := 0;
+        ProcurementEmailMessages."Sender Name" := "Sender Name";
+        ProcurementEmailMessages."Sender Address" := "Sender Address";
+        ProcurementEmailMessages.Subject := Subject;
+        ProcurementEmailMessages.Recipients := Recipients;
+        ProcurementEmailMessages."Recipients CC" := "Recipients CC";
+        ProcurementEmailMessages."Recipients BCC" := "Recipients BCC";
         EmailBodyText.AddText(Body);
         ProcurementEmailMessages.Body.CreateOutStream(EmailBodyOutStream);
         EmailBodyText.Write(EmailBodyOutStream);
-        ProcurementEmailMessages.HtmlFormatted:=true;
-        ProcurementEmailMessages."Created By":=UserId;
-        ProcurementEmailMessages."Date Created":=Today;
-        ProcurementEmailMessages."Time Created":=Time;
-        ProcurementEmailMessages."Document No.":="DocumentNo.";
+        ProcurementEmailMessages.HtmlFormatted := true;
+        ProcurementEmailMessages."Created By" := UserId;
+        ProcurementEmailMessages."Date Created" := Today;
+        ProcurementEmailMessages."Time Created" := Time;
+        ProcurementEmailMessages."Document No." := "DocumentNo.";
         if ProcurementEmailMessages.Insert then
-          EmailMessageInserted:=true;
+            EmailMessageInserted := true;
     end;
 
     procedure CreateApprovalEmail("RequestNo.": Code[20])
     var
         PurchaseRequisitions: Record "Purchase Requisitions";
         Customer: Record Customer;
-      //  SMTPMail: Record "SMTP Mail Setup";
+        //  SMTPMail: Record "SMTP Mail Setup";
         SenderName: Text[100];
         SenderAddress: Text[80];
         Subject: Text[100];
@@ -303,7 +303,7 @@ codeunit 70004 "Purchase Requisition Approval"
         EmailBody: Text;
         CompanyInformation: Record "Company Information";
         UserSetup: Record "User Setup";
-       // SMTPMailSetup: Record "SMTP Mail Setup";
+    // SMTPMailSetup: Record "SMTP Mail Setup";
     begin
         PurchaseRequisitions.Get("RequestNo.");
         PurchaseRequisitions.CalcFields(PurchaseRequisitions.Amount);
@@ -311,35 +311,35 @@ codeunit 70004 "Purchase Requisition Approval"
         CompanyInformation.Get;
 
         UserSetup.Reset;
-        UserSetup.SetRange("User ID",PurchaseRequisitions."User ID");
+        UserSetup.SetRange("User ID", PurchaseRequisitions."User ID");
         if UserSetup.FindSet then begin
-          repeat
-              //SMTPMailSetup.Get;
-              EmailBody:='';
-              EmailBody:=EmailBody+'Dear '+UserSetup."User ID"+',<br><br>';
-              EmailBody:=EmailBody+'Here are details of a purchase requisition that has been approved under your system USER ID.: '+'<br>';
-              EmailBody:=EmailBody+'_____________________________________________________________________________<br>';
-              EmailBody:=EmailBody+'Request No.: '+PurchaseRequisitions."No."+'<br>';
-              EmailBody:=EmailBody+'Date: '+Format(PurchaseRequisitions."Requested Receipt Date")+'<br>';
-              EmailBody:=EmailBody+'Amount: '+Format(PurchaseRequisitions.Amount)+'<br>';
-              EmailBody:=EmailBody+'Description: '+PurchaseRequisitions.Description+'<br>';
-              EmailBody:=EmailBody+'Find attached Requisition '+'.<br>';
-              EmailBody:=EmailBody+'Regards '+'.<br><br>';
-              EmailBody:=EmailBody+'_____________________________________________________________________________<br>';
-              EmailBody:=EmailBody+'<i>This is a system generated email, do not reply to this email</i><br>';
+            repeat
+                //SMTPMailSetup.Get;
+                EmailBody := '';
+                EmailBody := EmailBody + 'Dear ' + UserSetup."User ID" + ',<br><br>';
+                EmailBody := EmailBody + 'Here are details of a purchase requisition that has been approved under your system USER ID.: ' + '<br>';
+                EmailBody := EmailBody + '_____________________________________________________________________________<br>';
+                EmailBody := EmailBody + 'Request No.: ' + PurchaseRequisitions."No." + '<br>';
+                EmailBody := EmailBody + 'Date: ' + Format(PurchaseRequisitions."Requested Receipt Date") + '<br>';
+                EmailBody := EmailBody + 'Amount: ' + Format(PurchaseRequisitions.Amount) + '<br>';
+                EmailBody := EmailBody + 'Description: ' + PurchaseRequisitions.Description + '<br>';
+                EmailBody := EmailBody + 'Find attached Requisition ' + '.<br>';
+                EmailBody := EmailBody + 'Regards ' + '.<br><br>';
+                EmailBody := EmailBody + '_____________________________________________________________________________<br>';
+                EmailBody := EmailBody + '<i>This is a system generated email, do not reply to this email</i><br>';
 
-              CompanyInformation.Get;
-              SenderName:='Microsoft Dynamics 365 BC';
-            //  SenderAddress:=SMTPMailSetup."User ID";
-              Subject:='Purchase Request - '+PurchaseRequisitions."No."+'-'+Format(PurchaseRequisitions."Requested Receipt Date");
-              Recipients:=UserSetup."E-Mail";
-              RecipientsBCC:='';
+                CompanyInformation.Get;
+                SenderName := 'Microsoft Dynamics 365 BC';
+                //  SenderAddress:=SMTPMailSetup."User ID";
+                Subject := 'Purchase Request - ' + PurchaseRequisitions."No." + '-' + Format(PurchaseRequisitions."Requested Receipt Date");
+                Recipients := UserSetup."E-Mail";
+                RecipientsBCC := '';
 
-              if Recipients <> '' then
-               InsertEmailMessage(SenderName,SenderAddress,Subject,Recipients,RecipientsCC,RecipientsBCC,EmailBody,PurchaseRequisitions."No.");
+                if Recipients <> '' then
+                    InsertEmailMessage(SenderName, SenderAddress, Subject, Recipients, RecipientsCC, RecipientsBCC, EmailBody, PurchaseRequisitions."No.");
 
-            until UserSetup.Next=0;
-          end;
+            until UserSetup.Next = 0;
+        end;
     end;
 }
 

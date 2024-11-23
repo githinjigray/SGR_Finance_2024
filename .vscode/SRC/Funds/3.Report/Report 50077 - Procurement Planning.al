@@ -209,7 +209,7 @@ report 50077 "Procurement Planning"
                 column(ProcurementPlanType_ProcurementPlanningLine; "Procurement Planning Line"."Procurement Plan Type")
                 {
                 }
-                column(ProcurementPlanGrouping_ProcurementPlanningLine; "Procurement Planning Line"."Procurement Plan Grouping")
+                column(ProcurementPlanGrouTINg_ProcurementPlanningLine; "Procurement Planning Line"."Procurement Plan GrouTINg")
                 {
                 }
                 column(GLBudgetLineAC_ProcurementPlanningLine; "Procurement Planning Line"."G/L Budget Line A/C")

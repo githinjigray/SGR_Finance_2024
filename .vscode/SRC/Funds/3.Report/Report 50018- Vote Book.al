@@ -36,7 +36,7 @@ report 50018 "Vote Book"
             column(BudgetedAmt; "G/L Account"."Budgeted Amount")
             {
             }
-            column(Logo; CompInf.Picture)
+            column(Logo; ComTINf.Picture)
             {
             }
             column(ActualExpenditure; ActualExpenditure)
@@ -102,8 +102,8 @@ report 50018 "Vote Book"
 
             trigger OnPreDataItem()
             begin
-                CompInf.Get;
-                CompInf.CalcFields(CompInf.Picture);
+                ComTINf.Get;
+                ComTINf.CalcFields(ComTINf.Picture);
             end;
         }
     }
@@ -146,7 +146,7 @@ report 50018 "Vote Book"
         PostingDateFilter: Date;
         AmtCommitted: Decimal;
         BudgetEntry: Record "G/L Budget Entry";
-        CompInf: Record "Company Information";
+        ComTINf: Record "Company Information";
         GLFilter: Text;
         PeriodText: Text[30];
         BudgetCode: Code[80];

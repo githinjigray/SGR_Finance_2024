@@ -23,9 +23,9 @@ tableextension 70611 "Company Information Ext2" extends "General Ledger Setup"
             Caption = 'Telephone No.';
             DataClassification = ToBeClassified;
         }
-        field(70004; "Company PIN"; Text[100])
+        field(70004; "Company TIN"; Text[100])
         {
-            Caption = 'Company PIN';
+            Caption = 'Company TIN';
             DataClassification = ToBeClassified;
         }
         field(70005; "Company URL"; Text[100])

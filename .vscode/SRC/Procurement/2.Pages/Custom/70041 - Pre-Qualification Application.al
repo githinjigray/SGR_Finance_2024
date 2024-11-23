@@ -53,10 +53,10 @@ page 70041 "Pre-Qualification Application"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Phone No. field';
                 }
-                field("PIN No."; Rec."PIN No.")
+                field("TIN No."; Rec."TIN No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the PIN No. field';
+                    ToolTip = 'Specifies the TIN No. field';
                 }
                 field("Postal Address"; Rec."Postal Address")
                 {
