@@ -12,11 +12,12 @@ table 50012 "Receipt Header"
             DataClassification = ToBeClassified;
             trigger OnValidate()
             begin
-                if "No." <> xRec."No." then begin
-                    FundsGeneralSetup.Get;
-                    NoSeriesMgt.TestManual(FundsGeneralSetup."Receipt Nos.");
-                    "No. Series" := '';
-                end;
+                FundsGeneralSetup.get;
+                FundsGeneralSetup.TESTFIELD(FundsGeneralSetup."Receipt Nos.");
+                "No. Series" := FundsGeneralSetup."Receipt Nos.";
+                if NoSeriesMgt.AreRelated(FundsGeneralSetup."Receipt Nos.", xRec."No. Series") then
+                    "No. Series" := xRec."No. Series";
+                "No." := NoSeriesMgt.GetNextNo("No. Series");
             end;
         }
         field(2; "Document Type"; Option)

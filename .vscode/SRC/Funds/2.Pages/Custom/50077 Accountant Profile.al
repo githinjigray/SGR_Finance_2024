@@ -246,26 +246,26 @@ page 50077 "Accountant Role Center3"
                 {
                     RunObject = Page "Funds Transfer List";
                 }
-                action("Funds Claim")
-                {
-                    RunObject = Page "Funds Claim List";
-                    RunPageView = WHERE(Status = FILTER(<> Posted));
-                }
-                action("New Fixed Deposits")
-                {
-                    RunObject = Page "FD Transfer Term Amount List";
-                    RunPageView = WHERE("Fixed Deposit Status" = FILTER("Open "));
-                }
-                action("Active Fixed Deposits")
-                {
-                    RunObject = Page "FD Transfer Term Amount List";
-                    RunPageView = WHERE("Fixed Deposit Status" = FILTER(Active));
-                }
-                action("Matured Fixed Deposits")
-                {
-                    RunObject = Page "FD Transfer Term Amount List";
-                    RunPageView = WHERE("Fixed Deposit Status" = FILTER(Matured));
-                }
+                // action("Funds Claim")
+                // {
+                //     RunObject = Page "Funds Claim List";
+                //     RunPageView = WHERE(Status = FILTER(<> Posted));
+                // }
+                // action("New Fixed Deposits")
+                // {
+                //     RunObject = Page "FD Transfer Term Amount List";
+                //     RunPageView = WHERE("Fixed Deposit Status" = FILTER("Open "));
+                // }
+                // action("Active Fixed Deposits")
+                // {
+                //     RunObject = Page "FD Transfer Term Amount List";
+                //     RunPageView = WHERE("Fixed Deposit Status" = FILTER(Active));
+                // }
+                // action("Matured Fixed Deposits")
+                // {
+                //     RunObject = Page "FD Transfer Term Amount List";
+                //     RunPageView = WHERE("Fixed Deposit Status" = FILTER(Matured));
+                // }
 
             }
             group("Approved Funds Transactions")

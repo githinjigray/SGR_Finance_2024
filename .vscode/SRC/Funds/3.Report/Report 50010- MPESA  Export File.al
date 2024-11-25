@@ -8,7 +8,6 @@ report 50010 "MPESA  Export File"
     {
         dataitem("Payment Header"; "Payment Header")
         {
-            DataItemTableView = WHERE("Payment Mode" = CONST(MPESA));
             RequestFilterFields = "Bank Account No.", "Posting Date", Status;
             column(PaymentMode_PaymentHeader; "Payment Header"."Payment Mode")
             {

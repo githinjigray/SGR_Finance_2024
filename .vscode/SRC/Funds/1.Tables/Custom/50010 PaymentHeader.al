@@ -618,11 +618,14 @@ table 50010 "Payment Header"
             if "Payment Type" = "Payment Type"::"Cash Payment" then begin
                 FundsGeneralSetup.get;
                 FundsGeneralSetup.TESTFIELD(FundsGeneralSetup."Cash Voucher Nos.");
-                NoSeriesMgt.GetNextNo(FundsGeneralSetup."Cash Voucher Nos.", Today, false);
+                "No. Series" := FundsGeneralSetup."Cash Voucher Nos.";
+                if NoSeriesMgt.AreRelated(FundsGeneralSetup."Cash Voucher Nos.", xRec."No. Series") then
+                    "No. Series" := xRec."No. Series";
+                "No." := NoSeriesMgt.GetNextNo("No. Series");
             end;
         end;
         "Document Type" := "Document Type"::Payment;
-        //"Posting Date" := Today;
+        "Posting Date" := Today;
         "Document Date" := Today;
         "User ID" := UserId;
         Status := Status::Open;

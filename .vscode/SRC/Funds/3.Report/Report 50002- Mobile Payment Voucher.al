@@ -9,7 +9,7 @@ report 50002 "Mobile Payment Voucher"
     {
         dataitem("Payment Header"; "Payment Header")
         {
-            DataItemTableView = SORTING("No.") WHERE("Payment Mode" = CONST(MPESA));
+            //DataItemTableView = SORTING("No.") WHERE("Payment Mode" = CONST(MPESA));
             RequestFilterFields = "No.";
             column(No; "No.")
             {

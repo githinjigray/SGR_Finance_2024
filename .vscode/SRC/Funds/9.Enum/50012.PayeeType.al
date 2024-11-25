@@ -17,24 +17,12 @@ enum 50012 "Payee Type"
     value(3; Customer)
     {
         Caption = 'Customer';
-    }
-    value(4; "Salary Advance")
-    {
-        Caption = 'Salary Advance';
-    }
-    value(5; "Funds Claim")
-    {
-        Caption = 'Funds Claim';
-    }
-    value(6; "Activity Request")
-    {
-        Caption = 'Activity Request';
-    }
-    value(7; GL)
+    } 
+    value(4; GL)
     {
         Caption = 'GL';
     }
-    value(8; "Pre-Payment")
+    value(5; "Pre-Payment")
     {
         Caption = 'Pre-Payment';
     }

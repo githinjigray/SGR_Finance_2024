@@ -589,11 +589,7 @@ table 50011 "Payment Line"
             ELSE
             IF ("Payee Type" = CONST(GL)) "G/L Account"."No."
             ELSE
-            IF ("Payee Type" = CONST("Pre-Payment")) Vendor."No."
-            ELSE
-            IF ("Payee Type" = FILTER("Funds Claim")) "Funds Claim Header"."No." WHERE(Status = CONST(Approved))
-            else
-            IF ("Payee Type" = CONST("activity request")) "Travel Request Header"."No." where(Status = const(Approved), Posted = const(true));
+            IF ("Payee Type" = CONST("Pre-Payment")) Vendor."No.";
 
             trigger OnValidate()
             begin
@@ -671,106 +667,7 @@ table 50011 "Payment Line"
                     "Account No." := "Payee No.";
                     VALIDATE("Account No.");
                 END;
-
-                IF "Payee Type" = "Payee Type"::"Funds Claim" THEN BEGIN
-                    FundsClaimHeader.RESET;
-                    FundsClaimHeader.SETRANGE(FundsClaimHeader."No.", "Payee No.");
-                    IF FundsClaimHeader.FINDFIRST THEN BEGIN
-
-                        PaymentLine.RESET;
-                        PaymentLine.SETRANGE(PaymentLine."Payee No.", "Payee No.");
-                        IF PaymentLine.FINDFIRST THEN
-                            ERROR(Text006, PaymentLine."Document No.");
-
-                        FundsClaimHeader.CALCFIELDS(FundsClaimHeader.Amount);
-                        FundsClaimHeader.CALCFIELDS(FundsClaimHeader."Amount(LCY)");
-                        FundsClaimLine.RESET;
-                        FundsClaimLine.SETRANGE(FundsClaimLine."Document No.", FundsClaimHeader."No.");
-                        IF FundsClaimLine.FINDFIRST THEN BEGIN
-                            "Account Type" := "Account Type"::"G/L Account";
-                            "Account No." := FundsClaimLine."Account No.";
-                            VALIDATE("Account No.");
-                        END;
-                        Description := FundsClaimHeader.Description;
-                        "Total Amount" := FundsClaimHeader.Amount;
-                        VALIDATE("Total Amount");
-                        "Global Dimension 1 Code" := FundsClaimHeader."Global Dimension 1 Code";
-                        "Global Dimension 2 Code" := FundsClaimHeader."Global Dimension 2 Code";
-                        "Shortcut Dimension 3 Code" := FundsClaimHeader."Shortcut Dimension 3 Code";
-                        "Shortcut Dimension 4 Code" := FundsClaimHeader."Shortcut Dimension 4 Code";
-                        "Shortcut Dimension 5 Code" := FundsClaimHeader."Shortcut Dimension 5 Code";
-                        "Shortcut Dimension 6 Code" := FundsClaimHeader."Shortcut Dimension 6 Code";
-                        "Shortcut Dimension 7 Code" := FundsClaimHeader."Shortcut Dimension 7 Code";
-                        "Shortcut Dimension 8 Code" := FundsClaimHeader."Shortcut Dimension 8 Code";
-
-                        PaymentHeader.RESET;
-                        PaymentHeader.SETRANGE(PaymentHeader."No.", "Document No.");
-                        IF PaymentHeader.FINDFIRST THEN BEGIN
-                            IF PaymentHeader."Payee Name" = '' THEN BEGIN
-                                PaymentHeader."Payee Name" := FundsClaimHeader."Payee Name";
-                            END;
-                            PaymentHeader."Global Dimension 1 Code" := FundsClaimHeader."Global Dimension 1 Code";
-                            PaymentHeader."Global Dimension 2 Code" := FundsClaimHeader."Global Dimension 2 Code";
-                            PaymentHeader."Shortcut Dimension 3 Code" := FundsClaimHeader."Shortcut Dimension 3 Code";
-                            PaymentHeader."Shortcut Dimension 4 Code" := FundsClaimHeader."Shortcut Dimension 4 Code";
-                            PaymentHeader."Shortcut Dimension 5 Code" := FundsClaimHeader."Shortcut Dimension 5 Code";
-                            PaymentHeader."Shortcut Dimension 6 Code" := FundsClaimHeader."Shortcut Dimension 6 Code";
-                            PaymentHeader."Shortcut Dimension 7 Code" := FundsClaimHeader."Shortcut Dimension 7 Code";
-                            PaymentHeader."Shortcut Dimension 8 Code" := FundsClaimHeader."Shortcut Dimension 8 Code";
-                            PaymentHeader.MODIFY;
-                        END;
-                    END;
-                END;
-                IF "Payee Type" = "Payee Type"::"Activity Request" THEN BEGIN
-                    ActivityRequest.RESET;
-                    ActivityRequest.SETRANGE(ActivityRequest."No.", "Payee No.");
-                    IF ActivityRequest.FINDFIRST THEN BEGIN
-
-                        PaymentLine.RESET;
-                        PaymentLine.SETRANGE(PaymentLine."Payee No.", "Payee No.");
-                        IF PaymentLine.FINDFIRST THEN
-                            ERROR(Text006, PaymentLine."Document No.");
-
-                        ActivityRequest.CALCFIELDS(ActivityRequest.Amount);
-                        ActivityRequest.CALCFIELDS(ActivityRequest."Amount(LCY)");
-                        ActivityRequestLine.RESET;
-                        ActivityRequestLine.SETRANGE(ActivityRequestLine."Document No.", ActivityRequest."No.");
-                        IF ActivityRequestLine.FINDFIRST THEN BEGIN
-                            "Account Type" := "Account Type"::"G/L Account";
-                            "Account No." := ActivityRequestLine."Account No.";
-                            VALIDATE("Account No.");
-                        END;
-                        Description := ActivityRequest.Description;
-                        "Total Amount" := ActivityRequest.Amount;
-                        VALIDATE("Total Amount");
-                        "Global Dimension 1 Code" := ActivityRequest."Global Dimension 1 Code";
-                        "Global Dimension 2 Code" := ActivityRequest."Global Dimension 2 Code";
-                        "Shortcut Dimension 3 Code" := ActivityRequest."Shortcut Dimension 3 Code";
-                        "Shortcut Dimension 4 Code" := ActivityRequest."Shortcut Dimension 4 Code";
-                        "Shortcut Dimension 5 Code" := ActivityRequest."Shortcut Dimension 5 Code";
-                        "Shortcut Dimension 6 Code" := ActivityRequest."Shortcut Dimension 6 Code";
-                        "Shortcut Dimension 7 Code" := ActivityRequest."Shortcut Dimension 7 Code";
-                        "Shortcut Dimension 8 Code" := ActivityRequest."Shortcut Dimension 8 Code";
-
-                        PaymentHeader.RESET;
-                        PaymentHeader.SETRANGE(PaymentHeader."No.", "Document No.");
-                        IF PaymentHeader.FINDFIRST THEN BEGIN
-                            IF PaymentHeader."Payee Name" = '' THEN BEGIN
-                                PaymentHeader."Payee Name" := ActivityRequest."Employee Name";
-                            END;
-                            PaymentHeader."Global Dimension 1 Code" := ActivityRequest."Global Dimension 1 Code";
-                            PaymentHeader."Global Dimension 2 Code" := ActivityRequest."Global Dimension 2 Code";
-                            PaymentHeader."Shortcut Dimension 3 Code" := ActivityRequest."Shortcut Dimension 3 Code";
-                            PaymentHeader."Shortcut Dimension 4 Code" := ActivityRequest."Shortcut Dimension 4 Code";
-                            PaymentHeader."Shortcut Dimension 5 Code" := ActivityRequest."Shortcut Dimension 5 Code";
-                            PaymentHeader."Shortcut Dimension 6 Code" := ActivityRequest."Shortcut Dimension 6 Code";
-                            PaymentHeader."Shortcut Dimension 7 Code" := ActivityRequest."Shortcut Dimension 7 Code";
-                            PaymentHeader."Shortcut Dimension 8 Code" := ActivityRequest."Shortcut Dimension 8 Code";
-                            PaymentHeader.MODIFY;
-                        END;
-                    END;
-                END;
-            end;
+            END;
         }
         field(35; "Vendor Invoice No."; Code[50])
         {

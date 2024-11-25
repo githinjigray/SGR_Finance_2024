@@ -138,20 +138,7 @@ page 50028 "Posted Funds Transfer List"
                 field("Shortcut Dimension 3 Code"; rec."Shortcut Dimension 3 Code")
                 {
                     ApplicationArea = All;
-                }
-                field("Shortcut Dimension 4 Code"; rec."Shortcut Dimension 4 Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Shortcut Dimension 5 Code"; rec."Shortcut Dimension 5 Code")
-                {
-                    ApplicationArea = All;
-
-                }
-                field("Shortcut Dimension 6 Code"; rec."Shortcut Dimension 6 Code")
-                {
-                    ApplicationArea = All;
-                }
+                }                 
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
