@@ -1,7 +1,7 @@
 report 50069 "Request for Quotation"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Request for Quotation.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Request for Quotation.rdl';
     ApplicationArea = All;
 
     dataset
