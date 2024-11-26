@@ -1,7 +1,7 @@
 report 50095 "Stock Take Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Stock Take Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Stock Take Report.rdlc';
     ApplicationArea = All;
 
     dataset

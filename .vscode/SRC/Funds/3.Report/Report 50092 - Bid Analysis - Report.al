@@ -1,7 +1,7 @@
 report 50092 "Bid Analysis - Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Bid Analysis - Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bid Analysis - Report.rdlc';
     ApplicationArea = All;
 
     dataset

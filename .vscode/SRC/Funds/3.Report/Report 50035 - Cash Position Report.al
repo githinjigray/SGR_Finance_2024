@@ -1,7 +1,7 @@
 report 50035 "Cash Position Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Cash Position Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Cash Position Report.rdlc';
     ApplicationArea = All;
 
     dataset

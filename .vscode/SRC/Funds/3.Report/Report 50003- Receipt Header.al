@@ -1,7 +1,7 @@
 report 50003 "Receipt Header"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Receipt Header.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Receipt Header.rdlc';
     ApplicationArea = All;
 
     dataset

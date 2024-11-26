@@ -1,7 +1,7 @@
 report 50068 "New Purchase Order"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/New Purchase Order.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/New Purchase Order.rdlc';
     ApplicationArea = All;
 
     dataset

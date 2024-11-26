@@ -69,6 +69,7 @@ table 70010 "Procurement Planning Line"
         field(16; "Unit of Measure"; Text[10])
         {
             Caption = 'Unit of Measure';
+            TableRelation = "Unit of Measure".Code;
             DataClassification = ToBeClassified;
         }
         field(17; Quantity; Decimal)
@@ -86,8 +87,8 @@ table 70010 "Procurement Planning Line"
         field(19; "Source of Funds"; Option)
         {
             Caption = 'Source of Funds';
-            OptionMembers = " ",Budget,GOK,Donor;
-            OptionCaption = ' ,Budget,GOK,Donor';
+            OptionMembers = " ",Budget,Donor;
+            OptionCaption = ' ,Budget,Donor';
             DataClassification = ToBeClassified;
         }
         field(20; "Estimated cost"; Decimal)
@@ -256,14 +257,14 @@ table 70010 "Procurement Planning Line"
             Caption = 'Global Dimension 2 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,2';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(2), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Global Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(2), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
         field(82; "Shortcut Dimension 3 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 3 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,3';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(3), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Global Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(3), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
         field(83; "Shortcut Dimension 4 Code"; Code[20])
         {

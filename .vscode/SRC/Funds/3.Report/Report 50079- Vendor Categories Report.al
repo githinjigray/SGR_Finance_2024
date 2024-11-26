@@ -1,7 +1,7 @@
 report 50079 "Vendor Categories Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Vendor Categories Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Vendor Categories Report.rdlc';
     ApplicationArea = All;
 
     dataset

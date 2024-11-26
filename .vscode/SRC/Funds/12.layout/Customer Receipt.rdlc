@@ -1,0 +1,2164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>4df9045c-3d64-404d-a2e6-5d25e221f845</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">RECEIPT</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.28043in</Top>
+            <Left>2.05565in</Left>
+            <Height>0.25in</Height>
+            <Width>3.94792in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_Date_Caption">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Description:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>4.64007cm</Top>
+            <Left>1.40528cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.79833cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__Payments_Header__Date">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=Fields!Description_ReceiptHeader.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>4.64007cm</Top>
+            <Left>4.38cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.98205cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payment_To_Caption">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Receipt No:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>4.07596cm</Top>
+            <Left>1.37882cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.82479cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header_Payee">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!No_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>4.04068cm</Top>
+            <Left>4.38882cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.91149cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_No___Caption">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Receipt Date:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>4.55724cm</Top>
+            <Left>10.43261cm</Left>
+            <Height>0.50583cm</Height>
+            <Width>2.7984cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_No___Caption2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Cheque/Ref No:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>3.99279cm</Top>
+            <Left>10.40615cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.82486cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__No__3">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!ReferenceNo_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>3.99313cm</Top>
+            <Left>13.43379cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.98205cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_Date_Caption2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Received From:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.80357cm</Top>
+            <Left>1.40535cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.79833cm</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__Payments_Header__Date2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!ReceivedFrom_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.76829cm</Top>
+            <Left>4.41535cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.9467cm</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payment_To_Caption2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Account of:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.23946cm</Top>
+            <Left>1.37882cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.82479cm</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header_Payee2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!ClientName_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.20418cm</Top>
+            <Left>4.38cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.91149cm</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_Date_Caption3">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">You were Served By:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>13.02526cm</Top>
+            <Left>1.25189cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.95172cm</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_Date_Caption5">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Amount Received:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.80357cm</Top>
+            <Left>10.46788cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.79833cm</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__No__2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!HrEmployeeName.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>13.02526cm</Top>
+            <Left>4.34472cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.86394cm</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header_Payee4">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!AmountReceived_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>n2</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.80357cm</Top>
+            <Left>13.50442cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.91149cm</Width>
+            <ZIndex>15</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__No__4">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!DocumentDate_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <Format>MMM d, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>4.59252cm</Top>
+            <Left>13.33684cm</Left>
+            <Height>0.47055cm</Height>
+            <Width>6.079cm</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_Date_Caption4">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Account No:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>6.3324cm</Top>
+            <Left>1.40535cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.79833cm</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__Payments_Header__Date3">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!ClientNo_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>6.29712cm</Top>
+            <Left>4.41535cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.90261cm</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Document_Date_Caption6">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Outstanding Balance</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>6.3324cm</Top>
+            <Left>10.46788cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.96598cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header_Payee5">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!BalnceAmount_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>n2</Format>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>6.3324cm</Top>
+            <Left>13.50442cm</Left>
+            <Height>0.423cm</Height>
+            <Width>5.91149cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.49502in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.38892in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.96951in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.26864in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Receipt Code</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Invoice No.</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Property Name</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=First(Fields!ReceiptAmount.Value, "DataSet_Result")</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve" EvaluationMode="Auto"> </Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.19792in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ReceiptCode_ReceiptLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!ReceiptCode_ReceiptLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ReceiptCode_ReceiptLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ExTNo">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!ExTNo.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ExTNo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="PropertyName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!PropertyName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>PropertyName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Amount_ReceiptLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!Amount_ReceiptLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>n2</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Amount_ReceiptLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.1875in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Total:</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Amount_ReceiptLine2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Sum(Fields!Amount_ReceiptLine.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>n2</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Amount_ReceiptLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details">
+                    <Filters>
+                      <Filter>
+                        <FilterExpression>=Fields!Amount_ReceiptLine.Value</FilterExpression>
+                        <Operator>GreaterThan</Operator>
+                        <FilterValues>
+                          <FilterValue DataType="Integer">0</FilterValue>
+                        </FilterValues>
+                      </Filter>
+                    </Filters>
+                  </Group>
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!Amount_ReceiptLine.Value</FilterExpression>
+                <Operator>NotEqual</Operator>
+                <FilterValues>
+                  <FilterValue DataType="Integer">0</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
+            <Top>3.54112in</Top>
+            <Left>0.53589in</Left>
+            <Height>0.63542in</Height>
+            <Width>7.12209in</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Line Name="Line2">
+            <Top>3.41807in</Top>
+            <Left>0.53589in</Left>
+            <Height>0in</Height>
+            <Width>7.23in</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Document_Date_Caption7">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Amount in Words:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>7.61971cm</Top>
+            <Left>1.36115cm</Left>
+            <Height>0.423cm</Height>
+            <Width>2.79833cm</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__Payments_Header__Date4">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value xml:space="preserve" EvaluationMode="Auto">   </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!CurrencyCode_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">.</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!TotalAmountText.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">***</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Format>dd MMMM, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>7.58443cm</Top>
+            <Left>4.37115cm</Left>
+            <Height>0.75353cm</Height>
+            <Width>15.00049cm</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Image Name="Image1">
+            <Source>Database</Source>
+            <Value>=First(Fields!CompanyInfoPic.Value, "DataSet_Result")</Value>
+            <MIMEType>image/jpeg</MIMEType>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.14111cm</Top>
+            <Left>1.32252cm</Left>
+            <Height>2.46992cm</Height>
+            <Width>4.38379cm</Width>
+            <ZIndex>25</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Line Name="line6">
+            <Top>2.78742cm</Top>
+            <Left>0.85477cm</Left>
+            <Height>0cm</Height>
+            <Width>19.59285cm</Width>
+            <ZIndex>26</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+                <Width>2.25pt</Width>
+              </Border>
+              <TopBorder>
+                <Width>2.25pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Width>2.25pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Width>2.25pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Width>2.25pt</Width>
+              </RightBorder>
+            </Style>
+          </Line>
+          <Tablix Name="Tablix3">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>8.60847cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.59513cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CompanyInfoName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!CompanyInfoName.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CompanyInfoName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.36329cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CompanyInfoAddress">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!CompanyInfoAddress.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CompanyInfoAddress</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.44266cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CompanyInfoAddress2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!CompanyInfoAddress2.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CompanyInfoAddress2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.46912cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CompanyEmail">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!CompanyEmail.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CompanyEmail</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.47625cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CompanyInfoPhone">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!CompanyInfoPhone.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CompanyInfoPhone</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Top>0.12347cm</Top>
+            <Left>11.66214cm</Left>
+            <Height>2.34645cm</Height>
+            <Width>8.60847cm</Width>
+            <ZIndex>27</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Textbox Name="Document_No___Caption3">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Posting Date:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.20418cm</Top>
+            <Left>10.45907cm</Left>
+            <Height>0.50583cm</Height>
+            <Width>2.84249cm</Width>
+            <ZIndex>28</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Payments_Header__No__5">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!PostingDate_ReceiptHeader.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <Format>MMM d, yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.23946cm</Top>
+            <Left>13.40739cm</Left>
+            <Height>0.47055cm</Height>
+            <Width>6.079cm</Width>
+            <ZIndex>29</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Line Name="Line1">
+            <Top>4.53348in</Top>
+            <Left>0.54284in</Left>
+            <Height>0in</Height>
+            <Width>7.22305in</Width>
+            <ZIndex>30</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Payments_Header__No__6">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">Signature</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">:_________________________________________________________</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>13.02526cm</Top>
+            <Left>10.91924cm</Left>
+            <Height>0.423cm</Height>
+            <Width>8.73549cm</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>5.35015in</Height>
+        <Style />
+      </Body>
+      <Width>8.05024in</Width>
+      <Page>
+        <PageHeader>
+          <Height>0.53819in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="UserID">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=User!UserID</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>UserID</rd:DefaultName>
+              <Top>0.36724cm</Top>
+              <Left>14.70656cm</Left>
+              <Height>0.2825cm</Height>
+              <Width>4.70928cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="UserID2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=First(Fields!DATETIME.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>UserID</rd:DefaultName>
+              <Top>0.72029cm</Top>
+              <Left>14.70656cm</Left>
+              <Height>0.5056cm</Height>
+              <Width>4.70928cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>0.30208in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="PageNumber">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">Page: </Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=Globals!PageNumber</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>PageNumber</rd:DefaultName>
+              <Top>0.16302cm</Top>
+              <Left>8.07017cm</Left>
+              <Height>0.44125cm</Height>
+              <Width>3.4525cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="BalnceAmount_ReceiptHeader">
+          <DataField>BalnceAmount_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="BalnceAmount_ReceiptHeaderFormat">
+          <DataField>BalnceAmount_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="No_ReceiptHeader">
+          <DataField>No_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="DocumentType_ReceiptHeader">
+          <DataField>DocumentType_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="DocumentDate_ReceiptHeader">
+          <DataField>DocumentDate_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="PostingDate_ReceiptHeader">
+          <DataField>PostingDate_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="PaymentMode_ReceiptHeader">
+          <DataField>PaymentMode_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="ReceiptType_ReceiptHeader">
+          <DataField>ReceiptType_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="AccountNo_ReceiptHeader">
+          <DataField>AccountNo_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="AccountName_ReceiptHeader">
+          <DataField>AccountName_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="AccountBalance_ReceiptHeader">
+          <DataField>AccountBalance_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="AccountBalance_ReceiptHeaderFormat">
+          <DataField>AccountBalance_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="ReferenceNo_ReceiptHeader">
+          <DataField>ReferenceNo_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="ReceivedFrom_ReceiptHeader">
+          <DataField>ReceivedFrom_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="OnBehalfof_ReceiptHeader">
+          <DataField>OnBehalfof_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="CurrencyCode_ReceiptHeader">
+          <DataField>CurrencyCode_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_ReceiptHeader">
+          <DataField>CurrencyFactor_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_ReceiptHeaderFormat">
+          <DataField>CurrencyFactor_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="AmountReceived_ReceiptHeader">
+          <DataField>AmountReceived_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="AmountReceived_ReceiptHeaderFormat">
+          <DataField>AmountReceived_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="AmountReceivedLCY_ReceiptHeader">
+          <DataField>AmountReceivedLCY_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="AmountReceivedLCY_ReceiptHeaderFormat">
+          <DataField>AmountReceivedLCY_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="TotalLineAmount_ReceiptHeader">
+          <DataField>TotalLineAmount_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="TotalLineAmount_ReceiptHeaderFormat">
+          <DataField>TotalLineAmount_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="TotalLineAmountLCY_ReceiptHeader">
+          <DataField>TotalLineAmountLCY_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="TotalLineAmountLCY_ReceiptHeaderFormat">
+          <DataField>TotalLineAmountLCY_ReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="Description_ReceiptHeader">
+          <DataField>Description_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="ClientNo_ReceiptHeader">
+          <DataField>ClientNo_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="ClientName_ReceiptHeader">
+          <DataField>ClientName_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="ClientBalance_ReceiptHeader">
+          <DataField>ClientBalance_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="UserID_ReceiptHeader">
+          <DataField>UserID_ReceiptHeader</DataField>
+        </Field>
+        <Field Name="ReceiptAmount">
+          <DataField>ReceiptAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountText">
+          <DataField>TotalAmountText</DataField>
+        </Field>
+        <Field Name="HrEmployeeName">
+          <DataField>HrEmployeeName</DataField>
+        </Field>
+        <Field Name="CompanyInfoName">
+          <DataField>CompanyInfoName</DataField>
+        </Field>
+        <Field Name="CompanyInfoAddress">
+          <DataField>CompanyInfoAddress</DataField>
+        </Field>
+        <Field Name="CompanyInfoAddress2">
+          <DataField>CompanyInfoAddress2</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhone">
+          <DataField>CompanyInfoPhone</DataField>
+        </Field>
+        <Field Name="CompanyInfoPic">
+          <DataField>CompanyInfoPic</DataField>
+        </Field>
+        <Field Name="CompanyEmail">
+          <DataField>CompanyEmail</DataField>
+        </Field>
+        <Field Name="CompanyWebPage">
+          <DataField>CompanyWebPage</DataField>
+        </Field>
+        <Field Name="IssuingOfficer">
+          <DataField>IssuingOfficer</DataField>
+        </Field>
+        <Field Name="DATETIME">
+          <DataField>DATETIME</DataField>
+        </Field>
+        <Field Name="PropertyName">
+          <DataField>PropertyName</DataField>
+        </Field>
+        <Field Name="ExTNo">
+          <DataField>ExTNo</DataField>
+        </Field>
+        <Field Name="LineNo_ReceiptLine">
+          <DataField>LineNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="DocumentNo_ReceiptLine">
+          <DataField>DocumentNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="DocumentType_ReceiptLine">
+          <DataField>DocumentType_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ReceiptCode_ReceiptLine">
+          <DataField>ReceiptCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="ReceiptCodeDescription_ReceiptLine">
+          <DataField>ReceiptCodeDescription_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AccountType_ReceiptLine">
+          <DataField>AccountType_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AccountNo_ReceiptLine">
+          <DataField>AccountNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AccountName_ReceiptLine">
+          <DataField>AccountName_ReceiptLine</DataField>
+        </Field>
+        <Field Name="PostingGroup_ReceiptLine">
+          <DataField>PostingGroup_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Description_ReceiptLine">
+          <DataField>Description_ReceiptLine</DataField>
+        </Field>
+        <Field Name="PostingDate_ReceiptLine">
+          <DataField>PostingDate_ReceiptLine</DataField>
+        </Field>
+        <Field Name="CurrencyCode_ReceiptLine">
+          <DataField>CurrencyCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_ReceiptLine">
+          <DataField>CurrencyFactor_ReceiptLine</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_ReceiptLineFormat">
+          <DataField>CurrencyFactor_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="Amount_ReceiptLine">
+          <DataField>Amount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="Amount_ReceiptLineFormat">
+          <DataField>Amount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY_ReceiptLine">
+          <DataField>AmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="AmountLCY_ReceiptLineFormat">
+          <DataField>AmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="VATCode_ReceiptLine">
+          <DataField>VATCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="VATAmount_ReceiptLine">
+          <DataField>VATAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="VATAmount_ReceiptLineFormat">
+          <DataField>VATAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="VATAmountLCY_ReceiptLine">
+          <DataField>VATAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="VATAmountLCY_ReceiptLineFormat">
+          <DataField>VATAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingTaxCode_ReceiptLine">
+          <DataField>WithholdingTaxCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmount_ReceiptLine">
+          <DataField>WithholdingTaxAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmount_ReceiptLineFormat">
+          <DataField>WithholdingTaxAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmountLCY_ReceiptLine">
+          <DataField>WithholdingTaxAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingTaxAmountLCY_ReceiptLineFormat">
+          <DataField>WithholdingTaxAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingVATCode_ReceiptLine">
+          <DataField>WithholdingVATCode_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmount_ReceiptLine">
+          <DataField>WithholdingVATAmount_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmount_ReceiptLineFormat">
+          <DataField>WithholdingVATAmount_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmountLCY_ReceiptLine">
+          <DataField>WithholdingVATAmountLCY_ReceiptLine</DataField>
+        </Field>
+        <Field Name="WithholdingVATAmountLCY_ReceiptLineFormat">
+          <DataField>WithholdingVATAmountLCY_ReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="AppliestoDocNo_ReceiptLine">
+          <DataField>AppliestoDocNo_ReceiptLine</DataField>
+        </Field>
+        <Field Name="SequenceNo">
+          <DataField>SequenceNo</DataField>
+        </Field>
+        <Field Name="LastDateTimeModified">
+          <DataField>LastDateTimeModified</DataField>
+        </Field>
+        <Field Name="ApproverID">
+          <DataField>ApproverID</DataField>
+        </Field>
+        <Field Name="ApproverID_ApprovalEntry">
+          <DataField>ApproverID_ApprovalEntry</DataField>
+        </Field>
+        <Field Name="SenderID">
+          <DataField>SenderID</DataField>
+        </Field>
+        <Field Name="ApproverName">
+          <DataField>ApproverName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

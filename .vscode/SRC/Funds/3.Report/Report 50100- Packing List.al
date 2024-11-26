@@ -1,7 +1,7 @@
 report 50100 "Packing List"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Packing List.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Packing List.rdlc';
     Caption = 'Packing List';
     ApplicationArea = All;
     dataset

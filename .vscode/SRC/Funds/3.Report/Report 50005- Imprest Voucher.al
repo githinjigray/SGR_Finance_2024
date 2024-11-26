@@ -1,7 +1,7 @@
 report 50005 "Imprest Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Imprest Voucher.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Imprest Voucher.rdlc';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50089 "Account Payable Ageing"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Account Payable Ageing.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Account Payable Ageing.rdlc';
     ApplicationArea = All;
 
     dataset

@@ -1,7 +1,7 @@
 report 50015 "Bank Acc ReconciliationTest"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Bank Acc ReconciliationTest.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Acc ReconciliationTest.rdlc';
     ApplicationArea = All;
 
     dataset

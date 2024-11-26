@@ -1,7 +1,7 @@
 report 50098 "Inventory By Location"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Inventory By Location.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Inventory By Location.rdlc';
     ApplicationArea = All;
 
     dataset

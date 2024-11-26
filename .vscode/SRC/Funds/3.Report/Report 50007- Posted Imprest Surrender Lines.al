@@ -1,7 +1,7 @@
 report 50007 "Posted Imprest Surrender Lines"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Posted Imprest Surrender Lines.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Posted Imprest Surrender Lines.rdlc';
     ApplicationArea = All;
 
     dataset

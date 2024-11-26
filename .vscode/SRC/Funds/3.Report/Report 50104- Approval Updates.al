@@ -1,7 +1,7 @@
 report 50104 "Approval Updates"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Approval Updates.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Approval Updates.rdlc';
     Caption = 'Approval Updates';
     ProcessingOnly = true;
     ApplicationArea = All;

@@ -418,26 +418,26 @@ page 70046 "Procurement Profile"
             action("Request for Quotation")
             {
                 Caption = 'Request for Quotation';
-                RunObject = Page "Request for Quotation List";
+                RunObject = Page "Request for Quotation Card";
+                RunPageMode = Create;
             }
             action(Action12)
             {
                 Caption = 'Purchase Requisition';
-                RunObject = Page "Purchase Requisition List";
+                RunObject = Page "Purchase Requisition Card";
+                RunPageMode = Create;
             }
             action("Bid Analysis")
             {
                 Caption = 'Bid Analysis';
-                RunObject = Page "Bid Analysis List";
+                RunObject = Page "Bid Analysis Card";
+                RunPageMode = Create;
             }
             action("Purchase &Quote")
             {
                 ApplicationArea = Suite;
                 Caption = 'Purchase &Quote';
                 Image = Quote;
-                //Promoted = false;
-                //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                //PromotedCategory = Process;
                 RunObject = Page "Purchase Quote";
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase quote, for example to reflect a request for quote.';
@@ -447,9 +447,6 @@ page 70046 "Procurement Profile"
                 ApplicationArea = Basic, Suite;
                 Caption = 'Purchase &Invoice';
                 Image = NewPurchaseInvoice;
-                //Promoted = false;
-                //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                //PromotedCategory = Process;
                 RunObject = Page "Purchase Invoice";
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase invoice.';
@@ -459,9 +456,6 @@ page 70046 "Procurement Profile"
                 ApplicationArea = Suite;
                 Caption = 'Purchase &Order';
                 Image = Document;
-                //Promoted = false;
-                //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                //PromotedCategory = Process;
                 RunObject = Page "Purchase Order";
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase order.';
@@ -471,9 +465,6 @@ page 70046 "Procurement Profile"
                 ApplicationArea = PurchReturnOrder;
                 Caption = 'Purchase Credit Memo';
                 Image = ReturnOrder;
-                //Promoted = false;
-                //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
-                //PromotedCategory = Process;
                 RunObject = Page "Purchase Credit Memo";
                 RunPageMode = Create;
                 ToolTip = 'Create a new purchase return order to return received items.';
@@ -489,9 +480,6 @@ page 70046 "Procurement Profile"
             action("Closed Requisition Lines")
             {
                 Image = ReceivablesPayables;
-                //Promoted = true;
-                // PromotedCategory = Process;
-                //PromotedIsBig = true;
                 RunObject = Page "All Purchase Requisition Lines";
                 RunPageView = WHERE(Closed = CONST(true));
             }
@@ -508,36 +496,6 @@ page 70046 "Procurement Profile"
                 ToolTip = 'Upload Items';
             }
 
-            action("Upload Prequalified Suppliers")
-            {
-                Caption = 'Upload Prequalified Suppliers';
-                RunObject = xmlport "Prequalified Vendors Upload";
-                ToolTip = 'Upload Prequalified Suppliers';
-            }
-            action("Upload Vendors")
-            {
-                Caption = 'Upload Vendors';
-                RunObject = xmlport "Vendors Upload";
-                ToolTip = 'Upload Vendors';
-            }
-            // action("Upload Fixed Assets")
-            // {
-            //     Caption = 'Upload Dimension Values';
-            //     RunObject = xmlport "Upload Dimension Values";
-            //     ToolTip = 'Upload Dimension Values';
-            // }
-            // action("Upload items 2")
-            // {
-            //     Caption = 'Upload items 2';
-            //     RunObject = xmlport "Item 2 Upload";
-            //     ToolTip = 'Upload Dimension Values';
-            // }
-            // action("Dummy upload")
-            // {
-            //     Caption = 'Upload transactions';
-            //     RunObject = xmlport "FA Upload";
-            //     ToolTip = 'Upload transactions';
-            // }
             action("Item &Journal")
             {
                 ApplicationArea = Basic, Suite;

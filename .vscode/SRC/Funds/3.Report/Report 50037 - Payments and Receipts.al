@@ -1,7 +1,7 @@
 report 50037 "Payments and Receipts"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Payments and Receipts.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Payments and Receipts.rdlc';
     ApplicationArea = All;
 
     dataset

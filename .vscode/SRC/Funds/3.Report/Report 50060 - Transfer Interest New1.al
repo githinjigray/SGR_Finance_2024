@@ -1,7 +1,7 @@
 report 50060 "Transfer Interest New1"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Transfer Interest New1.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Transfer Interest New1.rdlc';
 
     dataset
     {

@@ -64,6 +64,7 @@ table 70000 "Purchase Requisitions"
         {
             Caption = 'Currency Code';
             DataClassification = ToBeClassified;
+            TableRelation = Currency;
             trigger OnValidate()
             var
             begin

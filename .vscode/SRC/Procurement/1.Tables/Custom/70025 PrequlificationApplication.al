@@ -262,11 +262,12 @@ table 70025 "Prequlification Application"
 
     trigger OnInsert()
     begin
-        IF "Document No." = '' THEN BEGIN
-            PurchSetup.GET();
-            PurchSetup.TESTFIELD(PurchSetup."Procurement Plan Nos");
-            NoSeriesMgt.GetNextNo(PurchSetup."Procurement Plan Nos", Today, false);
-        END;
+        PurchSetup.get;
+        PurchSetup.TESTFIELD(PurchSetup."Tender Doc No.");
+        "No. Series" := PurchSetup."Tender Doc No.";
+        if NoSeriesMgt.AreRelated(PurchSetup."Tender Doc No.", xRec."No. Series") then
+            "No. Series" := xRec."No. Series";
+        "Document No." := NoSeriesMgt.GetNextNo("No. Series");
         "User ID" := UserId;
 
         ProcurementUploadDocuments2.RESET;

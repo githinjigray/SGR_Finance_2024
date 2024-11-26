@@ -1,7 +1,7 @@
 report 50025 "Cheque Print FT"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Cheque Print FT.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Cheque Print FT.rdlc';
     ApplicationArea = All;
 
     dataset

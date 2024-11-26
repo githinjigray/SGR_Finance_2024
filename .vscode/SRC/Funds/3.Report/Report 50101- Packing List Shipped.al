@@ -1,7 +1,7 @@
 report 50101 "Packing List Shipped"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Packing List Shipped.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Packing List Shipped.rdlc';
     Caption = 'Packing List Shipped';
     ApplicationArea = All;
     dataset

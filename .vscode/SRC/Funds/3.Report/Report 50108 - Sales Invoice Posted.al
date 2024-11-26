@@ -1,7 +1,7 @@
 report 50108 "Sales Invoice Posted"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Sales Invoice Posted.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Sales Invoice Posted.rdlc';
     EnableExternalImages = true;
 
     dataset

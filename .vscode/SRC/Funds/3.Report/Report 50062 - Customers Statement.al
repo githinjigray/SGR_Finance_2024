@@ -1,7 +1,7 @@
 report 50062 "Customers Statement"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Customers Statement.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Customers Statement.rdlc';
     ApplicationArea = All;
 
     dataset

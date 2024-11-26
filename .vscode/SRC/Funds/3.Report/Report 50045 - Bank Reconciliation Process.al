@@ -1,7 +1,7 @@
 report 50045 "Bank Reconciliation Process"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Bank Reconciliation Process.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Reconciliation Process.rdlc';
     UseRequestPage = false;
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50016 "Posed Bank Acc Reconciliation"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Posed Bank Acc Reconciliation.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Posed Bank Acc Reconciliation.rdlc';
     ApplicationArea = All;
 
     dataset

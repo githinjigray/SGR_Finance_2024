@@ -1,7 +1,7 @@
 report 50024 "Trial Balance New"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Trial Balance New.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Trial Balance New.rdlc';
     Caption = 'Trial Balance New';
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50009 "RTGS  Export File."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/RTGS  Export File..rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/RTGS  Export File..rdlc';
     ApplicationArea = all;
 
 

@@ -1,7 +1,7 @@
 report 50028 "VAT Payable Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/VAT Payable Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/VAT Payable Report.rdlc';
     ApplicationArea = All;
 
     dataset

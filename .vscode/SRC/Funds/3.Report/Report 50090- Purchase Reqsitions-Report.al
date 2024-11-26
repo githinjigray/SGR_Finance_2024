@@ -1,7 +1,7 @@
 report 50090 "Purchase Reqsitions-Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Purchase Reqsitions-Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Purchase Reqsitions-Report.rdlc';
     ApplicationArea = All;
 
     dataset

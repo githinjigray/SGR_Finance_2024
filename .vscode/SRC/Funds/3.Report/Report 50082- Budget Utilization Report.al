@@ -1,7 +1,7 @@
 report 50082 "Budget Utilization Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Budget Utilization Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Budget Utilization Report.rdlc';
     ApplicationArea = All;
 
     dataset

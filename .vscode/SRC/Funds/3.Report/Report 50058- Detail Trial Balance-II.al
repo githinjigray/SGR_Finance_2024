@@ -1,7 +1,7 @@
 report 50058 "Detail Trial Balance-II"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Detail Trial Balance-II.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Detail Trial Balance-II.rdlc';
     AdditionalSearchTerms = 'payment due,order status';
     ApplicationArea = Basic, Suite;
     Caption = 'Detail Trial Balance-II';
@@ -208,8 +208,8 @@ report 50058 "Detail Trial Balance-II"
                 if PrintOnlyOnePerPage then begin
                     GLEntry.Reset;
                     GLEntry.SetRange("G/L Account No.", "No.");
-                   // if CurrReport.PrintOnlyIfDetail and GLEntry.FindFirst then
-                        //PageGroupNo := PageGroupNo + 1;
+                    // if CurrReport.PrintOnlyIfDetail and GLEntry.FindFirst then
+                    //PageGroupNo := PageGroupNo + 1;
                 end;
             end;
 

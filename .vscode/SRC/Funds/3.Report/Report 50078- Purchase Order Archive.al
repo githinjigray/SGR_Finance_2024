@@ -1,7 +1,7 @@
 report 50078 "Purchase Order Archive."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Purchase Order Archive.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Purchase Order Archive.rdlc';
     ApplicationArea = All;
 
     dataset

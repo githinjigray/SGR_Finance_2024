@@ -1,7 +1,7 @@
 report 50031 "Withholding VAT Upload"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Withholding VAT Upload.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Withholding VAT Upload.rdlc';
     ApplicationArea = All;
 
     dataset

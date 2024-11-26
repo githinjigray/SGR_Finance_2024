@@ -44,15 +44,10 @@ page 70002 "Purchase Requisition Line"
                     ApplicationArea = All;
                     Caption = 'Additional Remarks';
                 }
-                field("Part No."; Rec."Part No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Part No. of an item';
-                    ShowMandatory = true;
-                }
                 field(Inventory; Rec.Inventory)
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
                 field(Quantity; Rec.Quantity)
                 {

@@ -1,7 +1,7 @@
 report 50512 "Sales Statistics Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Sales tatistics Report.rdl';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Sales tatistics Report.rdl';
     ApplicationArea = All;
     Caption = 'Sales Statistics Report';
     UsageCategory = ReportsAndAnalysis;

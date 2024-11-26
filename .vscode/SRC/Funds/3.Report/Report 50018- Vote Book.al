@@ -1,7 +1,7 @@
 report 50018 "Vote Book"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Vote Book.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Vote Book.rdlc';
     ApplicationArea = All;
 
     dataset

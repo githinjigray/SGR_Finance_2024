@@ -1,7 +1,7 @@
 report 50097 "Posted Purchase Invoice"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Posted Purchase Invoice.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Posted Purchase Invoice.rdlc';
     ApplicationArea = All;
 
     dataset

@@ -1,7 +1,7 @@
 report 50013 "Funds Claim Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Funds Claim Voucher.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Funds Claim Voucher.rdlc';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

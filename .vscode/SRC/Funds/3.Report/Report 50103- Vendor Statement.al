@@ -1,7 +1,7 @@
 report 50103 "Vendor Statement"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Vendor Statement.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Vendor Statement.rdlc';
     ApplicationArea = All;
 
     dataset

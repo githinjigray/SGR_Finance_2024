@@ -1,7 +1,7 @@
 report 50012 "Withholding Tax Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Withholding Tax Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Withholding Tax Report.rdlc';
     ApplicationArea = All;
 
     dataset

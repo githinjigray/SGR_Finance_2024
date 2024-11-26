@@ -1,7 +1,7 @@
 report 50086 "LPO/LSO Archived"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/LPOLSO Archived 2.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/LPOLSO Archived 2.rdlc';
     ApplicationArea = All;
 
     dataset

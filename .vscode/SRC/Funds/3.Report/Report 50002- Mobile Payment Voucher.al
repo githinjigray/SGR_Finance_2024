@@ -1,7 +1,7 @@
 report 50002 "Mobile Payment Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Mobile Payment Voucher.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Mobile Payment Voucher.rdlc';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

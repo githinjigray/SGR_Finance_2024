@@ -1,7 +1,7 @@
 report 50080 "Vendor List"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Vendor List.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Vendor List.rdlc';
     ApplicationArea = All;
 
     dataset

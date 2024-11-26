@@ -34,18 +34,6 @@ page 70018 "Procurement Planning Sub Form"
                 {
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 4 Code"; rec."Shortcut Dimension 4 Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Shortcut Dimension 5 Code"; rec."Shortcut Dimension 5 Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Shortcut Dimension 6 Code"; rec."Shortcut Dimension 6 Code")
-                {
-                    ApplicationArea = All;
-                }
                 field("Procurement Plan Type"; rec."Procurement Plan Type")
                 {
                     ApplicationArea = All;

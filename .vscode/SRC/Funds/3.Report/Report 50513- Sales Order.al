@@ -1,7 +1,7 @@
 report 50513 "Sales Order Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/SalesOrder.rdl';
+    RDLCLayout = '.vscode/src/Funds/12.layout/SalesOrder.rdl';
     ApplicationArea = All;
 
     dataset

@@ -1,7 +1,7 @@
 report 50063 "Investments Lists"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Investments Lists.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Investments Lists.rdlc';
     ApplicationArea = All;
 
     dataset

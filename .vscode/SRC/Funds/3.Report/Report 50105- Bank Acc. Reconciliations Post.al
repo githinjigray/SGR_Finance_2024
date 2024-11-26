@@ -1,7 +1,7 @@
 report 50105 "Bank Acc. Reconciliations Post"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Bank Acc. Reconciliations Post.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Acc. Reconciliations Post.rdlc';
     Caption = 'Posted Bank Account Reconciliation Report';
     ApplicationArea = All;
 

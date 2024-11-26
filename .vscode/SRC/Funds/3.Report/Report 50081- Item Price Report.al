@@ -1,7 +1,7 @@
 report 50081 "Item Price Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Item Price Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Item Price Report.rdlc';
     ApplicationArea = All;
 
     dataset

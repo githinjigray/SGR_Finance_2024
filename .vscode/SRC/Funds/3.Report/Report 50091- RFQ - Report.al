@@ -1,7 +1,7 @@
 report 50091 "RFQ - Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/RFQ - Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/RFQ - Report.rdlc';
     ApplicationArea = All;
 
     dataset

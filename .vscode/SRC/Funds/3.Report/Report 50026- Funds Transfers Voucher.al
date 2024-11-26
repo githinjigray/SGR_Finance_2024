@@ -1,7 +1,7 @@
 report 50026 "Funds Transfers Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Funds Transfers Voucher.rdl';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Funds Transfers Voucher.rdl';
     //PreviewMode = PrintLayout;
     ApplicationArea = All;
 

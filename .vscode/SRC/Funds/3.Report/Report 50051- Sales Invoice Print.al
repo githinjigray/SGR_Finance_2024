@@ -1,7 +1,7 @@
 report 50051 "Sales Invoice Print"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Sales Invoice Print.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Sales Invoice Print.rdlc';
     ApplicationArea = All;
 
     dataset

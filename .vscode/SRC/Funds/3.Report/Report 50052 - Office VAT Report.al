@@ -1,7 +1,7 @@
 report 50052 "Office VAT Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Office VAT Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Office VAT Report.rdlc';
     ApplicationArea = All;
 
     dataset

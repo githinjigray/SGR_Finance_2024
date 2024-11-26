@@ -157,6 +157,7 @@ table 70003 "Request for Quotation Line"
         field(10; "Location Code"; Code[10])
         {
             Caption = 'Location Code';
+            TableRelation = Location;
             DataClassification = ToBeClassified;
         }
         field(11; "Unit of Measure Code"; Code[10])

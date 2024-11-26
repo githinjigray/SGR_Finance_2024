@@ -1,7 +1,7 @@
 report 50022 "Cash Voucher Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Cash Voucher Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Cash Voucher Report.rdlc';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -357,7 +357,7 @@ report 50022 "Cash Voucher Report"
 
                 CalcFields("Payment Header"."Total Amount", "Payment Header"."Net Amount", "Payment Header"."WithHolding Tax Amount");
                 //CheckReport.InitTextVariable();
-               // CheckReport.FormatNoText(NumberText, ("Payment Header"."Net Amount"), '');
+                // CheckReport.FormatNoText(NumberText, ("Payment Header"."Net Amount"), '');
 
 
                 /*IF "Payment Header"."Payee Type"="Payment Header"."Payee Type"::Meeting THEN BEGIN

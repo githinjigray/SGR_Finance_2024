@@ -1,7 +1,7 @@
 report 50047 "Bank Account Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Bank Account Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Account Report.rdlc';
     ApplicationArea = All;
 
     dataset

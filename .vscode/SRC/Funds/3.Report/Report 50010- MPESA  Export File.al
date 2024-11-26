@@ -1,7 +1,7 @@
 report 50010 "MPESA  Export File"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/MPESA  Export File.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/MPESA  Export File.rdlc';
     ApplicationArea = all;
 
     dataset

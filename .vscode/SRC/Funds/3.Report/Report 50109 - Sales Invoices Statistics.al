@@ -1,7 +1,7 @@
 report 50109 "Sales Invoices Statistics"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Sales Invoices Statistics.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Sales Invoices Statistics.rdlc';
     ApplicationArea = All;
     Caption = 'Sales Invoices Statistics';
     UsageCategory = ReportsAndAnalysis;

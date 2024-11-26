@@ -1,7 +1,7 @@
 report 50040 "Posted Bank Acc.Rec.Summary"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Posted Bank Acc.Rec.Summary.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Posted Bank Acc.Rec.Summary.rdlc';
     Caption = 'Posted Bank Account Reconciliation Report';
     ApplicationArea = All;
 

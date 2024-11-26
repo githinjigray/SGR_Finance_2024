@@ -1,7 +1,7 @@
 report 50017 "Fixed Asset Assignment"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Fixed Asset Assignment.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Fixed Asset Assignment.rdlc';
     ApplicationArea = All;
 
     dataset

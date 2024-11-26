@@ -1,7 +1,7 @@
 report 50094 "Store Requisition"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Store Requisition.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Store Requisition.rdlc';
     ApplicationArea = All;
 
     dataset

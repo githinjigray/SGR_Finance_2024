@@ -1,7 +1,7 @@
 report 50042 "Journal Voucher Dimension"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/layout/Journal Voucher Dimension.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Journal Voucher Dimension.rdlc';
     ApplicationArea = All;
 
     dataset
