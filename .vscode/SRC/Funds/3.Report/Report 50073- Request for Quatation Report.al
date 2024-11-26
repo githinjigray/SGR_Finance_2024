@@ -1,7 +1,7 @@
 report 50073 "Request for Quatation Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Request for Quatation Report.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Request for Quatation Report.rdl';
     ApplicationArea = All;
 
     dataset

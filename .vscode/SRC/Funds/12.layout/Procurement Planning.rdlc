@@ -2922,6 +2922,21 @@ End Function
         <Field Name="DateTimeSentforApproval_ApprovalEntry">
           <DataField>DateTimeSentforApproval_ApprovalEntry</DataField>
         </Field>
+        <Field Name="EmployeeFirstName">
+          <DataField>EmployeeFirstName</DataField>
+        </Field>
+        <Field Name="EmployeeMiddleName">
+          <DataField>EmployeeMiddleName</DataField>
+        </Field>
+        <Field Name="EmployeeLastName">
+          <DataField>EmployeeLastName</DataField>
+        </Field>
+        <Field Name="EmployeeSignature">
+          <DataField>EmployeeSignature</DataField>
+        </Field>
+        <Field Name="JobTitle_Employee">
+          <DataField>JobTitle_Employee</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

@@ -194,22 +194,22 @@ report 50094 "Store Requisition"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
-                    // column(EmployeeFirstName; Employee."First Name")
-                    // {
-                    // }
-                    // column(EmployeeMiddleName; Employee."Middle Name")
-                    // {
-                    // }
-                    // column(EmployeeLastName; Employee."Last Name")
-                    // {
-                    // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
-                    // {
-                    // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
-                    // {
-                    // }
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName; Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
                 }
             }
 
@@ -238,7 +238,7 @@ report 50094 "Store Requisition"
                 HREmployee.SetRange(HREmployee."No.", "Store Requisition Header"."Employee No.");
                 if HREmployee.FindFirst then begin
                     PreparedBy := HREmployee."First Name" + ' ' + HREmployee."Last Name";
-                    //EmployeeTitle := HREmployee."HR Job Title";
+                    //EmployeeTitle := HREmployee."Job Title";
                 end;
             end;
         }

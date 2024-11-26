@@ -243,7 +243,7 @@ report 50042 "Journal Voucher Dimension"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
+                    // DataItemLink = "Employee User ID" = FIELD("Approver ID");
                     // column(EmployeeFirstName; Employee."First Name")
                     // {
                     // }
@@ -253,7 +253,7 @@ report 50042 "Journal Voucher Dimension"
                     // column(EmployeeLastName; Employee."Last Name")
                     // {
                     // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
+                    // column(EmployeeSignature; Employee."Signature")
                     // {
                     // }
                 }

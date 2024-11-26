@@ -1,7 +1,7 @@
 report 50066 "Purchase Requisition"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Purchase Requisition.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Purchase Requisition.rdl';
     ApplicationArea = All;
 
     dataset
@@ -165,22 +165,22 @@ report 50066 "Purchase Requisition"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
-                    // column(EmployeeFirstName; Employee."First Name")
-                    // {
-                    // }
-                    // column(EmployeeMiddleName; Employee."Middle Name")
-                    // {
-                    // }
-                    // column(EmployeeLastName; Employee."Last Name")
-                    // {
-                    // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
-                    // {
-                    // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
-                    // {
-                    // }
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName; Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
                 }
             }
 

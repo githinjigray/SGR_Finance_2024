@@ -131,7 +131,7 @@ report 50002 "Mobile Payment Voucher"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
+                    // DataItemLink = "Employee User ID" = FIELD("Approver ID");
                     // column(EmployeeFirstName; Employee."First Name")
                     // {
                     // }
@@ -141,7 +141,7 @@ report 50002 "Mobile Payment Voucher"
                     // column(EmployeeLastName; Employee."Last Name")
                     // {
                     // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
+                    // column(EmployeeSignature; Employee."Signature")
                     // {
                     // }
                 }

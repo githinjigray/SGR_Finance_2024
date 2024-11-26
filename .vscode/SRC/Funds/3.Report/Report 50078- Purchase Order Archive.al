@@ -222,7 +222,7 @@ report 50078 "Purchase Order Archive."
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
+                    // DataItemLink = "Employee User ID" = FIELD("Approver ID");
                     // column(EmployeeFirstName; Employee."First Name")
                     // {
                     // }
@@ -232,10 +232,10 @@ report 50078 "Purchase Order Archive."
                     // column(EmployeeLastName; Employee."Last Name")
                     // {
                     // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
+                    // column(EmployeeSignature; Employee."Signature")
                     // {
                     // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
+                    // column(JobTitle_Employee; Employee."Job Title")
                     // {
                     // }
                     // trigger OnPreDataItem()

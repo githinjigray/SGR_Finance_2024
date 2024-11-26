@@ -184,7 +184,7 @@ report 50068 "New Purchase Order"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
+                    // DataItemLink = "Employee User ID" = FIELD("Approver ID");
                     // column(EmployeeFirstName; Employee."First Name")
                     // {
                     // }
@@ -194,7 +194,7 @@ report 50068 "New Purchase Order"
                     // column(EmployeeLastName; Employee."Last Name")
                     // {
                     // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
+                    // column(EmployeeSignature; Employee."Signature")
                     // {
                     // }
                 }

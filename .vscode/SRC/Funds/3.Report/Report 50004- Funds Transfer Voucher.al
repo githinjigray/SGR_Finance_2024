@@ -1,7 +1,7 @@
 report 50004 "Funds Transfer Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Funds Transfer Voucher.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Funds Transfer Voucher.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -125,7 +125,7 @@ report 50004 "Funds Transfer Voucher"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
+                    // DataItemLink = "Employee User ID" = FIELD("Approver ID");
                     // column(EmployeeFirstName; Employee."First Name")
                     // {
                     // }
@@ -135,7 +135,7 @@ report 50004 "Funds Transfer Voucher"
                     // column(EmployeeLastName; Employee."Last Name")
                     // {
                     // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
+                    // column(EmployeeSignature; Employee."Signature")
                     // {
                     // }
                 }

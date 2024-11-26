@@ -1,7 +1,7 @@
 report 50070 "Bid Analysis"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Bid Analysis.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bid Analysis.rdl';
     ApplicationArea = All;
 
     dataset

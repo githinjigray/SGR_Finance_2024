@@ -11,6 +11,163 @@
       <rd:DataSourceID>6d65463a-ba8b-42fd-be82-120593df4183</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="No_RequestforQuotationHeader">
+          <DataField>No_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="DocumentDate_RequestforQuotationHeader">
+          <DataField>DocumentDate_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="IssueDate_RequestforQuotationHeader">
+          <DataField>IssueDate_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="User_ID">
+          <DataField>User_ID</DataField>
+        </Field>
+        <Field Name="ClosingDate_RequestforQuotationHeader">
+          <DataField>ClosingDate_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="CurrencyCode_RequestforQuotationHeader">
+          <DataField>CurrencyCode_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_RequestforQuotationHeader">
+          <DataField>CurrencyFactor_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_RequestforQuotationHeaderFormat">
+          <DataField>CurrencyFactor_RequestforQuotationHeaderFormat</DataField>
+        </Field>
+        <Field Name="Amount_RequestforQuotationHeader">
+          <DataField>Amount_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="Amount_RequestforQuotationHeaderFormat">
+          <DataField>Amount_RequestforQuotationHeaderFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY_RequestforQuotationHeader">
+          <DataField>AmountLCY_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="AmountLCY_RequestforQuotationHeaderFormat">
+          <DataField>AmountLCY_RequestforQuotationHeaderFormat</DataField>
+        </Field>
+        <Field Name="Description_RequestforQuotationHeader">
+          <DataField>Description_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="EditinOutlookClient_RequestforQuotationHeader">
+          <DataField>EditinOutlookClient_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="AGPOCertificate">
+          <DataField>AGPOCertificate</DataField>
+        </Field>
+        <Field Name="BusinessRegistrationCert">
+          <DataField>BusinessRegistrationCert</DataField>
+        </Field>
+        <Field Name="TaxComplianceCert">
+          <DataField>TaxComplianceCert</DataField>
+        </Field>
+        <Field Name="ConfidentialBusQuestionnaire">
+          <DataField>ConfidentialBusQuestionnaire</DataField>
+        </Field>
+        <Field Name="Time_RequestforQuotationHeader">
+          <DataField>Time_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="GlobalDimension2Code_RequestforQuotationHeader">
+          <DataField>GlobalDimension2Code_RequestforQuotationHeader</DataField>
+        </Field>
+        <Field Name="LNo2">
+          <DataField>LNo2</DataField>
+        </Field>
+        <Field Name="RFQ_Enquiries_Email">
+          <DataField>RFQ_Enquiries_Email</DataField>
+        </Field>
+        <Field Name="No_RequestforQuotationLine">
+          <DataField>No_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="Name_RequestforQuotationLine">
+          <DataField>Name_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="Location_RequestforQuotationLine">
+          <DataField>Location_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="Type_RequestforQuotationLine">
+          <DataField>Type_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="Quantity_RequestforQuotationLine">
+          <DataField>Quantity_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="Description_RequestforQuotationLine">
+          <DataField>Description_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Name">
+          <DataField>CompanyInfo_Name</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address">
+          <DataField>CompanyInfo_Address</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address2">
+          <DataField>CompanyInfo_Address2</DataField>
+        </Field>
+        <Field Name="pic">
+          <DataField>pic</DataField>
+        </Field>
+        <Field Name="CompanyInfo_City">
+          <DataField>CompanyInfo_City</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Phone">
+          <DataField>CompanyInfo_Phone</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Fax">
+          <DataField>CompanyInfo_Fax</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Email">
+          <DataField>CompanyInfo_Email</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Web">
+          <DataField>CompanyInfo_Web</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_RequestforQuotationLine">
+          <DataField>UnitofMeasureCode_RequestforQuotationLine</DataField>
+        </Field>
+        <Field Name="Part_No_">
+          <DataField>Part_No_</DataField>
+        </Field>
+        <Field Name="LNO">
+          <DataField>LNO</DataField>
+        </Field>
+        <Field Name="Specification_RFQSpecificationTable">
+          <DataField>Specification_RFQSpecificationTable</DataField>
+        </Field>
+        <Field Name="Requirement_RFQSpecificationTable">
+          <DataField>Requirement_RFQSpecificationTable</DataField>
+        </Field>
+        <Field Name="LineNo_RFQSpecificationTable">
+          <DataField>LineNo_RFQSpecificationTable</DataField>
+        </Field>
+        <Field Name="RFQNo_RFQSpecificationTable">
+          <DataField>RFQNo_RFQSpecificationTable</DataField>
+        </Field>
+        <Field Name="DocumentNo_ProcurementRequirements">
+          <DataField>DocumentNo_ProcurementRequirements</DataField>
+        </Field>
+        <Field Name="LineNo_ProcurementRequirements">
+          <DataField>LineNo_ProcurementRequirements</DataField>
+        </Field>
+        <Field Name="Description_ProcurementRequirements">
+          <DataField>Description_ProcurementRequirements</DataField>
+        </Field>
+        <Field Name="LNo3">
+          <DataField>LNo3</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -22,7 +179,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">FOR: </Value>
+                    <Value>FOR: </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -30,7 +187,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!Description_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!Description_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -63,7 +220,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">THIS IS NOT AN ORDER</Value>
+                    <Value>THIS IS NOT AN ORDER</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -71,7 +228,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">. Read the conditions and instructions on reverse before quoting.
+                    <Value>. Read the conditions and instructions on reverse before quoting.
 This quotation should be submitted in a plain sealed envelope marked “Quotation No.  </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
@@ -80,7 +237,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!No_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!No_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -89,14 +246,14 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value xml:space="preserve" EvaluationMode="Auto"> </Value>
+                    <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontWeight>Normal</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">for “</Value>
+                    <Value>for “</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -104,7 +261,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!Description_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!Description_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -112,7 +269,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">” so as to reach the Procurement office on or before 9.00am on the closing date. The quotations should be addressed to xxxx. You may email to </Value>
+                    <Value>” so as to reach the Procurement office on or before 9.00am on the closing date. The quotations should be addressed to xxxx. You may email to </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -120,7 +277,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">xxx.</Value>
+                    <Value>xxx.</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Segoe UI</FontFamily>
@@ -136,7 +293,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value xml:space="preserve" EvaluationMode="Auto">
+                    <Value xml:space="preserve">
 </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
@@ -173,14 +330,14 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">RFQ No: </Value>
+                    <Value>RFQ No: </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!No_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!No_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -213,7 +370,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Issue Date: </Value>
+                    <Value>Issue Date: </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -222,7 +379,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!IssueDate_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!IssueDate_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -257,7 +414,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Closing Date: </Value>
+                    <Value>Closing Date: </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -266,7 +423,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!ClosingDate_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!ClosingDate_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -303,7 +460,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value EvaluationMode="Auto">TERMS AND CONDITIONS</Value>
+                        <Value>TERMS AND CONDITIONS</Value>
                         <Style>
                           <FontStyle>Normal</FontStyle>
                           <FontFamily>Calibri</FontFamily>
@@ -341,9 +498,9 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value EvaluationMode="Auto">1. The General Conditions of Contract apply to this transaction and is subject to the Public Procurement and Disposal Act/ Regulation 2005. 
+                        <Value>1. The General Conditions of Contract apply to this transaction and is subject to the Public Procurement Procedures of Rwanda 
 
-2.      Where other currencies are used, the Corporation will convert these currencies to Kenya Shillings using the selling exchange rate on the date of quotation closing provided by the Central Bank of Kenya.
+2.      Where other currencies are used, the Corporation will convert these currencies to Kenya Shillings using the selling exchange rate on the date of quotation closing provided by the Central Bank of Rwanda.
 
 3.      This quotation should be submitted so as to reach the Procurement office on or before the closing date. The quotation should be addressed to the Office of the Executive or dropped at the Tender box located on xxxxxxxxx. You may email the quotation to xxx
 
@@ -388,7 +545,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value EvaluationMode="Auto">1. All entries MUST be typed or written in ink. Mistakes should not be erased but be crossed out and corrections be made.
+                        <Value>1. All entries MUST be typed or written in ink. Mistakes should not be erased but be crossed out and corrections be made.
 
 2.      Quote on each item separately, and in units specified.
 
@@ -434,7 +591,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value EvaluationMode="Auto">Instructions</Value>
+                        <Value>Instructions</Value>
                         <Style>
                           <FontFamily>Calibri</FontFamily>
                           <FontSize>14pt</FontSize>
@@ -486,7 +643,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">User Department : </Value>
+                    <Value>User Department : </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -494,7 +651,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!GlobalDimension2Code_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!GlobalDimension2Code_RequestforQuotationHeader.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -528,7 +685,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value xml:space="preserve" EvaluationMode="Auto">
+                    <Value xml:space="preserve">
                                                                     </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
@@ -537,7 +694,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">FOR OFFICIAL USE ONLY</Value>
+                    <Value>FOR OFFICIAL USE ONLY</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -546,7 +703,7 @@ This quotation should be submitted in a plain sealed envelope marked “Quotatio
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">
+                    <Value>
 Opened by:
 </Value>
                     <Style>
@@ -563,7 +720,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -578,7 +735,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Name                                                                                                  Designation                                                   Signature                                                       Date 
+                    <Value>Name                                                                                                  Designation                                                   Signature                                                       Date 
 </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
@@ -594,7 +751,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -609,7 +766,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">1.
+                    <Value>1.
 </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
@@ -625,7 +782,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">
+                    <Value>
 2.      
 
 3.
@@ -667,7 +824,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">TO: </Value>
+                    <Value>TO: </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -735,7 +892,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">INo.</Value>
+                                  <Value>INo.</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -790,7 +947,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Specification</Value>
+                                  <Value>Specification</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -845,7 +1002,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Qty</Value>
+                                  <Value>Qty</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -900,7 +1057,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">UOM</Value>
+                                  <Value>UOM</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -955,7 +1112,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Unit Cost (Incl. 16% VAT)</Value>
+                                  <Value>Unit Cost (Incl. VAT)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1010,7 +1167,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Total Cost (Incl. 16% VAT)</Value>
+                                  <Value>Total Cost (Incl. VAT)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1065,7 +1222,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Delivery Period</Value>
+                                  <Value>Delivery Period</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1120,7 +1277,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Remarks</Value>
+                                  <Value>Remarks</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1180,7 +1337,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!LNo2.Value</Value>
+                                  <Value>=Fields!LNo2.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1234,7 +1391,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Description_RequestforQuotationLine.Value</Value>
+                                  <Value>=Fields!Description_RequestforQuotationLine.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1286,7 +1443,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Quantity_RequestforQuotationLine.Value</Value>
+                                  <Value>=Fields!Quantity_RequestforQuotationLine.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1340,7 +1497,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!UnitofMeasureCode_RequestforQuotationLine.Value</Value>
+                                  <Value>=Fields!UnitofMeasureCode_RequestforQuotationLine.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1394,7 +1551,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1448,7 +1605,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1502,7 +1659,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1554,7 +1711,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1611,7 +1768,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">TOTAL AMOUNT IN KES (Incl. 16% VAT):</Value>
+                                  <Value>TOTAL AMOUNT:</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1716,7 +1873,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Approval and Authorization</Value>
+                    <Value>Approval and Authorization</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>Underline</TextDecoration>
@@ -1749,7 +1906,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Approved By:</Value>
+                    <Value>Approved By:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -1801,7 +1958,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">No.</Value>
+                                  <Value>No.</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1853,7 +2010,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Specification </Value>
+                                  <Value>Specification </Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1905,7 +2062,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Requirement </Value>
+                                  <Value>Requirement </Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1962,7 +2119,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!LNO.Value</Value>
+                                  <Value>=Fields!LNO.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2013,7 +2170,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Specification_RFQSpecificationTable.Value</Value>
+                                  <Value>=Fields!Specification_RFQSpecificationTable.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2064,7 +2221,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Requirement_RFQSpecificationTable.Value</Value>
+                                  <Value>=Fields!Requirement_RFQSpecificationTable.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2161,7 +2318,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Sign/Stamp</Value>
+                    <Value>Sign/Stamp</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -2195,7 +2352,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Supplier:</Value>
+                    <Value>Supplier:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -2240,7 +2397,7 @@ Opened by:
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Sign/Stamp &amp; Date</Value>
+                    <Value>Sign/Stamp &amp; Date</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -2290,7 +2447,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Mandatory Requirements:
+                                  <Value>Mandatory Requirements:
 </Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
@@ -2354,7 +2511,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!LNo3.Value</Value>
+                                  <Value>=Fields!LNo3.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2409,7 +2566,7 @@ Opened by:
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Description_ProcurementRequirements.Value</Value>
+                                  <Value>=Fields!Description_ProcurementRequirements.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2529,7 +2686,7 @@ Opened by:
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">REQUEST FOR QUOTATION</Value>
+                      <Value>REQUEST FOR QUOTATION</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -2566,7 +2723,7 @@ Opened by:
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo_Name.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo_Name.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -2580,7 +2737,7 @@ Opened by:
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo_Address.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo_Address.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -2595,7 +2752,7 @@ Opened by:
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo_Email.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo_Email.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -2612,7 +2769,7 @@ Opened by:
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo_Web.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo_Web.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -2788,161 +2945,4 @@ FFABRRRQAUUUUAf/2Q==</ImageData>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>2fcd4100-cd38-4057-89d0-93d10cad66d6</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="No_RequestforQuotationHeader">
-          <DataField>No_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="DocumentDate_RequestforQuotationHeader">
-          <DataField>DocumentDate_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="IssueDate_RequestforQuotationHeader">
-          <DataField>IssueDate_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="User_ID">
-          <DataField>User_ID</DataField>
-        </Field>
-        <Field Name="ClosingDate_RequestforQuotationHeader">
-          <DataField>ClosingDate_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="CurrencyCode_RequestforQuotationHeader">
-          <DataField>CurrencyCode_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="CurrencyFactor_RequestforQuotationHeader">
-          <DataField>CurrencyFactor_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="CurrencyFactor_RequestforQuotationHeaderFormat">
-          <DataField>CurrencyFactor_RequestforQuotationHeaderFormat</DataField>
-        </Field>
-        <Field Name="Amount_RequestforQuotationHeader">
-          <DataField>Amount_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="Amount_RequestforQuotationHeaderFormat">
-          <DataField>Amount_RequestforQuotationHeaderFormat</DataField>
-        </Field>
-        <Field Name="AmountLCY_RequestforQuotationHeader">
-          <DataField>AmountLCY_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="AmountLCY_RequestforQuotationHeaderFormat">
-          <DataField>AmountLCY_RequestforQuotationHeaderFormat</DataField>
-        </Field>
-        <Field Name="Description_RequestforQuotationHeader">
-          <DataField>Description_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="EditinOutlookClient_RequestforQuotationHeader">
-          <DataField>EditinOutlookClient_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="AGPOCertificate">
-          <DataField>AGPOCertificate</DataField>
-        </Field>
-        <Field Name="BusinessRegistrationCert">
-          <DataField>BusinessRegistrationCert</DataField>
-        </Field>
-        <Field Name="TaxComplianceCert">
-          <DataField>TaxComplianceCert</DataField>
-        </Field>
-        <Field Name="ConfidentialBusQuestionnaire">
-          <DataField>ConfidentialBusQuestionnaire</DataField>
-        </Field>
-        <Field Name="Time_RequestforQuotationHeader">
-          <DataField>Time_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="GlobalDimension2Code_RequestforQuotationHeader">
-          <DataField>GlobalDimension2Code_RequestforQuotationHeader</DataField>
-        </Field>
-        <Field Name="LNo2">
-          <DataField>LNo2</DataField>
-        </Field>
-        <Field Name="RFQ_Enquiries_Email">
-          <DataField>RFQ_Enquiries_Email</DataField>
-        </Field>
-        <Field Name="No_RequestforQuotationLine">
-          <DataField>No_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="Name_RequestforQuotationLine">
-          <DataField>Name_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="Location_RequestforQuotationLine">
-          <DataField>Location_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="Type_RequestforQuotationLine">
-          <DataField>Type_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="Quantity_RequestforQuotationLine">
-          <DataField>Quantity_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="Description_RequestforQuotationLine">
-          <DataField>Description_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Name">
-          <DataField>CompanyInfo_Name</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Address">
-          <DataField>CompanyInfo_Address</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Address2">
-          <DataField>CompanyInfo_Address2</DataField>
-        </Field>
-        <Field Name="pic">
-          <DataField>pic</DataField>
-        </Field>
-        <Field Name="CompanyInfo_City">
-          <DataField>CompanyInfo_City</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Phone">
-          <DataField>CompanyInfo_Phone</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Fax">
-          <DataField>CompanyInfo_Fax</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Picture">
-          <DataField>CompanyInfo_Picture</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Email">
-          <DataField>CompanyInfo_Email</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Web">
-          <DataField>CompanyInfo_Web</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_RequestforQuotationLine">
-          <DataField>UnitofMeasureCode_RequestforQuotationLine</DataField>
-        </Field>
-        <Field Name="Part_No_">
-          <DataField>Part_No_</DataField>
-        </Field>
-        <Field Name="LNO">
-          <DataField>LNO</DataField>
-        </Field>
-        <Field Name="Specification_RFQSpecificationTable">
-          <DataField>Specification_RFQSpecificationTable</DataField>
-        </Field>
-        <Field Name="Requirement_RFQSpecificationTable">
-          <DataField>Requirement_RFQSpecificationTable</DataField>
-        </Field>
-        <Field Name="LineNo_RFQSpecificationTable">
-          <DataField>LineNo_RFQSpecificationTable</DataField>
-        </Field>
-        <Field Name="RFQNo_RFQSpecificationTable">
-          <DataField>RFQNo_RFQSpecificationTable</DataField>
-        </Field>
-        <Field Name="DocumentNo_ProcurementRequirements">
-          <DataField>DocumentNo_ProcurementRequirements</DataField>
-        </Field>
-        <Field Name="LineNo_ProcurementRequirements">
-          <DataField>LineNo_ProcurementRequirements</DataField>
-        </Field>
-        <Field Name="Description_ProcurementRequirements">
-          <DataField>Description_ProcurementRequirements</DataField>
-        </Field>
-        <Field Name="LNo3">
-          <DataField>LNo3</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

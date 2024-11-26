@@ -1,7 +1,7 @@
 report 50083 "LPO/LSO"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/LPOLSO.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/LPOLSO.rdl';
     ApplicationArea = All;
 
     dataset
@@ -266,26 +266,26 @@ report 50083 "LPO/LSO"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
-                    // column(EmployeeFirstName; Employee."First Name")
-                    // {
-                    // }
-                    // column(EmployeeMiddleName; Employee."Middle Name")
-                    // {
-                    // }
-                    // column(EmployeeLastName; Employee."Last Name")
-                    // {
-                    // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
-                    // {
-                    // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
-                    // {
-                    // }
-                    // trigger OnPreDataItem()
-                    // begin
-                    //     Employee.SetRange("User ID", ApproverID);
-                    // end;
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName; Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
+                    trigger OnPreDataItem()
+                    begin
+                        Employee.SetRange("Employee User ID", ApproverID);
+                    end;
 
                     trigger OnAfterGetRecord()
                     begin

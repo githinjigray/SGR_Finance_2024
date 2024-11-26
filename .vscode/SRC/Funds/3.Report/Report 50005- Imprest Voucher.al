@@ -1,7 +1,7 @@
 report 50005 "Imprest Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Imprest Voucher.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Imprest Voucher.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -160,7 +160,7 @@ report 50005 "Imprest Voucher"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
+                    // DataItemLink = "Employee User ID" = FIELD("Approver ID");
                     // column(EmployeeFirstName; Employee."First Name")
                     // {
                     // }
@@ -170,10 +170,10 @@ report 50005 "Imprest Voucher"
                     // column(EmployeeLastName; Employee."Last Name")
                     // {
                     // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
+                    // column(EmployeeSignature; Employee."Signature")
                     // {
                     // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
+                    // column(JobTitle_Employee; Employee."Job Title")
                     // {
                     // }
                 }

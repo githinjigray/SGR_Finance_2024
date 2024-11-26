@@ -11,6 +11,337 @@
       <rd:DataSourceID>3a6ea82d-f842-433e-9ca1-8790d2d41609</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="DOCNAME">
+          <DataField>DOCNAME</DataField>
+        </Field>
+        <Field Name="Payments_Header__No__">
+          <DataField>Payments_Header__No__</DataField>
+        </Field>
+        <Field Name="PayeeName_PaymentHeader">
+          <DataField>PayeeName_PaymentHeader</DataField>
+        </Field>
+        <Field Name="Payee_FundsTransferHeader">
+          <DataField>Payee_FundsTransferHeader</DataField>
+        </Field>
+        <Field Name="CurrCode">
+          <DataField>CurrCode</DataField>
+        </Field>
+        <Field Name="StrCopyText">
+          <DataField>StrCopyText</DataField>
+        </Field>
+        <Field Name="Payments_Header__Cheque_No__">
+          <DataField>Payments_Header__Cheque_No__</DataField>
+        </Field>
+        <Field Name="Payments_Header_Payee">
+          <DataField>Payments_Header_Payee</DataField>
+        </Field>
+        <Field Name="RefferenceNew">
+          <DataField>RefferenceNew</DataField>
+        </Field>
+        <Field Name="Payments_Header__Payments_Header__Date">
+          <DataField>Payments_Header__Payments_Header__Date</DataField>
+        </Field>
+        <Field Name="Payments_Header__Global_Dimension_1_Code_">
+          <DataField>Payments_Header__Global_Dimension_1_Code_</DataField>
+        </Field>
+        <Field Name="Payments_Header__Shortcut_Dimension_2_Code_">
+          <DataField>Payments_Header__Shortcut_Dimension_2_Code_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="NumberText_1_">
+          <DataField>NumberText_1_</DataField>
+        </Field>
+        <Field Name="TTotal">
+          <DataField>TTotal</DataField>
+        </Field>
+        <Field Name="TTotalFormat">
+          <DataField>TTotalFormat</DataField>
+        </Field>
+        <Field Name="TIME_PRINTED_____FORMAT_TIME_">
+          <DataField>TIME_PRINTED_____FORMAT_TIME_</DataField>
+        </Field>
+        <Field Name="DATE_PRINTED_____FORMAT_TODAY_0_4_">
+          <DataField>DATE_PRINTED_____FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CurrCode_Control1102756010">
+          <DataField>CurrCode_Control1102756010</DataField>
+        </Field>
+        <Field Name="CurrCode_Control1102756012">
+          <DataField>CurrCode_Control1102756012</DataField>
+        </Field>
+        <Field Name="Approved_">
+          <DataField>Approved_</DataField>
+        </Field>
+        <Field Name="Approval_Status_____">
+          <DataField>Approval_Status_____</DataField>
+        </Field>
+        <Field Name="TIME_PRINTED_____FORMAT_TIME__Control1102755003">
+          <DataField>TIME_PRINTED_____FORMAT_TIME__Control1102755003</DataField>
+        </Field>
+        <Field Name="DATE_PRINTED_____FORMAT_TODAY_0_4__Control1102755004">
+          <DataField>DATE_PRINTED_____FORMAT_TODAY_0_4__Control1102755004</DataField>
+        </Field>
+        <Field Name="USERID_Control1102755012">
+          <DataField>USERID_Control1102755012</DataField>
+        </Field>
+        <Field Name="NumberText_1__Control1102755016">
+          <DataField>NumberText_1__Control1102755016</DataField>
+        </Field>
+        <Field Name="TTotal_Control1102755034">
+          <DataField>TTotal_Control1102755034</DataField>
+        </Field>
+        <Field Name="TTotal_Control1102755034Format">
+          <DataField>TTotal_Control1102755034Format</DataField>
+        </Field>
+        <Field Name="CurrCode_Control1102755035">
+          <DataField>CurrCode_Control1102755035</DataField>
+        </Field>
+        <Field Name="CurrCode_Control1102755037">
+          <DataField>CurrCode_Control1102755037</DataField>
+        </Field>
+        <Field Name="VATCaption">
+          <DataField>VATCaption</DataField>
+        </Field>
+        <Field Name="PAYMENT_DETAILSCaption">
+          <DataField>PAYMENT_DETAILSCaption</DataField>
+        </Field>
+        <Field Name="AMOUNTCaption">
+          <DataField>AMOUNTCaption</DataField>
+        </Field>
+        <Field Name="NET_AMOUNTCaption">
+          <DataField>NET_AMOUNTCaption</DataField>
+        </Field>
+        <Field Name="W_TAXCaption">
+          <DataField>W_TAXCaption</DataField>
+        </Field>
+        <Field Name="Document_No___Caption">
+          <DataField>Document_No___Caption</DataField>
+        </Field>
+        <Field Name="Currency_Caption">
+          <DataField>Currency_Caption</DataField>
+        </Field>
+        <Field Name="Payment_To_Caption">
+          <DataField>Payment_To_Caption</DataField>
+        </Field>
+        <Field Name="Document_Date_Caption">
+          <DataField>Document_Date_Caption</DataField>
+        </Field>
+        <Field Name="Cheque_No__Caption">
+          <DataField>Cheque_No__Caption</DataField>
+        </Field>
+        <Field Name="Payments_Header__Global_Dimension_1_Code_Caption">
+          <DataField>Payments_Header__Global_Dimension_1_Code_Caption</DataField>
+        </Field>
+        <Field Name="Payments_Header__Shortcut_Dimension_2_Code_Caption">
+          <DataField>Payments_Header__Shortcut_Dimension_2_Code_Caption</DataField>
+        </Field>
+        <Field Name="R_CENTERCaption">
+          <DataField>R_CENTERCaption</DataField>
+        </Field>
+        <Field Name="PROJECTCaption">
+          <DataField>PROJECTCaption</DataField>
+        </Field>
+        <Field Name="TotalCaption">
+          <DataField>TotalCaption</DataField>
+        </Field>
+        <Field Name="Printed_By_Caption">
+          <DataField>Printed_By_Caption</DataField>
+        </Field>
+        <Field Name="Amount_in_wordsCaption">
+          <DataField>Amount_in_wordsCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption_Control1102755013">
+          <DataField>EmptyStringCaption_Control1102755013</DataField>
+        </Field>
+        <Field Name="Amount_in_wordsCaption_Control1102755021">
+          <DataField>Amount_in_wordsCaption_Control1102755021</DataField>
+        </Field>
+        <Field Name="Printed_By_Caption_Control1102755026">
+          <DataField>Printed_By_Caption_Control1102755026</DataField>
+        </Field>
+        <Field Name="TotalCaption_Control1102755033">
+          <DataField>TotalCaption_Control1102755033</DataField>
+        </Field>
+        <Field Name="Signature_Caption">
+          <DataField>Signature_Caption</DataField>
+        </Field>
+        <Field Name="Date_Caption">
+          <DataField>Date_Caption</DataField>
+        </Field>
+        <Field Name="Name_Caption">
+          <DataField>Name_Caption</DataField>
+        </Field>
+        <Field Name="RecipientCaption">
+          <DataField>RecipientCaption</DataField>
+        </Field>
+        <Field Name="CBankName">
+          <DataField>CBankName</DataField>
+        </Field>
+        <Field Name="CBankBranch">
+          <DataField>CBankBranch</DataField>
+        </Field>
+        <Field Name="CBankAccountNo">
+          <DataField>CBankAccountNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoName">
+          <DataField>CompanyInfoName</DataField>
+        </Field>
+        <Field Name="CompanyInfoAddress">
+          <DataField>CompanyInfoAddress</DataField>
+        </Field>
+        <Field Name="CompanyInfoAddress2">
+          <DataField>CompanyInfoAddress2</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhone">
+          <DataField>CompanyInfoPhone</DataField>
+        </Field>
+        <Field Name="CompanyInfoPic">
+          <DataField>CompanyInfoPic</DataField>
+        </Field>
+        <Field Name="CompanyEmail">
+          <DataField>CompanyEmail</DataField>
+        </Field>
+        <Field Name="CompanyWebPage">
+          <DataField>CompanyWebPage</DataField>
+        </Field>
+        <Field Name="DATETIME">
+          <DataField>DATETIME</DataField>
+        </Field>
+        <Field Name="Bank">
+          <DataField>Bank</DataField>
+        </Field>
+        <Field Name="BankName">
+          <DataField>BankName</DataField>
+        </Field>
+        <Field Name="PayMode">
+          <DataField>PayMode</DataField>
+        </Field>
+        <Field Name="PreparedBy">
+          <DataField>PreparedBy</DataField>
+        </Field>
+        <Field Name="CheckedBy">
+          <DataField>CheckedBy</DataField>
+        </Field>
+        <Field Name="ApprovedBy">
+          <DataField>ApprovedBy</DataField>
+        </Field>
+        <Field Name="AllowanceDoc">
+          <DataField>AllowanceDoc</DataField>
+        </Field>
+        <Field Name="DocNo">
+          <DataField>DocNo</DataField>
+        </Field>
+        <Field Name="PayeeType_PaymentHeader">
+          <DataField>PayeeType_PaymentHeader</DataField>
+        </Field>
+        <Field Name="PayeeNo_PaymentHeader">
+          <DataField>PayeeNo_PaymentHeader</DataField>
+        </Field>
+        <Field Name="ChequeNo_PaymentHeader">
+          <DataField>ChequeNo_PaymentHeader</DataField>
+        </Field>
+        <Field Name="Description_FundsTransferHeader">
+          <DataField>Description_FundsTransferHeader</DataField>
+        </Field>
+        <Field Name="Payment_Line__Net_Amount__">
+          <DataField>Payment_Line__Net_Amount__</DataField>
+        </Field>
+        <Field Name="Payment_Line__Net_Amount__Format">
+          <DataField>Payment_Line__Net_Amount__Format</DataField>
+        </Field>
+        <Field Name="Payment_Line_Amount">
+          <DataField>Payment_Line_Amount</DataField>
+        </Field>
+        <Field Name="Payment_Line_AmountFormat">
+          <DataField>Payment_Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="Transaction_Name_______Account_No________Account_Name_____">
+          <DataField>Transaction_Name_______Account_No________Account_Name_____</DataField>
+        </Field>
+        <Field Name="AccountNo_PaymentLine">
+          <DataField>AccountNo_PaymentLine</DataField>
+        </Field>
+        <Field Name="AccountName_PaymentLine">
+          <DataField>AccountName_PaymentLine</DataField>
+        </Field>
+        <Field Name="Payment_remarks">
+          <DataField>Payment_remarks</DataField>
+        </Field>
+        <Field Name="Payment_Line__Withholding_Tax_Amount_">
+          <DataField>Payment_Line__Withholding_Tax_Amount_</DataField>
+        </Field>
+        <Field Name="Payment_Line__Withholding_Tax_Amount_Format">
+          <DataField>Payment_Line__Withholding_Tax_Amount_Format</DataField>
+        </Field>
+        <Field Name="Payment_Line__VAT_Amount_">
+          <DataField>Payment_Line__VAT_Amount_</DataField>
+        </Field>
+        <Field Name="Payment_Line__VAT_Amount_Format">
+          <DataField>Payment_Line__VAT_Amount_Format</DataField>
+        </Field>
+        <Field Name="Payment_Line__Global_Dimension_1_Code_">
+          <DataField>Payment_Line__Global_Dimension_1_Code_</DataField>
+        </Field>
+        <Field Name="Payment_Line__Shortcut_Dimension_2_Code_">
+          <DataField>Payment_Line__Shortcut_Dimension_2_Code_</DataField>
+        </Field>
+        <Field Name="Payment_Line_Line_No_">
+          <DataField>Payment_Line_Line_No_</DataField>
+        </Field>
+        <Field Name="Payment_Line_No">
+          <DataField>Payment_Line_No</DataField>
+        </Field>
+        <Field Name="Payment_Line_Type">
+          <DataField>Payment_Line_Type</DataField>
+        </Field>
+        <Field Name="SequenceNo_ApprovalEntry">
+          <DataField>SequenceNo_ApprovalEntry</DataField>
+        </Field>
+        <Field Name="ApproverID_ApprovalEntry">
+          <DataField>ApproverID_ApprovalEntry</DataField>
+        </Field>
+        <Field Name="r">
+          <DataField>r</DataField>
+        </Field>
+        <Field Name="SenderID_ApprovalEntry">
+          <DataField>SenderID_ApprovalEntry</DataField>
+        </Field>
+        <Field Name="DateTimeSentforApproval_ApprovalEntry">
+          <DataField>DateTimeSentforApproval_ApprovalEntry</DataField>
+        </Field>
+        <Field Name="ApprovalType">
+          <DataField>ApprovalType</DataField>
+        </Field>
+        <Field Name="EmployeeFirstName">
+          <DataField>EmployeeFirstName</DataField>
+        </Field>
+        <Field Name="EmployeeMiddleName">
+          <DataField>EmployeeMiddleName</DataField>
+        </Field>
+        <Field Name="EmployeeLastName">
+          <DataField>EmployeeLastName</DataField>
+        </Field>
+        <Field Name="EmployeeSignature">
+          <DataField>EmployeeSignature</DataField>
+        </Field>
+        <Field Name="JobTitle_Employee">
+          <DataField>JobTitle_Employee</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -73,8 +404,28 @@
                           <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -107,8 +458,28 @@
                           <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>0.075cm</PaddingRight>
@@ -142,8 +513,28 @@
                           <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>0.075cm</PaddingLeft>
                             <PaddingRight>0.075cm</PaddingRight>
@@ -191,8 +582,28 @@
                           <rd:DefaultName>Textbox21</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>0.075cm</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -228,8 +639,28 @@
                           <rd:DefaultName>AccountNo_PaymentLine</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -262,8 +693,28 @@
                           <rd:DefaultName>AccountName_PaymentLine</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>0.075cm</PaddingRight>
@@ -296,8 +747,28 @@
                           <rd:DefaultName>Payment_remarks</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>0.075cm</PaddingLeft>
                             <PaddingRight>0.075cm</PaddingRight>
@@ -329,8 +800,28 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>0.075cm</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -366,8 +857,28 @@
                           <ZIndex>13</ZIndex>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>0.075cm</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -412,8 +923,28 @@
                           <rd:DefaultName>CurrCode</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>0.075cm</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -442,8 +973,28 @@
                           <ZIndex>12</ZIndex>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -476,8 +1027,28 @@
                           <ZIndex>7</ZIndex>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>0.075cm</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1137,26 +1708,26 @@
                           <rd:DefaultName>Textbox22</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1191,26 +1762,26 @@
                           <rd:DefaultName>Payments_Header__Payments_Header__Date</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1240,26 +1811,26 @@
                           <rd:DefaultName>Textbox32</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1291,26 +1862,26 @@
                           <rd:DefaultName>Bank</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1345,26 +1916,26 @@
                           <rd:DefaultName>Textbox23</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1396,26 +1967,26 @@
                           <rd:DefaultName>PayMode</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1445,26 +2016,26 @@
                           <rd:DefaultName>Textbox33</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1496,26 +2067,26 @@
                           <rd:DefaultName>BankName</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1550,26 +2121,26 @@
                           <rd:DefaultName>Textbox25</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1601,26 +2172,26 @@
                           <rd:DefaultName>BankName</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1658,26 +2229,26 @@
                           <rd:DefaultName>Textbox35</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1709,26 +2280,26 @@
                           <rd:DefaultName>Description_FundsTransferHeader</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1766,26 +2337,26 @@
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1817,26 +2388,26 @@
                           <rd:DefaultName>Payments_Header__Cheque_No__</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
-                              <Style>Dotted</Style>
+                              <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1850,6 +2421,213 @@
                     </TablixCell>
                     <TablixCell />
                     <TablixCell />
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CurrCode1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Currency</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CurrCode1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CurrCode2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CurrCode.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CurrCode2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
@@ -1869,12 +2647,13 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>5.22329cm</Top>
             <Left>0.4442cm</Left>
-            <Height>3cm</Height>
+            <Height>3.6cm</Height>
             <Width>17.5494cm</Width>
             <ZIndex>26</ZIndex>
             <Style>
@@ -2223,7 +3002,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>18.71609cm</Width>
+      <Width>18.59233cm</Width>
       <Page>
         <PageHeader>
           <Height>0.38542in</Height>
@@ -2458,320 +3237,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0d32f6e3-a39a-4647-bac0-15fb43552766</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="DOCNAME">
-          <DataField>DOCNAME</DataField>
-        </Field>
-        <Field Name="Payments_Header__No__">
-          <DataField>Payments_Header__No__</DataField>
-        </Field>
-        <Field Name="PayeeName_PaymentHeader">
-          <DataField>PayeeName_PaymentHeader</DataField>
-        </Field>
-        <Field Name="Payee_FundsTransferHeader">
-          <DataField>Payee_FundsTransferHeader</DataField>
-        </Field>
-        <Field Name="CurrCode">
-          <DataField>CurrCode</DataField>
-        </Field>
-        <Field Name="StrCopyText">
-          <DataField>StrCopyText</DataField>
-        </Field>
-        <Field Name="Payments_Header__Cheque_No__">
-          <DataField>Payments_Header__Cheque_No__</DataField>
-        </Field>
-        <Field Name="Payments_Header_Payee">
-          <DataField>Payments_Header_Payee</DataField>
-        </Field>
-        <Field Name="RefferenceNew">
-          <DataField>RefferenceNew</DataField>
-        </Field>
-        <Field Name="Payments_Header__Payments_Header__Date">
-          <DataField>Payments_Header__Payments_Header__Date</DataField>
-        </Field>
-        <Field Name="Payments_Header__Global_Dimension_1_Code_">
-          <DataField>Payments_Header__Global_Dimension_1_Code_</DataField>
-        </Field>
-        <Field Name="Payments_Header__Shortcut_Dimension_2_Code_">
-          <DataField>Payments_Header__Shortcut_Dimension_2_Code_</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="NumberText_1_">
-          <DataField>NumberText_1_</DataField>
-        </Field>
-        <Field Name="TTotal">
-          <DataField>TTotal</DataField>
-        </Field>
-        <Field Name="TTotalFormat">
-          <DataField>TTotalFormat</DataField>
-        </Field>
-        <Field Name="TIME_PRINTED_____FORMAT_TIME_">
-          <DataField>TIME_PRINTED_____FORMAT_TIME_</DataField>
-        </Field>
-        <Field Name="DATE_PRINTED_____FORMAT_TODAY_0_4_">
-          <DataField>DATE_PRINTED_____FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="CurrCode_Control1102756010">
-          <DataField>CurrCode_Control1102756010</DataField>
-        </Field>
-        <Field Name="CurrCode_Control1102756012">
-          <DataField>CurrCode_Control1102756012</DataField>
-        </Field>
-        <Field Name="Approved_">
-          <DataField>Approved_</DataField>
-        </Field>
-        <Field Name="Approval_Status_____">
-          <DataField>Approval_Status_____</DataField>
-        </Field>
-        <Field Name="TIME_PRINTED_____FORMAT_TIME__Control1102755003">
-          <DataField>TIME_PRINTED_____FORMAT_TIME__Control1102755003</DataField>
-        </Field>
-        <Field Name="DATE_PRINTED_____FORMAT_TODAY_0_4__Control1102755004">
-          <DataField>DATE_PRINTED_____FORMAT_TODAY_0_4__Control1102755004</DataField>
-        </Field>
-        <Field Name="USERID_Control1102755012">
-          <DataField>USERID_Control1102755012</DataField>
-        </Field>
-        <Field Name="NumberText_1__Control1102755016">
-          <DataField>NumberText_1__Control1102755016</DataField>
-        </Field>
-        <Field Name="TTotal_Control1102755034">
-          <DataField>TTotal_Control1102755034</DataField>
-        </Field>
-        <Field Name="TTotal_Control1102755034Format">
-          <DataField>TTotal_Control1102755034Format</DataField>
-        </Field>
-        <Field Name="CurrCode_Control1102755035">
-          <DataField>CurrCode_Control1102755035</DataField>
-        </Field>
-        <Field Name="CurrCode_Control1102755037">
-          <DataField>CurrCode_Control1102755037</DataField>
-        </Field>
-        <Field Name="VATCaption">
-          <DataField>VATCaption</DataField>
-        </Field>
-        <Field Name="PAYMENT_DETAILSCaption">
-          <DataField>PAYMENT_DETAILSCaption</DataField>
-        </Field>
-        <Field Name="AMOUNTCaption">
-          <DataField>AMOUNTCaption</DataField>
-        </Field>
-        <Field Name="NET_AMOUNTCaption">
-          <DataField>NET_AMOUNTCaption</DataField>
-        </Field>
-        <Field Name="W_TAXCaption">
-          <DataField>W_TAXCaption</DataField>
-        </Field>
-        <Field Name="Document_No___Caption">
-          <DataField>Document_No___Caption</DataField>
-        </Field>
-        <Field Name="Currency_Caption">
-          <DataField>Currency_Caption</DataField>
-        </Field>
-        <Field Name="Payment_To_Caption">
-          <DataField>Payment_To_Caption</DataField>
-        </Field>
-        <Field Name="Document_Date_Caption">
-          <DataField>Document_Date_Caption</DataField>
-        </Field>
-        <Field Name="Cheque_No__Caption">
-          <DataField>Cheque_No__Caption</DataField>
-        </Field>
-        <Field Name="Payments_Header__Global_Dimension_1_Code_Caption">
-          <DataField>Payments_Header__Global_Dimension_1_Code_Caption</DataField>
-        </Field>
-        <Field Name="Payments_Header__Shortcut_Dimension_2_Code_Caption">
-          <DataField>Payments_Header__Shortcut_Dimension_2_Code_Caption</DataField>
-        </Field>
-        <Field Name="R_CENTERCaption">
-          <DataField>R_CENTERCaption</DataField>
-        </Field>
-        <Field Name="PROJECTCaption">
-          <DataField>PROJECTCaption</DataField>
-        </Field>
-        <Field Name="TotalCaption">
-          <DataField>TotalCaption</DataField>
-        </Field>
-        <Field Name="Printed_By_Caption">
-          <DataField>Printed_By_Caption</DataField>
-        </Field>
-        <Field Name="Amount_in_wordsCaption">
-          <DataField>Amount_in_wordsCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption">
-          <DataField>EmptyStringCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1102755013">
-          <DataField>EmptyStringCaption_Control1102755013</DataField>
-        </Field>
-        <Field Name="Amount_in_wordsCaption_Control1102755021">
-          <DataField>Amount_in_wordsCaption_Control1102755021</DataField>
-        </Field>
-        <Field Name="Printed_By_Caption_Control1102755026">
-          <DataField>Printed_By_Caption_Control1102755026</DataField>
-        </Field>
-        <Field Name="TotalCaption_Control1102755033">
-          <DataField>TotalCaption_Control1102755033</DataField>
-        </Field>
-        <Field Name="Signature_Caption">
-          <DataField>Signature_Caption</DataField>
-        </Field>
-        <Field Name="Date_Caption">
-          <DataField>Date_Caption</DataField>
-        </Field>
-        <Field Name="Name_Caption">
-          <DataField>Name_Caption</DataField>
-        </Field>
-        <Field Name="RecipientCaption">
-          <DataField>RecipientCaption</DataField>
-        </Field>
-        <Field Name="CBankName">
-          <DataField>CBankName</DataField>
-        </Field>
-        <Field Name="CBankBranch">
-          <DataField>CBankBranch</DataField>
-        </Field>
-        <Field Name="CBankAccountNo">
-          <DataField>CBankAccountNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoName">
-          <DataField>CompanyInfoName</DataField>
-        </Field>
-        <Field Name="CompanyInfoAddress">
-          <DataField>CompanyInfoAddress</DataField>
-        </Field>
-        <Field Name="CompanyInfoAddress2">
-          <DataField>CompanyInfoAddress2</DataField>
-        </Field>
-        <Field Name="CompanyInfoPhone">
-          <DataField>CompanyInfoPhone</DataField>
-        </Field>
-        <Field Name="CompanyInfoPic">
-          <DataField>CompanyInfoPic</DataField>
-        </Field>
-        <Field Name="CompanyEmail">
-          <DataField>CompanyEmail</DataField>
-        </Field>
-        <Field Name="CompanyWebPage">
-          <DataField>CompanyWebPage</DataField>
-        </Field>
-        <Field Name="DATETIME">
-          <DataField>DATETIME</DataField>
-        </Field>
-        <Field Name="Bank">
-          <DataField>Bank</DataField>
-        </Field>
-        <Field Name="BankName">
-          <DataField>BankName</DataField>
-        </Field>
-        <Field Name="PayMode">
-          <DataField>PayMode</DataField>
-        </Field>
-        <Field Name="PreparedBy">
-          <DataField>PreparedBy</DataField>
-        </Field>
-        <Field Name="CheckedBy">
-          <DataField>CheckedBy</DataField>
-        </Field>
-        <Field Name="ApprovedBy">
-          <DataField>ApprovedBy</DataField>
-        </Field>
-        <Field Name="AllowanceDoc">
-          <DataField>AllowanceDoc</DataField>
-        </Field>
-        <Field Name="DocNo">
-          <DataField>DocNo</DataField>
-        </Field>
-        <Field Name="PayeeType_PaymentHeader">
-          <DataField>PayeeType_PaymentHeader</DataField>
-        </Field>
-        <Field Name="PayeeNo_PaymentHeader">
-          <DataField>PayeeNo_PaymentHeader</DataField>
-        </Field>
-        <Field Name="ChequeNo_PaymentHeader">
-          <DataField>ChequeNo_PaymentHeader</DataField>
-        </Field>
-        <Field Name="Description_FundsTransferHeader">
-          <DataField>Description_FundsTransferHeader</DataField>
-        </Field>
-        <Field Name="Payment_Line__Net_Amount__">
-          <DataField>Payment_Line__Net_Amount__</DataField>
-        </Field>
-        <Field Name="Payment_Line__Net_Amount__Format">
-          <DataField>Payment_Line__Net_Amount__Format</DataField>
-        </Field>
-        <Field Name="Payment_Line_Amount">
-          <DataField>Payment_Line_Amount</DataField>
-        </Field>
-        <Field Name="Payment_Line_AmountFormat">
-          <DataField>Payment_Line_AmountFormat</DataField>
-        </Field>
-        <Field Name="Transaction_Name_______Account_No________Account_Name_____">
-          <DataField>Transaction_Name_______Account_No________Account_Name_____</DataField>
-        </Field>
-        <Field Name="AccountNo_PaymentLine">
-          <DataField>AccountNo_PaymentLine</DataField>
-        </Field>
-        <Field Name="AccountName_PaymentLine">
-          <DataField>AccountName_PaymentLine</DataField>
-        </Field>
-        <Field Name="Payment_remarks">
-          <DataField>Payment_remarks</DataField>
-        </Field>
-        <Field Name="Payment_Line__Withholding_Tax_Amount_">
-          <DataField>Payment_Line__Withholding_Tax_Amount_</DataField>
-        </Field>
-        <Field Name="Payment_Line__Withholding_Tax_Amount_Format">
-          <DataField>Payment_Line__Withholding_Tax_Amount_Format</DataField>
-        </Field>
-        <Field Name="Payment_Line__VAT_Amount_">
-          <DataField>Payment_Line__VAT_Amount_</DataField>
-        </Field>
-        <Field Name="Payment_Line__VAT_Amount_Format">
-          <DataField>Payment_Line__VAT_Amount_Format</DataField>
-        </Field>
-        <Field Name="Payment_Line__Global_Dimension_1_Code_">
-          <DataField>Payment_Line__Global_Dimension_1_Code_</DataField>
-        </Field>
-        <Field Name="Payment_Line__Shortcut_Dimension_2_Code_">
-          <DataField>Payment_Line__Shortcut_Dimension_2_Code_</DataField>
-        </Field>
-        <Field Name="Payment_Line_Line_No_">
-          <DataField>Payment_Line_Line_No_</DataField>
-        </Field>
-        <Field Name="Payment_Line_No">
-          <DataField>Payment_Line_No</DataField>
-        </Field>
-        <Field Name="Payment_Line_Type">
-          <DataField>Payment_Line_Type</DataField>
-        </Field>
-        <Field Name="SequenceNo_ApprovalEntry">
-          <DataField>SequenceNo_ApprovalEntry</DataField>
-        </Field>
-        <Field Name="ApproverID_ApprovalEntry">
-          <DataField>ApproverID_ApprovalEntry</DataField>
-        </Field>
-        <Field Name="r">
-          <DataField>r</DataField>
-        </Field>
-        <Field Name="SenderID_ApprovalEntry">
-          <DataField>SenderID_ApprovalEntry</DataField>
-        </Field>
-        <Field Name="DateTimeSentforApproval_ApprovalEntry">
-          <DataField>DateTimeSentforApproval_ApprovalEntry</DataField>
-        </Field>
-        <Field Name="ApprovalType">
-          <DataField>ApprovalType</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

@@ -117,11 +117,11 @@ report 50096 "Store Requisition Requests"
 
             trigger OnAfterGetRecord()
             begin
-                // HREmployee.Reset;
-                // HREmployee.SetRange(HREmployee."User ID", "Store Requisition Header"."User ID");
-                // if HREmployee.FindFirst then begin
-                //     HrEmployeeName := HREmployee."First Name" + ' ' + HREmployee."Middle Name" + ' ' + HREmployee."Last Name";
-                // end;
+                HREmployee.Reset;
+                HREmployee.SetRange(HREmployee."Employee User ID", "Store Requisition Header"."User ID");
+                if HREmployee.FindFirst then begin
+                    HrEmployeeName := HREmployee."First Name" + ' ' + HREmployee."Middle Name" + ' ' + HREmployee."Last Name";
+                end;
 
 
                 // PurchasesPayablesSetup.Get;

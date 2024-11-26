@@ -255,26 +255,26 @@ report 50086 "LPO/LSO Archived"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
-                    // column(EmployeeFirstName; Employee."First Name")
-                    // {
-                    // }
-                    // column(EmployeeMiddleName; Employee."Middle Name")
-                    // {
-                    // }
-                    // column(EmployeeLastName; Employee."Last Name")
-                    // {
-                    // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
-                    // {
-                    // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
-                    // {
-                    // }
-                    // trigger OnPreDataItem()
-                    // begin
-                    //     Employee.SetRange("User ID", ApproverID);
-                    // end;
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName; Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
+                    trigger OnPreDataItem()
+                    begin
+                        Employee.SetRange("Employee User ID", ApproverID);
+                    end;
 
                     trigger OnAfterGetRecord()
                     begin

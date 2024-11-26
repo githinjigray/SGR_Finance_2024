@@ -152,19 +152,19 @@ report 50080 "Vendor List"
                 }
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
-                    // column(EmployeeFirstName; Employee."First Name")
-                    // {
-                    // }
-                    // column(EmployeeMiddleName; Employee."Middle Name")
-                    // {
-                    // }
-                    // column(EmployeeLastName; Employee."Last Name")
-                    // {
-                    // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
-                    // {
-                    // }
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName; Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
                 }
             }
 

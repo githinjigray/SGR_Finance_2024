@@ -1,7 +1,7 @@
 report 50001 "Payment Voucher"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Payment Voucher.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Payment Voucher.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -235,23 +235,23 @@ report 50001 "Payment Voucher"
 
                 dataitem(Employee; Employee)
                 {
-                    // DataItemLink = "User ID" = FIELD("Approver ID");
-                    // column(EmployeeFirstName;
-                    // Employee."First Name")
-                    // {
-                    // }
-                    // column(EmployeeMiddleName; Employee."Middle Name")
-                    // {
-                    // }
-                    // column(EmployeeLastName; Employee."Last Name")
-                    // {
-                    // }
-                    // column(EmployeeSignature; Employee."Employee Signature")
-                    // {
-                    // }
-                    // column(JobTitle_Employee; Employee."HR Job Title")
-                    // {
-                    // }
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName;
+                    Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
                 }
                 trigger OnAfterGetRecord()
                 begin
