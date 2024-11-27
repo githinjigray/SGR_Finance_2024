@@ -53,19 +53,6 @@ page 70012 "Bid Analysis Card"
                 {
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 4 Code"; rec."Shortcut Dimension 4 Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Shortcut Dimension 5 Code"; rec."Shortcut Dimension 5 Code")
-                {
-                    ApplicationArea = All;
-
-                }
-                field("Shortcut Dimension 6 Code"; rec."Shortcut Dimension 6 Code")
-                {
-                    ApplicationArea = All;
-                }
 
                 field("Responsibility Center"; rec."Responsibility Center")
                 {

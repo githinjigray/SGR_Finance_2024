@@ -356,7 +356,7 @@ report 50022 "Cash Voucher Report"
                 DOCNAME := CHEQUEVOUCHER;
 
                 CalcFields("Payment Header"."Total Amount", "Payment Header"."Net Amount", "Payment Header"."WithHolding Tax Amount");
-                //CheckReport.InitTextVariable();
+                CheckReport.InitTextVariable();
                 // CheckReport.FormatNoText(NumberText, ("Payment Header"."Net Amount"), '');
 
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,90 +11,6 @@
       <rd:DataSourceID>735f8773-e155-4b15-99ec-fa1b16616447</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_BankAccount">
-          <DataField>No_BankAccount</DataField>
-        </Field>
-        <Field Name="Name_BankAccount">
-          <DataField>Name_BankAccount</DataField>
-        </Field>
-        <Field Name="DateFilter_BankAccount">
-          <DataField>DateFilter_BankAccount</DataField>
-        </Field>
-        <Field Name="BankAccPostingGroup_BankAccount">
-          <DataField>BankAccPostingGroup_BankAccount</DataField>
-        </Field>
-        <Field Name="MinBalance_BankAccount">
-          <DataField>MinBalance_BankAccount</DataField>
-        </Field>
-        <Field Name="MinBalance_BankAccountFormat">
-          <DataField>MinBalance_BankAccountFormat</DataField>
-        </Field>
-        <Field Name="OpBal">
-          <DataField>OpBal</DataField>
-        </Field>
-        <Field Name="OpBalFormat">
-          <DataField>OpBalFormat</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="CompanyPicture">
-          <DataField>CompanyPicture</DataField>
-        </Field>
-        <Field Name="BankAccBalance">
-          <DataField>BankAccBalance</DataField>
-        </Field>
-        <Field Name="BankAccBalanceFormat">
-          <DataField>BankAccBalanceFormat</DataField>
-        </Field>
-        <Field Name="Today">
-          <DataField>Today</DataField>
-        </Field>
-        <Field Name="EntryNo">
-          <DataField>EntryNo</DataField>
-        </Field>
-        <Field Name="UserID">
-          <DataField>UserID</DataField>
-        </Field>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="DocumentNo">
-          <DataField>DocumentNo</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-        </Field>
-        <Field Name="AmountFormat">
-          <DataField>AmountFormat</DataField>
-        </Field>
-        <Field Name="BalAccountNo">
-          <DataField>BalAccountNo</DataField>
-        </Field>
-        <Field Name="DocumentType">
-          <DataField>DocumentType</DataField>
-        </Field>
-        <Field Name="Cheque_No">
-          <DataField>Cheque_No</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2786,4 +2702,86 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>6ab9e36e-0351-4eef-bbb5-12440a41d42e</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_BankAccount">
+          <DataField>No_BankAccount</DataField>
+        </Field>
+        <Field Name="Name_BankAccount">
+          <DataField>Name_BankAccount</DataField>
+        </Field>
+        <Field Name="DateFilter_BankAccount">
+          <DataField>DateFilter_BankAccount</DataField>
+        </Field>
+        <Field Name="BankAccPostingGroup_BankAccount">
+          <DataField>BankAccPostingGroup_BankAccount</DataField>
+        </Field>
+        <Field Name="MinBalance_BankAccount">
+          <DataField>MinBalance_BankAccount</DataField>
+        </Field>
+        <Field Name="MinBalance_BankAccountFormat">
+          <DataField>MinBalance_BankAccountFormat</DataField>
+        </Field>
+        <Field Name="OpBal">
+          <DataField>OpBal</DataField>
+        </Field>
+        <Field Name="OpBalFormat">
+          <DataField>OpBalFormat</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="BankAccBalance">
+          <DataField>BankAccBalance</DataField>
+        </Field>
+        <Field Name="BankAccBalanceFormat">
+          <DataField>BankAccBalanceFormat</DataField>
+        </Field>
+        <Field Name="Today">
+          <DataField>Today</DataField>
+        </Field>
+        <Field Name="EntryNo">
+          <DataField>EntryNo</DataField>
+        </Field>
+        <Field Name="UserID">
+          <DataField>UserID</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="BalAccountNo">
+          <DataField>BalAccountNo</DataField>
+        </Field>
+        <Field Name="DocumentType">
+          <DataField>DocumentType</DataField>
+        </Field>
+        <Field Name="Cheque_No">
+          <DataField>Cheque_No</DataField>
+        </Field>
+        <Field Name="PayeeName">
+          <DataField>PayeeName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

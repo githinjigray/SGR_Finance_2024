@@ -333,8 +333,8 @@ report 50001 "Payment Voucher"
                 TotalAmount := 0;
                 CalcFields("Total Amount", "Net Amount", "WithHolding Tax Amount");
                 TotalAmount := "Net Amount";
-                //CheckReport.InitTextVariable();
-                //CheckReport.FormatNoText(NumberText, Round(("Net Amount" - "Payment Header"."Amount to Offset")), "Currency Code");
+                CheckReport.InitTextVariable();
+                CheckReport.FormatNoText(NumberText, Round(("Net Amount" - "Payment Header"."Amount to Offset")), "Currency Code");
                 if "Payment Header".Posted = true then
                     Paid := 'PAID'
                 else

@@ -22,7 +22,7 @@ report 50076 "Send Procurement Emails"
                     EmailBodyRequest.GetSubText(EmailBody, 1);
 
                     CompanyInfo.Get;
-                    CompanyInfo.TestField("Path to Save Documents");
+                    // CompanyInfo.TestField("Path to Save Documents");
 
                     //RFQ
                     RequestforQuotationHeader.Reset;
@@ -45,7 +45,7 @@ report 50076 "Send Procurement Emails"
                     SMTPMail.Create("Procurement Email Messages".Recipients, "Procurement Email Messages".Subject, EmailBody, true);
                     if FileName <> '' then begin
                         //  FileMgt.BLOBImportFromServerFile(TempBlob,FileName);
-                        TempBlob.CreateInStream(ReportIns);
+                        //TempBlob.CreateInStream(ReportIns);
                         SMTPMail.AddAttachment(DocumentName, 'application/pdf', ReportIns);
                     end;
                     if Email.Send(SMTPMail) then begin

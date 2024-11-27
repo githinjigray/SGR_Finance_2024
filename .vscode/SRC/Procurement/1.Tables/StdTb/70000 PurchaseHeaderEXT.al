@@ -130,7 +130,7 @@ tableextension 70000 "Purchase Header EXT" extends "Purchase Header"
             Caption = 'Shortcut Dimension 2 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,2';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(2), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Shortcut Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(2), "Dimension Value Type" = const(Standard), Blocked = const(false));
             trigger OnValidate()
             begin
                 rec."Shortcut Dimension 2 Code" := rec."Global Dimension 2 Code";

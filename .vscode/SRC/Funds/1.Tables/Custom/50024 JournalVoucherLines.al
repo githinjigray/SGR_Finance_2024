@@ -322,7 +322,7 @@ table 50024 "Journal Voucher Lines"
             CaptionClass = '1,2,2';
             DataClassification = ToBeClassified;
             TableRelation = "Dimension Value".Code
-                          WHERE("Global Dimension No." = CONST(2), Blocked = CONST(false), "Global Dimension 1 Code" = FIELD("Shortcut Dimension 1 Code"));
+                          WHERE("Global Dimension No." = CONST(2), Blocked = CONST(false));
         }
         field(20; "Applies-to Doc. Type"; Option)
         {
@@ -470,28 +470,28 @@ table 50024 "Journal Voucher Lines"
             Caption = 'Shortcut Dimension 3 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,3';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(3), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Shortcut Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(3), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
         field(29; "Shortcut Dimension 4 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 4 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,4';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(4), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Shortcut Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(4), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
         field(30; "Shortcut Dimension 5 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 5 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,5';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(5), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Shortcut Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(5), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
         field(31; "Shortcut Dimension 6 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 6 Code';
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,6';
-            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(6), "Dimension Value Type" = const(Standard), Blocked = const(false), "Global Dimension 1 Code" = FIELD("Shortcut Dimension 1 Code"));
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(6), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
         field(32; "Shortcut Dimension 7 Code"; Code[20])
         {

@@ -158,8 +158,8 @@ report 50013 "Funds Claim Voucher"
 
                 "Funds Claim Header".CalcFields("Funds Claim Header".Amount);
                 TotalAmount := "Funds Claim Header".Amount;
-                //CheckReport.InitTextVariable();
-                //CheckReport.FormatNoText(NumberText, (TotalAmount), "Funds Claim Header"."Currency Code");
+                CheckReport.InitTextVariable();
+                CheckReport.FormatNoText(NumberText, (TotalAmount), "Funds Claim Header"."Currency Code");
 
                 if Bank.Get("Funds Claim Header"."Bank Account No.") then begin
                     BankName := Bank.Name;

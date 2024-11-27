@@ -133,7 +133,7 @@ report 50083 "LPO/LSO"
             column(PaymentTermsCode_PurchaseHeader; "Purchase Header"."Payment Terms Code")
             {
             }
-            column(CurrencyCode_PurchaseHeader; "Purchase Header"."Currency Code")
+            column(CurrencyCode_PurchaseHeader; CurrencyCode)
             {
             }
             column(Amount_PurchaseHeader; "Purchase Header".Amount)
@@ -325,12 +325,15 @@ report 50083 "LPO/LSO"
             begin
                 CompanyAddress := CompanyInfo.Address + ' ' + CompanyInfo."Address 2";
 
-                // CheckReport.InitTextVariable;
-                //CheckReport.FormatNoText(NumberText, "Amount Including VAT", '');
+                CheckReport.InitTextVariable;
+                CheckReport.FormatNoText(NumberText, "Amount Including VAT", '');
 
 
                 GeneralLedgerSetup.Get;
-                if "Currency Code" = '' then "Currency Code" := GeneralLedgerSetup."LCY Code";
+                CurrencyCode := "Purchase Header"."Currency Code";
+
+                if CurrencyCode = '' then
+                    CurrencyCode := GeneralLedgerSetup."LCY Code";
 
                 PreparedBy := '';
                 EmployeeTitle := '';
@@ -449,6 +452,7 @@ report 50083 "LPO/LSO"
         ApproverName: Text;
         EmailAddress: Text;
         PhoneNumber: Text;
+        CurrencyCode: Code[20];
         PropertyNo: Code[50];
         PurchaseLine: Record "Purchase Line";
         propertyname: Text;

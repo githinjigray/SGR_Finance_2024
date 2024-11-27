@@ -389,7 +389,7 @@ report 50026 "Funds Transfers Voucher"
                 DOCNAME := CHEQUEVOUCHER;
 
                 // CheckReport.InitTextVariable();
-                //CheckReport.FormatNoText(NumberText, ("Funds Transfer Header"."Amount To Transfer"), '');
+                CheckReport.FormatNoText(NumberText, ("Funds Transfer Header"."Amount To Transfer"), '');
                 CurrCode := "Funds Transfer Header"."Currency Code";
                 if "Funds Transfer Header"."Currency Code" = '' then
                     CurrCode := GLSetup."LCY Code";

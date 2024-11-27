@@ -248,8 +248,8 @@ report 50023 "Customer Receipt"
             begin
                 //CALCFIELDS("Receipt Header"."Total Line Amount");
                 EnglishLanguageCode := 1033;
-                //CheckReport.InitTextVariable();
-                //CheckReport.FormatNoText(TotalAmountText, ("Receipt Header"."Amount Received"), "Receipt Header"."Currency Code");
+                CheckReport.InitTextVariable();
+                CheckReport.FormatNoText(TotalAmountText, ("Receipt Header"."Amount Received"), "Receipt Header"."Currency Code");
 
 
                 HrEmployeeName := "Receipt Header"."User ID";

@@ -42,7 +42,7 @@ report 50025 "Cheque Print FT"
                 "Funds Transfer Header"."Bank Account Name" := UpperCase("Funds Transfer Header"."Bank Account Name");
                 //CALCFIELDS("Funds Transfer Header"."Amount To Transfer");
 
-                //CheckReport.InitTextVariable();
+                CheckReport.InitTextVariable();
                 // CheckReport.FormatNoText(NumberText, "Amount To Transfer", "Funds Transfer Header"."Currency Code");
             end;
         }

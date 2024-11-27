@@ -152,8 +152,8 @@ report 50002 "Mobile Payment Voucher"
                 TotalAmount := 0;
                 CalcFields("Total Amount", "Net Amount", "WithHolding Tax Amount");
                 TotalAmount := "Net Amount";
-                //CheckReport.InitTextVariable();
-                //CheckReport.FormatNoText(NumberText, ("Net Amount"), "Currency Code");
+                CheckReport.InitTextVariable();
+                CheckReport.FormatNoText(NumberText, ("Net Amount"), "Currency Code");
 
                 if Bank.Get("Bank Account No.") then begin
                     BankName := Bank.Name;

@@ -32,8 +32,8 @@ report 50014 "Cheque Print"
                 "Payment Header"."Payee Name" := UpperCase("Payment Header"."Payee Name");
                 CalcFields("Net Amount(LCY)");
 
-                //CheckReport.InitTextVariable();
-                //CheckReport.FormatNoText(NumberText, "Net Amount(LCY)", "Payment Header"."Currency Code");
+                CheckReport.InitTextVariable();
+                CheckReport.FormatNoText(NumberText, "Net Amount(LCY)", "Payment Header"."Currency Code");
             end;
         }
     }

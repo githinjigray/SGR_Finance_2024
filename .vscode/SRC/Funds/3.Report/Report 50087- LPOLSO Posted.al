@@ -190,7 +190,7 @@ report 50087 "LPO/LSO Posted"
                 CompanyAddress := CompanyInfo.Address + ' ' + CompanyInfo."Address 2";
 
                 // CheckReport.InitTextVariable;
-                //CheckReport.FormatNoText(NumberText, "Amount Including VAT", '');
+                CheckReport.FormatNoText(NumberText, "Amount Including VAT", '');
 
 
                 GeneralLedgerSetup.Get;

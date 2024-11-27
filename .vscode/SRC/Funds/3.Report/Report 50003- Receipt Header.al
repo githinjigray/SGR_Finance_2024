@@ -95,8 +95,8 @@ report 50003 "Receipt Header"
             begin
                 CalcFields("Receipt Header"."Total Line Amount");
                 EnglishLanguageCode := 1033;
-                //CheckReport.InitTextVariable();
-               // CheckReport.FormatNoText(TotalAmountText, ("Receipt Header"."Total Line Amount"), "Receipt Header"."Currency Code");
+                CheckReport.InitTextVariable();
+                // CheckReport.FormatNoText(TotalAmountText, ("Receipt Header"."Total Line Amount"), "Receipt Header"."Currency Code");
 
                 if "Receipt Header".Posted = true then
                     Received := 'RECEIVED'
