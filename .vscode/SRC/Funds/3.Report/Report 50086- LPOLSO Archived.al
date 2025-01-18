@@ -118,7 +118,7 @@ report 50086 "LPO/LSO Archived"
             column(pic; CompanyInfo.Picture)
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(ExpectedReceiptDate_PurchaseHeader; "Purchase Header"."Expected Receipt Date")

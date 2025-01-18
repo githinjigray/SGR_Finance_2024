@@ -75,7 +75,7 @@ report 50006 "Imprest Surrender Voucher"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(DATETIME; CurrentDateTime)

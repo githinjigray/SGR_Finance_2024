@@ -41,7 +41,7 @@ report 50004 "Funds Transfer Voucher"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(Bank; "Funds Transfer Header"."Bank Account No.")

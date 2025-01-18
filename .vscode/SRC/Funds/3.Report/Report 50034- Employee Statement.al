@@ -63,7 +63,7 @@ report 50034 "Employee Statement"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")

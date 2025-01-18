@@ -106,7 +106,7 @@ report 50073 "Request for Quatation Report"
                 column(CompanyInfo_Email; CompanyInfo."E-Mail")
                 {
                 }
-                column(CompanyInfo_Web; CompanyInfo."Home Page")
+                column(CompanyInfo_Web; CompanyInfo.Website)
                 {
                 }
                 column(UnitofMeasureCode_RequestforQuotationLine; "Unit of Measure Code")

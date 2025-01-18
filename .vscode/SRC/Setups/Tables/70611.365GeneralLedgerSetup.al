@@ -1,4 +1,4 @@
-tableextension 70611 "Company Information Ext2" extends "General Ledger Setup"
+tableextension 70611 "365 General Ledger Setup" extends "General Ledger Setup"
 {
     fields
     {
@@ -110,7 +110,6 @@ tableextension 70611 "Company Information Ext2" extends "General Ledger Setup"
             Caption = 'Stores Email';
             DataClassification = ToBeClassified;
             ExtendedDatatype = EMail;
-        }
-
+        }        
     }
 }

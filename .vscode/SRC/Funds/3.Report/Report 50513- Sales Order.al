@@ -118,7 +118,7 @@ report 50513 "Sales Order Report"
             column(pic; CompanyInfo.Picture)
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(ExpectedReceiptDate_PurchaseHeader; "Sales Header"."Date Of Flight")

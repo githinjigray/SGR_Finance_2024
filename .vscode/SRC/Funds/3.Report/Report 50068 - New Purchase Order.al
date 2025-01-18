@@ -70,7 +70,7 @@ report 50068 "New Purchase Order"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(ExpectedReceiptDate_PurchaseHeader; "Purchase Header"."Expected Receipt Date")

@@ -95,7 +95,7 @@ report 50077 "Procurement Planning"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             dataitem("Procurement Planning Line"; "Procurement Planning Line")

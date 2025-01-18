@@ -61,7 +61,7 @@ report 50028 "VAT Payable Report"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(VATCode_PaymentLine; "G/L Entry"."Document No.")

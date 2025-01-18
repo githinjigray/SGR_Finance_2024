@@ -35,7 +35,7 @@ report 50017 "Fixed Asset Assignment"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(No_FixedAsset; "Fixed Asset"."No.")

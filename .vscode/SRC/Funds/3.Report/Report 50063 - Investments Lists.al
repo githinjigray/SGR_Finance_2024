@@ -36,7 +36,7 @@ report 50063 "Investments Lists"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(DocumentNo_FDProcessing; "FD Processing"."Document No.")

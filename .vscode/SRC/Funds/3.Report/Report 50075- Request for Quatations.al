@@ -79,7 +79,7 @@ report 50075 "Request for Quatations"
                 column(CompanyInfo_Email; CompanyInfo."E-Mail")
                 {
                 }
-                column(CompanyInfo_Web; CompanyInfo."Home Page")
+                column(CompanyInfo_Web; CompanyInfo.Website)
                 {
                 }
                 column(ProcEmail; GenLedgerSetup."Procurement Email")

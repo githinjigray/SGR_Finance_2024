@@ -36,7 +36,7 @@ report 50052 "Office VAT Report"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(DATETIME; CurrentDateTime)

@@ -38,7 +38,7 @@ report 50029 "CPV Tracking Report"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(IssuingOfficer; IssuingOfficer)

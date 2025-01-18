@@ -95,7 +95,7 @@ report 50001 "Payment Voucher"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(Bank; "Bank Account No.")

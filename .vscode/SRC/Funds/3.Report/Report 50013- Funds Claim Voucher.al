@@ -83,7 +83,7 @@ report 50013 "Funds Claim Voucher"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(DATETIME; CurrentDateTime)

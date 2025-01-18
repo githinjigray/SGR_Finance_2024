@@ -56,7 +56,7 @@ report 50008 "Withholding VAT Report"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(VATCode_PaymentLine; "Payment Line"."VAT Code")

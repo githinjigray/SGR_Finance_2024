@@ -115,7 +115,7 @@ report 50069 "Request for Quotation"
                 column(CompanyInfo_Email; GenLedgerSetup."Stores Email")
                 {
                 }
-                column(CompanyInfo_Web; CompanyInfo."Home Page")
+                column(CompanyInfo_Web; CompanyInfo.Website)
                 {
                 }
                 column(UnitofMeasureCode_RequestforQuotationLine; "Unit of Measure Code")

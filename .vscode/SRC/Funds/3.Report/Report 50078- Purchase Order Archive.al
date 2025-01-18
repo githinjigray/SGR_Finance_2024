@@ -94,7 +94,7 @@ report 50078 "Purchase Order Archive."
             column(pic; CompanyInfo.Picture)
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(ExpectedReceiptDate_PurchaseHeader; "Purchase Header"."Expected Receipt Date")

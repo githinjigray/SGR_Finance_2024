@@ -73,7 +73,7 @@ report 50087 "LPO/LSO Posted"
             column(pic; CompanyInfo.Picture)
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(ExpectedReceiptDate_PurchaseHeader; "Expected Receipt Date")

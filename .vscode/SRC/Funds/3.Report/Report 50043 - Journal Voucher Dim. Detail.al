@@ -37,7 +37,7 @@ report 50043 "Journal Voucher Dim. Detail"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(PreparedBy; PreparedBy)

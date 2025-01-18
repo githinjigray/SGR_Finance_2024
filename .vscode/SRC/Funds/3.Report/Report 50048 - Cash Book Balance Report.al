@@ -36,7 +36,7 @@ report 50048 "Cash Book Balance Report"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(No_BankAccount; "Bank Account"."No.")

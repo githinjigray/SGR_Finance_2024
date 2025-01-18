@@ -60,7 +60,7 @@ report 50100 "Packing List"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(DATETIME; CurrentDateTime)

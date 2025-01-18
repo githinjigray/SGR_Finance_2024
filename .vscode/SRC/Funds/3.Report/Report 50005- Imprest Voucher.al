@@ -107,7 +107,7 @@ report 50005 "Imprest Voucher"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(DATETIME; CurrentDateTime)

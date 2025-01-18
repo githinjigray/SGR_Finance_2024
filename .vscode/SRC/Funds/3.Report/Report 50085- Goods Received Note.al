@@ -77,7 +77,7 @@ report 50085 "Goods Received Note"
                 column(CompanyEmail; CompanyInfo."E-Mail")
                 {
                 }
-                column(CompanyWebPage; CompanyInfo."Home Page")
+                column(CompanyWebPage; CompanyInfo.Website)
                 {
                 }
                 column(Pic; CompanyInfo.Picture)

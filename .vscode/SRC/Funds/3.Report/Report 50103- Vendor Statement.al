@@ -35,7 +35,7 @@ report 50103 "Vendor Statement"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(CompanyTIN; GeneralLedgerSetup."Company TIN")

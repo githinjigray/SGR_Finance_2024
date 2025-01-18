@@ -36,7 +36,7 @@ report 50062 "Customers Statement"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(CompanyLogoDetails; CompanyInfo."Ship-to Address")

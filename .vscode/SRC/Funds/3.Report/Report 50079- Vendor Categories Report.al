@@ -35,7 +35,7 @@ report 50079 "Vendor Categories Report"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             // column(DocumentNumber_SupplierCategory;"Document Number")

@@ -35,7 +35,7 @@ report 50042 "Journal Voucher Dimension"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             column(PreparedBy; PreparedBy)

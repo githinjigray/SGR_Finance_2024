@@ -41,7 +41,7 @@ report 50002 "Mobile Payment Voucher"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(Bank; "Payment Header"."Bank Account No.")

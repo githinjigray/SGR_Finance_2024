@@ -107,7 +107,7 @@ report 50023 "Customer Receipt"
             column(CompanyEmail; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyWebPage; CompanyInfo."Home Page")
+            column(CompanyWebPage; CompanyInfo.Website)
             {
             }
             column(IssuingOfficer; IssuingOfficer)

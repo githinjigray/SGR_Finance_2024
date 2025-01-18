@@ -504,7 +504,7 @@ report 50095 "Stock Take Report"
             column(CompanyInfo_Email; CompanyInfo."E-Mail")
             {
             }
-            column(CompanyInfo_Web; CompanyInfo."Home Page")
+            column(CompanyInfo_Web; CompanyInfo.Website)
             {
             }
             dataitem("Approval Entry"; "Approval Entry")
