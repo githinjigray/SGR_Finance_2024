@@ -20,10 +20,12 @@ pageextension 50020 "Sales Order Subform EXT" extends "Sales Order Subform"
 
             field("Part No."; Rec."Part No.")
             {
-            }
+                    ApplicationArea = All;
+                }
             field("Alternative Part No. 1"; Rec."Alternative Part No. 1")
             {
-            }
+                    ApplicationArea = All;
+                }
         }
         addafter("Shortcut Dimension 2 Code")
         {

@@ -11,18 +11,23 @@ page 50051 "Fixed Deposit Bids"
             {
                 field("Bank Account"; Rec."Bank Account")
                 {
+                    ApplicationArea = All;
                 }
                 field("Bank Account Name"; Rec."Bank Account Name")
                 {
+                    ApplicationArea = All;
                 }
                 field(Amount; Rec.Amount)
                 {
+                    ApplicationArea = All;
                 }
                 field("FD Duration"; Rec."FD Duration")
                 {
+                    ApplicationArea = All;
                 }
                 field(Rate; Rec.Rate)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

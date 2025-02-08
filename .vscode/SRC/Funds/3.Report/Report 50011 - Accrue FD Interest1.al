@@ -1,7 +1,7 @@
 report 50011 "Accrue FD Interest1"
 {
     ProcessingOnly = true;
-
+    ApplicationArea = all;
     dataset
     {
         dataitem("FD Processing1"; "FD Processing1")
@@ -139,9 +139,11 @@ report 50011 "Accrue FD Interest1"
                 field("Start Date"; StartDate)
                 {
                     Visible = false;
+                    ApplicationArea = all;
                 }
                 field("End Date"; EndDate)
                 {
+                    ApplicationArea = all;
                 }
             }
         }

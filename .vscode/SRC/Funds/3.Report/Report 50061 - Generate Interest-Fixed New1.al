@@ -2,6 +2,7 @@ report 50061 "Generate Interest-Fixed New1"
 {
     DefaultLayout = RDLC;
     ProcessingOnly = true;
+    ApplicationArea = all;
     dataset
     {
         dataitem("FD Processing1"; "FD Processing1")
@@ -97,6 +98,7 @@ report 50061 "Generate Interest-Fixed New1"
             {
                 field(RunDate; RunDate)
                 {
+                    ApplicationArea = all;
                 }
             }
         }

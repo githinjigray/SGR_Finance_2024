@@ -2,7 +2,7 @@ report 50060 "Transfer Interest New1"
 {
     DefaultLayout = RDLC;
     RDLCLayout = '.vscode/src/Funds/12.layout/Transfer Interest New1.rdlc';
-
+    ApplicationArea = all;
     dataset
     {
         dataitem("FD Processing1"; "FD Processing1")
@@ -255,10 +255,12 @@ report 50060 "Transfer Interest New1"
                 field(Document_No; DocNo)
                 {
                     Caption = 'Document_No';
+                    ApplicationArea = all;
                 }
                 field(Posting_Date; PDate)
                 {
                     Caption = 'Posting_Date';
+                    ApplicationArea = all;
                 }
             }
         }

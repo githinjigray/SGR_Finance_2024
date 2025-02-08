@@ -11,6 +11,7 @@ pageextension 70005 "Purchase Order Subform EXT" extends "Purchase Order Subform
             }
             field("Depreciation Book Code"; Rec."Depreciation Book Code")
             {
+                ApplicationArea = all;
             }
         }
         addbefore(Description)
@@ -94,6 +95,7 @@ pageextension 70005 "Purchase Order Subform EXT" extends "Purchase Order Subform
         // modify("Depreciation Book Code")
         // {
         //     visible = true;
+        //ApplicationArea = all;
         // }
     }
 }

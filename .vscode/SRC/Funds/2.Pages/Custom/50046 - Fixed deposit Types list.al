@@ -4,6 +4,7 @@ page 50046 "Fixed deposit Types list"
     PageType = List;
     SourceTable = "Fixed Deposit Type1";
     SourceTableView = SORTING(Code, "Maximum Amount") ORDER(Descending);
+    ApplicationArea = All;
 
     layout
     {

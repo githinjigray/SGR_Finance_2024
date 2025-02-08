@@ -2,7 +2,7 @@ report 50064 "Recall FD Monthly Interest1"
 {
     ProcessingOnly = true;
     UseRequestPage = false;
-
+    ApplicationArea = all;
     dataset
     {
         dataitem("FD Processing1"; "FD Processing1")
@@ -111,9 +111,11 @@ report 50064 "Recall FD Monthly Interest1"
             {
                 field("Start Date"; StartDate)
                 {
+                    ApplicationArea = all;
                 }
                 field("End Date"; EndDate)
                 {
+                    ApplicationArea = all;
                 }
             }
         }

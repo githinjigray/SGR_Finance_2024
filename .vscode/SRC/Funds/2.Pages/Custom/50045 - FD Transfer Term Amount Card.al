@@ -3,7 +3,7 @@ page 50045 "FD Transfer Term Amount Card"
     DeleteAllowed = false;
     PageType = Card;
     SourceTable = "FD Processing1";
-
+    ApplicationArea = All;
     layout
     {
         area(content)
@@ -26,9 +26,11 @@ page 50045 "FD Transfer Term Amount Card"
                 }
                 field("FD Account"; rec."FD Account")
                 {
+                    ApplicationArea = All;
                 }
                 field("FD Account Name"; rec."FD Account Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("FD Account Balance"; rec."FD Account Balance")
                 {
@@ -36,10 +38,12 @@ page 50045 "FD Transfer Term Amount Card"
                 }
                 field("User ID"; rec."User ID")
                 {
+                    ApplicationArea = All;
                 }
                 field(Status; rec.Status)
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
             }
             group("Term Deposit Details")
@@ -53,49 +57,64 @@ page 50045 "FD Transfer Term Amount Card"
                 }
                 field("Fixed Deposit Start Date"; rec."Fixed Deposit Start Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Expected Maturity Date"; rec."Expected Maturity Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Currency Code"; Rec."Currency Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("FD Amount"; Rec."FD Amount")
                 {
+                    ApplicationArea = All;
                 }
                 field("FD Amount(LCY)"; Rec."FD Amount(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Interest rate"; rec."Interest rate")
                 {
+                    ApplicationArea = All;
                 }
                 field("Fixed Duration"; rec."Fixed Duration")
                 {
+                    ApplicationArea = All;
                 }
                 field("Interest Earned"; rec."Interest Earned")
                 {
+                    ApplicationArea = All;
                 }
                 field("Untranfered Interest"; rec."Untranfered Interest")
                 {
+                    ApplicationArea = All;
                 }
                 field("FD Maturity Date"; rec."FD Maturity Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Last Interest Earned Date"; rec."Last Interest Earned Date")
                 {
                     Editable = false;
+                    ApplicationArea = All;
+
                 }
                 field("Expected Interest On Term Dep"; rec."Expected Interest On Term Dep")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("Expected Int. On Term Dep(LCY)"; Rec."Expected Int. On Term Dep(LCY)")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("FD W/Tax Rate"; rec."FD W/Tax Rate")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Call Deposit Details")
@@ -105,6 +124,7 @@ page 50045 "FD Transfer Term Amount Card"
                 Visible = true;
                 field("Call Deposit Interest Days"; rec."Call Deposit Interest Days")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

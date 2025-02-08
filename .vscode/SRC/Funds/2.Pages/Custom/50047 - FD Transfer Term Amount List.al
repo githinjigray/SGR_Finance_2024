@@ -4,7 +4,7 @@ page 50047 "FD Transfer Term Amount List"
     PageType = List;
     SourceTable = "FD Processing1";
     SourceTableView = WHERE("Fixed Deposit Status" = FILTER(<> Closed));
-
+    ApplicationArea = All;
     layout
     {
         area(content)

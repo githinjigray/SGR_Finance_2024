@@ -2,7 +2,7 @@ report 50056 "Generate Interest-FD(Queue)"
 {
     ProcessingOnly = true;
     UseRequestPage = false;
-
+    ApplicationArea = all;
     dataset
     {
         dataitem("FD Processing1"; "FD Processing1")
@@ -103,6 +103,7 @@ report 50056 "Generate Interest-FD(Queue)"
             {
                 field(RunDate; RunDate)
                 {
+                    ApplicationArea = all;
                 }
             }
         }
