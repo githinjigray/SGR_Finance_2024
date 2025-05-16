@@ -298,7 +298,7 @@ page 50040 "Funds Claim List"
 
                 trigger OnAction()
                 begin
-                    PostFundsClaim.CheckFundsClaimMandatoryFieldsFundsClaim(Rec."No.");
+                    PostFundsClaim.CheckFundsClaimMandatoryFields(Rec."No.");
                     IF FundsClaimApprovalManager.CheckFundsClaimApprovalWorkflowEnabled(Rec) THEN
                         FundsClaimApprovalManager.OnSendFundsClaimForApproval(Rec);
                 end;
@@ -362,7 +362,7 @@ page 50040 "Funds Claim List"
         FundsUserSetup: Record "Funds User Setup";
         FundsClaim: Record "Funds Claim Header";
         FundsClaimApprovalManager: Codeunit "Funds Claim Approval";
-        PostFundsClaim: Codeunit PaymentPost;
+        PostFundsClaim: Codeunit "Funds Claim Post";
         JTemplate: code[20];
         JBatch: code[20];
         DocNo: code[20];

@@ -387,7 +387,7 @@ page 50035 "Imprest Surrender List"
     var
         FundsUserSetup: Record "Funds User Setup";
         ImprestSurrenderHeader: Record "Imprest Surrender Header";
-        PostImprestSurrender: Codeunit PaymentPost;
+        PostImprestSurrender: Codeunit ImprestSurrenderPost;
         ImprestSurrenderApprovalManager: Codeunit "Imprest Surrender Approval";
         JTemplate: code[20];
         Preview: boolean;

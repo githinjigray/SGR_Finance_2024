@@ -384,8 +384,8 @@ page 50026 "Funds Transfer Card"
     var
         FundsUserSetup: Record "Funds User Setup";
         FundsTransferHeader: Record "Funds Transfer Header";
-        PostFundsTransfer: Codeunit PaymentPost;
-        FundsApprovalManager: Codeunit "Payments Approval Manager";
+        PostFundsTransfer: Codeunit FundsTransferPost;
+        FundsApprovalManager: Codeunit "Funds Transfer Approval";
         ApprovalEntries: Record "Approval Entry";
         Preview: Boolean;
         JTemplate: code[20];

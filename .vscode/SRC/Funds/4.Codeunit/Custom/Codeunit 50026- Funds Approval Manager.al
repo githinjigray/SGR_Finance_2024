@@ -1,4 +1,4 @@
-codeunit 50007 "Funds Approval Manager"
+codeunit 50026 "Funds Approval Manager"
 {
 
     trigger OnRun()
@@ -166,6 +166,32 @@ codeunit 50007 "Funds Approval Manager"
             FundsClaimHeader.MODIFY;
         END;
     end;
+
+    // procedure ReleaseDocumentReversal(var DocumentReversalHeader: Record "Document Reversal Header")
+    // var
+    //     DocumentReversalHeaders: Record "Document Reversal Header";
+    // begin
+    //     DocumentReversalHeader.RESET;
+    //     DocumentReversalHeader.SETRANGE(DocumentReversalHeader."No.", DocumentReversalHeaders."No.");
+    //     IF DocumentReversalHeader.FINDFIRST THEN BEGIN
+    //         DocumentReversalHeader.Status := DocumentReversalHeader.Status::Approved;
+    //         DocumentReversalHeader.VALIDATE(DocumentReversalHeader.Status);
+    //         DocumentReversalHeader.MODIFY;
+    //     END;
+    // end;
+
+    // procedure ReOpenDocumentReversal(var DocumentReversalHeader: Record "Document Reversal Header")
+    // var
+    //     DocumentReversalHeaders: Record "Document Reversal Header";
+    // begin
+    //     DocumentReversalHeader.RESET;
+    //     DocumentReversalHeader.SETRANGE(DocumentReversalHeader."No.", DocumentReversalHeaders."No.");
+    //     IF DocumentReversalHeader.FINDFIRST THEN BEGIN
+    //         DocumentReversalHeader.Status := DocumentReversalHeader.Status::Open;
+    //         DocumentReversalHeader.VALIDATE(DocumentReversalHeader.Status);
+    //         DocumentReversalHeader.MODIFY;
+    //     END;
+    // end;
 
     procedure ReleaseJournalVoucher(var "Journal Voucher": Record "Journal Voucher Header")
     var

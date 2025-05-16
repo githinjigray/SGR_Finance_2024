@@ -1,4 +1,4 @@
-codeunit 50006 "Imprest Surrender"
+codeunit 50017 "Imprest Surrender"
 {
     procedure SendImprestSurrenderEmail(var DocumentNo: Code[20])
     begin

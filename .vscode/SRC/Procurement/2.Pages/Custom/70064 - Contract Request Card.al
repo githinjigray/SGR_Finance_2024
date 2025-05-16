@@ -163,8 +163,8 @@ page 70064 "Contract Request Card"
                 trigger OnAction()
                 begin
 
-                    IF ContractApprovalManager.CheckContractCardApprovalWorkflowEnabled(Rec) THEN
-                        ContractApprovalManager.OnSendContractCardForApproval(Rec);
+                    // IF ContractApprovalManager.CheckContractCardApprovalWorkflowEnabled(Rec) THEN
+                    //     ContractApprovalManager.OnSendContractCardForApproval(Rec);
                     CurrPage.Close();
                 end;
             }
@@ -179,7 +179,7 @@ page 70064 "Contract Request Card"
 
                 trigger OnAction()
                 begin
-                    ContractApprovalManager.OnCancelContractCardForApproval(Rec);
+                    // ContractApprovalManager.OnCancelContractCardForApproval(Rec);
                     //WorkflowWebhookMgt.FindAndCancel(RECORDID);
                 end;
             }
@@ -275,7 +275,7 @@ page 70064 "Contract Request Card"
         HasIncomingDocument: Boolean;
         CreateIncomingDocumentEnabled: Boolean;
         ShowWorkflowStatus: Boolean;
-        ContractApprovalManager: Codeunit "Contracts Approval Manager";
+    // ContractApprovalManager: Codeunit "Contracts Approval Manager";
 
     local procedure SetControlAppearance()
     var

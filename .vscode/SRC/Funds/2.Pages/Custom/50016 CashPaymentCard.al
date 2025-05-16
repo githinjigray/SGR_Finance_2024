@@ -181,7 +181,7 @@ page 50016 "Cash Payment Card"
                     PromotedIsBig = true;
                     PromotedCategory = Process;
                     trigger OnAction()
-                    begin
+                    
                         rec.TESTFIELD(rec.Status, rec.Status::Open);
 
                         //delete existing lines
@@ -193,7 +193,7 @@ page 50016 "Cash Payment Card"
 
                         XMLPORT.RUN(XMLPORT::"Petty cash Upload", FALSE, TRUE);
                         COMMIT;
-                    end;
+                    ;
                 }
                 action("Preview Posting")
                 {

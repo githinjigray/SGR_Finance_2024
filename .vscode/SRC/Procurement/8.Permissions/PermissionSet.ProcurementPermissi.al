@@ -515,7 +515,7 @@ permissionset 70000 "Procurement Permissi"
         codeunit "Inventory Management WS" = X,
         codeunit "Inventory Management" = X,
         codeunit "Ledger Entry Extensionsions" = X,
-        codeunit "Contracts Approval Manager" = X,
+       // codeunit "Contracts Approval Manager" = X,
         codeunit "Funds Approval Manager" = X,
         codeunit "Imprest Surrender" = X,
         codeunit "Funds Claim Approval" = X,

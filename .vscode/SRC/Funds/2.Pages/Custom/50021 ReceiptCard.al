@@ -400,7 +400,7 @@ page 50021 "Receipt Card"
     var
         FundsUserSetup: Record "Funds User Setup";
         ReceiptHeader: Record "Receipt Header";
-        PostReceipt: Codeunit PaymentPost;
+        PostReceipt: Codeunit ReceiptPost;
         // ReceiptApproval: Codeunit "Receipt Approval";
         ApprovalEntries: Record "Approval Entry";
         WorkflowWebhookMgt: Codeunit "Workflow Webhook Management";

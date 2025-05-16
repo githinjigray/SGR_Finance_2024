@@ -1,4 +1,4 @@
-codeunit 50003 "Imprest Approval Manager"
+codeunit 50011 "Imprest Approval Manager"
 {
 
     trigger OnRun()
@@ -64,7 +64,7 @@ codeunit 50003 "Imprest Approval Manager"
         exit(UpperCase('RunWorkflowOnCancelImprestHeaderApprovalRequest'));
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 50003, 'OnSendImprestHeaderForApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, 50011, 'OnSendImprestHeaderForApproval', '', false, false)]
     local procedure RunWorkflowOnSendImprestHeaderForApproval(var ImprestHeader: Record "Imprest Header")
     var
         WorkflowManagement: Codeunit "Workflow Management";
@@ -72,7 +72,7 @@ codeunit 50003 "Imprest Approval Manager"
         WorkflowManagement.HandleEvent(RunWorkflowOnSendImprestHeaderForApprovalCode, ImprestHeader);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 50003, 'OnCancelImprestHeaderForApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, 50011, 'OnCancelImprestHeaderForApproval', '', false, false)]
     local procedure RunWorkflowOnCancelImprestHeaderApprovalRequest(var ImprestHeader: Record "Imprest Header")
     var
         WorkflowManagement: Codeunit "Workflow Management";

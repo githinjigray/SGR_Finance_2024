@@ -98,11 +98,11 @@ codeunit 70009 "Procurement Workflow Events"
         exit(UpperCase('RunWorkflowOnCancelBidAnalysisApprovalRequest'));
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 70001, 'OnSendBidAnalysisForApproval', '', false, false)]
-    procedure RunWorkflowOnSendBidAnalysisForApproval(var BidAnalysis: Record "Bid Analysis Header")
-    begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnSendBidAnalysisForApprovalCode,BidAnalysis);
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 70001, 'OnSendBidAnalysisForApproval', '', false, false)]
+    // procedure RunWorkflowOnSendBidAnalysisForApproval(var BidAnalysis: Record "Bid Analysis Header")
+    // begin
+    //     WorkflowManagement.HandleEvent(RunWorkflowOnSendBidAnalysisForApprovalCode,BidAnalysis);
+    // end;
 
     [EventSubscriber(ObjectType::Codeunit, 70008, 'OnCancelBidAnalysisApprovalRequest', '', false, false)]
     procedure RunWorkflowOnCancelBidAnalysisApprovalRequest(var BidAnalysis: Record "Bid Analysis Header")

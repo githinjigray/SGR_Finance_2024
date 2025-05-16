@@ -421,9 +421,9 @@ page 50036 "Imprest Surrender Card"
         FundsUserSetup: Record "Funds User Setup";
         UserSetup: Record "User Setup";
         ApprovalEntries: Record "Approval Entry";
-        FundsManagement: Codeunit "Approval Page Management";
+        FundsManagement: Codeunit "Funds Management";
         ImprestSurrenderHeader: Record "Imprest Surrender Header";
-        PostImprestSurrender: Codeunit PaymentPost;
+        PostImprestSurrender: Codeunit ImprestSurrenderPost;
         ImprestSurrenderApprovalManager: Codeunit "Imprest Surrender Approval";
         WorkflowWebhookMgt: Codeunit "Workflow Webhook Management";
         ApprovalsMgmt: Codeunit "Approvals Mgmt.";

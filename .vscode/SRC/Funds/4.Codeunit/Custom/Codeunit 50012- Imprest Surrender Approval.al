@@ -1,4 +1,4 @@
-codeunit 50004 "Imprest Surrender Approval"
+codeunit 50012 "Imprest Surrender Approval"
 {
 
     trigger OnRun()
@@ -64,7 +64,7 @@ codeunit 50004 "Imprest Surrender Approval"
         exit(UpperCase('RunWorkflowOnCancelImprestsurrenderApprovalRequest'));
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 50004, 'OnSendImprestsurrenderForApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, 50012, 'OnSendImprestsurrenderForApproval', '', false, false)]
     local procedure RunWorkflowOnSendImprestsurrenderForApproval(var Imprestsurrender: Record "Imprest Surrender Header")
     var
         WorkflowManagement: Codeunit "Workflow Management";
@@ -72,7 +72,7 @@ codeunit 50004 "Imprest Surrender Approval"
         WorkflowManagement.HandleEvent(RunWorkflowOnSendImprestsurrenderForApprovalCode, Imprestsurrender);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 50004, 'OnCancelImprestsurrenderForApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, 50012, 'OnCancelImprestsurrenderForApproval', '', false, false)]
     local procedure RunWorkflowOnCancelImprestsurrenderApprovalRequest(var Imprestsurrender: Record "Imprest Surrender Header")
     var
         WorkflowManagement: Codeunit "Workflow Management";

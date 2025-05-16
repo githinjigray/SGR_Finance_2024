@@ -333,7 +333,7 @@ page 50034 "Posted Imprest Card"
         FundsUserSetup: Record "Funds User Setup";
         ImprestHeader: Record "Imprest Header";
         UserSetup: Record "User Setup";
-        FundsManagement: Codeunit "Approval Page Management";
+        FundsManagement: Codeunit "Funds Management";
         JTemplate: code[20];
         JBatch: code[20];
         DocNo: code[20];

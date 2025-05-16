@@ -23,16 +23,16 @@ codeunit 70011 HRPortal
         itemTable: Record Item;
         GLACcount: Record "G/L Account";
         ApprovalsMgmt: codeunit "Approvals Mgmt.";
-        PostImprest: Codeunit PaymentPost;
+        PostImprest: Codeunit "Imprest Post";
         ImprestApprovalManager: Codeunit "Imprest Approval Manager";
         WorkflowWebhookMgt: Codeunit "Workflow Webhook Management";
-        PostImprestSurrender: Codeunit PaymentPost;
+        PostImprestSurrender: Codeunit ImprestSurrenderPost;
         IMprestSurrenderApprovalManager: Codeunit "Imprest Surrender Approval";
         PurchaseRequisitionApprovalG: Codeunit "Purchase Requisition Approval";
         ProcurementManagementG: Codeunit "Procurement Management";
         ApprovalsMgmtStore: CodeUnit "Store Requisition Approval";
         InventoryManagement: Codeunit "Inventory Management";
-        PostFundsClaim: Codeunit PaymentPost;
+        PostFundsClaim: Codeunit "Funds Claim Post";
         FundsClaimApprovalManager: Codeunit "Funds Claim Approval";
 
     //LeavePlanner:Record HR

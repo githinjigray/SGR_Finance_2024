@@ -207,37 +207,37 @@ page 50030 "Imprest List"
 
                 end;
             }
-            action("Send Approval Request")
-            {
-                ApplicationArea = All;
-                Caption = 'Send Approval Request', comment = 'ENU="Send Approval Request"';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                Image = SendApprovalRequest;
+            // action("Send Approval Request")
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Send Approval Request', comment = 'ENU="Send Approval Request"';
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     PromotedIsBig = true;
+            //     Image = SendApprovalRequest;
 
-                trigger OnAction()
-                begin
-                    PostImprest.CheckImprestMandatoryFields(Rec."No.");
-                    IF ImprestApprovalManager.CheckImprestHeaderApprovalWorkflowEnabled(Rec) THEN
-                        ImprestApprovalManager.OnSendImprestHeaderForApproval(Rec);
-                end;
-            }
-            action("Cancel Approval Request")
-            {
-                ApplicationArea = All;
-                Caption = 'Cancel Approval Request', comment = 'ENU="Cancel Approval Request"';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                Image = CancelApprovalRequest;
+            //     trigger OnAction()
+            //     begin
+            //         PostImprest.CheckImprestMandatoryFields(Rec."No.");
+            //         IF ImprestApprovalManager.CheckImprestHeaderApprovalWorkflowEnabled(Rec) THEN
+            //             ImprestApprovalManager.OnSendImprestHeaderForApproval(Rec);
+            //     end;
+            // }
+            // action("Cancel Approval Request")
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Cancel Approval Request', comment = 'ENU="Cancel Approval Request"';
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     PromotedIsBig = true;
+            //     Image = CancelApprovalRequest;
 
-                trigger OnAction()
-                begin
-                    ImprestApprovalManager.OnCancelImprestHeaderForApproval(Rec);
-                    //WorkflowWebhookMgt.FindAndCancel(RECORDID);
-                end;
-            }
+            //     trigger OnAction()
+            //     begin
+            //         ImprestApprovalManager.OnCancelImprestHeaderForApproval(Rec);
+            //         //WorkflowWebhookMgt.FindAndCancel(RECORDID);
+            //     end;
+            // }
             action("Re-Open")
             {
                 ApplicationArea = All;

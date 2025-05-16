@@ -1,4 +1,4 @@
-codeunit 50005 "Funds Claim Approval"
+codeunit 50015 "Funds Claim Approval"
 {
 
     trigger OnRun()
@@ -64,7 +64,7 @@ codeunit 50005 "Funds Claim Approval"
         exit(UpperCase('RunWorkflowOnCancelFundsClaimApprovalRequest'));
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 50005, 'OnSendFundsClaimForApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, 50015, 'OnSendFundsClaimForApproval', '', false, false)]
     local procedure RunWorkflowOnSendFundsClaimForApproval(var FundsClaimHeader: Record "Funds Claim Header")
     var
         WorkflowManagement: Codeunit "Workflow Management";
@@ -72,7 +72,7 @@ codeunit 50005 "Funds Claim Approval"
         WorkflowManagement.HandleEvent(RunWorkflowOnSendFundsClaimForApprovalCode, FundsClaimHeader);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 50005, 'OnCancelFundsClaimForApproval', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, 50015, 'OnCancelFundsClaimForApproval', '', false, false)]
     local procedure RunWorkflowOnCancelFundsClaimApprovalRequest(var FundsClaimHeader: Record "Funds Claim Header")
     var
         WorkflowManagement: Codeunit "Workflow Management";

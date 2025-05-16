@@ -117,7 +117,7 @@ page 50024 "Posted Receipt Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 3 Code field.';
                     ApplicationArea = All;
-                }                
+                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
@@ -235,7 +235,7 @@ page 50024 "Posted Receipt Card"
                 begin
                     if Confirm(Txt_005) = false then exit;
                     //ReceiptManagement.SendReceiptToCustomer(rec."No.");
-                    ReceiptManagement.SendReceipt(Rec);
+                    // ReceiptManagement.SendReceipt(Rec);
                 end;
             }
 
@@ -247,7 +247,7 @@ page 50024 "Posted Receipt Card"
         JTemplate: code[20];
         JBatch: code[20];
 
-        ReceiptManagement: Codeunit PaymentPost;
+        ReceiptManagement: Codeunit ReceiptPost;
 
         Txt_005: Label 'This will send email message with Receipt attachment continue?';
         Txt_001: TextConst ENU = 'User Account %1 is not Setup for Payments Posting, Contact the System Administrator';

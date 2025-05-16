@@ -255,7 +255,7 @@ page 50020 "Receipt List"
     var
         FundsUserSetup: Record "Funds User Setup";
         ReceiptHeader: Record "Receipt Header";
-        PostReceipt: Codeunit PaymentPost;
+        PostReceipt: Codeunit ReceiptPost;
         Preview: Boolean;
         JTemplate: code[20];
         JBatch: code[20];

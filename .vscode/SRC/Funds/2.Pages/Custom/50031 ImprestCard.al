@@ -286,9 +286,9 @@ page 50031 "Imprest Card"
         ImprestHeader: Record "Imprest Header";
 
         ApprovalEntries: Record "Approval Entry";
-        FundsManagement: Codeunit "Approval Page Management";
-        ImprestApprovalManager: Codeunit "Payments Approval Manager";
-        PostImprest: Codeunit PaymentPost;
+        FundsManagement: Codeunit "Funds Management";
+        ImprestApprovalManager: Codeunit "Imprest Approval Manager";
+        PostImprest: Codeunit "Imprest Post";
         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
         WorkflowWebhookMgt: Codeunit "Workflow Webhook Management";
         JTemplate: code[20];
