@@ -172,29 +172,29 @@ page 50016 "Cash Payment Card"
                         DocumentAttachmentDetails.RunModal();
                     end;
                 }
-                action("Upload Transactions")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Upload Transactions';
-                    Image = Excel;
-                    Promoted = true;
-                    PromotedIsBig = true;
-                    PromotedCategory = Process;
-                    trigger OnAction()
+                // action("Upload Transactions")
+                // {
+                //     ApplicationArea = All;
+                //     Caption = 'Upload Transactions';
+                //     Image = Excel;
+                //     Promoted = true;
+                //     PromotedIsBig = true;
+                //     PromotedCategory = Process;
+                //     trigger OnAction()
                     
-                        rec.TESTFIELD(rec.Status, rec.Status::Open);
+                //         //TESTFIELD(rec.Status,rec.Status::Open);
 
-                        //delete existing lines
+                //         //delete existing lines
 
-                        PaymentLines.RESET;
-                        PaymentLines.SETRANGE("Document No.", Rec."No.");
-                        PaymentLines.DELETEALL;
-                        //end delete
+                //         PaymentLines.RESET;
+                //         PaymentLines.SETRANGE("Document No.", Rec."No.");
+                //         PaymentLines.DELETEALL;
+                //         //end delete
 
-                        XMLPORT.RUN(XMLPORT::"Petty cash Upload", FALSE, TRUE);
-                        COMMIT;
-                    ;
-                }
+                //         XMLPORT.RUN(XMLPORT::"Petty cash Upload", FALSE, TRUE);
+                //         COMMIT;
+                //     ;
+                // }
                 action("Preview Posting")
                 {
                     ApplicationArea = All;
