@@ -182,6 +182,9 @@ report 50083 "LPO/LSO"
             {
 
             }
+            column(TermsConditionText; TermsConditionText)
+            {
+            }
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
@@ -322,6 +325,10 @@ report 50083 "LPO/LSO"
             }
 
             trigger OnAfterGetRecord()
+            var
+                PurchSetup: record "Purchases & Payables Setup";
+                InStream: InStream;
+                TempText: Text[1024];
             begin
                 CompanyAddress := CompanyInfo.Address + ' ' + CompanyInfo."Address 2";
 
@@ -412,6 +419,20 @@ report 50083 "LPO/LSO"
                     //     ApproverTitle := Employees."HR Job Title";
                     // end;
                 END;
+                TermsConditionText := '';
+                ShowPOTermsContents();
+
+
+                // if PurchSetup.get then
+                //     PurchSetup.CalcFields("PO Terms & Conditions");
+
+                // if PurchSetup."PO Terms & Conditions".HasValue then begin
+                //     PurchSetup."PO Terms & Conditions".CreateInStream(InStream);
+                //     while not InStream.EOS() do begin
+                //         InStream.ReadText(TempText);
+                //         TermsConditionText += TempText;
+                //     end;
+                // end;
             end;
         }
     }
@@ -478,5 +499,19 @@ report 50083 "LPO/LSO"
         VendorVATNo: Text;
         CompanyMail: Text;
         AccountNo: Code[50];
+        TermsConditionText: text;
+
+    local procedure ShowPOTermsContents()
+    var
+        Istream: InStream;
+        TypeHelper: Codeunit "Type Helper";
+        LineSeparator: Text;
+        PurchPayablesSetup: Record "Purchases & Payables Setup";
+    begin
+        PurchPayablesSetup.get;
+        PurchPayablesSetup.calcfields("PO Terms & Conditions");
+        PurchPayablesSetup."PO Terms & Conditions".CreateInstream(Istream);
+        TermsConditionText := TypeHelper.ReadAsTextWithSeparator(Istream, '<br>');
+    end;
 }
 

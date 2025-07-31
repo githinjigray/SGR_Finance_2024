@@ -1774,7 +1774,7 @@
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=</Value>
+                        <Value>=First(Fields!CurrencyCode_PurchaseHeader.Value, "DataSet_Result")</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -1830,7 +1830,7 @@
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=</Value>
+                        <Value>=First(Fields!CurrencyCode_PurchaseHeader.Value, "DataSet_Result")</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -1880,7 +1880,7 @@
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=</Value>
+                        <Value>=First(Fields!CurrencyCode_PurchaseHeader.Value, "DataSet_Result")</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -2035,7 +2035,7 @@
                         </Style>
                       </TextRun>
                       <TextRun>
-                        <Value>=</Value>
+                        <Value>=First(Fields!CurrencyCode_PurchaseHeader.Value, "DataSet_Result")</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -2705,8 +2705,47 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox28">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!TermsConditionText.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox25</rd:DefaultName>
+            <Top>20.49782cm</Top>
+            <Left>0.43525cm</Left>
+            <Height>9.67736cm</Height>
+            <Width>19.0977cm</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>20.59012cm</Height>
+        <Height>30.46622cm</Height>
         <Style />
       </Body>
       <Width>20.54084cm</Width>
@@ -3041,6 +3080,9 @@ FFABRRRQAUUUUAf/2Q==</ImageData>
         </Field>
         <Field Name="VendorVATNo">
           <DataField>VendorVATNo</DataField>
+        </Field>
+        <Field Name="TermsConditionText">
+          <DataField>TermsConditionText</DataField>
         </Field>
         <Field Name="LineNo_PurchaseLine">
           <DataField>LineNo_PurchaseLine</DataField>

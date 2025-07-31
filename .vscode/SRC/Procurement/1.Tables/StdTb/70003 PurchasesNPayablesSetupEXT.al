@@ -60,5 +60,10 @@ tableextension 70003 "Purchases N Payables Setup EXT" extends "Purchases & Payab
             DataClassification = ToBeClassified;
             TableRelation = "No. Series"."Code";
         }
+        field(70010; "PO Terms & Conditions"; Blob)
+        {
+            Caption = 'PO Terms & Conditions';
+            DataClassification = ToBeClassified;
+        }
     }
 }
