@@ -324,7 +324,7 @@ table 70001 "Purchase Requisition Line"
             DataClassification = ToBeClassified;
             CaptionClass = '1,2,4';
             TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(4), "Dimension Value Type" = const(Standard), Blocked = const(false));
-        }
+        }        
         field(54; "Shortcut Dimension 5 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 5 Code';

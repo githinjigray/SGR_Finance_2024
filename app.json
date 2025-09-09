@@ -2,7 +2,7 @@
   "id": "8fc54b51-1cd8-48a8-a8fe-a0a1647f9c96",
   "name": "Funds & Procurement Management",
   "publisher": "365 Consulting Ltd",
-  "version": "4.0.0.0",
+  "version": "4.1.0.5",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -13,7 +13,7 @@
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "24.0.0.0",
+  "application": "26.0.0.0",
   
   "idRanges": [
     {
@@ -26,7 +26,7 @@
     "allowDownloadingSource": false,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "13.0",
+  "runtime": "15.0",
   "features": [
     "NoImplicitWith"
   ]

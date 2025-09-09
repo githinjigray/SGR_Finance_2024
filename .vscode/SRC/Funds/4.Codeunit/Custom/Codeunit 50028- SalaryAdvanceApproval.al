@@ -200,24 +200,24 @@ codeunit 50028 "Salary Advance Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        SalaryAdvance: Record "Salary Advance Request";
-    begin
-        case RecRef.Number of
-            DATABASE::"Salary Advance Request":
-                begin
-                    RecRef.SetTable(SalaryAdvance);
-                    SalaryAdvance.Validate(Status, SalaryAdvance.Status::Approved);
-                    SalaryAdvance.Modify(true);
-                    Handled := true;
-                    //OnAfterReleaseDocument(SalaryAdvance);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     SalaryAdvance: Record "Salary Advance Request";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Salary Advance Request":
+    //             begin
+    //                 RecRef.SetTable(SalaryAdvance);
+    //                 SalaryAdvance.Validate(Status, SalaryAdvance.Status::Approved);
+    //                 SalaryAdvance.Modify(true);
+    //                 Handled := true;
+    //                 //OnAfterReleaseDocument(SalaryAdvance);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(PaymentCard: Record "Payment Header")

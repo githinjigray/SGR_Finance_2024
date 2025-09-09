@@ -21,6 +21,7 @@ pageextension 50002 "365 Employee Card" extends "Employee Card"
                 Visible = true;
                 Editable = true;
                 UpdatePropagation = Both;
+                SubPageLink = "No." = field("No.");
             }
         }
     }

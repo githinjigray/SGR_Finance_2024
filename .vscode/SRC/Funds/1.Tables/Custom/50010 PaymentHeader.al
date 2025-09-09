@@ -201,7 +201,7 @@ table 50010 "Payment Header"
             Caption = 'Total Amount(LCY)';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = sum("Payment Line"."Total Amount" where("Document No." = field("No.")));
+            CalcFormula = sum("Payment Line"."Total Amount(LCY)" where("Document No." = field("No.")));
         }
         field(20; "VAT Amount"; Decimal)
         {

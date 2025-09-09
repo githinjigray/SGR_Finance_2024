@@ -202,24 +202,24 @@ codeunit 50022 "Receipt Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        ReceiptHeader: Record "Receipt Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Receipt Header":
-                begin
-                    RecRef.SetTable(ReceiptHeader);
-                    ReceiptHeader.Validate(Status, ReceiptHeader.Status::Approved);
-                    ReceiptHeader.Modify(true);
-                    Handled := true;
-                    //OnAfterReleaseDocument(ReceiptHeader);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     ReceiptHeader: Record "Receipt Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Receipt Header":
+    //             begin
+    //                 RecRef.SetTable(ReceiptHeader);
+    //                 ReceiptHeader.Validate(Status, ReceiptHeader.Status::Approved);
+    //                 ReceiptHeader.Modify(true);
+    //                 Handled := true;
+    //                 //OnAfterReleaseDocument(ReceiptHeader);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(ReceiptHeader: Record "Receipt Header")

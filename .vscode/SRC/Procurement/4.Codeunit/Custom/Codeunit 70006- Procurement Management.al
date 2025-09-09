@@ -277,8 +277,10 @@ codeunit 70006 "Procurement Management"
                 Budget.SetRange(Budget."Budget Name", BCSetup."Current Budget Code");
                 Budget.SetFilter(Budget.Date, '%1..%2', BCSetup."Current Budget Start Date", BCSetup."Current Budget End Date");
                 Budget.SetRange(Budget."G/L Account No.", BudgetGL);
-                Budget.SetRange(Budget."Global Dimension 1 Code", PurchLine."Global Dimension 1 Code");
-                Budget.SetRange(Budget."Global Dimension 2 Code", PurchLine."Global Dimension 2 Code");
+                if PurchLine."Global Dimension 1 Code" <> '' then
+                    Budget.SetRange(Budget."Global Dimension 1 Code", PurchLine."Global Dimension 1 Code");
+                if PurchLine."Global Dimension 2 Code" <> '' then
+                    Budget.SetRange(Budget."Global Dimension 2 Code", PurchLine."Global Dimension 2 Code");
                 if PurchLine."Shortcut Dimension 3 Code" <> '' then
                     Budget.SetRange(Budget."Budget Dimension 3 Code", PurchLine."Shortcut Dimension 3 Code");
                 if PurchLine."Shortcut Dimension 4 Code" <> '' then
@@ -295,12 +297,18 @@ codeunit 70006 "Procurement Management"
                 Commitments.SetRange(Commitments."G/L Account No.", BudgetGL);
                 Commitments."Document Type" := Commitments."Document Type"::"Purchase Requisition";
                 Commitments.SetRange(Commitments."Posting Date", BCSetup."Current Budget Start Date", LastDay);
-                Commitments.SetRange(Commitments."Shortcut Dimension 1 Code", PurchLine."Global Dimension 1 Code");
-                Commitments.SetRange(Commitments."Shortcut Dimension 2 Code", PurchLine."Global Dimension 2 Code");
+                if PurchLine."Global Dimension 1 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 1 Code", PurchLine."Global Dimension 1 Code");
+                if PurchLine."Global Dimension 2 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 2 Code", PurchLine."Global Dimension 2 Code");
                 if PurchLine."Shortcut Dimension 3 Code" <> '' then
                     Commitments.SetRange(Commitments."Shortcut Dimension 3 Code", PurchLine."Shortcut Dimension 3 Code");
                 if PurchLine."Shortcut Dimension 4 Code" <> '' then
                     Commitments.SetRange(Commitments."Shortcut Dimension 4 Code", PurchLine."Shortcut Dimension 4 Code");
+                if PurchLine."Shortcut Dimension 5 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 5 Code", PurchLine."Shortcut Dimension 5 Code");
+                if PurchLine."Shortcut Dimension 6 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 4 Code", PurchLine."Shortcut Dimension 6 Code");
                 Commitments.CalcSums(Commitments.Amount);
                 CommitmentAmount := Commitments.Amount;
 
@@ -319,7 +327,7 @@ codeunit 70006 "Procurement Management"
                     Commitments."Line No." := 0;
                     Commitments.Date := Today;
                     Commitments."Posting Date" := PurchHeader."Document Date";
-                    //Commitments."Document Type" := Commitments."Document Type"::Requisition;
+                    Commitments."Document Type" := Commitments."Document Type"::"Purchase Requisition";
                     Commitments."Document No." := PurchHeader."No.";
                     Commitments.Amount := PurchLine."Total Cost(LCY)";
                     Commitments."Month Budget" := BudgetAmount;
@@ -332,6 +340,8 @@ codeunit 70006 "Procurement Management"
                     Commitments."Shortcut Dimension 2 Code" := PurchLine."Global Dimension 2 Code";
                     Commitments."Shortcut Dimension 3 Code" := PurchLine."Shortcut Dimension 3 Code";
                     Commitments."Shortcut Dimension 4 Code" := PurchLine."Shortcut Dimension 4 Code";
+                    Commitments."Shortcut Dimension 5 Code" := PurchLine."Shortcut Dimension 5 Code";
+                    Commitments."Shortcut Dimension 6 Code" := PurchLine."Shortcut Dimension 6 Code";
                     Commitments.Budget := BCSetup."Current Budget Code";
                     //Commitments.Type := Commitments.Type::Vendor;
                     Commitments.Committed := true;
@@ -401,6 +411,8 @@ codeunit 70006 "Procurement Management"
                 Commitments."Shortcut Dimension 2 Code" := PurchLine."Global Dimension 2 Code";
                 Commitments."Shortcut Dimension 3 Code" := PurchLine."Shortcut Dimension 3 Code";
                 Commitments."Shortcut Dimension 4 Code" := PurchLine."Shortcut Dimension 4 Code";
+                Commitments."Shortcut Dimension 5 Code" := PurchLine."Shortcut Dimension 5 Code";
+                Commitments."Shortcut Dimension 6 Code" := PurchLine."Shortcut Dimension 6 Code";
                 Commitments.Committed := true;
                 Commitments.Budget := BCSetup."Current Budget Code";
                 if Commitments.Insert then begin
@@ -504,8 +516,10 @@ codeunit 70006 "Procurement Management"
                 Budget.SetRange(Budget."Budget Name", BCSetup."Current Budget Code");
                 Budget.SetFilter(Budget.Date, '%1..%2', BCSetup."Current Budget Start Date", BCSetup."Current Budget End Date");
                 Budget.SetRange(Budget."G/L Account No.", BudgetGL);
-                Budget.SetRange(Budget."Global Dimension 1 Code", PurchLine."Shortcut Dimension 1 Code");
-                Budget.SetRange(Budget."Global Dimension 2 Code", PurchLine."Shortcut Dimension 2 Code");
+                if PurchLine."Shortcut Dimension 1 Code" <> '' then
+                    Budget.SetRange(Budget."Global Dimension 1 Code", PurchLine."Shortcut Dimension 1 Code");
+                if PurchLine."Shortcut Dimension 2 Code" <> '' then
+                    Budget.SetRange(Budget."Global Dimension 2 Code", PurchLine."Shortcut Dimension 2 Code");
                 if PurchLine."Shortcut Dimension 3 Code" <> '' then
                     Budget.SetRange(Budget."Budget Dimension 3 Code", PurchLine."Shortcut Dimension 3 Code");
                 if PurchLine."Shortcut Dimension 4 Code" <> '' then
@@ -522,12 +536,18 @@ codeunit 70006 "Procurement Management"
                 Commitments.SetRange(Commitments."G/L Account No.", BudgetGL);
                 Commitments."Document Type" := Commitments."Document Type"::"Purchase Order";
                 Commitments.SetRange(Commitments."Posting Date", BCSetup."Current Budget Start Date", LastDay);
-                Commitments.SetRange(Commitments."Shortcut Dimension 1 Code", PurchLine."Shortcut Dimension 1 Code");
-                Commitments.SetRange(Commitments."Shortcut Dimension 2 Code", PurchLine."Shortcut Dimension 2 Code");
+                if PurchLine."Shortcut Dimension 1 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 1 Code", PurchLine."Shortcut Dimension 1 Code");
+                if PurchLine."Shortcut Dimension 2 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 2 Code", PurchLine."Shortcut Dimension 2 Code");
                 if PurchLine."Shortcut Dimension 3 Code" <> '' then
                     Commitments.SetRange(Commitments."Shortcut Dimension 3 Code", PurchLine."Shortcut Dimension 3 Code");
                 if PurchLine."Shortcut Dimension 4 Code" <> '' then
                     Commitments.SetRange(Commitments."Shortcut Dimension 4 Code", PurchLine."Shortcut Dimension 4 Code");
+                if PurchLine."Shortcut Dimension 5 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 5 Code", PurchLine."Shortcut Dimension 5 Code");
+                if PurchLine."Shortcut Dimension 6 Code" <> '' then
+                    Commitments.SetRange(Commitments."Shortcut Dimension 6 Code", PurchLine."Shortcut Dimension 6 Code");
                 Commitments.CalcSums(Commitments.Amount);
                 CommitmentAmount := Commitments.Amount;
 
@@ -546,7 +566,7 @@ codeunit 70006 "Procurement Management"
                     Commitments."Line No." := 0;
                     Commitments.Date := Today;
                     Commitments."Posting Date" := PurchHeader."Document Date";
-                    //Commitments."Document Type" := Commitments."Document Type"::Requisition;
+                    Commitments."Document Type" := Commitments."Document Type"::"Purchase Order";
                     Commitments."Document No." := PurchHeader."No.";
                     Commitments.Amount := PurchLine."Line Amount";
                     Commitments."Month Budget" := BudgetAmount;
@@ -559,6 +579,8 @@ codeunit 70006 "Procurement Management"
                     Commitments."Shortcut Dimension 2 Code" := PurchLine."Shortcut Dimension 2 Code";
                     Commitments."Shortcut Dimension 3 Code" := PurchLine."Shortcut Dimension 3 Code";
                     Commitments."Shortcut Dimension 4 Code" := PurchLine."Shortcut Dimension 4 Code";
+                    Commitments."Shortcut Dimension 5 Code" := PurchLine."Shortcut Dimension 5 Code";
+                    Commitments."Shortcut Dimension 6 Code" := PurchLine."Shortcut Dimension 6 Code";
                     Commitments.Budget := BCSetup."Current Budget Code";
                     //Commitments.Type := Commitments.Type::Vendor;
                     Commitments.Committed := true;
@@ -628,6 +650,8 @@ codeunit 70006 "Procurement Management"
                 Commitments."Shortcut Dimension 2 Code" := PurchLine."Shortcut Dimension 2 Code";
                 Commitments."Shortcut Dimension 3 Code" := PurchLine."Shortcut Dimension 3 Code";
                 Commitments."Shortcut Dimension 4 Code" := PurchLine."Shortcut Dimension 4 Code";
+                Commitments."Shortcut Dimension 5 Code" := PurchLine."Shortcut Dimension 5 Code";
+                Commitments."Shortcut Dimension 6 Code" := PurchLine."Shortcut Dimension 6 Code";
                 Commitments.Committed := true;
                 Commitments.Budget := BCSetup."Current Budget Code";
                 if Commitments.Insert then begin

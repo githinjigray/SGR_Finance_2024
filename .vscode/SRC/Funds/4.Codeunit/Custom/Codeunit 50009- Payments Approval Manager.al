@@ -113,14 +113,30 @@ codeunit 50009 "Payments Approval Manager"
                                           DATABASE::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnAddWorkflowResponsesToLibrary', '', false, false)]
-    local procedure AddResponsesToLibrary()
-    var
-        WorkflowResponseHandling: Codeunit "Workflow Response Handling";
+    procedure ReleaseDocumentCode(): Code[128]
     begin
+        exit('RELEASEDOCUMENT');
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnAddWorkflowResponsePredecessorsToLibrary', '', false, false)]
+    procedure OpenDocumentCode(): Code[128]
+    begin
+        exit('OPENDOCUMENT');
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnAddWorkflowResponsesToLibrary', '', false, false)]
+    local procedure CreateResponsesLibrary()
+    var
+        OpenDocumentTxt: Label 'Reopen the Payment document.';
+        ReleaseDocumentTxt: Label 'Release the Payment document.';
+        WorkflowRespHandling: Codeunit "Workflow Response Handling";
+    begin
+
+        WorkflowRespHandling.AddResponseToLibrary(ReleaseDocumentCode(), 0, ReleaseDocumentTxt, 'GROUP 0');
+        WorkflowRespHandling.AddResponseToLibrary(OpenDocumentCode(), 0, OpenDocumentTxt, 'GROUP 0');
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnAddWorkflowResponsePredecessorsToLibrary', '', false, false)]
     local procedure AddResponsePredecessorsToLibrary(ResponseFunctionName: Code[128])
     var
         WorkflowResponseHandling: Codeunit "Workflow Response Handling";
@@ -156,7 +172,7 @@ codeunit 50009 "Payments Approval Manager"
                     RecRef.SetTable(PaymentCard);
                     PaymentCard.CalcFields("Net Amount");
                     PaymentCard.CalcFields("Net Amount(LCY)");
-                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
+                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::Payment;
                     ApprovalEntryArgument."Document No." := PaymentCard."No.";
                     ApprovalEntryArgument.Amount := PaymentCard."Net Amount";
                     ApprovalEntryArgument."Amount (LCY)" := PaymentCard."Net Amount(LCY)";
@@ -202,7 +218,7 @@ codeunit 50009 "Payments Approval Manager"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnReleaseDocument', '', false, false)]
     local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
         PaymentCard: Record "Payment Header";
@@ -211,11 +227,12 @@ codeunit 50009 "Payments Approval Manager"
             DATABASE::"Payment Header":
                 begin
                     RecRef.SetTable(PaymentCard);
+                    Message(PaymentCard."No.");
                     PaymentCard.Validate(Status, PaymentCard.Status::Approved);
                     PaymentCard.Modify(true);
                     Handled := true;
                     //OnAfterReleaseDocument(PaymentCard);
-                    Handled := true;
+                    //Handled := true;
                 end;
         end;
         Handled := true;
@@ -270,5 +287,6 @@ codeunit 50009 "Payments Approval Manager"
                 EXIT(PAGE::"Cash Payment Card");
         END;
     end;
+    
 }
 

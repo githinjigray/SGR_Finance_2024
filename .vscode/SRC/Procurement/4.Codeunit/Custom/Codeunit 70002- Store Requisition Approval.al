@@ -201,23 +201,23 @@ codeunit 70002 "Store Requisition Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        StoreRequisition: Record "Store Requisition Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Store Requisition Header":
-                begin
-                    RecRef.SetTable(StoreRequisition);
-                    StoreRequisition.Validate(Status, StoreRequisition.Status::Approved);
-                    if StoreRequisition.Modify(true) then
-                        OnAfterReleaseDocument(StoreRequisition);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     StoreRequisition: Record "Store Requisition Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Store Requisition Header":
+    //             begin
+    //                 RecRef.SetTable(StoreRequisition);
+    //                 StoreRequisition.Validate(Status, StoreRequisition.Status::Approved);
+    //                 if StoreRequisition.Modify(true) then
+    //                     OnAfterReleaseDocument(StoreRequisition);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var StoreRequisition: Record "Store Requisition Header")

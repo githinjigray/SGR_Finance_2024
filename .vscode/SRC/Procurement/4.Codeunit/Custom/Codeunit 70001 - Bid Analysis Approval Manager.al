@@ -202,23 +202,23 @@ codeunit 70001 "Bid Analysis Approval Manager"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        BidAnalysis: Record "Bid Analysis Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Bid Analysis Header":
-                begin
-                    RecRef.SetTable(BidAnalysis);
-                    BidAnalysis.Validate(Status, BidAnalysis.Status::Released);
-                    if BidAnalysis.Modify(true) then
-                        OnAfterReleaseDocument(BidAnalysis);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     BidAnalysis: Record "Bid Analysis Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Bid Analysis Header":
+    //             begin
+    //                 RecRef.SetTable(BidAnalysis);
+    //                 BidAnalysis.Validate(Status, BidAnalysis.Status::Released);
+    //                 if BidAnalysis.Modify(true) then
+    //                     OnAfterReleaseDocument(BidAnalysis);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var BidAnalysis: Record "Bid Analysis Header")

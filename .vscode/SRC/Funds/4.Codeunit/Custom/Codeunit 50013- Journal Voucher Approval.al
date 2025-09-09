@@ -201,22 +201,22 @@ codeunit 50013 "Journal Voucher Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        JournalVoucher: Record "Journal Voucher Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Journal Voucher Header":
-                begin
-                    RecRef.SetTable(JournalVoucher);
-                    JournalVoucher.Validate(Status, JournalVoucher.Status::Approved);
-                    if JournalVoucher.Modify(true) then
-                        Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     JournalVoucher: Record "Journal Voucher Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Journal Voucher Header":
+    //             begin
+    //                 RecRef.SetTable(JournalVoucher);
+    //                 JournalVoucher.Validate(Status, JournalVoucher.Status::Approved);
+    //                 if JournalVoucher.Modify(true) then
+    //                     Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var JournalVoucher: Record "Journal Voucher Header")

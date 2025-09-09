@@ -202,23 +202,23 @@ codeunit 50015 "Funds Claim Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        FundsClaimHeader: Record "Funds Claim Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Funds Claim Header":
-                begin
-                    RecRef.SetTable(FundsClaimHeader);
-                    FundsClaimHeader.Validate(Status, FundsClaimHeader.Status::Approved);
-                    if FundsClaimHeader.Modify(true) then
-                        OnAfterReleaseDocument(FundsClaimHeader);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     FundsClaimHeader: Record "Funds Claim Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Funds Claim Header":
+    //             begin
+    //                 RecRef.SetTable(FundsClaimHeader);
+    //                 FundsClaimHeader.Validate(Status, FundsClaimHeader.Status::Approved);
+    //                 if FundsClaimHeader.Modify(true) then
+    //                     OnAfterReleaseDocument(FundsClaimHeader);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var FundsClaimHeader: Record "Funds Claim Header")

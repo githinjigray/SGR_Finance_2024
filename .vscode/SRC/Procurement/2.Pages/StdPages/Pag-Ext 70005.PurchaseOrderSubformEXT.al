@@ -27,31 +27,7 @@ pageextension 70005 "Purchase Order Subform EXT" extends "Purchase Order Subform
                 ApplicationArea = all;
                 ToolTip = 'Shows the Part No. of an item';
                 ShowMandatory = true;
-            }
-            field("Alternative Part No. 1"; Rec."Alternative Part No. 1")
-            {
-                ApplicationArea = all;
-                ToolTip = 'Shows the Alternative Part No. of an item';
-                ShowMandatory = true;
-            }
-            field("Alternative Part No. 2"; Rec."Alternative Part No. 2")
-            {
-                ApplicationArea = all;
-                ToolTip = 'Shows the Alternative Part No. of an item';
-                ShowMandatory = true;
-            }
-            field("Alternative Part No. 3"; Rec."Alternative Part No. 3")
-            {
-                ApplicationArea = all;
-                ToolTip = 'Shows the Alternative Part No. of an item';
-                ShowMandatory = true;
-            }
-            field("Alternative Part No. 4"; Rec."Alternative Part No. 4")
-            {
-                ApplicationArea = all;
-                ToolTip = 'Shows the Alternative Part No. of an item';
-                ShowMandatory = true;
-            }
+            }            
             field("Purchase Requisition No."; Rec."Purchase Requisition No.")
             {
                 ApplicationArea = all;

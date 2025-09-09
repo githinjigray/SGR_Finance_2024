@@ -668,11 +668,11 @@ codeunit 50000 PaymentPost
         END;
         PaymentHeader.TESTFIELD(PaymentHeader."Bank Account No.");
         PaymentHeader.TESTFIELD(PaymentHeader.Description);
-        PaymentHeader.TESTFIELD(PaymentHeader."Global Dimension 1 Code");
-        PaymentHeader.TESTFIELD(PaymentHeader."Global Dimension 2 Code");
+        //PaymentHeader.TESTFIELD(PaymentHeader."Global Dimension 1 Code");
+        //PaymentHeader.TESTFIELD(PaymentHeader."Global Dimension 2 Code");
         //PaymentHeader.TESTFIELD(PaymentHeader."Shortcut Dimension 3 Code");
-        PaymentHeader.TESTFIELD(PaymentHeader."Shortcut Dimension 4 Code");
-        PaymentHeader.TESTFIELD(PaymentHeader."Shortcut Dimension 5 Code");
+        //PaymentHeader.TESTFIELD(PaymentHeader."Shortcut Dimension 4 Code");
+        // PaymentHeader.TESTFIELD(PaymentHeader."Shortcut Dimension 5 Code");
         if Posting = true then BEGIN
             PaymentHeader.TESTFIELD(PaymentHeader.Status, PaymentHeader.Status::Approved);
             PaymentHeader.TESTFIELD(PaymentHeader."Reference No.");
@@ -684,11 +684,11 @@ codeunit 50000 PaymentPost
             REPEAT
                 PaymentLine.TESTFIELD(PaymentLine."Account No.");
                 PaymentLine.TESTFIELD(PaymentLine.Description);
-                PaymentLine.TESTFIELD(PaymentLine."Global Dimension 1 Code");
-                PaymentLine.TESTFIELD(PaymentLine."Global Dimension 2 Code");
-                PaymentLine.TESTFIELD(PaymentLine."Shortcut Dimension 3 Code");
-                PaymentLine.TESTFIELD(PaymentLine."Shortcut Dimension 4 Code");
-                PaymentLine.TESTFIELD(PaymentLine."Shortcut Dimension 5 Code");
+            // PaymentLine.TESTFIELD(PaymentLine."Global Dimension 1 Code");
+            //  PaymentLine.TESTFIELD(PaymentLine."Global Dimension 2 Code");
+            // PaymentLine.TESTFIELD(PaymentLine."Shortcut Dimension 3 Code");
+            // PaymentLine.TESTFIELD(PaymentLine."Shortcut Dimension 4 Code");
+            // PaymentLine.TESTFIELD(PaymentLine."Shortcut Dimension 5 Code");
             UNTIL PaymentLine.NEXT = 0;
         END ELSE BEGIN
             // ERROR('One or more payment lines are empty');

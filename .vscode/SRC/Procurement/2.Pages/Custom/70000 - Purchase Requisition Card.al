@@ -307,7 +307,16 @@ page 70000 "Purchase Requisition Card"
 
                     trigger OnAction()
                     begin
-                        // rec.TestField(Status, rec.Status::"Pending Approval");
+                        Rec.TestField(Status, Rec.Status::"Pending Approval");
+
+                        PurchaseRequisitionHeaderG.Reset;
+                        PurchaseRequisitionHeaderG.SetRange(PurchaseRequisitionHeaderG."No.", Rec."No.");
+                        if PurchaseRequisitionHeaderG.FindFirst then begin
+                            REPORT.RunModal(REPORT::"Dummy Report 3", false, false, PurchaseRequisitionHeaderG);
+                        end;
+
+                        Commit();
+
                         PurchaseRequisitionApprovalG.OnCancelPurchaseRequisitionForApproval(Rec);
                         WorkflowWebhookMgtG.FindAndCancel(Rec.RecordId);
 
@@ -385,6 +394,16 @@ page 70000 "Purchase Requisition Card"
 
                             Message(Text007, Rec."No.");
                         end;
+                    }
+                    action("Budget Commitment")
+                    {
+                        Caption = 'View Budget Commitment';
+                        Image = LedgerBudget;
+                        RunObject = page "Budget Committment Lines";
+                        Promoted = true;
+                        PromotedCategory = Category5;
+                        PromotedIsBig = true;
+                        Visible = true;
                     }
 
                 }
@@ -575,12 +594,12 @@ page 70000 "Purchase Requisition Card"
         //CurrPage.ApprovalFactBox.PAGE.UpdateApprovalEntriesFromSourceRecord(RECORDID);
         //ShowWorkflowStatus := CurrPage.WorkflowStatus.PAGE.SetFilterOnWorkflowRecord(RECORDID);
 
-        IF rec.Status = rec.Status::Open THEN BEGIN
-            RequisitionEditableG := true;
+        IF rec.Status = rec.Status::Approved THEN BEGIN
+            RequisitionEditableG := false;
             IsEditableG := true
         END ELSE BEGIN
             IsEditableG := true;
-            RequisitionEditableG := false;
+            RequisitionEditableG := true;
         END;
         if rec.Status = rec.Status::Closed then
             IsEditableG := false;
@@ -600,12 +619,12 @@ page 70000 "Purchase Requisition Card"
 
     trigger OnOpenPage()
     begin
-        IF rec.Status = rec.Status::Open THEN BEGIN
-            RequisitionEditableG := true;
+        IF rec.Status = rec.Status::Approved THEN BEGIN
+            RequisitionEditableG := false;
             IsEditableG := true
         END ELSE BEGIN
             IsEditableG := true;
-            RequisitionEditableG := false;
+            RequisitionEditableG := true;
         END;
         if rec.Status = rec.Status::Closed then
             IsEditableG := false;
@@ -663,12 +682,12 @@ page 70000 "Purchase Requisition Card"
         WorkflowWebhookMgtL.GetCanRequestAndCanCancel(Rec.RecordId, CanRequestApprovalForFlowG, CanCancelApprovalForFlowG);
 
 
-        IF rec.Status = rec.Status::Open THEN BEGIN
-            RequisitionEditableG := true;
+        IF rec.Status = rec.Status::Approved THEN BEGIN
+            RequisitionEditableG := false;
             IsEditableG := true
         END ELSE BEGIN
             IsEditableG := true;
-            RequisitionEditableG := false;
+            RequisitionEditableG := true;
         END;
         if rec.Status = rec.Status::Closed then
             IsEditableG := false;

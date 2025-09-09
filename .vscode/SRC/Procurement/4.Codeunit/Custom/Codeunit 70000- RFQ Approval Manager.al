@@ -202,23 +202,23 @@ codeunit 70000 "RFQ Approval Manager"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        RFQHeader: Record "Request for Quotation Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Request for Quotation Header":
-                begin
-                    RecRef.SetTable(RFQHeader);
-                    RFQHeader.Validate(Status, RFQHeader.Status::Released);
-                    if RFQHeader.Modify(true) then
-                        OnAfterReleaseDocument(RFQHeader);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     RFQHeader: Record "Request for Quotation Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Request for Quotation Header":
+    //             begin
+    //                 RecRef.SetTable(RFQHeader);
+    //                 RFQHeader.Validate(Status, RFQHeader.Status::Released);
+    //                 if RFQHeader.Modify(true) then
+    //                     OnAfterReleaseDocument(RFQHeader);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var RFQHeader: Record "Request for Quotation Header")

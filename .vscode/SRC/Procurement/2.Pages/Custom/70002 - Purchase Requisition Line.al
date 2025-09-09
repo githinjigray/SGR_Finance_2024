@@ -99,30 +99,32 @@ page 70002 "Purchase Requisition Line"
                 {
                     ApplicationArea = All;
                 }
+                
+                field("Global Dimension 1 Code"; rec."Global Dimension 1 Code")
+                {
+                    ToolTip = 'Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
+                    ApplicationArea = All;
+                }
+                field("Global Dimension 2 Code"; rec."Global Dimension 2 Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 3 Code"; rec."Shortcut Dimension 3 Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 4 Code"; rec."Shortcut Dimension 4 Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 5 Code"; rec."Shortcut Dimension 5 Code")
+                {
+                    ApplicationArea = All;
 
-                field("Alternative Part No. 1"; Rec."Alternative Part No. 1")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
                 }
-                field("Alternative Part No. 2"; Rec."Alternative Part No. 2")
+                field("Shortcut Dimension 6 Code"; rec."Shortcut Dimension 6 Code")
                 {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
-                }
-                field("Alternative Part No. 3"; Rec."Alternative Part No. 3")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
-                }
-                field("Alternative Part No. 4"; Rec."Alternative Part No. 4")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
+                    ApplicationArea = All;
                 }
                 field("Purchase Order No."; rec."Purchase Order No.")
                 {

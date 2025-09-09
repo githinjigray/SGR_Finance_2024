@@ -200,23 +200,23 @@ codeunit 70005 "Prequalification Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        VendorPrequalification: Record "Prequlification Application";
-    begin
-        case RecRef.Number of
-            DATABASE::"Prequlification Application":
-                begin
-                    RecRef.SetTable(VendorPrequalification);
-                    VendorPrequalification.Validate(Status, VendorPrequalification.Status::Approved);
-                    if VendorPrequalification.Modify(true) then
-                        OnAfterReleaseDocument(VendorPrequalification);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    //[EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     VendorPrequalification: Record "Prequlification Application";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Prequlification Application":
+    //             begin
+    //                 RecRef.SetTable(VendorPrequalification);
+    //                 VendorPrequalification.Validate(Status, VendorPrequalification.Status::Approved);
+    //                 if VendorPrequalification.Modify(true) then
+    //                     OnAfterReleaseDocument(VendorPrequalification);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var VendorPrequalification: Record "Prequlification Application")

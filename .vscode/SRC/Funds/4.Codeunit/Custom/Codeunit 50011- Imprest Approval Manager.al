@@ -203,23 +203,23 @@ codeunit 50011 "Imprest Approval Manager"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        ImprestHeader: Record "Imprest Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Imprest Header":
-                begin
-                    RecRef.SetTable(ImprestHeader);
-                    ImprestHeader.Validate(Status, ImprestHeader.Status::Approved);
-                    if ImprestHeader.Modify(true) then
-                        OnAfterReleaseDocument(ImprestHeader);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     ImprestHeader: Record "Imprest Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Imprest Header":
+    //             begin
+    //                 RecRef.SetTable(ImprestHeader);
+    //                 ImprestHeader.Validate(Status, ImprestHeader.Status::Approved);
+    //                 if ImprestHeader.Modify(true) then
+    //                     OnAfterReleaseDocument(ImprestHeader);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(ImprestHeader: Record "Imprest Header")

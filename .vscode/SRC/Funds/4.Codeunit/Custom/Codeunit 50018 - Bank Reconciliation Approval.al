@@ -201,23 +201,23 @@ codeunit 50018 "Bank Reconciliation Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        BankReconciliation: Record "Bank Acc. Reconciliation";
-    begin
-        case RecRef.Number of
-            DATABASE::"Bank Acc. Reconciliation":
-                begin
-                    RecRef.SetTable(BankReconciliation);
-                    BankReconciliation.Validate(Status, BankReconciliation.Status::Approved);
-                    if BankReconciliation.Modify(true) then
-                        OnAfterReleaseDocument(BankReconciliation);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     BankReconciliation: Record "Bank Acc. Reconciliation";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Bank Acc. Reconciliation":
+    //             begin
+    //                 RecRef.SetTable(BankReconciliation);
+    //                 BankReconciliation.Validate(Status, BankReconciliation.Status::Approved);
+    //                 if BankReconciliation.Modify(true) then
+    //                     OnAfterReleaseDocument(BankReconciliation);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var BankReconciliation: Record "Bank Acc. Reconciliation")

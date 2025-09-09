@@ -117,31 +117,8 @@ page 70004 "Released Purchase Req. Line"
                 field("Document Date"; Rec."Document Date")
                 {
                     ApplicationArea = All;
-                }
-                field("Alternative Part No. 1"; Rec."Alternative Part No. 1")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
-                }
-                field("Alternative Part No. 2"; Rec."Alternative Part No. 2")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
-                }
-                field("Alternative Part No. 3"; Rec."Alternative Part No. 3")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
-                }
-                field("Alternative Part No. 4"; Rec."Alternative Part No. 4")
-                {
-                    ApplicationArea = all;
-                    ToolTip = 'Shows the Alternative Part No. of an item';
-                    ShowMandatory = true;
-                }
+                }                
+                
                 field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;

@@ -202,23 +202,23 @@ codeunit 50019 "Travel Request Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        TravelVoucher: Record "Travel Request Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Travel Request Header":
-                begin
-                    RecRef.SetTable(TravelVoucher);
-                    TravelVoucher.Validate(Status, TravelVoucher.Status::Approved);
-                    if TravelVoucher.Modify(true) then
-                        OnAfterReleaseDocument(TravelVoucher);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     TravelVoucher: Record "Travel Request Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Travel Request Header":
+    //             begin
+    //                 RecRef.SetTable(TravelVoucher);
+    //                 TravelVoucher.Validate(Status, TravelVoucher.Status::Approved);
+    //                 if TravelVoucher.Modify(true) then
+    //                     OnAfterReleaseDocument(TravelVoucher);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(TravelVoucher: Record "Travel Request Header")

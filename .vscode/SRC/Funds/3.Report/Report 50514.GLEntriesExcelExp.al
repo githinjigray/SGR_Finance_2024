@@ -15,11 +15,15 @@ report 50514 "GL Entries-Excel Export"
             trigger OnAfterGetRecord()
             var
                 GLTEntries: Record "G/L Entry";
-                SourceNameNameLbl: Label 'Source Name.';
+                SourceNameNameLbl: Label 'Source Name';
+                DebitAmountLbl: Label 'Debit Amount';
+                CreditAmoutLbl: Label 'Credit Amount';
                 SourceName: Text[250];
                 RowNo: Integer;
                 HeaderRowNo: Integer;
                 FooterRowNo: Integer;
+                DebitAmount: Decimal;
+                CreditAmout: Decimal;
                 i: Integer;
                 GlAccount: Record "G/L Account";
                 BankAccount: Record "Bank Account";
@@ -30,7 +34,8 @@ report 50514 "GL Entries-Excel Export"
                 //Insert Header
                 GLTEntries.Reset();
                 GLTEntries.SetRange("Posting Date", StartDate, EndDate);
-                GLTEntries.SetRange(Reversed, false);
+                if not IncludeReversed then
+                    GLTEntries.SetRange(Reversed, false);
                 if GLTEntries.FindFirst() then begin
                     Window.Open(
                       WindowDialog1 +
@@ -55,20 +60,22 @@ report 50514 "GL Entries-Excel Export"
                     EnterCell(HeaderRowNo, 5, GLTEntries.FieldCaption("G/L Account No."), true, true, '', ExcelBuf."Cell Type"::Text);
                     EnterCell(HeaderRowNo, 6, GLTEntries.FieldCaption("G/L Account Name"), true, true, '', ExcelBuf."Cell Type"::Text);
                     EnterCell(HeaderRowNo, 7, GLTEntries.FieldCaption(Description), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 8, GLTEntries.FieldCaption(Amount), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 9, GLTEntries.FieldCaption("Additional-Currency Amount"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 10, GLTEntries.FieldCaption("Source Type"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 11, GLTEntries.FieldCaption("Source No."), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 12, SourceNameNameLbl, true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 13, GLTEntries.FieldCaption("Currency Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 14, GLTEntries.FieldCaption("Currency Amount"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 15, GLTEntries.FieldCaption("Global Dimension 1 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 16, GLTEntries.FieldCaption("Global Dimension 2 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 17, GLTEntries.FieldCaption("Shortcut Dimension 3 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 18, GLTEntries.FieldCaption("Shortcut Dimension 4 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 19, GLTEntries.FieldCaption("Shortcut Dimension 5 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 20, GLTEntries.FieldCaption("Shortcut Dimension 6 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
-                    EnterCell(HeaderRowNo, 21, GLTEntries.FieldCaption("User ID"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    //EnterCell(HeaderRowNo, 8, GLTEntries.FieldCaption(Amount), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 8, DebitAmountLbl, true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 9, CreditAmoutLbl, true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 10, GLTEntries.FieldCaption("Additional-Currency Amount"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 11, GLTEntries.FieldCaption("Source Type"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 12, GLTEntries.FieldCaption("Source No."), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 13, SourceNameNameLbl, true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 14, GLTEntries.FieldCaption("Currency Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 15, GLTEntries.FieldCaption("Currency Amount"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 16, GLTEntries.FieldCaption("Global Dimension 1 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 17, GLTEntries.FieldCaption("Global Dimension 2 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 18, GLTEntries.FieldCaption("Shortcut Dimension 3 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 19, GLTEntries.FieldCaption("Shortcut Dimension 4 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 20, GLTEntries.FieldCaption("Shortcut Dimension 5 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 21, GLTEntries.FieldCaption("Shortcut Dimension 6 Code"), true, true, '', ExcelBuf."Cell Type"::Text);
+                    EnterCell(HeaderRowNo, 22, GLTEntries.FieldCaption("User ID"), true, true, '', ExcelBuf."Cell Type"::Text);
 
 
 
@@ -81,6 +88,9 @@ report 50514 "GL Entries-Excel Export"
 
                         RowNo += 1;
                         SourceName := '';
+                        DebitAmount := 0;
+                        CreditAmout := 0;
+
                         if GLTEntries."Source Type" = GLTEntries."Source Type"::Vendor then
                             if Vendors.get(GLTEntries."Source No.") then
                                 SourceName := Vendors.Name;
@@ -92,6 +102,11 @@ report 50514 "GL Entries-Excel Export"
                         if GLTEntries."Source Type" = GLTEntries."Source Type"::"Bank Account" then
                             if BankAccount.get(GLTEntries."Source No.") then
                                 SourceName := BankAccount.Name;
+
+                        if GLTEntries.Amount > 0 then
+                            DebitAmount := GLTEntries.Amount;
+                        if GLTEntries.Amount < 0 then
+                            CreditAmout := GLTEntries.Amount * -1;
 
                         GLTEntries.CalcFields("Shortcut Dimension 3 Code", "Shortcut Dimension 4 Code", "Shortcut Dimension 5 Code", "Shortcut Dimension 6 Code");
                         EnterCell(RowNo, 1, Format(GLTEntries."Posting Date"), false, false, '', ExcelBuf."Cell Type"::Date);
@@ -106,20 +121,30 @@ report 50514 "GL Entries-Excel Export"
                             EnterCell(RowNo, 6, GLTEntries."G/L Account Name", false, false, '', ExcelBuf."Cell Type"::Text);
                         end;
                         EnterCell(RowNo, 7, GLTEntries.Description, false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 8, Format(GLTEntries.Amount), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
-                        EnterCell(RowNo, 9, Format(GLTEntries."Additional-Currency Amount"), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
-                        EnterCell(RowNo, 10, Format(GLTEntries."Source Type"), false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 11, GLTEntries."Source No.", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 12, SourceName, false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
-                        EnterCell(RowNo, 13, GLTEntries."Currency Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 14, Format(GLTEntries."Currency Amount"), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
-                        EnterCell(RowNo, 15, GLTEntries."Global Dimension 1 Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 16, GLTEntries."Global Dimension 2 Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 17, GLTEntries."Shortcut Dimension 3 Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 18, GLTEntries."Shortcut Dimension 4 Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 19, GLTEntries."Shortcut Dimension 5 Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 20, GLTEntries."Shortcut Dimension 6 Code", false, false, '', ExcelBuf."Cell Type"::Text);
-                        EnterCell(RowNo, 21, GLTEntries."User ID", false, false, '', ExcelBuf."Cell Type"::Text);
+
+                        if GLTEntries.Amount > 0 then
+                            EnterCell(RowNo, 8, Format(DebitAmount), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number)
+                        else
+                            EnterCell(RowNo, 8, '', false, false, '', ExcelBuf."Cell Type"::Text);
+
+                        if GLTEntries.Amount < 0 then
+                            EnterCell(RowNo, 9, Format(CreditAmout), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number)
+                        else
+                            EnterCell(RowNo, 9, '', false, false, '', ExcelBuf."Cell Type"::Text);
+
+                        EnterCell(RowNo, 10, Format(GLTEntries."Additional-Currency Amount"), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
+                        EnterCell(RowNo, 11, Format(GLTEntries."Source Type"), false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 12, GLTEntries."Source No.", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 13, SourceName, false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
+                        EnterCell(RowNo, 14, GLTEntries."Currency Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 15, Format(GLTEntries."Currency Amount"), false, false, '#,##0.00', ExcelBuf."Cell Type"::Number);
+                        EnterCell(RowNo, 16, GLTEntries."Global Dimension 1 Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 17, GLTEntries."Global Dimension 2 Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 18, GLTEntries."Shortcut Dimension 3 Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 19, GLTEntries."Shortcut Dimension 4 Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 20, GLTEntries."Shortcut Dimension 5 Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 21, GLTEntries."Shortcut Dimension 6 Code", false, false, '', ExcelBuf."Cell Type"::Text);
+                        EnterCell(RowNo, 22, GLTEntries."User ID", false, false, '', ExcelBuf."Cell Type"::Text);
 
 
 
@@ -158,6 +183,12 @@ report 50514 "GL Entries-Excel Export"
                         Caption = 'Start Date';
                         ShowMandatory = true;
                     }
+                    field(IncludeReversed; IncludeReversed)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Include Reversed';
+                        ShowMandatory = true;
+                    }
                 }
             }
         }
@@ -178,6 +209,7 @@ report 50514 "GL Entries-Excel Export"
         ExportLabelTxt: Label 'GL Entries';
         StartDate: Date;
         EndDate: Date;
+        IncludeReversed: Boolean;
         StartDateLbl: Label 'Start Date';
         EndDateLbl: Label 'End Date';
 

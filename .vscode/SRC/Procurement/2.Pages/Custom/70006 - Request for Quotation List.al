@@ -65,6 +65,36 @@ page 70006 "Request for Quotation List"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the user who created the request for quotation';
                 }
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                {
+                    ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
+                    ApplicationArea = All;
+                }
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+                    ToolTip = 'Specifies the value of the Global Dimension 2 Code field.';
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code")
+                {
+                    ToolTip = 'Specifies the value of the Global Dimension 3 Code field.';
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 4 Code field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                    ApplicationArea = All;
+                }  
             }
         }
     }

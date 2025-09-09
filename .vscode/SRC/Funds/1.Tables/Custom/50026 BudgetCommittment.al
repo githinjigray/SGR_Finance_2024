@@ -2,13 +2,14 @@ table 50026 "Budget Committment"
 {
     Caption = 'Budget Committment';
     DataClassification = ToBeClassified;
-    
+
     fields
     {
         field(1; "Line No."; Integer)
         {
             Caption = 'Line No.';
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
         }
         field(2; "Date"; Date)
         {
@@ -99,43 +100,65 @@ table 50026 "Budget Committment"
         {
             Caption = 'Shortcut Dimension 1 Code';
             DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(1), "Dimension Value Type" = const(Standard), Blocked = const(false));
+            CaptionClass = '1,1,1';
         }
         field(20; "Shortcut Dimension 2 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 2 Code';
             DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(2), "Dimension Value Type" = const(Standard), Blocked = const(false));
+            CaptionClass = '1,2,2';
         }
         field(21; "Shortcut Dimension 3 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 3 Code';
             DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(3), "Dimension Value Type" = const(Standard), Blocked = const(false));
+            CaptionClass = '1,2,3';
         }
         field(22; "Shortcut Dimension 4 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 4 Code';
             DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(4), "Dimension Value Type" = const(Standard), Blocked = const(false));
+            CaptionClass = '1,2,4';
         }
-        field(23; "G/L Account No."; Code[20])
+        field(23; "Shortcut Dimension 5 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 5 Code';
+            DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(5), "Dimension Value Type" = const(Standard), Blocked = const(false));
+            CaptionClass = '1,2,5';
+        }
+        field(24; "Shortcut Dimension 6 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 6 Code';
+            DataClassification = ToBeClassified;
+            TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(6), "Dimension Value Type" = const(Standard), Blocked = const(false));
+            CaptionClass = '1,2,6';
+        }
+        field(25; "G/L Account No."; Code[20])
         {
             Caption = 'G/L Account No.';
             DataClassification = ToBeClassified;
         }
-        field(24; Budget; Code[20])
+        field(26; Budget; Code[20])
         {
             Caption = 'Budget';
             DataClassification = ToBeClassified;
         }
-        field(25; "Vendor/Cust No."; Code[20])
+        field(27; "Vendor/Cust No."; Code[20])
         {
             Caption = 'Vendor/Cust No.';
             DataClassification = ToBeClassified;
         }
-        
-        
+
+
     }
     keys
     {
-        key(PK; "Line No.","Document No.")
+        key(PK; "Line No.", "Document No.")
         {
             Clustered = true;
         }

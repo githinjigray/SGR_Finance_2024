@@ -61,12 +61,25 @@ codeunit 60008 "Ledger Entry Extensionsions"
 
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnRejectApprovalRequest', '', false, false)]
     procedure OnRejectApprovalRequest(var ApprovalEntry: record "Approval Entry")
+    var
+        PaymentCard: Record "Payment Header";
     begin
         ApprovalCommentLine.RESET;
         ApprovalCommentLine.SETRANGE(ApprovalCommentLine."Document No.", ApprovalEntry."Document No.");
         ApprovalCommentLine.SETRANGE(ApprovalCommentLine."User ID", USERID);
         IF NOT ApprovalCommentLine.FINDFIRST THEN
             ERROR(RejectionComments);
+
+
+        // case RecRef.Number of
+        //     DATABASE::"Payment Header":
+        //         begin
+        //             RecRef.SetTable(PaymentCard);
+        //             PaymentCard.Validate(Status, PaymentCard.Status::Open);
+        //             PaymentCard.Modify(true);
+        //             Handled := true;
+        //         end;
+        // end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 415, 'OnAfterReleasePurchaseDoc', '', false, false)]
@@ -93,6 +106,32 @@ codeunit 60008 "Ledger Entry Extensionsions"
         SalesLine."Alternative Part No. 3" := item."Alternative Part No. 3";
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", OnApproveApprovalRequest, '', false, false)]
+    local procedure "Approvals Mgmt._OnApproveApprovalRequest"(var ApprovalEntry: Record "Approval Entry")
+    Var
+        PaymentHeader: Record "Payment Header";
+        ApprovalEntries: Record "Approval Entry";
+    begin
+        PaymentHeader.Reset();
+        PaymentHeader.SetRange("No.", ApprovalEntry."Document No.");
+        if PaymentHeader.FindFirst() then begin
+
+            ApprovalEntries.Reset();
+            ApprovalEntries.SetCurrentKey("Entry No.");
+            ApprovalEntries.SetRange("Document Type", ApprovalEntries."Document Type"::" ");
+            ApprovalEntries.SetRange("Document No.", PaymentHeader."No.");
+            ApprovalEntries.SetFilter(Status, '%1|%2|%3', ApprovalEntries.Status::Open, ApprovalEntries.Status::" ", ApprovalEntries.Status::Created);
+            if ApprovalEntries.IsEmpty then begin
+                ApprovalEntries.SetFilter(Status, '%1|%2', ApprovalEntries.Status::Approved, ApprovalEntries.Status::Rejected);
+                if ApprovalEntries.FindLast() then
+                    if ApprovalEntries.Status = ApprovalEntries.Status::Approved then begin
+                        PaymentHeader.Status := PaymentHeader.Status::Approved;
+                        PaymentHeader.Validate(Status);
+                        PaymentHeader.Modify();
+                    end;
+            end;
+        end;
+    end;
 
     var
         ApprovalCommentLine: Record "Approval Comment Line";

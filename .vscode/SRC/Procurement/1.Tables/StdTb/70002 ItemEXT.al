@@ -17,6 +17,7 @@ tableextension 70002 "Item EXT" extends Item
         {
             Caption = 'Item G/L Budget Account';
             DataClassification = ToBeClassified;
+            TableRelation = "G/L Account"."No.";
         }
         field(70005; "Wholesale Price"; Decimal)
         {

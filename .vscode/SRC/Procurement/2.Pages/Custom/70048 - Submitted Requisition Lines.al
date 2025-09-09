@@ -70,22 +70,7 @@ page 70048 "Submitted Requisition Lines"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Quantity field';
-                }
-                field("Alternative Part No. 1"; Rec."Alternative Part No. 1")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Alternative Part No. 1 field';
-                }
-                field("Alternative Part No. 2"; Rec."Alternative Part No. 2")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Alternative Part No. 2 field';
-                }
-                field("Alternative Part No. 3"; Rec."Alternative Part No. 3")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Alternative Part No. 3 field';
-                }
+                }                
                 field("Location Code"; rec."Location Code")
                 {
                     ApplicationArea = All;

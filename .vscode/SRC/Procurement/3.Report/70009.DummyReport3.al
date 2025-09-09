@@ -1,28 +1,37 @@
 report 70009 "Dummy Report 3"
 {
     ApplicationArea = All;
-    Caption = 'Takeon Unit Cost Update';
+    Caption = 'Approval Update-PRF';
     UsageCategory = ReportsAndAnalysis;
     ProcessingOnly = true;
+    UseRequestPage = false;
+    Permissions = TableData "Approval Entry" = rm;
+
     dataset
     {
-        dataitem("Sales Invoice Header"; "Sales Invoice Header")
+        dataitem("Purchase Requisitions"; "Purchase Requisitions")
         {
             //DataItemTableView = where("Journal Batch Name" = filter('TAKEON'));
+            RequestFilterFields = "No.";
             trigger OnAfterGetRecord()
             begin
-                "Sales Invoice Header".CalcFields(Amount, "Amount Including VAT");
-                if ("Sales Invoice Header"."Currency Factor" <> 0) and ("Sales Invoice Header"."Currency Code" <> '') then begin
-                    "Sales Invoice Header"."Amount (LCY)" := "Sales Invoice Header".Amount / "Sales Invoice Header"."Currency Factor";
-                    "Sales Invoice Header"."Amount Inc. VAT (LCY)" := "Sales Invoice Header"."Amount Including VAT" / "Sales Invoice Header"."Currency Factor";
+                ApprovalEntry.Reset();
+                ApprovalEntry.SetRange("Document No.", "Purchase Requisitions"."No.");
+                if ApprovalEntry.FindSet() then begin
+                    repeat
+                        ApprovalEntry.Status := ApprovalEntry.Status::Canceled;
+                        ApprovalEntry.Modify();
+                    until ApprovalEntry.Next() = 0;
 
-                end else begin
-                    "Sales Invoice Header"."Amount (LCY)" := "Sales Invoice Header".Amount;
-                    "Sales Invoice Header"."Amount Inc. VAT (LCY)" := "Sales Invoice Header"."Amount Including VAT";
+                    "Purchase Requisitions".Status:="Purchase Requisitions".Status::Open;
+                    "Purchase Requisitions".Validate(Status);
+                    "Purchase Requisitions".Modify();
                 end;
-                "Sales Invoice Header".Modify();
             end;
         }
 
     }
+    var
+        EntryNo: Code[20];
+        ApprovalEntry: Record "Approval Entry";
 }

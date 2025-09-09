@@ -200,23 +200,23 @@ codeunit 70003 "Procurement Planning Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        ProcurementPlan: Record "Procurement Planning Header";
-    begin
-        case RecRef.Number of
-            DATABASE::"Procurement Planning Header":
-                begin
-                    RecRef.SetTable(ProcurementPlan);
-                    ProcurementPlan.Validate(Status, ProcurementPlan.Status::Approved);
-                    if ProcurementPlan.Modify(true) then
-                        OnAfterReleaseDocument(ProcurementPlan);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     ProcurementPlan: Record "Procurement Planning Header";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Procurement Planning Header":
+    //             begin
+    //                 RecRef.SetTable(ProcurementPlan);
+    //                 ProcurementPlan.Validate(Status, ProcurementPlan.Status::Approved);
+    //                 if ProcurementPlan.Modify(true) then
+    //                     OnAfterReleaseDocument(ProcurementPlan);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(ProcurementPlan: Record "Procurement Planning Header")

@@ -202,24 +202,24 @@ codeunit 70004 "Purchase Requisition Approval"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    var
-        PurchaseRequisition: Record "Purchase Requisitions";
-    begin
-        case RecRef.Number of
-            DATABASE::"Purchase Requisitions":
-                begin
-                    RecRef.SetTable(PurchaseRequisition);
-                    PurchaseRequisition.Validate(Status, PurchaseRequisition.Status::Approved);
-                    if PurchaseRequisition.Modify(true) then
-                        CreateApprovalEmail(PurchaseRequisition."No.");
-                    //OnAfterReleaseDocument(PurchaseRequisition);
-                    Handled := true;
-                end;
-        end;
-        Handled := true;
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    // var
+    //     PurchaseRequisition: Record "Purchase Requisitions";
+    // begin
+    //     case RecRef.Number of
+    //         DATABASE::"Purchase Requisitions":
+    //             begin
+    //                 RecRef.SetTable(PurchaseRequisition);
+    //                 PurchaseRequisition.Validate(Status, PurchaseRequisition.Status::Approved);
+    //                 if PurchaseRequisition.Modify(true) then
+    //                     CreateApprovalEmail(PurchaseRequisition."No.");
+    //                 //OnAfterReleaseDocument(PurchaseRequisition);
+    //                 Handled := true;
+    //             end;
+    //     end;
+    //     Handled := true;
+    // end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(var PurchaseRequisition: Record "Purchase Requisitions")

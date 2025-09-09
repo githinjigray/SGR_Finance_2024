@@ -62,35 +62,37 @@ page 70007 "Request for Quotation Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the description for the purchase requisition';
                 }
-                field("Global Dimension 1 Code"; rec."Global Dimension 1 Code")
+               field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
+                    ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; rec."Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
+                    ToolTip = 'Specifies the value of the Global Dimension 2 Code field.';
                     ApplicationArea = All;
-                    Visible = false;
                 }
-                field("Shortcut Dimension 3 Code"; rec."Shortcut Dimension 3 Code")
+                field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code")
                 {
-                    ApplicationArea = all;
-                    Visible = false;
+                    ToolTip = 'Specifies the value of the Global Dimension 3 Code field.';
+                    ApplicationArea = All;
                 }
-                field("Shortcut Dimension 4 Code"; rec."Shortcut Dimension 4 Code")
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
                 {
-                    ApplicationArea = all;
-                    Visible = false;
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 4 Code field.', Comment = '%';
+                    ApplicationArea = All;
                 }
-                field("Shortcut Dimension 5 Code"; rec."Shortcut Dimension 5 Code")
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
                 {
-                    ApplicationArea = all;
-                    Visible = false;
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                    ApplicationArea = All;
                 }
-                field("Shortcut Dimension 6 Code"; rec."Shortcut Dimension 6 Code")
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
                 {
-                    ApplicationArea = all;
-                    Visible = false;
-                }
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                    ApplicationArea = All;
+                }  
+                
                 field(Status; rec.Status)
                 {
                     ApplicationArea = All;
@@ -632,11 +634,7 @@ page 70007 "Request for Quotation Card"
                         RFQLine."Total Cost" := SelectedPurchaseRequisitionLine."Total Cost";
                         RFQLine."Total Cost(LCY)" := SelectedPurchaseRequisitionLine."Total Cost(LCY)";
                         RFQLine.Description := SelectedPurchaseRequisitionLine.Description;
-                        RFQLine."Part No." := SelectedPurchaseRequisitionLine."Part No.";
-                        RFQLine."Alternative Part No. 1" := SelectedPurchaseRequisitionLine."Alternative Part No. 1";
-                        RFQLine."Alternative Part No. 2" := SelectedPurchaseRequisitionLine."Alternative Part No. 2";
-                        RFQLine."Alternative Part No. 3" := SelectedPurchaseRequisitionLine."Alternative Part No. 3";
-                        RFQLine."Alternative Part No. 4" := SelectedPurchaseRequisitionLine."Alternative Part No. 4";
+                        RFQLine."Part No." := SelectedPurchaseRequisitionLine."Part No.";                        
                         RFQLine."Global Dimension 1 Code" := SelectedPurchaseRequisitionLine."Global Dimension 1 Code";
                         RFQLine."Global Dimension 2 Code" := SelectedPurchaseRequisitionLine."Global Dimension 2 Code";
                         RFQLine."Shortcut Dimension 3 Code" := SelectedPurchaseRequisitionLine."Shortcut Dimension 3 Code";

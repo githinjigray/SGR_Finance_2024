@@ -120,6 +120,7 @@ page 50033 "Posted Imprest List"
                     ToolTip = 'Specifies the value of the User ID field.';
                     ApplicationArea = All;
                 }
+                
             }
         }
     }

@@ -130,6 +130,22 @@ page 50011 "Payment Card"
                     ToolTip = 'Specifies the value of the Tax Amount(LCY) field.';
                     ApplicationArea = All;
                 }
+
+
+            }
+            group(Reference)
+            {
+                Editable = ReferenceEditable;
+                field("Posting Date"; Rec."Posting Date")
+                {
+                    ToolTip = 'Specifies the value of the Posting Date field.';
+                    ApplicationArea = All;
+                }
+                field("Reference No."; Rec."Reference No.")
+                {
+                    ToolTip = 'Specifies the value of the Reference Nos. field.';
+                    ApplicationArea = All;
+                }
                 field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
@@ -144,20 +160,20 @@ page 50011 "Payment Card"
                 {
                     ToolTip = 'Specifies the value of the Global Dimension 3 Code field.';
                     ApplicationArea = All;
-                }                
-              
-            }
-            group(Reference)
-            {
-                Editable = ReferenceEditable;
-                field("Posting Date"; Rec."Posting Date")
+                }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
                 {
-                    ToolTip = 'Specifies the value of the Posting Date field.';
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 4 Code field.', Comment = '%';
                     ApplicationArea = All;
                 }
-                field("Reference No."; Rec."Reference No.")
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
                 {
-                    ToolTip = 'Specifies the value of the Reference Nos. field.';
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
                 }
                 field(Status; Rec.Status)
@@ -181,33 +197,44 @@ page 50011 "Payment Card"
                 Editable = PageEditable;
             }
         }
-
+        area(FactBoxes)
+        {
+            part(Attachments; "365 BC Attachments")
+            {
+                ApplicationArea = All;
+                SubPageLink = "Table ID" = const(DATABASE::"Payment Header"),
+                              "No." = field("No.");
+            }           
+            
+        }
 
     }
     actions
     {
         area(Processing)
         {
-            action(DocAttach)
-            {
-                ApplicationArea = All;
-                Caption = 'Attachments';
-                Visible = false;
-                Image = Attach;
-                Promoted = true;
-                PromotedCategory = Process;
-                ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
+            // action(DocAttach)
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Attachments';
+            //     Visible = false;
+            //     Image = Attach;
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
 
-                trigger OnAction()
-                var
-                    DocumentAttachmentDetails: Page "Document Attachment Details";
-                    RecRef: RecordRef;
-                begin
-                    RecRef.GetTable(Rec);
-                    DocumentAttachmentDetails.OpenForRecRef(RecRef);
-                    DocumentAttachmentDetails.RunModal();
-                end;
-            }
+            //     trigger OnAction()
+            //     var
+            //         DocumentAttachmentDetails: Page "Document Attachment Details";
+            //         RecRef: RecordRef;
+            //     begin
+            //         RecRef.GetTable(Rec);
+            //         DocumentAttachmentDetails.OpenForRecRef(RecRef);
+            //         DocumentAttachmentDetails.RunModal();
+            //     end;
+            // }
+
+
             group(Posting)
             {
                 action("Preview Posting")
@@ -350,7 +377,7 @@ page 50011 "Payment Card"
                     visible = OpenApprovalEntriesExistForCurrUser;
                     trigger OnAction()
                     begin
-                        // ApprovalsMgmt.ApproveRecordApprovalRequest(RecordId);
+                        ApprovalsMgmt.ApproveRecordApprovalRequest(rec.RecordId);
                     end;
                 }
                 action(Reject)
@@ -364,7 +391,7 @@ page 50011 "Payment Card"
                     visible = OpenApprovalEntriesExistForCurrUser;
                     trigger OnAction()
                     begin
-                        //ApprovalsMgmt.RejectRecordApprovalRequest(RECORDID);
+                        ApprovalsMgmt.RejectRecordApprovalRequest(Rec.RECORDID);
                     end;
                 }
             }
@@ -486,6 +513,9 @@ page 50011 "Payment Card"
 
         }
 
+
+
+
     }
     var
         //PostPayment: Codeunit PostPayment;
@@ -550,9 +580,9 @@ page 50011 "Payment Card"
         //HasIncomingDocument := "Incoming Document Entry No." <> 0;
         CreateIncomingDocumentEnabled := (not HasIncomingDocument) and (Rec."No." <> '');
 
-        // OpenApprovalEntriesExistForCurrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(RecordId);
-        //OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(id);
-        // CanCancelApprovalForRecord := ApprovalsMgmt.CanCancelApprovalForRecord(RecordId);
+        OpenApprovalEntriesExistForCurrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(rec.RecordId);
+        OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(Rec.RecordId);
+        CanCancelApprovalForRecord := ApprovalsMgmt.CanCancelApprovalForRecord(Rec.RecordId);
 
         WorkflowWebhookMgt.GetCanRequestAndCanCancel(Rec.RecordId, CanRequestApprovalForFlow, CanCancelApprovalForFlow);
 
