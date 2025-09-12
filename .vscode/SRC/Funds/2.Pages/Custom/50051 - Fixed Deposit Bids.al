@@ -2,6 +2,7 @@ page 50051 "Fixed Deposit Bids"
 {
     PageType = List;
     SourceTable = "Fixed Deposit Bids1";
+    ApplicationArea = All;
 
     layout
     {

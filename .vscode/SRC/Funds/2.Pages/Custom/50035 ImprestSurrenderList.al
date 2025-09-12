@@ -145,6 +145,10 @@ page 50035 "Imprest Surrender List"
                     ToolTip = 'Specifies the value of the Refund Amount field.';
                     ApplicationArea = All;
                 }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';

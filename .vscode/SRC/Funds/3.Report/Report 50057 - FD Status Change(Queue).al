@@ -2,6 +2,7 @@ report 50057 "FD Status Change(Queue)"
 {
     ProcessingOnly = true;
     UseRequestPage = false;
+    ApplicationArea = All;
 
     dataset
     {

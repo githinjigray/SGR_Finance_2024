@@ -146,6 +146,10 @@ page 50039 "Posted Imprest Surrender Card"
                 {
                     ApplicationArea = All;
                 }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
                 field("Refund Amount"; Rec."Refund Amount")
                 {
                     ToolTip = 'Specifies the value of the Refund Amount field.';

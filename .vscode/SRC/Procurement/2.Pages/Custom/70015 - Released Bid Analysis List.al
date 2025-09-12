@@ -6,7 +6,7 @@ page 70015 "Released Bid Analysis List"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    ApplicationArea=all;
+    ApplicationArea = all;
     UsageCategory = Lists;
     SourceTable = "Bid Analysis Header";
     SourceTableView = WHERE(Status = FILTER(Released | Closed));
@@ -42,10 +42,29 @@ page 70015 "Released Bid Analysis List"
                 {
                     ApplicationArea = All;
                 }
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Global Dimension 2 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 3 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 4 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                }
                 field("Shortcut Dimension 6 Code"; REC."Shortcut Dimension 6 Code")
                 {
                     ApplicationArea = All;
                 }
+
                 field(Status; REC.Status)
                 {
                     ApplicationArea = All;

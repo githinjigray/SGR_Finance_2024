@@ -4,6 +4,7 @@ report 50514 "GL Entries-Excel Export"
     UsageCategory = ReportsAndAnalysis;
     UseRequestPage = true;
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

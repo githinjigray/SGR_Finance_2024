@@ -84,6 +84,10 @@ page 70000 "Purchase Requisition Card"
                 {
                     ApplicationArea = All;
                 }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
                 field("Responsibility Center"; rec."Responsibility Center")
                 {
                     ApplicationArea = All;

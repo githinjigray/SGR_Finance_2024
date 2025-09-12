@@ -130,6 +130,10 @@ page 50044 "Posted Fund Claim Card"
                 {
                     ApplicationArea = All;
                 }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
                     ToolTip = 'Specifies the value of the Responsibility Center field.';

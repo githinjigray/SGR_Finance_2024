@@ -5,6 +5,7 @@ page 50049 "Interest Buffer FD"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "Interest Buffer1";
+    ApplicationArea = All;
 
     layout
     {

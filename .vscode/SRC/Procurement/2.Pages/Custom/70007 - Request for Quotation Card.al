@@ -92,7 +92,10 @@ page 70007 "Request for Quotation Card"
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
                 }  
-                
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
                 field(Status; rec.Status)
                 {
                     ApplicationArea = All;

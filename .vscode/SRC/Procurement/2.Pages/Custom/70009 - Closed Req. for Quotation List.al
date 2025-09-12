@@ -6,12 +6,12 @@ page 70009 "Closed Req. for Quotation List"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    ApplicationArea=all;
+    ApplicationArea = all;
     UsageCategory = Lists;
     SourceTable = "Request for Quotation Header";
     SourceTableView = SORTING("No.")
                       ORDER(Descending)
-                      WHERE(Status=CONST(Closed));
+                      WHERE(Status = CONST(Closed));
 
     layout
     {
@@ -19,32 +19,56 @@ page 70009 "Closed Req. for Quotation List"
         {
             repeater(Group)
             {
-                field("No.";rec."No.")
+                field("No."; rec."No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the field name';
                 }
-                field("Document Date";rec."Document Date")
+                field("Document Date"; rec."Document Date")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the field name';
                 }
-                field("Closing Date";rec."Closing Date")
+                field("Closing Date"; rec."Closing Date")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the field name';
                 }
-                field("Global Dimension 1 Code";rec."Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the field name';
                 }
-                field(Status;rec.Status)
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+                    ToolTip = 'Specifies the value of the Global Dimension 2 Code field.';
+                }
+                field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code")
+                {
+                    ToolTip = 'Specifies the value of the Global Dimension 3 Code field.';
+                }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 4 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
+                field(Status; rec.Status)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the field name';
                 }
-                field("User ID";rec."User ID")
+                field("User ID"; rec."User ID")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the field name';

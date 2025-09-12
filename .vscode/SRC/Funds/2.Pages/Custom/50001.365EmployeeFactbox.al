@@ -6,6 +6,7 @@ page 50001 "365 Employee Factbox"
     LinksAllowed = false;
     PageType = CardPart;
     SourceTable = Employee;
+    ApplicationArea = All;
 
     layout
     {

@@ -2,6 +2,7 @@ page 50048 "Fixed Deposit Criteria"
 {
     PageType = List;
     SourceTable = "FD Interest Calculation Crit1";
+    ApplicationArea = All;
 
     layout
     {

@@ -109,7 +109,23 @@ page 50033 "Posted Imprest List"
                 field("Shortcut Dimension 3 Code"; rec."Shortcut Dimension 3 Code")
                 {
                     ApplicationArea = All;
-                }             
+                }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 4 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
+                }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
                 field("CPV No."; Rec."CPV No.")
                 {
                     ToolTip = 'Specifies the value of the CPV No. field.';
@@ -120,7 +136,7 @@ page 50033 "Posted Imprest List"
                     ToolTip = 'Specifies the value of the User ID field.';
                     ApplicationArea = All;
                 }
-                
+
             }
         }
     }
@@ -161,7 +177,7 @@ page 50033 "Posted Imprest List"
                 ApplicationArea = All;
                 Caption = 'Attachments';
                 Image = Attach;
-                Visible=false;
+                Visible = false;
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
