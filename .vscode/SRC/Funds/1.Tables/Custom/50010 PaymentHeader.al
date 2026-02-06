@@ -28,6 +28,10 @@ table 50010 "Payment Header"
         {
             Caption = 'Posting Date';
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            begin
+
+            end;
         }
         field(5; "Payment Mode"; Enum "Payment Modes")
         {

@@ -7,50 +7,122 @@ codeunit 50018 "Bank Reconciliation Approval"
 
     var
         ApprovalEntry: Record "Approval Entry";
+        FundsCategoryTxt: Label 'Funds Management';
+        FundsCategoryDescriptionTxt: Label 'Funds Management Workflows';
+        WorkflowSetup: Codeunit "Workflow Setup";
+        EmpReqApprWorkflowCodeTxt: Label 'BREC';
+        EmpReqApprWorkflowDescTxt: Label 'Bank Reconciliation Approval Workflow';
 
-    procedure CheckBankReconciliationApprovalWorkflowEnabled(var BankReconciliation: Record "Bank Acc. Reconciliation"): Boolean
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Setup", 'OnAddWorkflowCategoriesToLibrary', '', false, false)]
+    local procedure C1502_WorkflowSetup_OnAddWorkflowCategoriesToLibrary()
+    begin
+        WorkflowSetup.InsertWorkflowCategory(FundsCategoryTxt, FundsCategoryDescriptionTxt);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Setup", 'OnAfterInitWorkflowTemplates', '', false, false)]
+    local procedure C1502_OnAfterInitWorkflowTemplates()
+    var
+        WorkflowSetup: Codeunit "Workflow Setup";
+        BankRecHeader: Record "Bank Acc. Reconciliation";
+        ApprovalEntry: Record "Approval Entry";
+        WorkflowTemplate: Record Workflow;
+    begin
+
+        WorkflowSetup.InsertTableRelation(DATABASE::"Bank Acc. Reconciliation", 0,
+          DATABASE::"Approval Entry", ApprovalEntry.FieldNo("Record ID to Approve"));
+
+        InsertBankReconciliationApprovalWorkflowTemplate();
+    end;
+
+    local procedure InsertBankReconciliationApprovalWorkflowTemplate()
+    var
+        WorkflowTemplates: Record Workflow;
+        Workflow: Record Workflow;
+    begin
+
+        WorkflowTemplates.Reset();
+        WorkflowTemplates.SetRange(Code, 'MS-' + EmpReqApprWorkflowCodeTxt);
+        WorkflowTemplates.SetRange(Template, true);
+        if not WorkflowTemplates.FindFirst() then begin
+            WorkflowSetup.InsertWorkflowTemplate(Workflow, EmpReqApprWorkflowCodeTxt,
+                      EmpReqApprWorkflowDescTxt, FundsCategoryTxt);
+            InsertBankReconciliationApprovalWorkflowDetails(Workflow);
+            WorkflowSetup.MarkWorkflowAsTemplate(Workflow);
+        end;
+    end;
+
+    local procedure InsertBankReconciliationApprovalWorkflowDetails(var Workflow: Record Workflow)
+    var
+        BankRecHeader: Record "Bank Acc. Reconciliation";
+        WorkflowStepArgument: Record "Workflow Step Argument";
+        BlankDateFormula: DateFormula;
+    begin
+        WorkflowSetup.InitWorkflowStepArgument(WorkflowStepArgument,
+          WorkflowStepArgument."Approver Type"::"Salesperson/Purchaser", WorkflowStepArgument."Approver Limit Type"::"Direct Approver",
+          0, '', BlankDateFormula, true);
+
+        WorkflowSetup.InsertDocApprovalWorkflowSteps(Workflow,
+          BuildBankRecHeaderConditions(BankRecHeader.Status::Open),
+          RunWorkflowOnSendBankReconciliationForApprovalCode(),
+          BuildBankRecHeaderConditions(BankRecHeader.Status::"Pending Approval"),
+          RunWorkflowOnCancelBankReconciliationApprovalRequestCode(),
+          WorkflowStepArgument, true);
+    end;
+
+    procedure BuildBankRecHeaderConditions(Status: Option Open,"Pending Approval",Approved): Text
+    var
+        BankRecHeader: Record "Bank Acc. Reconciliation";
+        BankRecHeaderTypeCondnTxt: Label '<?xml version="1.0" encoding="utf-8" standalone="yes"?><ReportParameters><DataItems><DataItem name="Bank Acc. Reconciliation">%1</DataItem><DataItem name="Bank Acc. Reconciliation Line">%2</DataItem></DataItems></ReportParameters>';
+    begin
+        BankRecHeader.SetRange(Status, Status);
+        exit(StrSubstNo(BankRecHeaderTypeCondnTxt, WorkflowSetup.Encode(BankRecHeader.GetView(false))));
+    end;
+
+
+    procedure CheckBankReconciliationApprovalWorkflowEnabled(var BankReconciliations: Record "Bank Acc. Reconciliation"): Boolean
     var
         NoWorkflowEnabledErr: Label 'No approval workflow for this record type is enabled.';
     begin
-        if not IsBankReconciliationApprovalWorkflowEnabled(BankReconciliation) then
+        if not IsBankReconciliationApprovalWorkflowEnabled(BankReconciliations) then
             Error(NoWorkflowEnabledErr);
         exit(true);
     end;
 
-    local procedure IsBankReconciliationApprovalWorkflowEnabled(var BankReconciliation: Record "Bank Acc. Reconciliation"): Boolean
+    local procedure IsBankReconciliationApprovalWorkflowEnabled(var BankReconciliations: Record "Bank Acc. Reconciliation"): Boolean
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        exit(WorkflowManagement.CanExecuteWorkflow(BankReconciliation, RunWorkflowOnSendBankReconciliationForApprovalCode));
+        exit(WorkflowManagement.CanExecuteWorkflow(BankReconciliations, RunWorkflowOnSendBankReconciliationForApprovalCode));
     end;
 
     [IntegrationEvent(false, false)]
-    procedure OnBeforeSendBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    procedure OnBeforeSendBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    procedure OnSendBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    procedure OnSendBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    procedure OnAfterSendBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    procedure OnAfterSendBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    procedure OnBeforeCancelBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    procedure OnBeforeCancelBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    procedure OnCancelBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    procedure OnCancelBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    procedure OnAfterCancelBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    procedure OnAfterCancelBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     begin
     end;
 
@@ -65,19 +137,19 @@ codeunit 50018 "Bank Reconciliation Approval"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 50018, 'OnSendBankReconciliationForApproval', '', false, false)]
-    local procedure RunWorkflowOnSendBankReconciliationForApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    local procedure RunWorkflowOnSendBankReconciliationForApproval(var BankReconciliations: Record "Bank Acc. Reconciliation")
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnSendBankReconciliationForApprovalCode, BankReconciliation);
+        WorkflowManagement.HandleEvent(RunWorkflowOnSendBankReconciliationForApprovalCode, BankReconciliations);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 50018, 'OnCancelBankReconciliationForApproval', '', false, false)]
-    local procedure RunWorkflowOnCancelBankReconciliationApprovalRequest(var BankReconciliation: Record "Bank Acc. Reconciliation")
+    local procedure RunWorkflowOnCancelBankReconciliationApprovalRequest(var BankReconciliations: Record "Bank Acc. Reconciliation")
     var
         WorkflowManagement: Codeunit "Workflow Management";
     begin
-        WorkflowManagement.HandleEvent(RunWorkflowOnCancelBankReconciliationApprovalRequestCode, BankReconciliation);
+        WorkflowManagement.HandleEvent(RunWorkflowOnCancelBankReconciliationApprovalRequestCode, BankReconciliations);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventsToLibrary', '', false, false)]
@@ -86,9 +158,9 @@ codeunit 50018 "Bank Reconciliation Approval"
         WorkflowEventHandling: Codeunit "Workflow Event Handling";
     begin
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnSendBankReconciliationForApprovalCode,
-                                    DATABASE::"Bank Acc. Reconciliation", 'Approval of a Bank Reconciliation document is requested.', 0, false);
+                                    DATABASE::"Bank Acc. Reconciliation", 'Approval of a BankReconciliations document is requested.', 0, false);
         WorkflowEventHandling.AddEventToLibrary(RunWorkflowOnCancelBankReconciliationApprovalRequestCode,
-                                    DATABASE::"Bank Acc. Reconciliation", 'An approval request for a Bank Reconciliation document is canceled.', 0, false);
+                                    DATABASE::"Bank Acc. Reconciliation", 'An approval request for a BankReconciliation document is canceled.', 0, false);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, 1520, 'OnAddWorkflowEventPredecessorsToLibrary', '', false, false)]
@@ -141,7 +213,7 @@ codeunit 50018 "Bank Reconciliation Approval"
     local procedure PopulateApprovalEntryArgument(var RecRef: RecordRef; var ApprovalEntryArgument: Record "Approval Entry"; WorkflowStepInstance: Record "Workflow Step Instance")
     var
         GeneralLedgerSetup: Record "General Ledger Setup";
-        BankReconciliation: Record "Bank Acc. Reconciliation";
+        BankReconciliations: Record "Bank Acc. Reconciliation";
         CurrencyCode: Code[10];
         DocumentTypeTxt: Label '%1 Payment';
         ApprovalDescriptionTxt: Label 'Payment of %1:%2 to %3.';
@@ -153,15 +225,14 @@ codeunit 50018 "Bank Reconciliation Approval"
         case RecRef.Number of
             DATABASE::"Bank Acc. Reconciliation":
                 begin
-                    RecRef.SetTable(BankReconciliation);
-                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::" ";
-                    ApprovalEntryArgument."Document No." := BankReconciliation."Statement No.";
-                    ApprovalEntryArgument."Document Source" := BankReconciliation."Bank Account No.";
-                    ApprovalEntryArgument.Amount := BankReconciliation."Statement Ending Balance";
-                    ApprovalEntryArgument."Amount (LCY)" := BankReconciliation."Statement Ending Balance";
+                    RecRef.SetTable(BankReconciliations);
+                    // ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."Document Type"::"Employee Requisition";
+                    ApprovalEntryArgument."Document No." := BankReconciliations."Statement No.";
+                    ApprovalEntryArgument.Amount := 0;
+                    ApprovalEntryArgument."Amount (LCY)" := 0;
                     ApprovalEntryArgument."Currency Code" := CurrencyCode;
                     ApprovalEntryArgument.Description := 'Bank Reconciliation';
-                    //ApprovalEntryArgument."Document Source" := BankReconciliation."Bank Account No.";
+                    ApprovalEntryArgument."Document Source" := COPYSTR(BankReconciliations."Statement No.", 1, 250);
                 end;
         end;
     end;
@@ -169,14 +240,14 @@ codeunit 50018 "Bank Reconciliation Approval"
     [EventSubscriber(ObjectType::Codeunit, 1521, 'OnOpenDocument', '', false, false)]
     local procedure OpenDocument(RecRef: RecordRef; var Handled: Boolean)
     var
-        BankReconciliation: Record "Bank Acc. Reconciliation";
+        BankReconciliations: Record "Bank Acc. Reconciliation";
     begin
         case RecRef.Number of
             DATABASE::"Bank Acc. Reconciliation":
                 begin
-                    RecRef.SetTable(BankReconciliation);
-                    BankReconciliation.Validate(Status, BankReconciliation.Status::Open);
-                    BankReconciliation.Modify(true);
+                    RecRef.SetTable(BankReconciliations);
+                    BankReconciliations.Validate(Status, BankReconciliations.Status::Open);
+                    BankReconciliations.Modify(true);
                     Handled := true;
                 end;
         end;
@@ -185,78 +256,75 @@ codeunit 50018 "Bank Reconciliation Approval"
     [EventSubscriber(ObjectType::Codeunit, 1535, 'OnSetStatusToPendingApproval', '', false, false)]
     local procedure SetStatusToPendingApproval(RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
     var
-        BankReconciliation: Record "Bank Acc. Reconciliation";
+        BankReconciliations: Record "Bank Acc. Reconciliation";
     begin
         RecRef.GetTable(Variant);
         case RecRef.Number of
             DATABASE::"Bank Acc. Reconciliation":
                 begin
-                    RecRef.SetTable(BankReconciliation);
-                    BankReconciliation.Validate(Status, BankReconciliation.Status::"Pending Approval");
-                    BankReconciliation.Modify(true);
-                    Variant := BankReconciliation;
+                    RecRef.SetTable(BankReconciliations);
+                    BankReconciliations.Validate(Status, BankReconciliations.Status::"Pending Approval");
+                    BankReconciliations.Modify(true);
+                    Variant := BankReconciliations;
                     IsHandled := true;
                 end;
         end;
-        IsHandled := true;
     end;
 
-    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    // var
-    //     BankReconciliation: Record "Bank Acc. Reconciliation";
-    // begin
-    //     case RecRef.Number of
-    //         DATABASE::"Bank Acc. Reconciliation":
-    //             begin
-    //                 RecRef.SetTable(BankReconciliation);
-    //                 BankReconciliation.Validate(Status, BankReconciliation.Status::Approved);
-    //                 if BankReconciliation.Modify(true) then
-    //                     OnAfterReleaseDocument(BankReconciliation);
-    //                 Handled := true;
-    //             end;
-    //     end;
-    //     Handled := true;
-    // end;
-
-    [BusinessEvent(false)]
-    local procedure OnAfterReleaseDocument(var BankReconciliation: Record "Bank Acc. Reconciliation")
-    begin
-    end;
-
-    //[EventSubscriber(ObjectType::Codeunit, 51535079, 'OnRejectDocument', '', false, false)]
-    local procedure RejectDocument(RecRef: RecordRef; var Handled: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
     var
-        BankReconciliation: Record "Bank Acc. Reconciliation";
+        BankReconciliations: Record "Bank Acc. Reconciliation";
     begin
         case RecRef.Number of
             DATABASE::"Bank Acc. Reconciliation":
                 begin
-                    RecRef.SetTable(BankReconciliation);
-                    BankReconciliation.Validate(Status, BankReconciliation.Status::Open);
-                    BankReconciliation.Modify(true);
+                    RecRef.SetTable(BankReconciliations);
+                    BankReconciliations.Validate(Status, BankReconciliations.Status::Approved);
+                    if BankReconciliations.Modify(true) then
+                        OnAfterReleaseDocument(BankReconciliations);
                     Handled := true;
                 end;
         end;
     end;
 
+    [BusinessEvent(false)]
+    local procedure OnAfterReleaseDocument(var BankReconciliations: Record "Bank Acc. Reconciliation")
+    begin
+    end;
+
+    // [EventSubscriber(ObjectType::Codeunit, 51535079, 'OnRejectDocument', '', false, false)]
+    // local procedure RejectDocument(RecRef: RecordRef;var Handled: Boolean)
+    // var
+    //     BankReconciliations: Record "Bank Acc. Reconciliation";
+    // begin
+    //     case RecRef.Number of
+    //       DATABASE::"Bank Acc. Reconciliation":
+    //       begin
+    //         RecRef.SetTable(BankReconciliations);
+    //         BankReconciliations.Validate(Status,BankReconciliations.Status::Rejected);
+    //         BankReconciliations.Validate("Rejected By",UserId);
+    //         BankReconciliations.Validate("Rejected DateTime",CurrentDateTime);
+    //         BankReconciliations.Modify(true);
+    //         Handled:=true;
+    //       end;
+    //     end;
+    // end;
+
     [EventSubscriber(ObjectType::Codeunit, 700, 'OnAfterGetPageID', '', false, false)]
     local procedure GetPageID(RecordRef: RecordRef; var PageID: Integer)
     var
-        BankReconciliation: Record "Bank Acc. Reconciliation";
+        BankReconciliations: Record "Bank Acc. Reconciliation";
     begin
         case RecordRef.Number of
             DATABASE::"Bank Acc. Reconciliation":
                 begin
-                    RecordRef.SetTable(BankReconciliation);
-                    PageID := PAGE::"Bank Acc. Reconciliation";
+                    RecordRef.SetTable(BankReconciliations);
+                    PageID := Page::"Bank Acc. Reconciliation";
+
                 end;
         end;
     end;
-
-    //[EventSubscriber(ObjectType::Codeunit, 51535002, 'OnBeforeSendPaymentForApproval', '', false, false)]
-    local procedure CheckFieldsBeforeApproval(var BankReconciliation: Record "Bank Acc. Reconciliation")
-    begin
-    end;
 }
+
 
