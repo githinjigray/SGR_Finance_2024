@@ -11,7 +11,7 @@
       <am:Name>PBIRB</am:Name>
       <am:Version>15.7.1813.16</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-06T04:55:27.7704972Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-12T09:01:21.6057988Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1806,7 +1806,7 @@
               <Source>Database</Source>
               <Value>=First(Fields!CompanyInfoPic.Value, "DataSet_Result")</Value>
               <MIMEType>image/jpeg</MIMEType>
-              <Sizing>Fit</Sizing>
+              <Sizing>FitProportional</Sizing>
               <Top>0.07056cm</Top>
               <Left>22.47609cm</Left>
               <Height>2.46992cm</Height>

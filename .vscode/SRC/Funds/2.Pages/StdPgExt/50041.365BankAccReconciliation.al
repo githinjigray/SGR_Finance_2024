@@ -10,7 +10,7 @@ pageextension 50041 "365 Bank Acc. Reconciliation" extends "Bank Acc. Reconcilia
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Status field.', Comment = '%';
             }
-            field("Document Date"; Rec."Document Date")
+            field("Document Date"; Rec."Document Date") 
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Document Date field.', Comment = '%';
@@ -19,6 +19,27 @@ pageextension 50041 "365 Bank Acc. Reconciliation" extends "Bank Acc. Reconcilia
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the User ID field.', Comment = '%';
+            }
+            field("Total Reconciled"; Rec."Total Reconciled")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Total Reconciled field.', Comment = '%';
+            }
+            field("Total Unreconciled"; Rec."Total Unreconciled")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Total Unreconciled field.', Comment = '%';
+            }
+        }
+        modify(Control8)
+        {
+            Visible = false;
+        }
+        addafter(Control8)
+        {
+            part("Bank Acc.Reconciliation Lines2"; "Bank Acc.Reconciliation Lines2")
+            {
+                ApplicationArea = All;
             }
         }
     }
@@ -72,6 +93,29 @@ pageextension 50041 "365 Bank Acc. Reconciliation" extends "Bank Acc. Reconcilia
                 begin
                     ApprovalManager.OnCancelBankReconciliationForApproval(Rec);
                     //WorkflowWebhookMgt.FindAndCancel(RECORDID);
+                end;
+            }
+            action("Print Reconciliation")
+            {
+                Caption = 'Print Reconciliation';
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                ToolTip = 'Print Reconciliation';
+                ApplicationArea = All;
+
+
+                trigger OnAction()
+                var
+                    PrintStatement: Record "Bank Acc. Reconciliation";
+                begin
+                    PrintStatement.Reset;
+                    PrintStatement.SetRange(PrintStatement."Bank Account No.", rec."Bank Account No.");
+                    PrintStatement.SetRange(PrintStatement."Statement No.", rec."Statement No.");
+                    if PrintStatement.FindFirst then begin
+                        REPORT.RunModal(REPORT::"Bank Acc ReconciliationTest", true, false, PrintStatement);
+                    end;
                 end;
             }
         }

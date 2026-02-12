@@ -356,12 +356,12 @@ report 50001 "Payment Voucher"
 
 
 
-                // Emp.Reset;
-                // Emp.SetRange(Emp."User ID", "Payment Header"."User ID");
-                // if Emp.FindFirst then begin
-                //     PreparedBy := Emp."First Name" + ' ' + Emp."Last Name";
-                //     EmployeeTitle := Emp."HR Job Title";
-                // end;
+                Emp.Reset;
+                Emp.SetRange(Emp."Employee User ID", "Payment Header"."User ID");
+                if Emp.FindFirst then begin
+                    PreparedBy := Emp."First Name" + ' ' + Emp."Last Name";
+                    EmployeeTitle := Emp."Job Title";
+                end;
             end;
         }
     }

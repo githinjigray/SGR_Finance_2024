@@ -1,13 +1,20 @@
 report 50015 "Bank Acc ReconciliationTest"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Acc ReconciliationTest.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Acc ReconciliationTest.rdl';
     ApplicationArea = All;
 
     dataset
     {
         dataitem("Bank Acc. Reconciliation"; "Bank Acc. Reconciliation")
         {
+
+            column(EmployeeTitle; EmployeeTitle)
+            {
+            }
+            column(PreparedBy; PreparedBy)
+            {
+            }
             column(BankAccNo; "Bank Acc. Reconciliation"."Bank Account No.")
             {
             }
@@ -60,9 +67,87 @@ report 50015 "Bank Acc ReconciliationTest"
                 {
                 }
             }
+            dataitem("Approval Entry"; "Approval Entry")
+            {
+                DataItemLink = "Document No." = FIELD("Statement No.");
+                DataItemTableView = WHERE(Status = CONST(Approved));
+                column(SequenceNo_ApprovalEntry; "Approval Entry"."Sequence No.")
+                {
+                }
+                column(ApproverID_ApprovalEntry; "Approval Entry"."Approver ID")
+                {
+                }
+                column(r; "Approval Entry"."Last Date-Time Modified")
+                {
+                }
+                column(SenderID_ApprovalEntry; "Approval Entry"."Sender ID")
+                {
+                }
+                column(DateTimeSentforApproval_ApprovalEntry; "Approval Entry"."Date-Time Sent for Approval")
+                {
+                }
+                column(ApprovalType; ApprovalType)
+                {
+                }
+
+                dataitem(Employee; Employee)
+                {
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName;
+                    Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
+                }
+                trigger OnAfterGetRecord()
+                begin
+                    ApprovalType := '';
+
+                    WorkflowStepInstanceArchive.RESET;
+                    WorkflowStepInstanceArchive.SETRANGE(WorkflowStepInstanceArchive."Workflow Code", "Approval Entry"."Approval Code");
+                    WorkflowStepInstanceArchive.SETRANGE(WorkflowStepInstanceArchive."Function Name", 'CREATEAPPROVALREQUESTS');
+                    IF WorkflowStepInstanceArchive.FINDFIRST THEN BEGIN
+                        WorkflowStepArgumentArchive.RESET;
+                        WorkflowStepArgumentArchive.SETRANGE(WorkflowStepArgumentArchive.ID, WorkflowStepInstanceArchive.Argument);
+                        IF WorkflowStepArgumentArchive.FINDFIRST THEN BEGIN
+                            WorkflowUserGroupMember.RESET;
+                            WorkflowUserGroupMember.SETRANGE(WorkflowUserGroupMember."Workflow User Group Code", WorkflowStepArgumentArchive."Workflow User Group Code");
+                            WorkflowUserGroupMember.SETRANGE(WorkflowUserGroupMember."User Name", "Approval Entry"."Approver ID");
+                            IF WorkflowUserGroupMember.FINDFIRST THEN BEGIN
+                                IF WorkflowUserGroupMember."Approver Type" = WorkflowUserGroupMember."Approver Type"::Reviewer THEN
+                                    ApprovalType := 'Reviewer';
+                                IF WorkflowUserGroupMember."Approver Type" = WorkflowUserGroupMember."Approver Type"::Approver THEN
+                                    ApprovalType := 'Approver';
+                                IF WorkflowUserGroupMember."Approver Type" = WorkflowUserGroupMember."Approver Type"::Authorizer THEN
+                                    ApprovalType := 'Authorizer';
+                            END;
+                        END;
+                    END;
+                end;
+
+            }
 
             trigger OnAfterGetRecord()
             begin
+
+                Emp.Reset;
+                Emp.SetRange(Emp."Employee User ID", "Bank Acc. Reconciliation"."User ID");
+                if Emp.FindFirst then begin
+                    PreparedBy := Emp."First Name" + ' ' + Emp."Last Name";
+                    EmployeeTitle := Emp."Job Title";
+                end;
+
                 BankAccount.Reset;
                 BankAccount.SetRange(BankAccount."No.", "Bank Acc. Reconciliation"."Bank Account No.");
                 if BankAccount.FindSet then begin
@@ -156,5 +241,12 @@ report 50015 "Bank Acc ReconciliationTest"
         BankRecLineNew: Record "Bank Acc. Reconciliation Line";
         PeriodStart: Date;
         PeriodEnd: Date;
+        ApprovalType: text;
+        PreparedBy: Text;
+        EmployeeTitle: Text;
+        Emp: Record Employee;
+        WorkflowStepInstanceArchive: Record "Workflow Step Instance Archive";
+        WorkflowStepArgumentArchive: Record "Workflow Step Argument Archive";
+        WorkflowUserGroupMember: Record "Workflow User Group Member";
 }
 

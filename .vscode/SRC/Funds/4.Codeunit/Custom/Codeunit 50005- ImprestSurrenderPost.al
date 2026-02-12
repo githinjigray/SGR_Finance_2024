@@ -211,7 +211,7 @@ codeunit 50005 ImprestSurrenderPost
         ImprestSurrenderLine.SETRANGE("Document No.", ImprestSurrenderHeader."No.");
         IF ImprestSurrenderLine.FINDSET THEN BEGIN
             REPEAT
-                ImprestSurrenderLine.TESTFIELD("Expense Account No.");
+                // ImprestSurrenderLine.TESTFIELD("Expense Account No.");
                 ImprestSurrenderLine.TESTFIELD(Description);
             UNTIL ImprestSurrenderLine.NEXT = 0;
         END ELSE BEGIN
