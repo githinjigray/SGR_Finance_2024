@@ -11,7 +11,7 @@
       <am:Name>PBIRB</am:Name>
       <am:Version>15.7.1813.16</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-12T08:32:39.1565857Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-13T08:54:24.7822829Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1715,7 +1715,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!PaymentDate.Value, "DataSet_Result")</Value>
+                                  <Value>=First(Fields!StmtDate.Value, "DataSet_Result")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2155,7 +2155,7 @@
       <Width>9in</Width>
       <Page>
         <PageHeader>
-          <Height>1in</Height>
+          <Height>1.4375in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <ReportItems>
             <Textbox Name="Textbox42">
@@ -2252,10 +2252,10 @@
               <Value>=First(Fields!Pic.Value, "DataSet_Result")</Value>
               <MIMEType>image/png</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.62847in</Top>
+              <Top>0.56249in</Top>
               <Left>0.41584in</Left>
-              <Height>0.37153in</Height>
-              <Width>1.92716in</Width>
+              <Height>0.80557in</Height>
+              <Width>1.37422in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>

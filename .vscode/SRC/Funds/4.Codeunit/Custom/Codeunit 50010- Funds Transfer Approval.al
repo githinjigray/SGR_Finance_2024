@@ -202,23 +202,23 @@ codeunit 50010 "Funds Transfer Approval"
         IsHandled := true;
     end;
 
-    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    // var
-    //     FundsTransfer: Record "Funds Transfer Header";
-    // begin
-    //     case RecRef.Number of
-    //         DATABASE::"Funds Transfer Header":
-    //             begin
-    //                 RecRef.SetTable(FundsTransfer);
-    //                 FundsTransfer.Validate(Status, FundsTransfer.Status::Approved);
-    //                 if FundsTransfer.Modify(true) then
-    //                     OnAfterReleaseDocument(FundsTransfer);
-    //                 Handled := true;
-    //             end;
-    //     end;
-    //     Handled := true;
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    var
+        FundsTransfer: Record "Funds Transfer Header";
+    begin
+        case RecRef.Number of
+            DATABASE::"Funds Transfer Header":
+                begin
+                    RecRef.SetTable(FundsTransfer);
+                    FundsTransfer.Validate(Status, FundsTransfer.Status::Approved);
+                    if FundsTransfer.Modify(true) then
+                        OnAfterReleaseDocument(FundsTransfer);
+                    Handled := true;
+                end;
+        end;
+        Handled := true;
+    end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(FundsTransfer: Record "Funds Transfer Header")

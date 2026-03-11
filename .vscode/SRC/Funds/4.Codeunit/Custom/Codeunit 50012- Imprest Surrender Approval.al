@@ -202,23 +202,23 @@ codeunit 50012 "Imprest Surrender Approval"
         IsHandled := true;
     end;
 
-    // [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
-    // local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
-    // var
-    //     Imprestsurrender: Record "Imprest Surrender Header";
-    // begin
-    //     case RecRef.Number of
-    //         DATABASE::"Imprest Surrender Header":
-    //             begin
-    //                 RecRef.SetTable(Imprestsurrender);
-    //                 Imprestsurrender.Validate(Status, Imprestsurrender.Status::Approved);
-    //                 if Imprestsurrender.Modify(true) then
-    //                     OnAfterReleaseDocument(Imprestsurrender);
-    //                 Handled := true;
-    //             end;
-    //     end;
-    //     Handled := true;
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, 1521, 'OnReleaseDocument', '', false, false)]
+    local procedure ReleaseDocument(RecRef: RecordRef; var Handled: Boolean)
+    var
+        Imprestsurrender: Record "Imprest Surrender Header";
+    begin
+        case RecRef.Number of
+            DATABASE::"Imprest Surrender Header":
+                begin
+                    RecRef.SetTable(Imprestsurrender);
+                    Imprestsurrender.Validate(Status, Imprestsurrender.Status::Approved);
+                    if Imprestsurrender.Modify(true) then
+                        OnAfterReleaseDocument(Imprestsurrender);
+                    Handled := true;
+                end;
+        end;
+        Handled := true;
+    end;
 
     [BusinessEvent(false)]
     local procedure OnAfterReleaseDocument(Imprestsurrender: Record "Imprest Surrender Header")

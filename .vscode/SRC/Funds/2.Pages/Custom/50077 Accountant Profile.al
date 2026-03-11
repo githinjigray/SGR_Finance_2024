@@ -64,7 +64,7 @@ page 50077 "Accountant Role Center3"
             }
             action("Bank Account Reconciliation")
             {
-                RunObject = Page "Bank Acc. Reconciliation List";
+                RunObject = Page "Bank Acc. Recon List2";
             }
             action("Purchase Invoices")
             {

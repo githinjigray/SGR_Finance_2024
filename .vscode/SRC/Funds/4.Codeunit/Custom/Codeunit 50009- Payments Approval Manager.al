@@ -287,6 +287,6 @@ codeunit 50009 "Payments Approval Manager"
                 EXIT(PAGE::"Cash Payment Card");
         END;
     end;
-    
+
 }
 

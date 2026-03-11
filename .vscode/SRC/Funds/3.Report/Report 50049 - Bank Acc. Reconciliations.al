@@ -1,7 +1,7 @@
 report 50049 "Bank Acc. Reconciliations"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Acc. Reconciliations.rdlc';
+    RDLCLayout = '.vscode/src/Funds/12.layout/Bank Acc. Reconciliations.rdl';
     Caption = 'Bank Account Reconciliation Report';
     ApplicationArea = All;
 
@@ -11,6 +11,21 @@ report 50049 "Bank Acc. Reconciliations"
         {
             RequestFilterFields = "Statement No.";
             column(BankCode; BankCode)
+            {
+            }
+            column(PreparedBy; PreparedBy)
+            {
+            }
+            column(EmployeeTitle; EmployeeTitle)
+            {
+            }
+            column(Pic; CompanyInfo.Picture)
+            {
+            }
+            column(DocumentDate_BankAccReconciliation; "Document Date")
+            {
+            }
+            column(CompanyName; CompanyInfo.Name)
             {
             }
             column(BankAccountNo_BankAccReconciliation; "Bank Acc. Reconciliation"."Bank Account No.")
@@ -50,9 +65,6 @@ report 50049 "Bank Acc. Reconciliations"
             {
             }
             column(ReconciliationStatement; ReconciliationStatement)
-            {
-            }
-            column(CompanyName; CompanyInfo.Name)
             {
             }
             column(CompanyAddress; CompanyInfo.Address)
@@ -172,6 +184,76 @@ report 50049 "Bank Acc. Reconciliations"
                 {
                 }
             }
+            dataitem("Approval Entry"; "Approval Entry")
+            {
+                DataItemLink = "Document No." = FIELD("Statement No.");
+                DataItemTableView = WHERE(Status = CONST(Approved));
+                column(SequenceNo_ApprovalEntry; "Approval Entry"."Sequence No.")
+                {
+                }
+                column(ApproverID_ApprovalEntry; "Approval Entry"."Approver ID")
+                {
+                }
+                column(r; "Approval Entry"."Last Date-Time Modified")
+                {
+                }
+                column(SenderID_ApprovalEntry; "Approval Entry"."Sender ID")
+                {
+                }
+                column(DateTimeSentforApproval_ApprovalEntry; "Approval Entry"."Date-Time Sent for Approval")
+                {
+                }
+                column(ApprovalType; ApprovalType)
+                {
+                }
+
+                dataitem(Employee; Employee)
+                {
+                    DataItemLink = "Employee User ID" = FIELD("Approver ID");
+                    column(EmployeeFirstName;
+                    Employee."First Name")
+                    {
+                    }
+                    column(EmployeeMiddleName; Employee."Middle Name")
+                    {
+                    }
+                    column(EmployeeLastName; Employee."Last Name")
+                    {
+                    }
+                    column(EmployeeSignature; Employee."Signature")
+                    {
+                    }
+                    column(JobTitle_Employee; Employee."Job Title")
+                    {
+                    }
+                }
+                trigger OnAfterGetRecord()
+                begin
+                    ApprovalType := '';
+
+                    WorkflowStepInstanceArchive.RESET;
+                    WorkflowStepInstanceArchive.SETRANGE(WorkflowStepInstanceArchive."Workflow Code", "Approval Entry"."Approval Code");
+                    WorkflowStepInstanceArchive.SETRANGE(WorkflowStepInstanceArchive."Function Name", 'CREATEAPPROVALREQUESTS');
+                    IF WorkflowStepInstanceArchive.FINDFIRST THEN BEGIN
+                        WorkflowStepArgumentArchive.RESET;
+                        WorkflowStepArgumentArchive.SETRANGE(WorkflowStepArgumentArchive.ID, WorkflowStepInstanceArchive.Argument);
+                        IF WorkflowStepArgumentArchive.FINDFIRST THEN BEGIN
+                            WorkflowUserGroupMember.RESET;
+                            WorkflowUserGroupMember.SETRANGE(WorkflowUserGroupMember."Workflow User Group Code", WorkflowStepArgumentArchive."Workflow User Group Code");
+                            WorkflowUserGroupMember.SETRANGE(WorkflowUserGroupMember."User Name", "Approval Entry"."Approver ID");
+                            IF WorkflowUserGroupMember.FINDFIRST THEN BEGIN
+                                IF WorkflowUserGroupMember."Approver Type" = WorkflowUserGroupMember."Approver Type"::Reviewer THEN
+                                    ApprovalType := 'Reviewer';
+                                IF WorkflowUserGroupMember."Approver Type" = WorkflowUserGroupMember."Approver Type"::Approver THEN
+                                    ApprovalType := 'Approver';
+                                IF WorkflowUserGroupMember."Approver Type" = WorkflowUserGroupMember."Approver Type"::Authorizer THEN
+                                    ApprovalType := 'Authorizer';
+                            END;
+                        END;
+                    END;
+                end;
+
+            }
 
             trigger OnAfterGetRecord()
             begin
@@ -181,6 +263,14 @@ report 50049 "Bank Acc. Reconciliations"
                 BankAccountBalanceasperCashBook := 0;
                 UnpresentedChequesTotal := 0;
                 UncreditedBanking := 0;
+
+
+                Emp.Reset;
+                Emp.SetRange(Emp."Employee User ID", "Bank Acc. Reconciliation"."User ID");
+                if Emp.FindFirst then begin
+                    PreparedBy := Emp."First Name" + ' ' + Emp."Last Name";
+                    EmployeeTitle := Emp."Job Title";
+                end;
 
                 TotalDiffFunc();
 
@@ -239,11 +329,13 @@ report 50049 "Bank Acc. Reconciliations"
 
             trigger OnPreDataItem()
             begin
-                CompanyInfo.Get;
-                CompanyInfo.CalcFields(Picture);
+                //CompanyInfo.Get;
+                // CompanyInfo.CalcFields(Picture);
 
                 ReconciliationStatement := 'Reconciliation is incomplete please go through it again';
             end;
+
+
         }
     }
 
@@ -262,6 +354,11 @@ report 50049 "Bank Acc. Reconciliations"
     labels
     {
     }
+    trigger OnPreReport()
+    begin
+        CompanyInfo.Get;
+        CompanyInfo.CalcFields(CompanyInfo.Picture);
+    end;
 
     var
         Bank: Record "Bank Account";
@@ -285,6 +382,13 @@ report 50049 "Bank Acc. Reconciliations"
         PaymentHeader: Record "Payment Header";
         ReceiptHeader: Record "Receipt Header";
         Payee2: Text;
+        PreparedBy: Text;
+        EmployeeTitle: Text;
+        ApprovalType: text;
+        Emp: Record Employee;
+        WorkflowStepInstanceArchive: Record "Workflow Step Instance Archive";
+        WorkflowStepArgumentArchive: Record "Workflow Step Argument Archive";
+        WorkflowUserGroupMember: Record "Workflow User Group Member";
 
     procedure TotalDiffFunc()
     begin

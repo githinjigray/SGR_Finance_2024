@@ -22,4 +22,8 @@ pageextension 50044 "365 Bank Acc. Reconciliations" extends "Bank Acc. Reconcili
             }
         }
     }
+    trigger OnOpenPage()
+    begin
+        Error('This page is deprecated and will be removed in a future release. Please use the new Bank Account Reconciliation List page.');
+    end;
 }

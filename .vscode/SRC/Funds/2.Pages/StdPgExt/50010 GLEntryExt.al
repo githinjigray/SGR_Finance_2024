@@ -10,6 +10,14 @@ pageextension 50010 "G/L Entry Ext" extends "General Ledger Entries"
         {
             Visible = true;
         }
+        modify("Debit Amount")
+        {
+            Visible = true;
+        }
+        modify("Credit Amount")
+        {
+            Visible = true;
+        }
         addafter("Source No.")
         {
             field("PAYE Name"; Rec."PAYE Name")

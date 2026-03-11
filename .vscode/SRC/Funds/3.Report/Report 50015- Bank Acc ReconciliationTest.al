@@ -48,7 +48,7 @@ report 50015 "Bank Acc ReconciliationTest"
             column(CompanyName; CompanyInfo.Name)
             {
             }
-            dataitem(BankRec; "Bank Acc. Reconciliation Line2")
+            dataitem(BankRec; "Bank Acc. Reconciliation Line")
             {
                 DataItemLink = "Bank Account No." = FIELD("Bank Account No."), "Statement No." = FIELD("Statement No.");
                 column(DocNo; BankRec."Document No.")

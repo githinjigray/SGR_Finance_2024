@@ -14,5 +14,12 @@ tableextension 50009 "365 Employee" extends Employee
             Caption = 'Signature';
             DataClassification = ToBeClassified;
         }
+        field(70002; "365 Responsibility Centre"; Code[20])
+        {
+            Caption = 'Responsibility Centre';
+            DataClassification = ToBeClassified;
+            TableRelation = "Responsibility Center".Code;
+        }
+
     }
 }

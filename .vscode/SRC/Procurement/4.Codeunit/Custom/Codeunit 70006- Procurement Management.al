@@ -515,7 +515,7 @@ codeunit 70006 "Procurement Management"
                 Budget.Reset;
                 Budget.SetRange(Budget."Budget Name", BCSetup."Current Budget Code");
                 Budget.SetFilter(Budget.Date, '%1..%2', BCSetup."Current Budget Start Date", BCSetup."Current Budget End Date");
-                Budget.SetRange(Budget."G/L Account No.", BudgetGL);
+                Budget.SetRange(Budget."G/L Account No.", BudgetGL);                
                 if PurchLine."Shortcut Dimension 1 Code" <> '' then
                     Budget.SetRange(Budget."Global Dimension 1 Code", PurchLine."Shortcut Dimension 1 Code");
                 if PurchLine."Shortcut Dimension 2 Code" <> '' then

@@ -3,6 +3,7 @@ report 50065 "Suggest Bank Recon. Lines"
     Caption = 'Suggest Bank Acc. Recon. Lines';
     ProcessingOnly = true;
     ApplicationArea = All;
+    Permissions = TableData "Bank Acc. Reconciliation Line" = RIMD, TableData "Bank Account Ledger Entry" = RM, tabledata "Check Ledger Entry" = RM;
 
     dataset
     {

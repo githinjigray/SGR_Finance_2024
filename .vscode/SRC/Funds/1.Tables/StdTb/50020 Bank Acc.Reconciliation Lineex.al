@@ -71,6 +71,14 @@ tableextension 50020 "Bank Acc.Reconciliation Lineex" extends "Bank Acc. Reconci
             Caption = 'Payee Name/Received From';
             DataClassification = ToBeClassified;
         }
+        field(70009; Type; Option)
+        {
+            Caption = 'Type';
+            DataClassification = ToBeClassified;
+            OptionMembers = "Bank Account Ledger Entry","Check Ledger Entry","Difference";
+            OptionCaption = ' ,Bank Ledger Entry,Check Ledger Entry,Difference';
+        }
+
     }
     var
         BankAccRecon: Record "Bank Acc. Reconciliation";
