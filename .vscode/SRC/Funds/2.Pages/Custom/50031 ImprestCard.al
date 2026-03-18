@@ -100,11 +100,11 @@ page 50031 "Imprest Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                }    
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
-                }           
+                }
                 field("Depature Time"; Rec."Depature Time")
                 {
                     ToolTip = 'Specifies the value of the Depature Time field.';
@@ -131,6 +131,11 @@ page 50031 "Imprest Card"
                     ToolTip = 'Specifies the value of the User ID field.';
                     ApplicationArea = All;
                     Editable = false;
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
                 }
             }
             part(ImprestLine; "Imprest Line")
@@ -208,7 +213,7 @@ page 50031 "Imprest Card"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin

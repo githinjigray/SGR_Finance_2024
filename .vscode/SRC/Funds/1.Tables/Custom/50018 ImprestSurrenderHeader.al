@@ -424,23 +424,14 @@ table 50018 "Imprest Surrender Header"
             Caption = 'User ID';
             DataClassification = ToBeClassified;
             TableRelation = "User Setup"."User ID";
-
             trigger OnValidate()
+            var
+                HRemploee: record Employee;
             begin
-                // Employee.RESET;
-                // Employee.SETRANGE(Employee."User ID", "User ID");
-                // IF Employee.FINDFIRST THEN BEGIN
-                //     Employee.TESTFIELD(Employee."Global Dimension 1 Code");
-                //     Employee.TESTFIELD(Employee."Global Dimension 2 Code");
-                //     "Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
-                //     "Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
-                //     "Shortcut Dimension 3 Code" := Employee."Shortcut Dimension 3 Code";
-                //     "Shortcut Dimension 4 Code" := Employee."Shortcut Dimension 4 Code";
-                //     "Shortcut Dimension 5 Code" := Employee."Shortcut Dimension 5 Code";
-                //     "Shortcut Dimension 6 Code" := Employee."Shortcut Dimension 6 Code";
-                //     "Shortcut Dimension 7 Code" := Employee."Shortcut Dimension 7 Code";
-                //     "Shortcut Dimension 8 Code" := Employee."Shortcut Dimension 8 Code";
-                // END;
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
             end;
         }
         field(47; "No. Series"; Code[20])

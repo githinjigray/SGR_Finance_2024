@@ -177,7 +177,7 @@ page 70055 "Assigned Purchase Requisitions"
                     PromotedCategory = Category8;
                     PromotedIsBig = true;
                     PromotedOnly = true;
-                    RunObject = Page "Approval Entries";
+                    RunObject = Page "Approval Entries-Modified";
                     RunPageLink = "Document No." = FIELD("No.");
                     ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
 

@@ -192,6 +192,11 @@ page 50043 "Posted Fund Claim List"
                     ToolTip = 'Specifies the value of the Incoming Document Entry No. field.';
                     ApplicationArea = All;
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
+                }
             }
         }
     }
@@ -213,7 +218,7 @@ page 50043 "Posted Fund Claim List"
                 ApplicationArea = All;
                 Caption = 'Attachments';
                 Image = Attach;
-                Visible=false;
+                Visible = false;
                 Promoted = true;
                 PromotedCategory = Process;
                 ToolTip = 'Add a file as an attachment. You can attach images as well as documents.';
@@ -237,7 +242,7 @@ page 50043 "Posted Fund Claim List"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin

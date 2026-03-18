@@ -451,6 +451,15 @@ table 50010 "Payment Header"
             Caption = 'User ID';
             Editable = false;
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                HRemploee: record Employee;
+            begin
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            end;
         }
         field(52; "No. Series"; Code[20])
         {
@@ -632,6 +641,7 @@ table 50010 "Payment Header"
         "Posting Date" := Today;
         "Document Date" := Today;
         "User ID" := UserId;
+        Validate("User ID");
         Status := Status::Open;
     end;
 

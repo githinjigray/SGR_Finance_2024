@@ -101,7 +101,7 @@ page 70504 "Posted Store Requisitions List"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin

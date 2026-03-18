@@ -141,11 +141,11 @@ page 50016 "Cash Payment Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                }  
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
-                }               
+                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
@@ -156,6 +156,11 @@ page 50016 "Cash Payment Card"
                     ToolTip = 'Specifies the value of the User ID field.';
                     ApplicationArea = All;
                     Editable = false;
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
                 }
             }
             part(CashPaymentLIne; "Payment Line")
@@ -200,7 +205,7 @@ page 50016 "Cash Payment Card"
                 //     PromotedIsBig = true;
                 //     PromotedCategory = Process;
                 //     trigger OnAction()
-                    
+
                 //         //TESTFIELD(rec.Status,rec.Status::Open);
 
                 //         //delete existing lines
@@ -396,7 +401,7 @@ page 50016 "Cash Payment Card"
                     PromotedIsBig = true;
                     Image = Approvals;
                     ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                    RunObject = page "Approval Entries";
+                    RunObject = Page "Approval Entries-Modified";
                     RunPageLink = "Document No." = field("No.");
                     trigger OnAction()
                     begin

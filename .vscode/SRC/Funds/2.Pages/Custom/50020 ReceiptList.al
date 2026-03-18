@@ -133,7 +133,7 @@ page 50020 "Receipt List"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                }  
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
@@ -142,6 +142,11 @@ page 50020 "Receipt List"
                 {
                     ToolTip = 'Specifies the value of the Status field.';
                     ApplicationArea = All;
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
                 }
             }
         }

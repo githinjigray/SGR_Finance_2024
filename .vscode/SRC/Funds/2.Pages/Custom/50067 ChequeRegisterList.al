@@ -1,11 +1,12 @@
 page 50067 "Cheque Register List"
 {
     ApplicationArea = All;
-    Caption = 'Cheque Register List';
+    Caption = 'Cash Register List';
     PageType = List;
     SourceTable = "Cheque Register";
     UsageCategory = Lists;
-    
+    CardPageId = "Cheque Register Card";
+
     layout
     {
         area(content)
@@ -32,29 +33,14 @@ page 50067 "Cheque Register List"
                     ToolTip = 'Specifies the value of the Bank Account Name field.';
                     ApplicationArea = All;
                 }
-                field("Last Cheque No."; Rec."Last Cheque No.")
+                field("Balance"; Rec.Balance)
                 {
-                    ToolTip = 'Specifies the value of the Last Cheque No. field.';
+                    ToolTip = 'Specifies the value of the Balance field.';
                     ApplicationArea = All;
                 }
-                field("Cheque Book Number"; Rec."Cheque Book Number")
+                field("Total Amount"; Rec."Total Amount")
                 {
-                    ToolTip = 'Specifies the value of the Cheque Book Number field.';
-                    ApplicationArea = All;
-                }
-                field("No of Leaves"; Rec."No of Leaves")
-                {
-                    ToolTip = 'Specifies the value of the No of Leaves field.';
-                    ApplicationArea = All;
-                }
-                field("Cheque Number From"; Rec."Cheque Number From")
-                {
-                    ToolTip = 'Specifies the value of the Cheque Number From field.';
-                    ApplicationArea = All;
-                }
-                field("Cheque Number To."; Rec."Cheque Number To.")
-                {
-                    ToolTip = 'Specifies the value of the Cheque Number To. field.';
+                    ToolTip = 'Specifies the value of the Total Amount field.';
                     ApplicationArea = All;
                 }
                 field("Created By"; Rec."Created By")
@@ -62,19 +48,9 @@ page 50067 "Cheque Register List"
                     ToolTip = 'Specifies the value of the Created By field.';
                     ApplicationArea = All;
                 }
-                field("No. Series"; Rec."No. Series")
-                {
-                    ToolTip = 'Specifies the value of the No. Series field.';
-                    ApplicationArea = All;
-                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
-                    ApplicationArea = All;
-                }
-                field("Incoming Document Entry No."; Rec."Incoming Document Entry No.")
-                {
-                    ToolTip = 'Specifies the value of the Incoming Document Entry No. field.';
                     ApplicationArea = All;
                 }
             }

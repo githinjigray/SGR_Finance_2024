@@ -1,3 +1,5 @@
+//using Microsoft.Finance.Workflow;
+
 page 50010 "Payment List"
 {
     ApplicationArea = All;
@@ -190,7 +192,7 @@ page 50010 "Payment List"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                }                
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
@@ -200,12 +202,12 @@ page 50010 "Payment List"
                     ApplicationArea = all;
                     ToolTip = 'User ID';
                 }
-                field("Phone No."; rec."Phone No.")
+                field("Responsibility Center"; Rec."Responsibility Center")
                 {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
                     ApplicationArea = all;
-                    Editable = false;
-                    ToolTip = 'Phone Nos.';
                 }
+
             }
         }
     }
@@ -378,7 +380,7 @@ page 50010 "Payment List"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin

@@ -118,6 +118,11 @@ page 70001 "Purchase Requisition List"
                 {
                     ToolTip = 'Specifies the Employee number of the requester';
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
+                }
             }
         }
         area(factboxes)

@@ -194,6 +194,15 @@ table 70000 "Purchase Requisitions"
             Caption = 'User ID';
             Editable = false;
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                HRemploee: record Employee;
+            begin
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            end;
         }
         field(100; "No. Series"; Code[20])
         {
@@ -314,6 +323,7 @@ table 70000 "Purchase Requisitions"
         "Document Date" := TODAY;
         "Requested Receipt Date" := TODAY;
         "User ID" := USERID;
+        Validate("User ID");
 
         // BudgetControlSetup.GET;
         // Budget := BudgetControlSetup."Current Budget Code";

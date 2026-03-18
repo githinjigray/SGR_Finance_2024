@@ -54,7 +54,7 @@ page 70003 "Closed Purchase Req. List"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the user who created the purchase requisition';
                 }
-               field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
                     ApplicationArea = All;
@@ -83,10 +83,15 @@ page 70003 "Closed Purchase Req. List"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                }  
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
                 }
             }
         }

@@ -194,20 +194,13 @@ table 70500 "Store Requisition Header"
             Editable = false;
             DataClassification = ToBeClassified;
             trigger OnValidate()
+            var
+                HRemploee: record Employee;
             begin
-                // UserSetup.RESET;
-                // UserSetup.SETRANGE(UserSetup."User ID", "User ID");
-                // IF UserSetup.FINDFIRST THEN BEGIN
-                //     "Global Dimension 1 Code" := UserSetup."Global Dimension 1 Code";
-                //     "Global Dimension 2 Code" := UserSetup."Global Dimension 2 Code";
-                // "Shortcut Dimension 3 Code" := UserSetup."Shortcut Dimension 3 Code";
-                // "Shortcut Dimension 4 Code" := UserSetup."Shortcut Dimension 4 Code";
-                // "Shortcut Dimension 5 Code" := UserSetup."Shortcut Dimension 5 Code";
-                // "Shortcut Dimension 6 Code" := UserSetup."Shortcut Dimension 6 Code";
-                // "Shortcut Dimension 7 Code" := UserSetup."Shortcut Dimension 7 Code";
-                // "Shortcut Dimension 8 Code" := UserSetup."Shortcut Dimension 8 Code";
-                // "Responsibility Center" := UserSetup."Responsibility Center";
-                //END;
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
             end;
         }
         field(100; "No. Series"; Code[20])

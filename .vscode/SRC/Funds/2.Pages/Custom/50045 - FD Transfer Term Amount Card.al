@@ -143,7 +143,7 @@ page 50045 "FD Transfer Term Amount Card"
 
                 trigger OnAction()
                 var
-                    ApprovalEntries: Page "Approval Entries";
+                    ApprovalEntries: Page "Approval Entries-Modified";
                 begin
                     //DocumentType := DocumentType::FixedDeposits;
                     //ApprovalEntries.Setfilters(DATABASE::Table70000, DocumentType, "Document No.");

@@ -62,7 +62,7 @@ page 70007 "Request for Quotation Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the description for the purchase requisition';
                 }
-               field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
                     ApplicationArea = All;
@@ -91,7 +91,7 @@ page 70007 "Request for Quotation Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                }  
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
@@ -637,7 +637,7 @@ page 70007 "Request for Quotation Card"
                         RFQLine."Total Cost" := SelectedPurchaseRequisitionLine."Total Cost";
                         RFQLine."Total Cost(LCY)" := SelectedPurchaseRequisitionLine."Total Cost(LCY)";
                         RFQLine.Description := SelectedPurchaseRequisitionLine.Description;
-                        RFQLine."Part No." := SelectedPurchaseRequisitionLine."Part No.";                        
+                        RFQLine."Part No." := SelectedPurchaseRequisitionLine."Part No.";
                         RFQLine."Global Dimension 1 Code" := SelectedPurchaseRequisitionLine."Global Dimension 1 Code";
                         RFQLine."Global Dimension 2 Code" := SelectedPurchaseRequisitionLine."Global Dimension 2 Code";
                         RFQLine."Shortcut Dimension 3 Code" := SelectedPurchaseRequisitionLine."Shortcut Dimension 3 Code";

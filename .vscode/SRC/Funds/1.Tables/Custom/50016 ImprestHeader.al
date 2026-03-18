@@ -359,16 +359,13 @@ table 50016 "Imprest Header"
             DataClassification = ToBeClassified;
             TableRelation = "User Setup"."User ID";
             trigger OnValidate()
+            var
+                HRemploee: record Employee;
             begin
-                // Employee.Reset();
-                // Employee.SetRange(Employee."User ID", "User ID");
-                // if Employee.FindFirst() then begin
-                //     "Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
-                //     "Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
-                //     "Responsibility Center" := Employee."Responsibility Center";
-                //     "Employee No." := Employee."No.";
-                //     VALIDATE("Employee No.");
-                // end;
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
             end;
 
         }

@@ -127,11 +127,6 @@ page 50040 "Funds Claim List"
                     ApplicationArea = All;
                     visible = false;
                 }
-                field("Responsibility Center"; Rec."Responsibility Center")
-                {
-                    ToolTip = 'Specifies the value of the Responsibility Center field.';
-                    ApplicationArea = All;
-                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
@@ -207,6 +202,11 @@ page 50040 "Funds Claim List"
                     ToolTip = 'Specifies the value of the Bank Balance field.';
                     ApplicationArea = All;
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
+                }
             }
         }
     }
@@ -280,7 +280,7 @@ page 50040 "Funds Claim List"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin

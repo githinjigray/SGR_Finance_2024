@@ -200,7 +200,7 @@ permissionset 70000 "Procurement Permissi"
         page "Approved Purchase Orders" = X,
         page "Approved Purchase Requisitions" = X,
         page "Purchase Req.List-Pending" = X,
-        page "Approval Entries-Modified" = X,
+        Page "Approval Entries-Modified" = X,
         page "Assigned Purchase Requisitions" = X,
         page "Vendor Regions of Operation" = X,
         page "Contract Card" = X,

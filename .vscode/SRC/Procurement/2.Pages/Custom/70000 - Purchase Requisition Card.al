@@ -88,10 +88,6 @@ page 70000 "Purchase Requisition Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
                 }
-                field("Responsibility Center"; rec."Responsibility Center")
-                {
-                    ApplicationArea = All;
-                }
                 field(Amount; rec.Amount)
                 {
                     ApplicationArea = All;
@@ -140,11 +136,10 @@ page 70000 "Purchase Requisition Card"
                     Editable = false;
                     ToolTip = 'Specifies the user who created the purchase requisition';
                 }
-                field("Assigned User ID"; rec."Assigned User ID")
+                field("Responsibility Center"; Rec."Responsibility Center")
                 {
-                    ApplicationArea = All;
-                    Editable = false;
-                    ToolTip = 'Specifies the user who has been assigned the purchase requisition';
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
                 }
 
             }
@@ -264,7 +259,7 @@ page 70000 "Purchase Requisition Card"
                     PromotedCategory = Category8;
                     PromotedIsBig = true;
                     PromotedOnly = true;
-                    RunObject = page "Approval Entries-Modified";
+                    RunObject = Page "Approval Entries-Modified";
                     RunPageLink = "Document No." = field("No.");
                     ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
 

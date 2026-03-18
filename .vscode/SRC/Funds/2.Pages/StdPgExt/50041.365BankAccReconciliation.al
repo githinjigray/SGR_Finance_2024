@@ -10,7 +10,7 @@ pageextension 50041 "365 Bank Acc. Reconciliation" extends "Bank Acc. Reconcilia
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Status field.', Comment = '%';
             }
-            field("Document Date"; Rec."Document Date") 
+            field("Document Date"; Rec."Document Date")
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Document Date field.', Comment = '%';
@@ -29,6 +29,11 @@ pageextension 50041 "365 Bank Acc. Reconciliation" extends "Bank Acc. Reconcilia
             {
                 ApplicationArea = All;
                 ToolTip = 'Specifies the value of the Total Unreconciled field.', Comment = '%';
+            }
+            field("Responsibility Center"; Rec."Responsibility Center")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
             }
         }
         modify(Control8)
@@ -56,7 +61,7 @@ pageextension 50041 "365 Bank Acc. Reconciliation" extends "Bank Acc. Reconcilia
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("Statement No.");
                 trigger OnAction()
                 begin

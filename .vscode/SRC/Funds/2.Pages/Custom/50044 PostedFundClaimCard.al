@@ -134,11 +134,6 @@ page 50044 "Posted Fund Claim Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
                 }
-                field("Responsibility Center"; Rec."Responsibility Center")
-                {
-                    ToolTip = 'Specifies the value of the Responsibility Center field.';
-                    ApplicationArea = All;
-                }
                 field("Service Provider"; Rec."Service Provider")
                 {
                     ToolTip = 'Specifies the value of the Service Provider field.';
@@ -204,6 +199,11 @@ page 50044 "Posted Fund Claim Card"
                     ToolTip = 'Specifies the value of the Incoming Document Entry No. field.';
                     ApplicationArea = All;
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
+                }
             }
             part(PostFundsClaimLine; "Funds Claim Line")
             {
@@ -254,7 +254,7 @@ page 50044 "Posted Fund Claim Card"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin

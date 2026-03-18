@@ -230,7 +230,6 @@ page 70056 "Approval Entries-Modified"
         {
             action("&Delegate")
             {
-                AccessByPermission = TableData "Approval Entry" = M;
                 ApplicationArea = Suite;
                 Caption = '&Delegate';
                 Enabled = DelegateEnable;
@@ -254,10 +253,11 @@ page 70056 "Approval Entries-Modified"
 
     trigger OnAfterGetCurrRecord()
     var
+        [SecurityFiltering(SecurityFilter::Filtered)]
         RecRef: RecordRef;
     begin
         ShowChangeFactBox := CurrPage.Change.PAGE.SetFilterFromApprovalEntry(Rec);
-        DelegateEnable := Rec.CanCurrentUserEdit;
+        DelegateEnable := Rec.CanCurrentUserEdit();
         ShowRecCommentsEnabled := RecRef.Get(Rec."Record ID to Approve");
     end;
 

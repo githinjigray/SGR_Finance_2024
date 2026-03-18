@@ -1,6 +1,6 @@
 page 50069 "Cheque Register Lines"
 {
-    Caption = 'Cheque Register Lines';
+    Caption = 'Cash Register Lines';
     PageType = ListPart;
     SourceTable = "Cheque Register Lines";
     ApplicationArea = All;
@@ -11,86 +11,27 @@ page 50069 "Cheque Register Lines"
         {
             repeater(General)
             {
-                field("Line No."; Rec."Line No.")
+                field(Denomination; Rec.Denomination)
                 {
-                    ToolTip = 'Specifies the value of the Line No. field.';
-                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Denomination field.', Comment = '%';
                 }
-                field("Document No."; Rec."Document No.")
+                field("Denomination Description"; Rec."Denomination Description")
                 {
-                    ToolTip = 'Specifies the value of the Document No. field.';
-                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Denomination Description field.', Comment = '%';
                 }
-                field("Document Date"; Rec."Document Date")
+                field("Denomination Amount"; Rec."Denomination Amount")
                 {
-                    ToolTip = 'Specifies the value of the Document Date field.';
-                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Denomination Amount field.', Comment = '%';
                 }
-                field("Leaf no"; Rec."Leaf no")
+                field(Quantity; Rec.Quantity)
                 {
-                    ToolTip = 'Specifies the value of the Leaf no field.';
-                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Quantity field.', Comment = '%';
                 }
-                field("Cheque No."; Rec."Cheque No.")
+                field("Total Amount"; Rec."Total Amount")
                 {
-                    ToolTip = 'Specifies the value of the Cheque No. field.';
-                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Total Amount field.', Comment = '%';
                 }
-                field("Payee No"; Rec."Payee No")
-                {
-                    ToolTip = 'Specifies the value of the Payee No field.';
-                    ApplicationArea = All;
-                }
-                field(Payee; Rec.Payee)
-                {
-                    ToolTip = 'Specifies the value of the Payee field.';
-                    ApplicationArea = All;
-                }
-                field("PV No"; Rec."PV No")
-                {
-                    ToolTip = 'Specifies the value of the PV No field.';
-                    ApplicationArea = All;
-                }
-                field("PV Description"; Rec."PV Description")
-                {
-                    ToolTip = 'Specifies the value of the PV Description field.';
-                    ApplicationArea = All;
-                }
-                field("PV Prepared By"; Rec."PV Prepared By")
-                {
-                    ToolTip = 'Specifies the value of the PV Prepared By field.';
-                    ApplicationArea = All;
-                }
-                field(Status; Rec.Status)
-                {
-                    ToolTip = 'Specifies the value of the Status field.';
-                    ApplicationArea = All;
-                }
-                field("Cheque Cancelled"; Rec."Cheque Cancelled")
-                {
-                    ToolTip = 'Specifies the value of the Cheque Cancelled field.';
-                    ApplicationArea = All;
-                }
-                field("Cancelled By"; Rec."Cancelled By")
-                {
-                    ToolTip = 'Specifies the value of the Cancelled By field.';
-                    ApplicationArea = All;
-                }
-                field("Bank  Account No."; Rec."Bank  Account No.")
-                {
-                    ToolTip = 'Specifies the value of the Bank  Account No. field.';
-                    ApplicationArea = All;
-                }
-                field("Assigned to PV"; Rec."Assigned to PV")
-                {
-                    ToolTip = 'Specifies the value of the Assigned to PV field.';
-                    ApplicationArea = All;
-                }
-                field("PV Posted with Cheque"; Rec."PV Posted with Cheque")
-                {
-                    ToolTip = 'Specifies the value of the PV Posted with Cheque field.';
-                    ApplicationArea = All;
-                }
+
             }
         }
     }

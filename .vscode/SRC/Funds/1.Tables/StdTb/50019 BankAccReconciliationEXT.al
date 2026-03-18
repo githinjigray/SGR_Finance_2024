@@ -41,6 +41,16 @@ tableextension 50019 "Bank Acc. Reconciliation EXT" extends "Bank Acc. Reconcili
             Caption = 'User ID';
             Editable = false;
             DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            var
+                HRemploee: record Employee;
+            begin
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            end;
         }
         field(70006; "Document Date"; Date)
         {
@@ -92,6 +102,12 @@ tableextension 50019 "Bank Acc. Reconciliation EXT" extends "Bank Acc. Reconcili
             CaptionClass = '1,2,6';
             TableRelation = "Dimension Value"."code" where("Global Dimension No." = const(6), "Dimension Value Type" = const(Standard), Blocked = const(false));
         }
+        field(70017; "Responsibility Center"; Code[20])
+        {
+            Caption = 'Responsibility Center';
+            DataClassification = ToBeClassified;
+            TableRelation = "Responsibility Center";
+        }
         modify("Bank Account No.")
         {
             trigger OnAfterValidate()
@@ -110,6 +126,7 @@ tableextension 50019 "Bank Acc. Reconciliation EXT" extends "Bank Acc. Reconcili
     begin
         "Document Date" := Today;
         "User ID" := UserId;
+        Validate("User ID");
     end;
 
     var

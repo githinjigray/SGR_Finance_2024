@@ -339,6 +339,15 @@ table 50012 "Receipt Header"
         {
             Caption = 'User ID';
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                HRemploee: record Employee;
+            begin
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            end;
         }
         field(40; "No. Series"; Code[20])
         {
@@ -408,6 +417,7 @@ table 50012 "Receipt Header"
     begin
         "Document Date" := Today;
         "User ID" := UserId;
+        Validate("User ID");
         Status := Status::Open;
     end;
 

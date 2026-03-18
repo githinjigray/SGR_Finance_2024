@@ -309,6 +309,15 @@ table 50014 "Funds Transfer Header"
         {
             Caption = 'User ID';
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                HRemploee: record Employee;
+            begin
+                HRemploee.Reset();
+                HRemploee.SetRange("Employee User ID", "User ID");
+                if HRemploee.FindFirst() then
+                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            end;
         }
         field(47; "No. Series"; Code[20])
         {
@@ -391,6 +400,7 @@ table 50014 "Funds Transfer Header"
         "Document Type" := "Document Type"::"Funds Transfer";
         "Document Date" := TODAY;
         "User ID" := USERID;
+        Validate("User ID");
         "Posting Date" := TODAY;
         "Tranfer Type" := "Tranfer Type"::Bank;
         Status := Status::Open;

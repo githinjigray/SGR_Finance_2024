@@ -192,6 +192,11 @@ page 50011 "Payment Card"
                     ToolTip = 'User ID';
                     Editable = false;
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
+                }
 
             }
             part(PaymentLIne; "Payment Line")
@@ -208,8 +213,8 @@ page 50011 "Payment Card"
                 ApplicationArea = All;
                 SubPageLink = "Table ID" = const(DATABASE::"Payment Header"),
                               "No." = field("No.");
-            }           
-            
+            }
+
         }
 
     }
@@ -402,19 +407,15 @@ page 50011 "Payment Card"
             action(Approvals)
             {
                 ApplicationArea = All;
-                Caption = 'Approvals', comment = 'ENU="Approvals"';
+                Caption = 'View Approvals', comment = 'ENU="View Approvals"';
                 Promoted = true;
-                PromotedCategory = Process;
+                PromotedCategory = Category5;
                 PromotedIsBig = true;
-                Image = Approvals;
-                ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
+                Image = Approval;
                 RunObject = page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
-                trigger OnAction()
-                begin
-
-                end;
             }
+
             action("Send Approval Request")
             {
                 ApplicationArea = All;

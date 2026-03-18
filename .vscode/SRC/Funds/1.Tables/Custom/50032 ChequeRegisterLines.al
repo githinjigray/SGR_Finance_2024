@@ -2,14 +2,14 @@ table 50032 "Cheque Register Lines"
 {
     Caption = 'Cheque Register Lines';
     DataClassification = ToBeClassified;
-    
+
     fields
     {
         field(1; "Line No."; Integer)
         {
             Caption = 'Line No.';
             DataClassification = ToBeClassified;
-             AutoIncrement=true;
+            AutoIncrement = true;
         }
         field(2; "Document No."; Code[30])
         {
@@ -60,8 +60,8 @@ table 50032 "Cheque Register Lines"
         {
             Caption = 'Status';
             DataClassification = ToBeClassified;
-            OptionMembers="",Open,"Pending Approval",Approved,Rejected,Posted,Reversed;
-            OptionCaption=',Open,Pending Approval,Approved,Rejected,Posted,Reversed';
+            OptionMembers = "",Open,"Pending Approval",Approved,Rejected,Posted,Reversed;
+            OptionCaption = ',Open,Pending Approval,Approved,Rejected,Posted,Reversed';
         }
         field(12; "Cheque Cancelled"; Boolean)
         {
@@ -88,10 +88,62 @@ table 50032 "Cheque Register Lines"
             Caption = 'PV Posted with Cheque';
             DataClassification = ToBeClassified;
         }
+        field(50; "Denomination"; Code[50])
+        {
+            Caption = 'Denomination';
+            DataClassification = ToBeClassified;
+            TableRelation = "Denomination Types".Denomintaion;
+            trigger OnValidate()
+            var
+                DenominationRec: Record "Denomination Types";
+            begin
+                if Denomination <> '' then begin
+                    if DenominationRec.Get(Denomination) then begin
+                        Rec."Denomination Description" := DenominationRec."Denomination Description";
+                        Rec."Denomination Amount" := DenominationRec."Denomination Amount";
+                    end else begin
+                        Rec."Denomination Description" := '';
+                        Rec."Denomination Amount" := 0;
+                    end;
+                end;
+            end;
+        }
+        field(51; "Denomination Description"; Text[250])
+        {
+            Caption = 'Denomination Description';
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
+        field(52; "Denomination Amount"; Decimal)
+        {
+            Caption = 'Denomination Amount';
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
+        field(53; Quantity; Integer)
+        {
+            Caption = 'Quantity';
+            DataClassification = ToBeClassified;
+            trigger OnValidate()
+
+            begin
+                rec.TestField(Denomination);
+                Rec.TestField("Denomination Amount");
+
+                if Denomination <> '' then
+                    rec."Total Amount" := rec.Quantity * "Denomination Amount";
+            end;
+        }
+        field(54; "Total Amount"; Decimal)
+        {
+            Caption = 'Total Amount';
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
     }
     keys
     {
-        key(PK; "Line No.","Document No.")
+        key(PK; "Line No.", "Document No.")
         {
             Clustered = true;
         }

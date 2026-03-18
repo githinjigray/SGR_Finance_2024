@@ -106,7 +106,7 @@ page 50026 "Funds Transfer Card"
                     ToolTip = 'Specifies the value of the Description field.';
                     ApplicationArea = All;
                 }
-               field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
                     ApplicationArea = All;
@@ -135,16 +135,21 @@ page 50026 "Funds Transfer Card"
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 5 Code field.', Comment = '%';
                     ApplicationArea = All;
-                } 
+                }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
                     ToolTip = 'Specifies the value of the Shortcut Dimension 7 Code field.', Comment = '%';
-                }               
+                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
                     ApplicationArea = All;
                     Editable = false;
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                    ToolTip = 'Specifies the value of the Responsibility Center field.', Comment = '%';
+                    ApplicationArea = all;
                 }
             }
             part(FundsTransferLine; "Funds Transfer Line")
@@ -292,7 +297,7 @@ page 50026 "Funds Transfer Card"
                 PromotedIsBig = true;
                 Image = Approvals;
                 ToolTip = 'View a list of the records that are waiting to be approved. For example, you can see who requested the record to be approved, when it was sent, and when it is due to be approved.';
-                RunObject = page "Approval Entries-Modified";
+                RunObject = Page "Approval Entries-Modified";
                 RunPageLink = "Document No." = field("No.");
                 trigger OnAction()
                 begin
