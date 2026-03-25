@@ -1,32 +1,32 @@
 report 70009 "Dummy Report 3"
 {
     ApplicationArea = All;
-    Caption = 'Approval Update-PRF';
+    Caption = 'Approval Update-bank reconciliation';
     UsageCategory = ReportsAndAnalysis;
     ProcessingOnly = true;
     UseRequestPage = false;
-    Permissions = TableData "Approval Entry" = rm;
+    Permissions = TableData "Bank Acc. Reconciliation" = rm, tabledata "Approval Entry" = rm;
 
     dataset
     {
-        dataitem("Purchase Requisitions"; "Purchase Requisitions")
+        dataitem("Bank Acc. Reconciliation"; "Bank Acc. Reconciliation")
         {
             //DataItemTableView = where("Journal Batch Name" = filter('TAKEON'));
-            RequestFilterFields = "No.";
+            //RequestFilterFields = "No.";
             trigger OnAfterGetRecord()
             begin
-                ApprovalEntry.Reset();
-                ApprovalEntry.SetRange("Document No.", "Purchase Requisitions"."No.");
-                if ApprovalEntry.FindSet() then begin
-                    repeat
-                        ApprovalEntry.Status := ApprovalEntry.Status::Canceled;
-                        ApprovalEntry.Modify();
-                    until ApprovalEntry.Next() = 0;
-
-                    "Purchase Requisitions".Status:="Purchase Requisitions".Status::Open;
-                    "Purchase Requisitions".Validate(Status);
-                    "Purchase Requisitions".Modify();
+                "Bank Acc. Reconciliation".Status := "Bank Acc. Reconciliation".Status::Open;
+                if "Bank Acc. Reconciliation".Modify() then begin
+                    ApprovalEntry.Reset();
+                    ApprovalEntry.SetRange("Document No.", "Bank Acc. Reconciliation"."Statement No.");
+                    if ApprovalEntry.FindSet() then begin
+                        repeat
+                            ApprovalEntry.Status := ApprovalEntry.Status::Canceled;
+                            ApprovalEntry.Modify();
+                        until ApprovalEntry.Next() = 0;
+                    end;
                 end;
+
             end;
         }
 
