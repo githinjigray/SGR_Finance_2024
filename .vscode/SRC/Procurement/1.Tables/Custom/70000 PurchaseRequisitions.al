@@ -194,15 +194,15 @@ table 70000 "Purchase Requisitions"
             Caption = 'User ID';
             Editable = false;
             DataClassification = ToBeClassified;
-            trigger OnValidate()
-            var
-                HRemploee: record Employee;
-            begin
-                HRemploee.Reset();
-                HRemploee.SetRange("Employee User ID", "User ID");
-                if HRemploee.FindFirst() then
-                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
-            end;
+            // trigger OnValidate()
+            // var
+            //     HRemploee: record Employee;
+            // begin
+            //     HRemploee.Reset();
+            //     HRemploee.SetRange("Employee User ID", "User ID");
+            //     if HRemploee.FindFirst() then
+            //         "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            // end;
         }
         field(100; "No. Series"; Code[20])
         {
@@ -232,7 +232,7 @@ table 70000 "Purchase Requisitions"
             begin
                 Employee.get("Employee No.");
                 "Employee Name" := Employee."First Name" + ' ' + Employee."Last Name";
-                //"Responsibility Center" := Employee."Responsibility Center";
+                "Responsibility Center" := Employee."365 Responsibility Centre";
             end;
         }
         field(201; "Reference Document No."; Code[30])

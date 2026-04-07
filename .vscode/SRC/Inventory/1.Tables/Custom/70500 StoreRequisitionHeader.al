@@ -193,15 +193,15 @@ table 70500 "Store Requisition Header"
             Caption = 'User ID';
             Editable = false;
             DataClassification = ToBeClassified;
-            trigger OnValidate()
-            var
-                HRemploee: record Employee;
-            begin
-                HRemploee.Reset();
-                HRemploee.SetRange("Employee User ID", "User ID");
-                if HRemploee.FindFirst() then
-                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
-            end;
+            // trigger OnValidate()
+            // var
+            //     HRemploee: record Employee;
+            // begin
+            //     HRemploee.Reset();
+            //     HRemploee.SetRange("Employee User ID", "User ID");
+            //     if HRemploee.FindFirst() then
+            //         "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            // end;
         }
         field(100; "No. Series"; Code[20])
         {
@@ -239,14 +239,12 @@ table 70500 "Store Requisition Header"
 
             trigger OnValidate()
             begin
-                // Employee.RESET;
-                // Employee.SETRANGE(Employee."No.", "Employee No.");
-                // IF Employee.FINDFIRST THEN begin;
-                //     "User ID" := Employee."User ID";
-                //     "Employee Name":=Employee."First Name"+' '+Employee."Last Name";
-                //     "Responsibility Center" := Employee."Responsibility Center";
-                //     Department := Employee.Department;
-                // end;
+                Employee.RESET;
+                Employee.SETRANGE(Employee."No.", "Employee No.");
+                IF Employee.FINDFIRST THEN begin
+                    "Employee Name" := Employee."First Name" + ' ' + Employee."Last Name";
+                    "Responsibility Center" := Employee."365 Responsibility Centre";
+                end;
             end;
         }
         field(52137024; "Relational Doc. No."; Code[30])

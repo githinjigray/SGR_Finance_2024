@@ -39,7 +39,8 @@ table 50018 "Imprest Surrender Header"
                 "Employee Name" := '';
 
                 IF Customer.GET("Employee No.") THEN BEGIN
-                    "Employee Name" := Customer.Name;
+                    "Employee Name" := Customer."First Name" + ' ' + Customer."Last Name";
+                    "Responsibility Center" := customer."365 Responsibility Centre";
                 END;
             end;
         }
@@ -475,7 +476,7 @@ table 50018 "Imprest Surrender Header"
         NoSeriesMgt: Codeunit "No. Series";
         GLAccount: Record "G/L Account";
         BankAccount: Record "Bank Account";
-        Customer: Record Customer;
+        Customer: Record Employee;
         Vendor: Record Vendor;
         FixedAsset: Record "Fixed Asset";
         ICPartner: Record "IC Partner";

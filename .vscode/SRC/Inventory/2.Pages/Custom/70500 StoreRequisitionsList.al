@@ -58,7 +58,7 @@ page 70500 "Store Requisitions List"
                 {
                     ToolTip = 'Specifies the value of the Global Dimension 2 Code field.';
                     ApplicationArea = All;
-                }                
+                }
                 field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.';
@@ -80,6 +80,25 @@ page 70500 "Store Requisitions List"
                     ApplicationArea = all;
                 }
             }
+        }
+        area(factboxes)
+        {
+            systempart(Control52; Links)
+            {
+                ApplicationArea = RecordLinks;
+            }
+
+            part(ApprovalFactBox; "Approval FactBox")
+            {
+                ApplicationArea = Advanced;
+            }
+            part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
+            {
+                ApplicationArea = Advanced;
+                ShowFilter = false;
+                Visible = false;
+            }
+
         }
     }
     actions

@@ -87,6 +87,24 @@ page 70504 "Posted Store Requisitions List"
                 }
             }
         }
+        area(factboxes)
+        {
+            systempart(Control52; Links)
+            {
+                ApplicationArea = RecordLinks;
+            }
+
+            part(ApprovalFactBox; "Approval FactBox")
+            {
+                ApplicationArea = Advanced;
+            }
+            part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
+            {
+                ApplicationArea = Advanced;
+                ShowFilter = false;
+                Visible = false;
+            }
+        }
     }
     actions
     {

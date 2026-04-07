@@ -153,19 +153,9 @@ table 50016 "Imprest Header"
                 Customer.Reset();
                 Customer.SetRange(Customer."No.", "Employee No.");
                 if Customer.FindFirst() then begin
-                    // "Employee Name" := Customer."First Name" + ' ' + Customer."Middle Name" + ' ' + Customer."Last Name";
-                    // "HR Employee No." := Customer."No.";
-                    // Customer.TESTFIELD(Customer."Imprest Posting Group");
-                    // "Employee Posting Group" := Customer."Imprest Posting Group";
-                    // "HR Job Grade" := Employee."Job Grade";
-                    // "Phone No." := Employee."Phone No.";
-                    // "Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
-                    // "Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
-                    // "Shortcut Dimension 3 Code" := Employee."Shortcut Dimension 3 Code";
-                    // "Shortcut Dimension 4 Code" := Employee."Shortcut Dimension 4 Code";
-                    // "Shortcut Dimension 5 Code" := Employee."Shortcut Dimension 5 Code";
-                    // "Shortcut Dimension 6 Code" := Employee."Shortcut Dimension 6 Code";
-                    // "Responsibility Center" := Employee."Responsibility Center";
+                    "Employee Name" := Customer."First Name" + ' ' + Customer."Middle Name" + ' ' + Customer."Last Name";
+                    "HR Employee No." := Customer."No.";
+                    "Responsibility Center" := customer."365 Responsibility Centre";
                 end;
             end;
         }
@@ -358,15 +348,15 @@ table 50016 "Imprest Header"
             Caption = 'User ID';
             DataClassification = ToBeClassified;
             TableRelation = "User Setup"."User ID";
-            trigger OnValidate()
-            var
-                HRemploee: record Employee;
-            begin
-                HRemploee.Reset();
-                HRemploee.SetRange("Employee User ID", "User ID");
-                if HRemploee.FindFirst() then
-                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
-            end;
+            // trigger OnValidate()
+            // var
+            //     HRemploee: record Employee;
+            // begin
+            //     HRemploee.Reset();
+            //     HRemploee.SetRange("Employee User ID", "User ID");
+            //     if HRemploee.FindFirst() then
+            //         "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            // end;
 
         }
         field(56; "No. Series"; Code[20])

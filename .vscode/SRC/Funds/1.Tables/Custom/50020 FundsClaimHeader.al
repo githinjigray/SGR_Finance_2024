@@ -115,6 +115,7 @@ table 50020 "Funds Claim Header"
                 Employee.SETRANGE(Employee."No.", "Payee No.");
                 IF Employee.FINDFIRST THEN BEGIN
                     "Payee Name" := Employee."First Name" + ' ' + Employee."Middle Name" + ' ' + Employee."Last Name";
+                    "Responsibility Center" := Employee."365 Responsibility Centre";
                     FundsClaimLine.RESET;
                     FundsClaimLine.SETRANGE(FundsClaimLine."Document No.", "No.");
                     FundsClaimLine.SETRANGE(FundsClaimLine."Account Type", FundsClaimLine."Account Type"::Employee);
@@ -390,15 +391,15 @@ table 50020 "Funds Claim Header"
             Caption = 'User ID';
             Editable = false;
             DataClassification = ToBeClassified;
-            trigger OnValidate()
-            var
-                HRemploee: record Employee;
-            begin
-                HRemploee.Reset();
-                HRemploee.SetRange("Employee User ID", "User ID");
-                if HRemploee.FindFirst() then
-                    "Responsibility Center" := HRemploee."365 Responsibility Centre";
-            end;
+            // trigger OnValidate()
+            // var
+            //     HRemploee: record Employee;
+            // begin
+            //     HRemploee.Reset();
+            //     HRemploee.SetRange("Employee User ID", "User ID");
+            //     if HRemploee.FindFirst() then
+            //         "Responsibility Center" := HRemploee."365 Responsibility Centre";
+            // end;
         }
         field(45; "No. Series"; Code[20])
         {

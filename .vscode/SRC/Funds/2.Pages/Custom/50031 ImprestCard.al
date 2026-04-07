@@ -144,6 +144,24 @@ page 50031 "Imprest Card"
                 SubPageLink = "Document No." = field("No.");
             }
         }
+        area(factboxes)
+        {
+            systempart(Control52; Links)
+            {
+                ApplicationArea = RecordLinks;
+            }
+
+            part(ApprovalFactBox; "Approval FactBox")
+            {
+                ApplicationArea = Advanced;
+            }
+            part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
+            {
+                ApplicationArea = Advanced;
+                ShowFilter = false;
+                Visible = false;
+            }
+        }
     }
     actions
     {
