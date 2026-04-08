@@ -4,10 +4,10 @@ codeunit 50008 "Funds Claim Post"
     begin
         FundsClaimHeader.get(DocumentNo);
         FundsClaimHeader.TESTFIELD("Posting Date");
-        FundsClaimHeader.TESTFIELD("Global Dimension 2 Code");
+        //FundsClaimHeader.TESTFIELD("Global Dimension 2 Code");
         FundsClaimHeader.TESTFIELD("Payee No.");
         FundsClaimHeader.TESTFIELD(Description);
-        FundsClaimHeader.TESTFIELD("Global Dimension 1 Code");
+        //FundsClaimHeader.TESTFIELD("Global Dimension 1 Code");
         // IF Posting THEN BEGIN
         //FundsClaimHeader.TESTFIELD("Bank Account No.");
         // FundsClaimHeader.TESTFIELD(Status,FundsClaimHeader.Status::Approved);
@@ -21,12 +21,12 @@ codeunit 50008 "Funds Claim Post"
                 FundsClaimLine.TESTFIELD("Account No.");
                 FundsClaimLine.TESTFIELD(Amount);
                 FundsClaimLine.TESTFIELD(Description);
-                FundsClaimLine.TESTFIELD("Global Dimension 1 Code");
-                FundsClaimLine.TESTFIELD("Global Dimension 2 Code");
-                FundsClaimLine.TESTFIELD("Shortcut Dimension 4 Code");
-                FundsClaimLine.TESTFIELD("Shortcut Dimension 3 Code");
-                FundsClaimLine.TESTFIELD("Shortcut Dimension 5 Code");
-                FundsClaimLine.TESTFIELD("Shortcut Dimension 6 Code");
+            // FundsClaimLine.TESTFIELD("Global Dimension 1 Code");
+            // FundsClaimLine.TESTFIELD("Global Dimension 2 Code");
+            // FundsClaimLine.TESTFIELD("Shortcut Dimension 4 Code");
+            // FundsClaimLine.TESTFIELD("Shortcut Dimension 3 Code");
+            // FundsClaimLine.TESTFIELD("Shortcut Dimension 5 Code");
+            // FundsClaimLine.TESTFIELD("Shortcut Dimension 6 Code");
             UNTIL FundsClaimLine.NEXT = 0;
         END ELSE BEGIN
             ERROR('One or more Funds Claim lines are empty');
